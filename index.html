@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Practice Quiz Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08090e;
+  --s1: #0f111a;
+  --s2: #151820;
+  --bd: #1e2235;
+  --bd2: #252a3a;
+  --txt: #d8e0f5;
+  --muted: #505878;
+  --accent: #7c6af7;
+  --accent2: #f7a26a;
+  --accent3: #6af7c4;
+  --accent4: #f76a8f;
+  --accent5: #6ab8f7;
+  --accent6: #c4f76a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--txt);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── GRAIN ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  padding: 80px 24px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(124,106,247,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(124,106,247,0.1);
+  border: 1px solid rgba(124,106,247,0.3);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  font-weight: 300;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 13px;
+  color: var(--txt);
+}
+
+.stat-pill .stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.stat-pill .stat-lbl {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.06em;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTION TITLE ── */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 24px 80px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--bd);
+  padding-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--txt);
+}
+
+.section-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── QUIZ CARDS ── */
+.quiz-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quiz-card {
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  animation: fadeUp 0.5s ease both;
+}
+
+.quiz-card:nth-child(1) { animation-delay: 0.0s; }
+.quiz-card:nth-child(2) { animation-delay: 0.07s; }
+.quiz-card:nth-child(3) { animation-delay: 0.14s; }
+.quiz-card:nth-child(4) { animation-delay: 0.21s; }
+.quiz-card:nth-child(5) { animation-delay: 0.28s; }
+.quiz-card:nth-child(6) { animation-delay: 0.35s; }
+
+.quiz-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+
+/* accent left border */
+.quiz-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 16px 0 0 16px;
+  transition: opacity 0.2s;
+  opacity: 0.7;
+}
+
+.quiz-card:hover::before { opacity: 1; }
+.quiz-card:hover { border-color: var(--bd2); }
+
+.c1::before { background: var(--accent); }
+.c2::before { background: var(--accent2); }
+.c3::before { background: var(--accent3); }
+.c4::before { background: var(--accent4); }
+.c5::before { background: var(--accent5); }
+.c6::before { background: var(--accent6); }
+
+.c1:hover { border-color: rgba(124,106,247,0.3); box-shadow: 0 16px 40px rgba(124,106,247,0.1); }
+.c2:hover { border-color: rgba(247,162,106,0.3); box-shadow: 0 16px 40px rgba(247,162,106,0.1); }
+.c3:hover { border-color: rgba(106,247,196,0.3); box-shadow: 0 16px 40px rgba(106,247,196,0.1); }
+.c4:hover { border-color: rgba(247,106,143,0.3); box-shadow: 0 16px 40px rgba(247,106,143,0.1); }
+.c5:hover { border-color: rgba(106,184,247,0.3); box-shadow: 0 16px 40px rgba(106,184,247,0.1); }
+.c6:hover { border-color: rgba(196,247,106,0.3); box-shadow: 0 16px 40px rgba(196,247,106,0.1); }
+
+.card-inner {
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-num {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.12;
+  min-width: 56px;
+  text-align: center;
+  color: var(--txt);
+  flex-shrink: 0;
+}
+
+.card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-range {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.c1 .card-range { color: var(--accent); }
+.c2 .card-range { color: var(--accent2); }
+.c3 .card-range { color: var(--accent3); }
+.c4 .card-range { color: var(--accent4); }
+.c5 .card-range { color: var(--accent5); }
+.c6 .card-range { color: var(--accent6); }
+
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--txt);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.card-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.topic-tag {
+  font-size: 11px;
+  background: var(--s2);
+  border: 1px solid var(--bd);
+  border-radius: 5px;
+  padding: 2px 8px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.meta-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.c1 .meta-dot { background: var(--accent); }
+.c2 .meta-dot { background: var(--accent2); }
+.c3 .meta-dot { background: var(--accent3); }
+.c4 .meta-dot { background: var(--accent4); }
+.c5 .meta-dot { background: var(--accent5); }
+.c6 .meta-dot { background: var(--accent6); }
+
+.flag-pill {
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.06em;
+  background: rgba(249,115,22,0.1);
+  border: 1px solid rgba(249,115,22,0.25);
+  border-radius: 100px;
+  padding: 2px 8px;
+  color: #fb923c;
+}
+
+.clean-pill {
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.06em;
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 100px;
+  padding: 2px 8px;
+  color: #4ade80;
+}
+
+/* CTA arrow */
+.card-arrow {
+  font-size: 22px;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.quiz-card:hover .card-arrow { transform: translateX(5px); }
+.c1:hover .card-arrow { color: var(--accent); }
+.c2:hover .card-arrow { color: var(--accent2); }
+.c3:hover .card-arrow { color: var(--accent3); }
+.c4:hover .card-arrow { color: var(--accent4); }
+.c5:hover .card-arrow { color: var(--accent5); }
+.c6:hover .card-arrow { color: var(--accent6); }
+
+/* ── HOW TO USE ── */
+.howto {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.howto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.howto-card {
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.howto-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.howto-title {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--txt);
+}
+
+.howto-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 32px 24px 48px;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.06em;
+  border-top: 1px solid var(--bd);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+footer span { color: var(--accent); }
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 32px;
+}
+
+.disclaimer-box {
+  background: rgba(124,106,247,0.04);
+  border: 1px solid rgba(124,106,247,0.15);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-family: 'DM Mono', monospace;
+}
+
+.disclaimer-box strong { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .hero { padding: 60px 16px 40px; }
+  .card-inner { padding: 18px 18px; gap: 14px; }
+  .card-num { font-size: 32px; min-width: 40px; }
+  .card-title { font-size: 17px; }
+  .section { padding: 20px 16px 60px; }
+  .howto { padding: 0 16px 60px; }
+  .stats-row { gap: 8px; }
+  .stat-pill { padding: 7px 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow"></div>
+
+  <div class="hero-badge">PMP® Certification Prep</div>
+
+  <h1>Practice<br><em>Quiz Hub</em></h1>
+  <p class="hero-sub">336 exam-style questions — verified against the official PMI exam key. Covers all ECO domains.</p>
+
+  <div class="stats-row">
+    <div class="stat-pill">
+      <span class="stat-num">336</span>
+      <span class="stat-lbl">Questions</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-num">8</span>
+      <span class="stat-lbl">Quizzes</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-num">3</span>
+      <span class="stat-lbl">ECO Domains</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-num">4</span>
+      <span class="stat-lbl">Flagged answers</span>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ CARDS -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">All Quizzes</span>
+    <span class="section-count">8 batches · click to start</span>
+  </div>
+
+  <div class="quiz-grid">
+
+    <!-- Q1-20 -->
+    <a href="pmp_quiz.html" class="quiz-card c1">
+      <div class="card-inner">
+        <div class="card-num">01</div>
+        <div class="card-body">
+          <div class="card-range">Questions 1 – 20</div>
+          <div class="card-title">Team Development & Conflict Resolution</div>
+          <div class="card-topics">
+            <span class="topic-tag">Tuckman's Stages</span>
+            <span class="topic-tag">Conflict Resolution</span>
+            <span class="topic-tag">Servant Leadership</span>
+            <span class="topic-tag">Agile Ceremonies</span>
+            <span class="topic-tag">Sprint Planning</span>
+          </div>
+          <div class="card-meta">
+            <div class="meta-item"><div class="meta-dot"></div>20 questions</div>
+            <div class="meta-item"><div class="meta-dot"></div>Domain I</div>
+            <div class="meta-item"><div class="meta-dot"></div>2 multi-select</div>
+            <span class="clean-pill">✓ Verified</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- Q21-50 -->
+    <a href="pmp_quiz_21_50.html" class="quiz-card c2">
+      <div class="card-inner">
+        <div class="card-num">02</div>
+        <div class="card-body">
+          <div class="card-range">Questions 21 – 50</div>
+          <div class="card-title">T-Shaped Skills, Agile Metrics & Resource Management</div>
+          <div class="card-topics">
+            <span class="topic-tag">T-Shaped Skills</span>
+            <span class="topic-tag">Scrum of Scrums</span>
+            <span class="topic-tag">Story Points</span>
+            <span class="topic-tag">Burndown/Burnup</span>
+            <span class="topic-tag">Social Contract</span>
+          </div>
+          <div class="card-meta">
+            <div class="meta-item"><div class="meta-dot"></div>30 questions</div>
+            <div class="meta-item"><div class="meta-dot"></div>Domain I</div>
+            <div class="meta-item"><div class="meta-dot"></div>7 multi-select</div>
+            <span class="clean-pill">✓ Verified</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- Q51-100 -->
+    <a href="pmp_quiz_51_100.html" class="quiz-card c3">
+      <div class="card-inner">
+        <div class="card-num">03</div>
+        <div class="card-body">
+          <div class="card-range">Questions 51 – 100</div>
+          <div class="card-title">Virtual Teams, Stakeholder Management & MVP</div>
+          <div class="card-topics">
+            <span class="topic-tag">Virtual Teams</span>
+            <span class="topic-tag">Fishbowl Windows</span>
+            <span class="topic-tag">Kanban</span>
+            <span class="topic-tag">MVP</span>
+            <span class="topic-tag">Scope Change</span>
+          </div>
+          <div class="card-meta">
+            <div class="meta-item"><div class="meta-dot"></div>50 questions</div>
+            <div class="meta-item"><div class="meta-dot"></div>Domains I & II</div>
+            <div class="meta-item"><div class="meta-dot"></div>9 multi-select</div>
+            <span class="flag-pill">⚑ Q87 flagged</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- Q101-150 -->
+    <a href="pmp_quiz_101_150.html" class="quiz-card c4">
+      <div class="card-inner">
+        <div class="card-num">04</div>
+        <div class="card-body">
+          <div class="card-range">Questions 101 – 150</div>
+          <div class="card-title">Risk Management, Communications & Stakeholder Engagement</div>
+          <div class="card-topics">
+            <span class="topic-tag">Risk Register</span>
+            <span class="topic-tag">P×I Matrix</span>
+            <span class="topic-tag">Comms Plan</span>
+            <span class="topic-tag">Salience Model</span>
+            <span class="topic-tag">Change Control</span>
+          </div>
+          <div class="card-meta">
+            <div class="meta-item"><div class="meta-dot"></div>50 questions</div>
+            <div class="meta-item"><div class="meta-dot"></div>Domain II</div>
+            <div class="meta-item"><div class="meta-dot"></div>8 multi-select</div>
+            <span class="flag-pill">⚑ Q107 flagged</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- Q151-200 -->
+    <a href="pmp_quiz_151_200.html" class="quiz-card c5">
+      <div class="card-inner">
+        <div class="card-num">05</div>
+        <div class="card-body">
+          <div class="card-range">Questions 151 – 200</div>
+          <div class="card-title">EVM Calculations, Quality, Scope & Change Management</div>
+          <div class="card-topics">
+            <span class="topic-tag">CPI / SPI</span>
+            <span class="topic-tag">3-Point Estimating</span>
+            <span class="topic-tag">Definition of Done</span>
+            <span class="topic-tag">Control Charts</span>
+            <span class="topic-tag">Bottom-up Estimating</span>
+          </div>
+          <div class="card-meta">
+            <div class="meta-item"><div class="meta-dot"></div>50 questions</div>
+            <div class="meta-item"><div class="meta-dot"></div>Domains II & III</div>
+            <div class="meta-item"><div class="meta-dot"></div>7 multi-select</div>
+            <span class="flag-pill">⚑ Q181 flagged</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- Q201-250 -->
+    <a href="pmp_quiz_201_250.html" class="quiz-card c6">
+      <div class="card-inner">
+        <div class="card-num">06</div>
+        <div class="card-body">
+          <div class="card-range">Questions 201 – 250</div>
+          <div class="card-title">Procurement, Hybrid Methods, Compliance & Project Closure</div>
+          <div class="card-topics">
+            <span class="topic-tag">FPIF / FFP / T&M</span>
+            <span class="topic-tag">Bidder Conference</span>
+            <span class="topic-tag">Crystal Methods</span>
+            <span class="topic-tag">DevOps</span>
+            <span class="topic-tag">Project Closure</span>
+          </div>
+          <div class="card-meta">
+            <div class="meta-item"><div class="meta-dot"></div>50 questions</div>
+            <div class="meta-item"><div class="meta-dot"></div>Domains II & III</div>
+            <div class="meta-item"><div class="meta-dot"></div>5 multi-select</div>
+            <span class="clean-pill">✓ Verified</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- Q251-300 -->
+    <a href="pmp_quiz_251_300.html" class="quiz-card c1">
+      <div class="card-inner">
+        <div class="card-num">07</div>
+        <div class="card-body">
+          <div class="card-range">Questions 251 – 300</div>
+          <div class="card-title">Business Value, EI, Velocity & Org Change</div>
+          <div class="card-topics">
+            <span class="topic-tag">MMF vs MVP</span>
+            <span class="topic-tag">Emotional Intelligence</span>
+            <span class="topic-tag">Value Stream Mapping</span>
+            <span class="topic-tag">Velocity</span>
+            <span class="topic-tag">Leas Conflict Model</span>
+          </div>
+          <div class="card-meta">
+            <div class="meta-item"><div class="meta-dot"></div>50 questions</div>
+            <div class="meta-item"><div class="meta-dot"></div>All Domains</div>
+            <div class="meta-item"><div class="meta-dot"></div>8 multi-select</div>
+            <span class="flag-pill">⚑ Q260 misprint</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+    <!-- Q301-353 -->
+    <a href="pmp_quiz_301_353.html" class="quiz-card c2">
+      <div class="card-inner">
+        <div class="card-num">08</div>
+        <div class="card-body">
+          <div class="card-range">Questions 301 – 353</div>
+          <div class="card-title">Final Batch · Knowledge Transfer, Adaptive Pivots & Closure</div>
+          <div class="card-topics">
+            <span class="topic-tag">Leads & Lags</span>
+            <span class="topic-tag">Knowledge Transfer</span>
+            <span class="topic-tag">T-Shaped Skills</span>
+            <span class="topic-tag">Adaptive Pivot</span>
+            <span class="topic-tag">Project Closure</span>
+          </div>
+          <div class="card-meta">
+            <div class="meta-item"><div class="meta-dot"></div>36 questions</div>
+            <div class="meta-item"><div class="meta-dot"></div>All Domains</div>
+            <div class="meta-item"><div class="meta-dot"></div>8 multi-select</div>
+            <span class="clean-pill">✓ Verified · Final Batch</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- HOW TO USE -->
+<div class="howto">
+  <div class="section-header">
+    <span class="section-title">How to use</span>
+  </div>
+  <div class="howto-grid">
+    <div class="howto-card">
+      <div class="howto-icon">🎯</div>
+      <div class="howto-title">Pick a quiz</div>
+      <div class="howto-desc">Start from Q1 and work your way through, or jump to the topic you need most. Each quiz is independent.</div>
+    </div>
+    <div class="howto-card">
+      <div class="howto-icon">🔒</div>
+      <div class="howto-title">Answers hidden</div>
+      <div class="howto-desc">The correct answer is never shown until you submit. Read carefully before clicking Submit.</div>
+    </div>
+    <div class="howto-card">
+      <div class="howto-icon">📖</div>
+      <div class="howto-title">Read every explanation</div>
+      <div class="howto-desc">Even when you're right, read the explanation. Understanding the why is more important than the answer.</div>
+    </div>
+    <div class="howto-card">
+      <div class="howto-icon">⚑</div>
+      <div class="howto-title">Watch flagged questions</div>
+      <div class="howto-desc">4 questions have a discrepancy between this quiz and the PDF exam key. An orange flag explains each one.</div>
+    </div>
+    <div class="howto-card">
+      <div class="howto-icon">🔁</div>
+      <div class="howto-title">Repeat until 90%+</div>
+      <div class="howto-desc">The PMI guidance is to keep retaking questions until you consistently score above 90%. That's your exam-ready signal.</div>
+    </div>
+    <div class="howto-card">
+      <div class="howto-icon">🧮</div>
+      <div class="howto-title">Know the formulas</div>
+      <div class="howto-desc">EVM questions (Q151–157) require calculation. Key formulas: CPI = EV/AC · SPI = EV/PV · CV = EV−AC · SV = EV−PV</div>
+    </div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="disclaimer-box">
+    <strong>Source:</strong> Questions are from the PMI PMP® Practice Questions booklet (crystal.consulting / PMI). These are PMI-authorized cloned questions, not past exam questions. Answers have been cross-checked against the official PDF answer key. Four discrepancies were found and flagged — see the orange ⚑ badges in the relevant quizzes.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Built for <span>Rosh's PMP® Prep</span> · 336 questions · Domains I, II & III · 8 Batches
+</footer>
+
+</body>
+</html>

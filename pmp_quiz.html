@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Practice Quiz · Questions 1–20</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0f14;
+    --surface: #16181f;
+    --surface2: #1e2029;
+    --border: #2a2d3a;
+    --accent: #f5c542;
+    --accent2: #e86a3a;
+    --green: #4ade80;
+    --red: #f87171;
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px 80px;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* Header */
+  .header {
+    width: 100%;
+    max-width: 760px;
+    padding: 40px 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .header-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    color: var(--text);
+    line-height: 1.1;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* Progress bar */
+  .progress-bar-wrap {
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 24px;
+  }
+
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 100px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Score strip */
+  .score-strip {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .score-chip {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .score-chip-label {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .score-chip-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .score-chip-val.correct { color: var(--green); }
+  .score-chip-val.wrong { color: var(--red); }
+  .score-chip-val.neutral { color: var(--accent); }
+
+  /* Card */
+  .question-card {
+    width: 100%;
+    max-width: 760px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    animation: cardIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-top {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .q-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    background: rgba(245,197,66,0.1);
+    border: 1px solid rgba(245,197,66,0.25);
+    border-radius: 6px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .q-type-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--accent2);
+    background: rgba(232,106,58,0.1);
+    border: 1px solid rgba(232,106,58,0.25);
+    border-radius: 6px;
+    padding: 4px 10px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .q-text {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    font-weight: 400;
+    flex: 1;
+  }
+
+  /* Options */
+  .options-list {
+    padding: 20px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.18s, background 0.18s, transform 0.12s;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    width: 100%;
+  }
+
+  .option-btn:hover:not(:disabled) {
+    border-color: rgba(245,197,66,0.4);
+    background: rgba(245,197,66,0.04);
+    transform: translateX(3px);
+  }
+
+  .option-btn:disabled { cursor: default; transform: none; }
+
+  .option-btn.selected {
+    border-color: var(--accent);
+    background: rgba(245,197,66,0.08);
+  }
+
+  .option-btn.correct {
+    border-color: var(--green);
+    background: rgba(74,222,128,0.07);
+  }
+
+  .option-btn.wrong {
+    border-color: var(--red);
+    background: rgba(248,113,113,0.07);
+  }
+
+  .option-letter {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    transition: background 0.18s, color 0.18s;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .option-btn.selected .option-letter {
+    background: var(--accent);
+    color: #0e0f14;
+  }
+
+  .option-btn.correct .option-letter {
+    background: var(--green);
+    color: #0e0f14;
+  }
+
+  .option-btn.wrong .option-letter {
+    background: var(--red);
+    color: #0e0f14;
+  }
+
+  /* Multi select note */
+  .multi-note {
+    font-size: 12px;
+    color: var(--accent2);
+    font-family: 'DM Mono', monospace;
+    padding: 0 28px 4px;
+    display: none;
+  }
+
+  /* Explanation */
+  .explanation-box {
+    margin: 0 28px 24px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    background: rgba(245,197,66,0.05);
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+    display: none;
+  }
+
+  .explanation-box.show { display: block; animation: fadeIn 0.3s ease; }
+
+  .explanation-box .expl-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .explanation-box .expl-domain {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(245,197,66,0.4);
+    margin-top: 8px;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Action buttons */
+  .card-actions {
+    padding: 0 28px 28px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-submit {
+    background: var(--accent);
+    color: #0e0f14;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.12s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-submit:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+  .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  .btn-next {
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, transform 0.12s;
+    display: none;
+  }
+
+  .btn-next.show { display: block; }
+  .btn-next:hover { border-color: var(--accent); background: rgba(245,197,66,0.06); transform: translateY(-1px); }
+
+  /* Result screen */
+  .result-screen {
+    width: 100%;
+    max-width: 760px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    display: none;
+    animation: cardIn 0.35s ease;
+  }
+
+  .result-screen.show { display: block; }
+
+  .result-emoji { font-size: 56px; margin-bottom: 20px; }
+
+  .result-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .result-sub {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  .result-score-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 72px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .result-score-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+
+  .result-breakdown {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .rb-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .rb-val { font-family: 'DM Serif Display', serif; font-size: 32px; }
+  .rb-lbl { font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
+
+  .btn-restart {
+    background: var(--accent);
+    color: #0e0f14;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn-restart:hover { opacity: 0.85; }
+
+  /* Perf rating bar */
+  .perf-bar {
+    width: 200px;
+    margin: 0 auto 28px;
+    height: 6px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .perf-bar-fill { height: 100%; border-radius: 100px; transition: width 1s ease 0.3s; }
+
+  @media (max-width: 520px) {
+    .card-top, .options-list, .card-actions, .explanation-box { padding-left: 18px; padding-right: 18px; }
+    .q-text { font-size: 15px; }
+    .option-btn { font-size: 14px; padding: 12px 14px; }
+  }
+
+  /* ── Back / Skip nav buttons ── */
+  .btn-nav {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .btn-nav:hover { border-color: var(--a, var(--accent, #aaa)); color: var(--txt); }
+  .btn-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="header-eyebrow">PMP® Examination Prep</span>
+  <h1 class="header-title">Practice Questions</h1>
+  <p class="header-sub">Questions 1–20 · Domain I: People · Answer choices are hidden until submitted</p>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-meta">
+    <span id="progressLabel">Question 1 of 20</span>
+    <span id="progressPct">0%</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+</div>
+
+<div class="score-strip">
+  <div class="score-chip">
+    <span class="score-chip-label">Score</span>
+    <span class="score-chip-val neutral" id="scoreDisplay">0/0</span>
+  </div>
+  <div class="score-chip">
+    <span class="score-chip-label">Correct</span>
+    <span class="score-chip-val correct" id="correctCount">0</span>
+  </div>
+  <div class="score-chip">
+    <span class="score-chip-label">Wrong</span>
+    <span class="score-chip-val wrong" id="wrongCount">0</span>
+  </div>
+  <div class="score-chip">
+    <span class="score-chip-label">Accuracy</span>
+    <span class="score-chip-val neutral" id="accuracyDisplay">—</span>
+  </div>
+</div>
+
+<div class="question-card" id="questionCard">
+  <div class="card-top">
+    <span class="q-number" id="qNumBadge">Q1</span>
+    <span class="q-type-badge" id="qTypeBadge">Single</span>
+    <p class="q-text" id="questionText"></p>
+  </div>
+  <p class="multi-note" id="multiNote">★ Select TWO answers</p>
+  <div class="options-list" id="optionsList"></div>
+  <div class="explanation-box" id="explanationBox">
+    <div class="expl-label">Explanation</div>
+    <div id="explanationText"></div>
+    <div class="expl-domain" id="domainText"></div>
+  </div>
+  <div class="card-actions">
+    <button class="btn-nav" id="btnBack" onclick="goBack()">← Back</button>
+    <button class="btn-nav" id="btnSkip" onclick="goSkip()">Skip →</button>
+    <button class="btn-submit" id="btnSubmit" disabled onclick="submitAnswer()">Submit Answer</button>
+    <button class="btn-next" id="btnNext" onclick="nextQuestion()">Next Question →</button>
+  </div>
+</div>
+
+<div class="result-screen" id="resultScreen">
+  <div class="result-emoji" id="resultEmoji">🏆</div>
+  <h2 class="result-title" id="resultTitle">Quiz Complete!</h2>
+  <p class="result-sub" id="resultSub"></p>
+  <div class="result-score-big" id="resultScoreBig" style="color: var(--accent)">—</div>
+  <div class="result-score-label">Final Score</div>
+  <div class="perf-bar"><div class="perf-bar-fill" id="perfBarFill"></div></div>
+  <div class="result-breakdown">
+    <div class="rb-item"><span class="rb-val" style="color:var(--green)" id="rbCorrect">0</span><span class="rb-lbl">Correct</span></div>
+    <div class="rb-item"><span class="rb-val" style="color:var(--red)" id="rbWrong">0</span><span class="rb-lbl">Wrong</span></div>
+    <div class="rb-item"><span class="rb-val" style="color:var(--accent)" id="rbTotal">20</span><span class="rb-lbl">Total</span></div>
+  </div>
+  <button class="btn-restart" onclick="restartQuiz()">↺ Restart Quiz</button>
+</div>
+
+<script>
+const questions = [
+  {
+    num: 1,
+    text: "A project manager joins a project team, replacing a manager who left. During initial meetings, the project manager realized that the team members have differing opinions about how to address technical decisions. Team members did NOT respect each other's ideas, and the environment was becoming counterproductive. However, now with the new manager's leadership, the team has begun to communicate more effectively and develop some processes and procedures for working together.\n\nIn what phase of development is the team now?",
+    options: ["Forming", "Storming", "Norming", "Performing"],
+    correct: ["C"],
+    multi: false,
+    explanation: "During the norming phase, team members begin to work together and adjust their work habits and behaviors to support the team. The team members learn to trust each other.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 2,
+    text: "A project is comprised of three highly dependent parts, each being completed by its own project team. The team leader, worried that conflicts might arise when the outputs from the three teams are combined, asks for advice.\n\nWhat advice should the project manager provide?",
+    options: [
+      "Identify potential conflicts and then arrange for a weekly joint meeting with the members of the three teams to review each other's work.",
+      "Decide which team's work should be prioritized, then delay the work from the other two teams to ensure there are NO conflicts.",
+      "Document conflicts as they occur and take action to remedy any problems that arise.",
+      "Continue to let all three teams work simultaneously, recognizing that conflicts can be addressed at the testing phase."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "Consistent communication is important for ensuring a lower probability of issues and successfully addressing existing risks.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 3,
+    text: "An unresolved conflict between a member of a third-party vendor's team and a member of a project team is causing disruption. The issue is escalated to the project manager.\n\nWhat should the project manager do first?",
+    options: [
+      "Meet with the vendor to discuss the issue.",
+      "Place this item on the backlog.",
+      "Draft and send a contractual letter to the vendor.",
+      "Send an email to the vendor to discuss the issue."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "The project manager needs to resolve this issue quickly. A face-to-face meeting is the best choice to resolve this conflict. Any other communication choice is NOT direct enough.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 4,
+    text: "A project team is comprised of local and virtual team members. To manage scheduling priority conflicts among team members, the project manager schedules a video conference call.\n\nWhich conflict resolution technique does this statement demonstrate?",
+    options: ["Smooth/Accommodate", "Collaborate/Problem Solve", "Force/Direct", "Compromise/Reconcile"],
+    correct: ["B"],
+    multi: false,
+    explanation: "The collaborate/problem solve approach incorporates multiple viewpoints and insights from differing perspectives. It requires a cooperative attitude and open dialogue that typically leads to consensus and commitment. This approach can result in a win-win situation.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 5,
+    text: "The project manager schedules an iteration review and learns that a few key stakeholders do NOT approve of the development of a feature.\n\nWhat should the project manager do first to address this issue?",
+    options: [
+      "Invite project team members to a brainstorming session to identify an appropriate response.",
+      "Address the issue only after evaluating why these stakeholders are concerned.",
+      "Determine the impact of the conflict by listing the pros and cons of the situation.",
+      "Ask the project sponsor to act as a neutral party in negotiation with those stakeholders who are dissatisfied."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "Iterations help identify and reduce uncertainty in the project. The teams need the feedback from each iteration to learn about how they work and how to improve.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 6,
+    text: "At a weekly project status meeting, a key team member expresses concerns about the overall approach documented within the project management plan. The project manager is surprised because the team is in the process of executing an important component of the project and the concern has NOT been raised before.\n\nWhat steps should the project manager take?",
+    options: [
+      "Update the risk register to document the concerns, then continue with the meeting's scheduled agenda items.",
+      "Recognize that the concern must be discussed and resolved prior to continuing with the meeting's agenda items.",
+      "Address the team with a generic reminder about meeting etiquette, then ask if the team wants to use the time to discuss the concerns raised during the meeting.",
+      "Acknowledge the team member's concern immediately, continue with the scheduled agenda, then privately meet with the team member to understand the concerns expressed."
+    ],
+    correct: ["D"],
+    multi: false,
+    explanation: "Conflict should be addressed in private first, to better understand the concern being raised. Exploring the concern after the meeting gives the project manager an opportunity to verify the concern and determine needed next steps without disrupting a large meeting.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 7,
+    text: "Certain key stakeholders are dissatisfied with the development of a key feature of a project. They express their dissatisfaction during an iteration review meeting.\n\nWhat should the project manager do first to resolve this issue?",
+    options: [
+      "Gather the project team for a brainstorming session and identify a solution.",
+      "Identify the reasons why there are issues with the feature, then address the issue.",
+      "Create a list of the pros and cons of the situation to define the impact of the conflict.",
+      "Add a neutral party, such as the project sponsor, to function as a negotiator with stakeholders."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "Working with the customer in identifying the source of dissatisfaction with the feature is a good first step. This also helps with resolving conflict between the team and stakeholders.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 8,
+    text: "During the execution of a project, a key team member is concerned with the overall approach documented in the project management plan. The member surprises the project manager with negative comments about the approach during a weekly status meeting.\n\nHow should the project manager address the team member's concerns?",
+    options: [
+      "Continue with the meeting and ensure that the concerns are added to the risk register after the meeting is finished.",
+      "Continue with the scheduled agenda items after reminding the team member of expected meeting etiquette. Then, solicit feedback about the etiquette expectations.",
+      "Remember that a project should NOT go forward when key team members are in disagreement. Use the meeting to discuss the members' concerns.",
+      "Make a short comment to acknowledge the team member's concerns, continue with the meeting, and meet with the member in private to discuss their concerns."
+    ],
+    correct: ["D"],
+    multi: false,
+    explanation: "Conflict should be addressed in private in order to better understand the concern being raised. Exploring the concern after the meeting gives the project manager an opportunity to verify it and determine next steps without disrupting the meeting.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 9,
+    text: "A project is utilizing a third-party contractor. A member of the contractor's team raises an issue with a member of the project team. The two individuals are NOT able to work out a solution. The project manager is aware of the disagreement.\n\nWhich type of communication should the project manager use first when contacting the vendor about this issue?",
+    options: ["Face-to-face", "Phone", "Contractual letter", "Email"],
+    correct: ["A"],
+    multi: false,
+    explanation: "Face-to-face interaction is usually the most effective way to build the trusting relationships that are needed to manage a project. Once relationships are established, virtual interaction can be used to maintain the relationship.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 10,
+    text: "Three project teams are working on parts of a single project. The parts are highly dependent on each other. The leader of the team indicates that this might create conflicts when the outputs from the three teams are combined.\n\nWhat guidance should the project manager offer to the team lead?",
+    options: [
+      "Identify potential conflicts and arrange for a weekly joint meeting with the members of the three teams to monitor each other's work.",
+      "Decide which team's work should be prioritized, then delay the work from the other two teams to ensure there are NO conflicts.",
+      "Document conflicts as they occur and take action to remedy any problems that arise.",
+      "Tell all three teams to continue to work simultaneously, recognizing that conflicts can be addressed at the testing phase."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "Before deciding to act, the project manager needs to determine the potential conflicts and monitor progress.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 11,
+    text: "A project manager has assembled a project team. During initial meetings, the project manager observes that team members are getting to know each other, feeling excited and positive about the project, and have NOT been told the specific details of the project.\n\nIn what phase of development is the team?",
+    options: ["Storming", "Norming", "Forming", "Performing"],
+    correct: ["C"],
+    multi: false,
+    explanation: "The Forming phase is when the team members meet and learn about the project and their formal roles and responsibilities. Team members tend to be solitary and independent in this phase.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 12,
+    text: "The atmosphere is tense in the sprint planning review. The agile team members are visibly unhappy—one of them kicks a chair and shouts at the product owner, \"That just doesn't make sense!\"\n\nWhich two actions should the project manager take in this situation? (Choose TWO.)",
+    options: [
+      "Remind the team of the product owner's responsibilities and authority.",
+      "Calm all present by asking them to call on their emotional intelligence.",
+      "Intervene, giving one uninterrupted minute to each person present to state their case.",
+      "Reprimand the member who kicked the chair with a warning.",
+      "Facilitate by asking the team to suggest ways to resolve the points of dispute."
+    ],
+    correct: ["C", "E"],
+    multi: true,
+    explanation: "The project manager is addressing the conflict with a collaborate/problem approach, first ensuring all viewpoints are expressed and then inviting suggestions on how to resolve the dispute. Reminding about authority or reprimanding uses a force/direct approach, which is not compatible with agile principles. Merely calming without reaching a solution is not enough.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 13,
+    text: "An efficient, empowered agile innovation team does NOT understand why required approvals from the legal department are allowed to delay their progress. Eventually, the team confronts the product owner in a heated exchange. The product owner replies that the approvals are needed to check for existing patents, which would block the product from going to market.\n\nHow should a project manager prevent such conflicts?",
+    options: [
+      "Require that supporting department stakeholders attend the daily meetings to report progress.",
+      "Ensure that the product owner can be easily approached to respond to team questions and concerns.",
+      "Require the team to move a story to the Kanban blocked column if they have concerns about progress.",
+      "Ensure that the product owner presents the team the rationale behind the refinement work flow."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "The source of this conflict is a lack of communication, as well as inaction to prevent delay. The most comprehensive response is to ensure constant communication between the team and product owner.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 14,
+    text: "A Scrum innovation team is funded at varying levels by six (6) market units. Four (4) niche market units complain they are neglected because the team prioritizes mainstream unit goals. The marketing director suggests devoting a constant 40% of the team effort to the four (4) niche units in a balanced way.\n\nHow can the team support this request?",
+    options: [
+      "Group stories by unit; select 40% of niche stories to work on at each sprint.",
+      "Split stories into mainstream or niche groups; plan 40% of niche story points at each sprint.",
+      "Group stories by unit; plan 10% of story points per niche unit at each sprint.",
+      "Split stories into mainstream or niche groups, plan 10% of mainstream stories at each sprint."
+    ],
+    correct: ["C"],
+    multi: false,
+    explanation: "The requirement is to devote 40% of effort (story points) to each of the four (4) niche units at every iteration. Group by unit: 4 niche + 6 mainstream. 40% story points ÷ 4 units = 10% per niche unit.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 15,
+    text: "An R&D executive, who is a project stakeholder, occasionally visits the agile team's work area to give instructions about urgent feature work. The team begins work. During sprint reviews, the product owner becomes upset that the team worked on the requested features.\n\nHow should the team address the problem?",
+    options: [
+      "Escalate to ensure that the executive no longer interferes with the team.",
+      "Meet with the executive and product owner to agree on a work flow.",
+      "Require that the executive issues change requests for new items.",
+      "Give the executive access to add new items to the backlog."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "The R&D executive stakeholder is bypassing the product owner and creating disruption. A working agreement between the executive and the product owner is needed to restore order.",
+    domain: "ECO Domain Task: I.6"
+  },
+  {
+    num: 16,
+    text: "A project manager needs stakeholder involvement in order to identify strategic and operational assumptions and constraints. Unfortunately, the project manager is having difficulty obtaining consistent input due to lack of participation.\n\nIn which two ways can the project manager encourage the stakeholder to participate and collaborate? (Choose TWO.)",
+    options: [
+      "Use political awareness techniques.",
+      "Be a servant leader.",
+      "Timebox meetings.",
+      "Use effective facilitation techniques."
+    ],
+    correct: ["B", "D"],
+    multi: true,
+    explanation: "Facilitation is the ability to effectively guide a group event to a successful decision, solution, or conclusion. A facilitator ensures effective participation, mutual understanding, that all contributions are considered, and that conclusions have full buy-in. Servant leadership and effective facilitation are the two best approaches here.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 17,
+    text: "A project team is small, and the team members have known each other for a long time. The team's project is in the execution stage. Recently, a team member told the new project manager that another team member has been complaining about how the project is being managed.\n\nHow should this new project manager respond?",
+    options: [
+      "Review the current stakeholder engagement plan to identify how to resolve this difficulty.",
+      "Schedule a team meeting to discuss the current team charter and ground rules, especially around communication and teamwork expectations.",
+      "Hold a team morale-building event to improve team culture.",
+      "Speak to the team members individually and ask them how they would like to deal with the situation."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "A team meeting is the best solution because it encourages every team member to participate and results in a clear set of guidelines for the team.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 18,
+    text: "A project manager is working on multiple projects. One project has new team members and is in early stages. The other projects are in various states of execution for the next few weeks.\n\nHow can the project manager develop the new project team over the next few weeks?",
+    options: [
+      "Help team members create a set of agreed rules for working, or social contract, that encourages team cohesion.",
+      "Suggest that the team engage in multiple team-building events to normalize the team.",
+      "Keep the team informed by sending short daily project status updates.",
+      "Engage in face-to-face personal conversations with each team member to build relationships."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "Creating a social contract—a set of agreed rules for working—will allow the team to normalize and be self-servicing when the PM is unavailable. The other choices do NOT encourage the team members to develop independently and as a team.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 19,
+    text: "A new project team is setting early priorities, and they plan to gain the customer's trust by delivering value as quickly as possible. Team member C mentions that they have worked with the project sponsor on other projects.\n\nHow should the project manager connect these two facts and create an advantage for the project team?",
+    options: [
+      "Make team member C the project leader since they already know the sponsor.",
+      "Ask team member C to tell the whole team everything they know about the sponsor so that the team can work better.",
+      "Explore how team member C can use personal influence with the sponsor to increase the project's potential for benefits realization.",
+      "Discuss whether team member C has a conflict of interest in order to maintain an ethical standard."
+    ],
+    correct: ["C"],
+    multi: false,
+    explanation: "Personal influence is a leadership skill that enables project teams and individuals to use existing relationships, building on them to further project activities and goals. Team member C's existing relationship may help the team understand the sponsor's needs more quickly.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 20,
+    text: "A project's daily standup meetings are long, often lasting more than two hours. The project team uses the standup meetings for extended discussions about solutions to project obstacles.\n\nWhat should the project manager do to improve the daily standup meetings?",
+    options: [
+      "Allow the meetings to remain long but ensure that the time is productive by using an agenda and recording minutes.",
+      "Timebox each speaker using a stopwatch in standup meetings.",
+      "Nominate a team member to manage obstacles and schedule meetings to discuss possible solutions.",
+      "Coach team members towards shortening standup meetings to 10-15 minutes and improve their method for identifying solutions."
+    ],
+    correct: ["D"],
+    multi: false,
+    explanation: "Daily standups are important meetings for agile teams. The PM should coach the team in how a daily standup is run. Teams run their own standups, and when run well, they are very useful. Daily standups are typically 10-15 minutes covering: 1) What did you do since last standup? 2) What will you do today? 3) Any impediments? Hold separate meetings to discuss blockers.",
+    domain: "ECO Domain Task: I.12"
+  }
+];
+
+let current = 0;
+let correct = 0;
+let wrong = 0;
+let answered = 0;
+let selectedOptions = [];
+let submitted = false;
+
+const OPTION_LETTERS = ['A','B','C','D','E'];
+
+function render() {
+  const q = questions[current];
+  const total = questions.length;
+
+  // Update progress
+  const pct = Math.round((answered / total) * 100);
+  document.getElementById('progressLabel').textContent = `Question ${current + 1} of ${total}`;
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+
+  // Score chips
+  document.getElementById('scoreDisplay').textContent = `${correct}/${answered}`;
+  document.getElementById('correctCount').textContent = correct;
+  document.getElementById('wrongCount').textContent = wrong;
+  document.getElementById('accuracyDisplay').textContent = answered > 0 ? Math.round((correct / answered) * 100) + '%' : '—';
+
+  // Card
+  document.getElementById('qNumBadge').textContent = `Q${q.num}`;
+  document.getElementById('qTypeBadge').textContent = q.multi ? 'Multi-Select' : 'Single';
+  document.getElementById('questionText').textContent = q.text;
+  document.getElementById('multiNote').style.display = q.multi ? 'block' : 'none';
+
+  // Options
+  const list = document.getElementById('optionsList');
+  list.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const letter = OPTION_LETTERS[i];
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.innerHTML = `<span class="option-letter">${letter}</span><span>${opt}</span>`;
+    btn.onclick = () => toggleOption(letter, btn);
+    btn.dataset.letter = letter;
+    list.appendChild(btn);
+  });
+
+  // Reset state
+  selectedOptions = [];
+  submitted = false;
+  document.getElementById('btnSubmit').disabled = true;
+  document.getElementById('btnNext').classList.remove('show');
+  document.getElementById('explanationBox').classList.remove('show');
+}
+
+function toggleOption(letter, btn) {
+  if (submitted) return;
+  const q = questions[current];
+
+  if (!q.multi) {
+    // Single select: deselect all, select this
+    document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    selectedOptions = [letter];
+    btn.classList.add('selected');
+  } else {
+    // Multi select
+    if (selectedOptions.includes(letter)) {
+      selectedOptions = selectedOptions.filter(l => l !== letter);
+      btn.classList.remove('selected');
+    } else {
+      selectedOptions.push(letter);
+      btn.classList.add('selected');
+    }
+  }
+
+  // Enable submit if minimum selection met
+  const minRequired = q.multi ? 2 : 1;
+  document.getElementById('btnSubmit').disabled = selectedOptions.length < minRequired;
+}
+
+function submitAnswer() {
+  if (submitted) return;
+  submitted = true;
+  const q = questions[current];
+
+  // Evaluate
+  const correctSet = new Set(q.correct);
+  const selectedSet = new Set(selectedOptions);
+  const isCorrect = correctSet.size === selectedSet.size &&
+    [...correctSet].every(l => selectedSet.has(l));
+
+  answered++;
+  if (isCorrect) correct++;
+  else wrong++;
+
+  // Highlight options
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.disabled = true;
+    const letter = btn.dataset.letter;
+    if (q.correct.includes(letter)) {
+      btn.classList.remove('selected');
+      btn.classList.add('correct');
+    } else if (selectedOptions.includes(letter) && !q.correct.includes(letter)) {
+      btn.classList.remove('selected');
+      btn.classList.add('wrong');
+    }
+  });
+
+  // Show explanation
+  document.getElementById('explanationText').textContent = q.explanation;
+  document.getElementById('domainText').textContent = q.domain;
+  document.getElementById('explanationBox').classList.add('show');
+
+  // Show next / finish
+  document.getElementById('btnSubmit').disabled = true;
+  if (current < questions.length - 1) {
+    document.getElementById('btnNext').textContent = 'Next Question →';
+    document.getElementById('btnNext').classList.add('show');
+  } else {
+    document.getElementById('btnNext').textContent = 'See Results →';
+    document.getElementById('btnNext').classList.add('show');
+  }
+
+  // Update score display
+  document.getElementById('scoreDisplay').textContent = `${correct}/${answered}`;
+  document.getElementById('correctCount').textContent = correct;
+  document.getElementById('wrongCount').textContent = wrong;
+  document.getElementById('accuracyDisplay').textContent = Math.round((correct / answered) * 100) + '%';
+
+  // Progress
+  const pct = Math.round((answered / questions.length) * 100);
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function nextQuestion() {
+  current++;
+  if (current >= questions.length) {
+    showResult();
+  } else {
+    render();
+    // Smooth scroll to top of card
+    document.getElementById('questionCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function showResult() {
+  document.getElementById('questionCard').style.display = 'none';
+  document.querySelector('.progress-bar-wrap').style.display = 'none';
+
+  const total = questions.length;
+  const pct = Math.round((correct / total) * 100);
+
+  let emoji, title, sub;
+  if (pct >= 90) {
+    emoji = '🏆'; title = 'Outstanding!'; sub = "You're scoring above 90% — exam-ready territory. Keep it up!";
+  } else if (pct >= 75) {
+    emoji = '💪'; title = 'Strong Performance!'; sub = "You're on the right track. Review the questions you missed and aim for 90%+.";
+  } else if (pct >= 50) {
+    emoji = '📚'; title = 'Good Effort!'; sub = "Review the incorrect questions and their explanations. Focus on Domain I concepts.";
+  } else {
+    emoji = '🔄'; title = 'Keep Practicing!'; sub = "Revisit Tuckman's model, conflict resolution, and agile team dynamics. You've got this!";
+  }
+
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultSub').textContent = sub;
+  document.getElementById('resultScoreBig').textContent = pct + '%';
+  document.getElementById('rbCorrect').textContent = correct;
+  document.getElementById('rbWrong').textContent = wrong;
+  document.getElementById('rbTotal').textContent = total;
+
+  // Color the big score
+  const scoreEl = document.getElementById('resultScoreBig');
+  if (pct >= 90) scoreEl.style.color = 'var(--green)';
+  else if (pct >= 75) scoreEl.style.color = 'var(--accent)';
+  else scoreEl.style.color = 'var(--red)';
+
+  // Perf bar
+  const fillEl = document.getElementById('perfBarFill');
+  let barColor = pct >= 90 ? 'var(--green)' : pct >= 75 ? 'var(--accent)' : 'var(--red)';
+  fillEl.style.background = barColor;
+  setTimeout(() => { fillEl.style.width = pct + '%'; }, 100);
+
+  document.getElementById('resultScreen').classList.add('show');
+}
+
+function restartQuiz() {
+  current = 0; correct = 0; wrong = 0; answered = 0;
+  selectedOptions = []; submitted = false;
+
+  document.getElementById('resultScreen').classList.remove('show');
+  document.getElementById('questionCard').style.display = '';
+  document.querySelector('.progress-bar-wrap').style.display = '';
+
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Init
+render();
+
+function goBack() {
+  if (current > 0) { current--; render(); }
+  document.getElementById('questionCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goSkip() {
+  if (current < questions.length - 1) { current++; render(); }
+  document.getElementById('questionCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

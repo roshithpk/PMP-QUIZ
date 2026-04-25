@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Quiz · Q251–300</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080c;--s1:#0b1018;--s2:#10151e;--bd:#182030;
+  --a:#22d3ee;--a2:#fb923c;--a3:#a78bfa;
+  --green:#22c55e;--red:#ef4444;--orange:#f97316;
+  --txt:#ccdaf0;--muted:#486070;--r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 14px 80px;
+  background-image:radial-gradient(ellipse 60% 40% at 10% 0%,rgba(34,211,238,.06) 0,transparent 70%),radial-gradient(ellipse 50% 40% at 90% 100%,rgba(167,139,250,.06) 0,transparent 70%);}
+body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999;}
+
+.hdr{width:100%;max-width:780px;padding:36px 0 24px;}
+.hdr-eye{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hdr-eye::before{content:'';width:28px;height:1px;background:var(--a);}
+.hdr-title{font-family:'Syne',sans-serif;font-size:clamp(24px,4.5vw,38px);font-weight:800;line-height:1.1;margin-bottom:4px;}
+.hdr-title span{color:var(--a);}
+.hdr-sub{font-size:13px;color:var(--muted);}
+
+.prog-wrap{width:100%;max-width:780px;margin-bottom:18px;}
+.prog-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px;font-family:'IBM Plex Mono',monospace;}
+.prog-track{height:3px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--a),var(--a3));border-radius:100px;transition:width .5s cubic-bezier(.4,0,.2,1);}
+
+.score-row{width:100%;max-width:780px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
+.chip{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:11px 12px;}
+.chip-lbl{font-size:9px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;}
+.chip-val{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;line-height:1;}
+.chip-val.c{color:var(--green)}.chip-val.w{color:var(--red)}.chip-val.n{color:var(--a)}
+
+.card{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;animation:ci .3s ease;}
+@keyframes ci{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.flag-banner{background:rgba(249,115,22,.08);border-bottom:1px solid rgba(249,115,22,.3);padding:10px 26px;display:none;align-items:flex-start;gap:10px;}
+.flag-banner.show{display:flex;}
+.flag-txt{font-size:12px;line-height:1.6;color:#fdba74;}
+.flag-txt strong{color:var(--orange);font-weight:600;}
+
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--bd);}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;border-radius:5px;padding:3px 9px;border:1px solid;}
+.badge-q{color:var(--a);background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.25);}
+.badge-t{color:var(--a2);background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.25);}
+.badge-d{color:var(--a3);background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.25);}
+.badge-flag{color:var(--orange);background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.35);}
+
+.q-txt{font-size:15px;line-height:1.7;white-space:pre-line;}
+.multi-note{font-size:11px;color:var(--a2);font-family:'IBM Plex Mono',monospace;padding:8px 26px 0;display:none;}
+
+.opts{padding:16px 26px 20px;display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:12px;background:var(--s2);border:1.5px solid var(--bd);border-radius:9px;padding:12px 14px;cursor:pointer;text-align:left;transition:border-color .14s,background .14s,transform .1s;color:var(--txt);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.55;width:100%;}
+.opt:hover:not(:disabled){border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.04);transform:translateX(3px);}
+.opt:disabled{cursor:default;transform:none;}
+.opt.sel{border-color:var(--a);background:rgba(34,211,238,.07);}
+.opt.cor{border-color:var(--green);background:rgba(34,197,94,.07);}
+.opt.wrg{border-color:var(--red);background:rgba(239,68,68,.07);}
+.opt-lt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;min-width:22px;height:22px;border-radius:5px;background:var(--bd);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background .14s,color .14s;flex-shrink:0;margin-top:2px;}
+.opt.sel .opt-lt{background:var(--a);color:#000;}
+.opt.cor .opt-lt{background:var(--green);color:#000;}
+.opt.wrg .opt-lt{background:var(--red);color:#fff;}
+
+.res-ind{padding:4px 26px 8px;font-size:13px;font-weight:600;display:none;}
+.res-ind.ok{color:var(--green)}.res-ind.no{color:var(--red)}
+
+.expl{margin:0 26px 20px;border-radius:9px;border-left:3px solid var(--a);background:rgba(34,211,238,.04);padding:13px 15px;font-size:13.5px;line-height:1.65;color:#7ab8c8;display:none;}
+.expl.show{display:block;animation:fi .25s ease;}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.expl-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:7px;}
+.expl-dom{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(34,211,238,.35);margin-top:8px;}
+.disc-note{margin-top:10px;padding:9px 12px;background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.25);border-radius:7px;font-size:12px;color:#fdba74;line-height:1.6;}
+.disc-note-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:5px;}
+
+.acts{padding:0 26px 26px;display:flex;gap:9px;flex-wrap:wrap;}
+.btn-sub{background:var(--a);color:#000;border:none;border-radius:7px;padding:11px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:opacity .18s,transform .1s;}
+.btn-sub:hover:not(:disabled){opacity:.82;transform:translateY(-1px);}
+.btn-sub:disabled{opacity:.3;cursor:not-allowed;transform:none;}
+.btn-nxt{background:transparent;color:var(--txt);border:1.5px solid var(--bd);border-radius:7px;padding:11px 22px;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:13px;cursor:pointer;transition:border-color .14s,background .14s;display:none;}
+.btn-nxt.show{display:block;}
+.btn-nxt:hover{border-color:var(--a);background:rgba(34,211,238,.05);}
+
+.result{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:50px 36px;text-align:center;display:none;animation:ci .4s ease;}
+.result.show{display:block;}
+.res-emoji{font-size:56px;margin-bottom:16px;}
+.res-title{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;margin-bottom:10px;}
+.res-sub{color:var(--muted);font-size:14px;max-width:480px;margin:0 auto 32px;line-height:1.65;}
+.res-score{font-family:'Syne',sans-serif;font-weight:800;font-size:76px;line-height:1;margin-bottom:6px;}
+.res-score-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+.perf-bar{width:200px;margin:0 auto 28px;height:5px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.perf-fill{height:100%;border-radius:100px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s;}
+.res-bk{display:flex;justify-content:center;gap:28px;margin-bottom:36px;}
+.rbi{display:flex;flex-direction:column;gap:4px;align-items:center;}
+.rbi-v{font-family:'Syne',sans-serif;font-weight:700;font-size:28px;}
+.rbi-l{font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;}
+.btn-rst{background:var(--a);color:#000;border:none;border-radius:7px;padding:13px 32px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:opacity .2s;}
+.btn-rst:hover{opacity:.82;}
+
+.flag-summary{width:100%;max-width:780px;background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.25);border-radius:var(--r);padding:12px 16px;margin-bottom:20px;font-size:13px;color:#fdba74;display:flex;align-items:flex-start;gap:10px;}
+
+@media(max-width:520px){
+  .card-head,.opts,.acts{padding-left:14px;padding-right:14px;}
+  .expl{margin-left:14px;margin-right:14px;}
+  .flag-banner{padding:10px 14px;}
+  .score-row{grid-template-columns:repeat(2,1fr);}
+}
+
+  /* ── Back / Skip nav buttons ── */
+  .btn-nav {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .btn-nav:hover { border-color: var(--a, var(--accent, #aaa)); color: var(--txt); }
+  .btn-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-eye">PMP® Exam Prep · Batch 6</div>
+  <h1 class="hdr-title">Questions <span>251 – 300</span></h1>
+  <p class="hdr-sub">Domains I, II & III · 50 questions · ⚑ = answer discrepancy flagged vs. exam key</p>
+</div>
+
+<div class="flag-summary">
+  <span style="flex-shrink:0">⚑</span>
+  <div><strong>1 flagged question</strong> in this batch — Q260 appears to be a PDF misprint where the question text and answer explanation do not match. See the orange flag for details.</div>
+</div>
+
+<div class="prog-wrap">
+  <div class="prog-meta"><span id="pLbl">Question 251 of 300</span><span id="pPct">0%</span></div>
+  <div class="prog-track"><div class="prog-fill" id="pFill" style="width:0%"></div></div>
+</div>
+
+<div class="score-row">
+  <div class="chip"><div class="chip-lbl">Score</div><div class="chip-val n" id="sScore">0/0</div></div>
+  <div class="chip"><div class="chip-lbl">Correct</div><div class="chip-val c" id="sCorr">0</div></div>
+  <div class="chip"><div class="chip-lbl">Wrong</div><div class="chip-val w" id="sWrng">0</div></div>
+  <div class="chip"><div class="chip-lbl">Accuracy</div><div class="chip-val n" id="sAcc">—</div></div>
+</div>
+
+<div class="card" id="qCard">
+  <div class="flag-banner" id="flagBanner">
+    <span style="font-size:16px;flex-shrink:0;margin-top:1px">⚑</span>
+    <div class="flag-txt" id="flagTxt"></div>
+  </div>
+  <div class="card-head">
+    <div class="badges">
+      <span class="badge badge-q" id="bNum">Q251</span>
+      <span class="badge badge-t" id="bType">Single</span>
+      <span class="badge badge-d" id="bDom">Domain III</span>
+      <span class="badge badge-flag" id="bFlag" style="display:none">⚑ Flagged</span>
+    </div>
+    <p class="q-txt" id="qTxt"></p>
+  </div>
+  <p class="multi-note" id="mNote"></p>
+  <div class="opts" id="optsList"></div>
+  <div class="res-ind" id="resInd"></div>
+  <div class="expl" id="explBox">
+    <div class="expl-lbl">Explanation</div>
+    <div id="explTxt"></div>
+    <div id="discNote"></div>
+    <div class="expl-dom" id="explDom"></div>
+  </div>
+  <div class="acts">
+    <button class="btn-nav" id="btnBack" onclick="goBack()">← Back</button>
+    <button class="btn-nav" id="btnSkip" onclick="goSkip()">Skip →</button>
+    <button class="btn-sub" id="btnSub" disabled onclick="submit()">Submit Answer</button>
+    <button class="btn-nxt" id="btnNxt" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<div class="result" id="resultScr">
+  <div class="res-emoji" id="rEmoji"></div>
+  <h2 class="res-title" id="rTitle"></h2>
+  <p class="res-sub" id="rSub"></p>
+  <div class="res-score" id="rScore"></div>
+  <div class="res-score-lbl">Final Score · Q251–300</div>
+  <div class="perf-bar"><div class="perf-fill" id="perfFill"></div></div>
+  <div class="res-bk">
+    <div class="rbi"><span class="rbi-v" style="color:var(--green)" id="rCorr">0</span><span class="rbi-l">Correct</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--red)" id="rWrng">0</span><span class="rbi-l">Wrong</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--a)" id="rTot">50</span><span class="rbi-l">Total</span></div>
+  </div>
+  <button class="btn-rst" onclick="restart()">↺ Restart</button>
+</div>
+
+<script>
+const L=['A','B','C','D','E'];
+const Qs=[
+{n:251,t:"The marketing director is displeased that the agile innovation team is producing too many novelty products with too little business value.\n\nWhich two approaches should the project manager take to correct the team's approach? (Choose TWO.)",o:["Work with the product owners to tighten value criteria in the Definition of Ready.","Ask the team to take a training course on direct response marketing.","Increase the story sizes to integrate more valuable features.","Survey end users and integrate resulting value rank into the product backlog.","Add a process so the marketing director can approve each story."],c:["A","D"],m:true,e:"The Definition of Ready and user value ranking in the backlog address the root problem, which is that the team is NOT focusing on value.",d:"ECO Task: III.2",flag:null},
+{n:252,t:"An agile innovation team is highly productive. However, the Head of Operations informs the product owner that the company is NOT getting sustainable return on investment from the team's work.\n\nHow should the product owner address the problem?",o:["Define a minimum viable product (MVP) with the team and prioritize relevant backlog items.","Reduce the number of team members as necessary to guarantee a positive return on investment.","Identify minimum marketable features (MMF) and prioritize relevant backlog items.","Work with the project manager to run a retrospective and perform project cancellation."],c:["C"],m:false,e:"Frequent release of smaller incremental products is the fastest way to get return on investment. MMFs are ready for public launch, whereas MVPs are releases that are just able to function. Reducing the team would NOT enable acceleration of value, as is required in this case.",d:"ECO Task: III.2",flag:null},
+{n:253,t:"The success of an ongoing agile project is measured as follows:\n\nSprint 1: Planned 15 stories, Completed 10, Planned Value 450K, Earned Value 300K\nSprint 2: Planned 20 stories, Completed 18, Planned Value 600K, Earned Value 540K\nSprint 3: Planned 20 stories, Completed 25, Planned Value 800K, Earned Value 1000K\nSprint 4: Planned 22 stories, Completed 25, Planned Value 1100K, Earned Value 1250K\n\nWhat two (2) conclusions can be drawn from these figures? (Choose TWO.)",o:["The team worked less efficiently over time.","The team kept a steady rate of efficiency.","The backlog was NOT prioritized for time to value.","The backlog was prioritized for time to value.","The team worked more efficiently over time."],c:["C","E"],m:true,e:"The table shows that value increases over time (late time to value) when dividing planned value/stories planned — this means the backlog was NOT prioritized for time to value (C). The SPI above 1 (stories completed/stories planned) shows that the team completed more stories faster over time, meaning the team worked more efficiently over time (E).",d:"ECO Task: III.2",flag:null},
+{n:254,t:"A company is losing market share to disruptive competitors with new business models. A cross-functional agile team has been formed to recommend ways to recover market share.\n\nHow can the team increase their chance of producing successful recommendations?",o:["Gain a deep understanding of why customers are disappointed by the company's products.","Focus on enabling profitable delivery of unique, high-quality, and innovative products.","Understand how the competitors' business models can reach more consumers at a lower cost.","Focus on understanding the value consumers seek and the value competitors offer."],c:["D"],m:false,e:"The first principle of the Agile Manifesto focuses on value. Markets are driven by the value consumers attribute to the offerings. The team needs to focus on understanding the value consumers seek AND the value competitors offer in order to produce successful recommendations.",d:"ECO Task: III.3",flag:null},
+{n:255,t:"Over the past six months, the development cost per story has risen by more than 250% due to a faulty platform which is no longer supported. The product vision highlights unique features of the platform as a pre-requisite for the product.\n\nWhat should the project manager do to determine next steps?",o:["Cancel the project due to exceeding the budget constraint.","Ask the product owner to select an alternative platform.","Cancel the project as the product vision CANNOT be fulfilled.","Run what-if cost impact scenarios with the product owner."],c:["D"],m:false,e:"Foundational assumptions for the product can no longer be fulfilled in an economically sustainable way. The product owner will need analysis of the possible scenarios to determine if the project can be continued.",d:"ECO Task: III.3",flag:null},
+{n:256,t:"The agile team will take over from another supplier to maintain a client's website. The team notices that recent browser changes imply that most of the website's existing content would now require users to install a plug-in.\n\nHow should the agile team move forward?",o:["Inform the client and propose an impact analysis.","Update all pre-existing code to remove plug-in dependencies.","Inform the client about the previous supplier's negligence.","Deliver the code updates as defined in the contract."],c:["A"],m:false,e:"In this case, the client needs to be aware of the impact of the recent plug-in issue on business and costs. This is new information that affects the scope and should be shared before any action is taken.",d:"ECO Task: III.3",flag:null},
+{n:257,t:"The quarterly results show that competitors are driving prices down. The company is losing market share and midway into a product development project, it appears the sponsoring unit is not likely to get return on their investment.\n\nWhich two actions should the project manager take to adapt the project to these new conditions? (Choose TWO.)",o:["Incrementally replace local staff with outside expert staff who can work at half the hourly rate or less.","Re-scope the project to deliver the same features as the competitors to match their pricing.","Make a cost/benefit analysis of deliverables to optimize delivery cost and speed.","Fast-track the remainder of the project to deliver the intended scope with lower overhead costs.","Create an agile track to incrementally maximize value within a fixed budget."],c:["C","E"],m:true,e:"Cost/benefit analysis and fixed-budget incremental development are correct because they address the loss of profitability without disruption to business.",d:"ECO Task: III.3",flag:null},
+{n:258,t:"A pharmaceutical project includes an agile team of doctors who analyze human tissue scans from drug trial patients. The CEO wants to leverage Machine Learning (ML) technology, because it is proven to be faster and more accurate than doctors in scan analysis.\n\nHow should the product owner proceed in response to the CEO's wish?",o:["Record the risk in the register and plan for discussing a response in the retrospective.","Work with the team to plan how to use the ML resources and produce a business case.","Anticipate a negative response from the team and be ready to persuade them that their time and skill will be better spent elsewhere.","Ask the team to produce a SWOT analysis supporting human-based validation."],c:["B"],m:false,e:"The product owner works for the business and supports the CEO decision. ML is an accelerative tool, NOT a replacement for experts. Working with the team to plan their new ways of working and using a business case to support the decision is in the company's and team's best interests.",d:"ECO Task: III.3",flag:null},
+{n:259,t:"As part of an organizational change program, an experienced project manager with agile experience and certification is hired by a company with a strong predictive culture.\n\nWhich two actions can the project manager take to start helping the company adopt agile methodologies? (Choose TWO.)",o:["Ensure that the MoSCoW method is used to write all project requirements.","Analyze all planned projects to pick the appropriate agile model.","Show stakeholders how agile can increase quality and decrease risk.","Train project teams to be more self-reliant and cross-functional.","Identify opportunities for incremental business value delivery."],c:["C","E"],m:true,e:"Agile adoption is enabled through communicating and demonstrating its benefits (C) and identifying opportunities for incremental business value delivery (E).",d:"ECO Task: III.4",flag:null},
+{n:260,t:"An agile team needs to decide who should represent them in the Scrum of Scrums.\n\nWhich option should be used to select the best-suited team member?",o:["Scrum","DevOps","eXtreme Programming","CI/CD"],c:["B"],m:false,e:"Per the PDF exam key, the answer is B (DevOps). However, the explanation in the PDF discusses DevOps eliminating impediments in development/deployment cycles — this does NOT match the question about selecting a Scrum of Scrums representative. This appears to be a misprint in the PDF where a question and its answer/explanation have been swapped.",d:"ECO Task: III.4",flag:{note:"The PDF exam key says B (DevOps), but the question asks about selecting a Scrum of Scrums representative — and the explanation talks about DevOps eliminating deployment impediments. This appears to be a PDF misprint where question text and answer are from different questions. On the actual exam, a question about Scrum of Scrums representative selection would likely look for someone who understands cross-team work (see Q26 in Batch 1 for the correct version).",pdfAnswer:"B (DevOps) — but likely a misprint"}},
+{n:261,t:"User testing on the last product release revealed low user interest in certain features that required a significant effort to develop. The team feels demoralized, and they want to make sure their future efforts are worthwhile. Success in the next iteration is critical as the competitor product is gaining market share.\n\nHow should the team respond?",o:["Team can brainstorm how to better understand the product vision.","Scrum master can coach the product owner on prioritizing the desired end-user features and engaging stakeholders.","Team lead can arrange a training session for everyone to learn about the benefits of a growth mindset.","Team lead can perform stakeholder analysis to find subject matter experts (SMEs) who can guide the backlog value ranking process."],c:["B"],m:false,e:"The product was released without sufficient user input or prioritization to ensure it has appeal and delivers business value. The deficiency points to the product owner. The person in this role needs to understand how to work with stakeholders in a more effective way so that the team is spending time and effort developing features that are relevant and represent value.",d:"ECO Task: I.5",flag:null},
+{n:262,t:"A product owner has created a lot of epics and has started breaking them down into user stories. These high-priority user stories fulfill the definition of ready. At the iteration planning meeting, the product owner leaves after 2 hours.\n\nWhat should happen next?",o:["The team lead should draft the remaining acceptance criteria before starting the iteration.","The iteration planning ends after the estimate and team commitment.","The product owner should present the committed user stories with the key stakeholders before the iteration starts.","The team should decompose the user stories into tasks."],c:["D"],m:false,e:"The team should continue where the product owner stopped and complete this activity that began as a collaborative exercise with the product owner. The team can decompose the user stories into tasks, then estimate them before putting them on the board.",d:"ECO Task: I.9",flag:null},
+{n:263,t:"While the team coordinates delivering the latest version of a machine-learning product, a client stakeholder shows signs of resistance. The team lead suspects this is because the stakeholder feels their job is threatened by the automation in the product.\n\nWhich approach should the team lead take to effectively reduce the stakeholder's resistance?",o:["Ask the client to replace this stakeholder to avoid project delays.","Ask the stakeholder to express their concerns and ensure full transparency.","Express empathy directly to the stakeholder to gain cooperation.","Tell the stakeholder that their cooperation and patience are appreciated."],c:["B"],m:false,e:"Transparency and active listening are key elements to gain trust. Lack of trust is often the root cause of resistance. While empathy and appreciation help gain trust, they do NOT necessarily promote better communication, as active listening would.",d:"ECO Task: I.14",flag:null},
+{n:264,t:"A project is more than halfway finished. The project manager noticed that the teams have not been conducting retrospectives at the end of every sprint. Instead, they are conducting them after the release, which is every 6 months.\n\nWhen the project manager addresses this problem during the all-hands meeting, the team responds that retrospectives are a waste of time because nothing changes.\n\nWhat should the project manager do in this situation?",o:["Respect the decision of the self-organized team.","Explain to the team that retrospectives are required in agile teams.","Encourage the team to conduct retrospectives more frequently than twice a year because this is a chance to talk about what works and what doesn't.","Agree with the team that there is little benefit in doing retrospectives after every sprint."],c:["C"],m:false,e:"The purpose of the retrospective is to discuss performance on a 'trial and error' basis and for the team to incorporate continuous improvement. Not every action item will result in a best practice or be an improvement. However, it is essential that the team continues to try. As the leader, it is the project manager's role to encourage and reinforce good practice.",d:"ECO Task: I.2",flag:null},
+{n:265,t:"A collocated agile team is updating the ground rules based on the last iteration and retrospective.\n\nWhich option should be EXCLUDED from the new ground rules?",o:["Tell the truth and address any issues to the correct party (at the right time).","There shall be no email or surfing the web during team meetings and be present on-site between 9:00 am and 4:00 pm.","Ask for clarification if you are confused and do not interrupt one another.","There shall be no swearing during team meetings and participation in chess club on Monday evenings is mandatory."],c:["D"],m:false,e:"Politeness and attendance at leisure activities are typically NOT part of the ground rules. Ground rules govern professional behaviour during work — mandatory participation in social clubs goes beyond this.",d:"ECO Task: I.12",flag:null},
+{n:266,t:"In a product demo meeting, an engineering specialist presents the latest test-driven development prototype and asks for team feedback. Team member Y interrupts the demo to protest about the high cost of the prototype. Members of the engineering team immediately become defensive and begin answering all at once.\n\nWhat action should the project leader take in this situation?",o:["Intervene and state that the cost query will be considered but remind everyone that this demo is for product development feedback.","Stop the meeting. Firmly tell everyone to calm down and control the rest of the meeting.","Take the opportunity to address team member Y's concern during the meeting.","Allow the team to work through the disruption and the problem on their own."],c:["A"],m:false,e:"As an effective team lead, you need to know when people are behaving in ways that will have a negative effect on the team. Team member Y is threatening the stated purpose of the meeting. You should NOT respond by behaving like an authoritarian. If you can get the meeting back on track with a quick reminder, this is the best option.",d:"ECO Task: I.14",flag:null},
+{n:267,t:"A project team is completing a sprint. This team normally performs well under time pressure. But this time, something seems different. The workrooms are quiet, and people are having conversations that seem secretive. A check of the scrum board shows that work is on schedule and quality checks are met, yet the team lead feels anxious.\n\nWhat should the team lead do?",o:["Assume everything is fine and let the team continue working.","Think about any other recent changes or reasons that could be the cause of these anxious feelings.","Ask everyone to give a quick report of how they think the sprint is going at the next standup.","Tell the team you are feeling anxious about their work."],c:["B"],m:false,e:"If the data shows positive signs that work is on track and you are feeling anxious or unsure, it's a good idea to trust your instinct. Something could be happening outside of the project. Try to identify the cause of your anxiety on your own without spreading worry or alerting the team about it.",d:"ECO Task: I.14",flag:null},
+{n:268,t:"A project team member is having an extremely difficult and busy personal life. The team is NOT aware. They only see mistakes and missed deadlines. The team is in the middle of an iteration and this team member's latest mistake has caused a major issue.\n\nHow should the team lead respond in this situation?",o:["Coach the team member.","Replace the team member.","Discipline the team member.","Consult the team member's functional manager."],c:["A"],m:false,e:"Team performance is the focus of an agile team. If a team member is underperforming, the team lead should coach them as much as possible to improve performance.",d:"ECO Task: I.3",flag:null},
+{n:269,t:"A project team leader is reading feedback from a survey given to key functional manager roles. One of the questions was 'What do you hope to learn or gain from this project?'\n\nManager J: I am excited to learn about the new technical service and add it to my team's core competencies.\nManager K: I want to learn how the new service can help my team do their job better.\nManager H: Maybe not much. I already know how this service is supposed to work.\nManager M: I'm not sure. I'll wait and see.\n\nHow should the project team leader support the growth and development of this group?",o:["Assume everyone's goals should match the highest levels (J & K), use a positive servant leadership approach, and expect H & M to buy in over time.","Ask H & M to explain their skepticism or lack of enthusiasm. Also ask J & K to coach H & M.","Calculate the median response and assume this as a benchmark. Figure out how to motivate everyone equally.","Circulate a follow-up survey after the first service demo and re-evaluate the responses. If anyone still seems skeptical, then consider a face-to-face meeting to find out why."],c:["D"],m:false,e:"You should expect a variety of responses to change. While a data-driven approach will be useful, it needs to be accompanied by a personal, hands-on approach. Play the role of a mentor here, to show and explain to others the benefit of the project. Begin by asking them again, with greater detail, give them a chance to respond, analyze the responses, and work with them until they are more satisfied with the changes.",d:"ECO Task: I.13",flag:null},
+{n:270,t:"A project team is being sent overseas to lead an integration project at a subsidiary factory. To prepare, they review a transcript from the retrospective from a previous trip to identify the main problems.\n\nWhich problem listed below can the team approach and potentially solve using servant leadership and active listening during the next iteration?",o:["Host team is very unwilling to partner in training exercises.","Scheduling problems because host teams have dedicated non-working hours at different times of the day due to shift work.","Heatwave during site visit, so outdoor practical training was replaced by simulations.","Equipment is at risk from poor quality maintenance because of ineffective training."],c:["A"],m:false,e:"It is possible to understand why another team would be unwilling to do something and then seek a resolution. Use empathy and active listening to try to understand, but also inspire the host team with the use of servant leadership. Scheduling problems, adverse weather, and incomplete training need practical, technical solutions.",d:"ECO Task: I.14",flag:null},
+{n:271,t:"The team lead is having a coaching session with a team member.\n\nLead: We've noticed that your work is a few days late again.\nTeam Member C: It is. I took extra time to fine-tune settings before handing off to the release team.\nLead: OK. We have been through this for the last four sprints, and we need to resolve it. After sprint 3, you blamed a faulty technical setup for the delay, but we found out that was not accurate. Do you think you can give us more realistic estimates next time?\nTeam Member C: Yes, I was wrong. I thought I was giving realistic estimates, but I realize that after three sprints, my method must be flawed.\nLead: Do you want to do a planning session together so we can figure out a better way?\nTeam Member C: Yes, that would be helpful. I know that my delay is causing stress on the team. Thanks!\n\nWhich two steps in emotional intelligence (EI) has this team member just realized? (Choose TWO.)",o:["Self-control","Self-discovery","Self-assessment","Self-definition","Self-management"],c:["C","E"],m:true,e:"This team member has just completed an accurate self-assessment (C), thanks to the coaching session — 'I realize my method must be flawed.' The next step is self-management (E), which happens when we accept responsibility for our actions. When the team member admitted they wrongly blamed something else in sprint 3, they accepted responsibility and demonstrated self-managing behavior.",d:"ECO Task: I.14",flag:null},
+{n:272,t:"To improve its culture for workers, an organization's leadership team wants to provide childcare services. Other personal services such as wellness and financial counseling are planned for the next calendar year. The project team needs to decide how to implement the new services. Leadership wants these services in place as soon as possible.\n\nWhich two questions should the team explore to begin implementation of the services? (Choose TWO.)",o:["Is this part of the company's growth strategy?","How will the company determine who is eligible for the services?","How many team members and which skills will be required to implement the services?","Will the services be contracted out or maintained by company employees?","What are the benefits of these services?"],c:["C","D"],m:true,e:"To get this critical project started right away, the team needs to decide about the composition of the implementation team and how to provision the services mandated by leadership as quickly and effectively as possible. Decisions about the strategic importance and benefits have already been made; we can assume this is why the project has executive approval.",d:"ECO Task: II.1",flag:null},
+{n:273,t:"A project's goal is to improve a company's customer service process through automation and staff development. The team sent initial surveys to the staff to assess their satisfaction with the current process. These are the top four responses:\n• The current process works fine.\n• The current process needs fixing.\n• We need better training.\n• We do not need any more training.\n\nWhich two activities should the project team perform first? (Choose TWO.)",o:["Job satisfaction survey","Likelihood-to-recommend (LTR) survey","Risk analysis","MoSCoW diagram","Lessons learned"],c:["C","D"],m:true,e:"The team needs to perform further discovery — and quickly! The contradictory information from end users could signal the beginning of a conflict. A risk analysis and a clearer or more detailed profile of the problem are needed. The team needs to understand the current situation so that it can plan and implement the correct improvements to avoid conflict between stakeholders later on.",d:"ECO Task: I.1",flag:null},
+{n:274,t:"A project manager has drafted a project management plan. While working with the stakeholders, the project manager observes that the key stakeholder's priorities for the scope and schedule are vastly different from the priorities of all of the other stakeholders.\n\nKey stakeholder: site upgrades and user improvements in a 9-month project schedule.\nStakeholders F, K, and S: user improvements in a 3-month project schedule.\nStakeholder A has openly stated that the broader scope and longer schedule are necessary for project success.\n\nWhat should the project manager do first in order to get this project management plan approved?",o:["Ask the key stakeholder to present data to support the business case for a longer schedule and broader scope.","Negotiate with all stakeholders until they agree to common scope and schedule baselines.","Facilitate a meeting with all stakeholders to agree to the scope and schedule baselines.","Proceed with the key stakeholder's scope and schedule baselines."],c:["A"],m:false,e:"Asking the key stakeholder for data that supports the business case for a longer schedule and broader scope is the best choice here. Successful project outcomes support business objectives. If the key stakeholder can produce this information, then the others should agree or a negotiation can then take place. However, even the key stakeholder's point of view needs to be evaluated and verified with data before any action is taken.",d:"ECO Task: I.8",flag:null},
+{n:275,t:"An agile team has identified several risks during their last retrospective, including the chance of hiring a contractor to double the speed of a critical investigation during the next iteration.\n\nHow should the team classify this risk?",o:["Emergent","Issue","Threat","Opportunity"],c:["D"],m:false,e:"This is an opportunity, because the change helps the team to mitigate a key dependency; most teams would like to reduce the number of dependencies. Opportunities are positive risks — they can improve the project outcome.",d:"ECO Task: II.3",flag:null},
+{n:276,t:"A production streamlining project is halfway complete. The team is working well together and optimistic about achieving their goals. The company is having significant personnel issues and has lost many of their senior technicians to start-ups that were offering great salaries.\n\nTo make matters worse, the VP of manufacturing requests to use the team's most senior technical resource for a major new project kicking off next week.\n\nWhat should the team lead do?",o:["Ask the VP if the resource can be shared until the streamlining project is complete.","Make the case for keeping the resource to ensure project outcomes are realized.","Reallocate the team member to manufacturing and hire two generalists for streamlining.","Outsource that resource's responsibilities on the streamlining team to a specialist."],c:["B"],m:false,e:"The project outcome is the highest priority for the team lead, so they should do whatever they can to protect it. While it is NOT wise to ignore the value of that individual to the company, the lead's priority still has to be the project outcome.",d:"ECO Task: II.5",flag:null},
+{n:277,t:"At a company party, people are having a friendly, open conversation about which team is the fastest. One person laughs and says that team A has a velocity of 20, whereas team B has a velocity of 40, so team B members will all be receiving bonuses.\n\nHow should the leader of team A react?",o:["Be embarrassed that team B is more effective than team A.","Say nothing. It's a party.","Ask that person how they know this and remind them that it is against company culture to be so competitive.","Say nothing, because each team has its own capacity, and velocity is not used to compare teams."],c:["D"],m:false,e:"Velocity is about capacity, not effectiveness. Velocity numbers are unique for each team. They cannot be used to compare teams.",d:"ECO Task: II.6",flag:null},
+{n:278,t:"Enterprise Z has partnered with a company to deliver a certain number of phone SIM card chips each month. The results are reviewed each month at the joint steering committee meeting. Enterprise Z has been clear about their preferences and tolerances in the service-level agreements.\n\nWhat is the best tool to monitor the delivery of products?",o:["Scatterplot diagram","Control chart diagram","Affinity diagram","Cause and effect diagram"],c:["B"],m:false,e:"The control chart diagram is the best tool to use as it shows the mean, upper/lower control limits, along with the standard deviation. Using this chart will help identify outliers for root cause analysis (RCA) to unveil if it is a special or common cause, as well as help to more easily spot trends.",d:"ECO Task: II.7",flag:null},
+{n:279,t:"An agile team is nearing the end of the project and has been able to complete all stories and deliver value to the client. However, the coach has noticed that the coding standards are NOT up to par.\n\nWhat should the team do?",o:["Update the definition of done.","Notify the customer.","Add the work to the backlog, prioritized alongside bug fixes.","Update the code during the sprint dedicated to ensuring quality."],c:["D"],m:false,e:"Teams often dedicate a sprint to ensure quality. None of the other answer options address and prioritize quality, and that is the issue here.",d:"ECO Task: II.7",flag:null},
+{n:280,t:"Organization ABC merged with Company XYZ. The project management office (PMO) creates a team with the required expertise. They decide to prioritize an evaluation of company processes, then figure out what needs to be done to create an interim organization that meets the leadership's needs.\n\nWhich two techniques should the project team use? (Choose TWO.)",o:["Value stream mapping","Decision-tree analysis","Gap analysis","Brainstorming sessions","Qualitative analysis"],c:["A","C"],m:true,e:"The best solution is to create value stream mapping and conduct a gap analysis. These actions will help the team to identify what needs to be created and/or updated to meet the stakeholders' needs. Brainstorming is an ideation technique, so is not quite the right choice for the current need. Decision-tree analysis and qualitative analysis won't assist directly with the current task.",d:"ECO Task: II.8",flag:null},
+{n:281,t:"A project manager joins a project with the following features:\n• Globally distributed team\n• Fixed budget\n• Very tight deadlines\n\nHow can the project manager avoid scope creep and keep the team focused on delivering a product that meets requirements during planning?",o:["Ask all development team leads to prepare detailed requirements.","Hold daily standups with all of the development teams.","Put any changes to scope through the formal change request process.","Prevent stakeholders from direct interaction with the team leads."],c:["C"],m:false,e:"Adherence to the agreed-upon change management process will help to avoid scope creep. While the other methods could be helpful, adherence to the change process is a direct solution.",d:"ECO Task: II.10",flag:null},
+{n:282,t:"A client is making a lot of small, minor change requests, indicating that they are urgent and critical.\n\nWhich action should the project manager take?",o:["Log each change request in the log.","Reject the minor changes.","Escalate the client's behavior to the sponsor because it is annoying the team.","Put the requests into the iteration backlog."],c:["A"],m:false,e:"Even though a client is making very minor change requests, every single one needs to be processed. Frequent, minor requests are not a cause for escalation. Project managers cannot reject change requests from stakeholders and clients. Finally, putting the requests into the iteration backlog is not the correct response to a change.",d:"ECO Task: II.10",flag:null},
+{n:283,t:"An agile team is in dire need of additional resources, so the department decides to add another agile team. A few teams are possible candidates, so management decides on using a performance test to decide which team to add for 10 iterations.\n\nWho should be responsible for hiring the new team?",o:["Existing agile team","Team lead","Management","Product owner"],c:["C"],m:false,e:"Hiring and firing are management tasks. The other roles may take part during the test and work with the acquired team, but the hiring decision is up to management.",d:"ECO Task: II.11",flag:null},
+{n:284,t:"An agile team has been asked to update the project artifacts because new team members are joining soon.\n\nWhich two of the following should be updated? (Choose TWO.)",o:["Vision statement","Burnup chart","Milestone slip chart","Information radiator","Roadmap"],c:["B","D"],m:true,e:"The burnup chart and information radiator are the best choices to communicate progress and status to the new team members. The vision statement and roadmap are not generally updated, unless there is a major change. Any slippage of milestones would already be included on an information radiator.",d:"ECO Task: II.12",flag:null},
+{n:285,t:"A team is developing the HR module of an ERP system. During a site visit, the client observes the burndown chart depicting the progress of the current 3-week iteration. The team is one-third of the way through the iteration, but actual progress reflects the team is behind the planned progress.\n\nThe client expresses concern and asks the team lead to discuss it with the product owner. How should the team lead respond?",o:["Advise the client that no action is required because the team is in the middle of the iteration.","Ask the product owner to address the performance issue and search for the cause during the daily standup meeting.","Meet with each team member individually to see who is underperforming and find out what suggestions they may have to get the iteration back on track.","Ask the product owner to identify stories that can be pulled out of the current iteration, so the team can meet the planned story points."],c:["A"],m:false,e:"Fluctuation is expected during the sprint. There may be times that the team is behind (or ahead) of the plan. Since it is in the middle of an iteration, nothing needs to be done. At the end of the iteration, during the retrospective, the team should identify what went well and what improvements are needed.",d:"ECO Task: II.13",flag:null},
+{n:286,t:"An experienced software developer is asked to lead a project for a customized software application for a client they have worked with previously. About 2 months into the project, the client wants to know how change is being managed and wants to see the project management plan. The team lead tells the client that this is an agile project; therefore, there is no project management plan! The client escalates this issue to the sponsor.\n\nHow should the sponsor respond to the client?",o:["Tell the client that the team lead is in charge and is able to manage the project however they wish.","Tell the client that it is not in the contract to create such a document, and if it is required, they need to submit a change request.","Tell the client that they will address the value and need for a project management plan with the team lead and ensure that they will have one to review and approve by a specific date.","Ask the client what components of the project management plan are being requested."],c:["C"],m:false,e:"Regardless of the project's methodology, the project management plan is required. It outlines how every aspect of the project will be managed.",d:"ECO Task: II.14",flag:null},
+{n:287,t:"A company is merging two similar projects. The extensive business processes from each project need to be merged. The team wants to optimize the merged business processes, and they hire a consultant to help them.\n\nHow can the team ensure knowledge continuity from both projects?",o:["Instruct the consultant to optimize the processes.","Create an archive from the projects so that team members can read it on their own.","Instruct teams to create new templates for processes and begin using and improving them iteratively.","Gather representatives from both teams to explore and define a mutually agreeable way of working (WoW)."],c:["D"],m:false,e:"The best way to facilitate knowledge continuity from two merged sources is to create a benchmark quickly, prioritize the new way of working, and begin the work. When parties outside of the teams perform this work, the team members won't benefit from a first-hand experience.",d:"ECO Task: II.16",flag:null},
+{n:288,t:"A medical charity organization operates in disaster emergency zones worldwide. The leadership wants to ensure that their practitioners' professional licenses are compliant with governing bodies both in the practitioner's home and in their working locations. This is a condition set by their board of directors and the charity's legal team.\n\nIn order to facilitate the new measures, which three actions should be taken? (Choose THREE.)",o:["Conduct an impact assessment and audit.","Create and use an internal standard based on the most common international compliance standards.","Evaluate the existing compliance status of all practitioners.","Ensure signoff on compliance requirements from the board of directors and the legal team.","Place the compliance risks in the risk register and mark them as low priority."],c:["A","C","D"],m:true,e:"Conducting an audit (A), obtaining executive and legal approval (D), and creating a baseline report on existing compliance status of practitioners (C) are all ways to begin this process. Compliance is the charity's responsibility, and non-compliance with legal matters is a high risk. Creating an internal standard may seem like an efficiency, but it exposes the charity to risk by not meeting any unique compliance requirements.",d:"ECO Task: III.1",flag:null},
+{n:289,t:"A product owner receives some confidential security information that needs to be included in the definition of done or as part of the acceptance criteria.\n\nHow should the project leader categorize this requirement?",o:["Top-level management influence","Omission from earlier in the process","Compliance matter","Change of heart"],c:["C"],m:false,e:"This is an example of a compliance requirement. Security matters that are part of the definition of done or acceptance criteria are characteristic of compliance matters.",d:"ECO Task: III.1",flag:null},
+{n:290,t:"During a sprint review, the team identified successful gains on planned improvements while noting that a lot more development and testing is required. The product owner wants to report on the business value of the work.\n\nWhich action should the team take to assist the product owner with validating business value?",o:["Conduct a variance analysis for the budget for the last iteration.","Examine customer feedback.","Plan to discuss it at the next retrospective.","Measure earned value management (EVM)."],c:["B"],m:false,e:"The best approach to obtain inputs about business value is talking directly with the customers and obtaining both quantitative and qualitative feedback.",d:"ECO Task: III.3",flag:null},
+{n:291,t:"A team was assigned a project to build a new insurance policy administration system. After 6 months of project work, the project sponsor expresses concern. A colleague in an unrelated company division claims the policy administration system has bugs and the team is unable to solve critical problems.\n\nWhich two options should the project manager use to prepare a response to the project sponsor? (Choose TWO.)",o:["Defect count","A risk metric","Issue log","Changes","Technical debt"],c:["A","C"],m:true,e:"You need to obtain data and report on quality and any obstacles affecting the project. A defect count will indicate the quality of the product being built as well as which areas require more attention. The issue log will provide information about the obstacles. A risk metric tool can identify threats, while changes and technical debt will have to be considered, but only after you solve these critical issues.",d:"ECO Task: II.7",flag:null},
+{n:292,t:"A project team lead has challenged the team to minimize defects and waste in project teamwork. As an initial step, the team proposes to assess the relevant quality standards and framework.\n\nHow can the team do this?",o:["Review the requirements management plan.","Check the ISO.org website.","Investigate the project quality metrics.","Interview the person who manages quality compliance."],c:["C"],m:false,e:"Quality metrics describe project or product attributes and provide details about how the team measures quality. The requirements management plan gives information about project requirements, NOT necessarily the details about the standards and frameworks. The compliance manager and ISO.org will have more general information about quality standards.",d:"ECO Task: II.7",flag:null},
+{n:293,t:"A project team is set to deliver a project in 12 months. The sponsor encourages innovation, and the project has a high risk tolerance. However, 8 months into the project, it is plagued with incomplete and failing prototypes. The highly capable team is feeling demoralized, and the project manager worries whether the deliverable will ever meet the stated acceptance criteria.\n\nHow would an adaptive life cycle have helped this project?",o:["The project sponsor would have been the product owner.","Less paperwork and documentation are required.","The desire for innovation and high risk tolerance are ideal for agile practices.","Agile does not require acceptance criteria."],c:["C"],m:false,e:"The benefit of agile to this project would have been the prioritization of innovation. With a high risk tolerance from the start, this is an ideal condition for use of the agile life cycle. Whether the owner of the project is called a sponsor or a product owner would not indicate a greater level of involvement — both roles are still stakeholders focused on value. Though it could be considered a benefit, less paperwork is not a true benefit to realizing this project's vision.",d:"ECO Task: II.13",flag:null},
+{n:294,t:"A newly assembled project team is holding a kickoff meeting over a weekend. About half of the project team already works together; the other team members are contractors. The company already uses lean and agile approaches. However, during the meeting, the team members openly argued about everything — from project goals to the smallest details.\n\nWhich action will help the team to build a shared understanding?",o:["Create breakout sessions and assign team members to specific work based on their expertise.","Nominate someone to the role of project manager and adopt a hierarchical team structure.","Ask the product owner to lead the session and explain to the team what to do.","The team lead should arrange the team and contractors in working pairs."],c:["C"],m:false,e:"This team is in the storming phase, so arguments may be normal. However, they need to refocus and come together sooner rather than later. The team should collaborate, and at this stage the product owner is best qualified to offer some cohesion.",d:"ECO Task: I.10",flag:null},
+{n:295,t:"A government is ready to announce a new tax on sugary products to fund a healthcare program. The team is working on the first set of goals to secure buy-in from the industry stakeholders and launch a strong public campaign to support the mandate.\n\nIn which three ways can the project build a shared understanding of the project goals with public stakeholders? (Choose THREE.)",o:["Create partnerships between the government and industry stakeholders so that the industry is prepared to support the change.","Launch a national survey program to anticipate how individuals and businesses will react.","Announce the tax along with an advertising campaign to educate the country and individuals about the benefit.","Inform industry stakeholders that noncompliant businesses will be penalized.","Use an incremental approach by taxing products with the highest sugar content only and explain how this will improve health results over a period of time."],c:["A","C","E"],m:true,e:"Projects do NOT always bring popular changes. There are many ways to approach stakeholder buy-in to a controversial problem. Proving the value of the project incrementally is one, if you have the time. Explaining the benefits to the skeptical customer is an empathetic approach, which is also valid. And involving key stakeholders in the premise of the change and allowing them to share in its success is a third possibility. Because the change will be difficult for stakeholders, just listening or gathering data is NOT enough.",d:"ECO Task: I.10",flag:null},
+{n:296,t:"During an agile project, key stakeholders are expressing concerns about their lack of involvement. They feel disconnected from the project. The product owner agrees with these concerns and wishes to do something quickly. The iteration is coming to an end.\n\nWhat would be a good way to engage the key stakeholders at this stage?",o:["Arrange the daily stand-up on video, so all stakeholders can join the meeting.","Arrange a meeting with the key stakeholders to discuss the iteration backlog.","Invite the key stakeholders to join the next iteration planning meeting and the retrospective.","Invite the key stakeholders to participate in the iteration review."],c:["D"],m:false,e:"The best approach is to invite the stakeholders to take part in the review, as the iteration is almost completed. This is the most direct and appropriate option to involve the stakeholders.",d:"ECO Task: II.4",flag:null},
+{n:297,t:"A product team has completed 8 of 10 planned iterations for a streamlining project. While refining the backlog for iteration nine, the product owner learns about a massive, company-wide budget change and sends this email:\n\n'The budget change announced yesterday will impact our project. I may need to reprioritize some of our planned work.'\n\nHow should the team lead respond?",o:["Reply with some recommendations to reduce the scope and still run two more iterations.","Wait for the product owner to reprioritize the backlog.","Contact the finance department to find out more about the budget cut.","Disband the team, so they have time to find new assignments."],c:["B"],m:false,e:"This isn't a reason to disband the team just yet! The product owner needs to reprioritize the backlog before the team begins work. The team cannot bypass the product owner and take independent action. The recommendations to reduce scope should be well received by the product owner, but the backlog still needs to be reprioritized — by the product owner.",d:"ECO Task: I.4",flag:null},
+{n:298,t:"An agile team welcomes a new team member who is unfamiliar with the agile approach. At the weekly demo meeting, this team member becomes visibly nervous when an operations engineer, who often criticized their previous work, appears unexpectedly and gives very direct feedback about the prototype. After the meeting, the new team member leaves the room quickly.\n\nHow should the team respond?",o:["The product owner should approach the team member later in the day to find out the history of the problem.","Allow the team members to figure out their own relationships since this is a self-organizing team.","Hold a team meeting to find out from the other team members what they know about this situation.","The team lead should reiterate the ground rules at the next retrospective meeting, especially the engagement protocols and communication standards.","Facilitate a face-to-face meeting between the new team member and the operations engineer."],c:["B","D"],m:true,e:"Agile teams are self-organizing and need to negotiate healthy relationships. The team lead, as an important member of the scrum team, has a key role to play in maintaining the team's decorum and maintaining healthy relationships. Given this scenario, it is far too early to force an intervention. Self-organization is a process of finding agreeable working relationships.",d:"ECO Task: I.2",flag:null},
+{n:299,t:"A product owner is reviewing notes from the latest stakeholder meeting.\n\nWhich two note items should the product owner consider as changes to the product backlog? (Choose TWO.)",o:["Recommendation from stakeholder M to change a task in the current iteration.","Team member wrote their brilliant new idea on a yellow sticker and put it on the Kanban board.","Unprioritized user story — stakeholder B wants new and improved quality requirements!","Issue — but the team has this under control.","Bug fixes/technical debt."],c:["B","C"],m:true,e:"Include any new ideas and changes to existing content in the product backlog because they require further action. Changes to the current iteration will be handled by the team as they are working. The issue is being handled by the team, so requires no further priority or action. Bug fixes or technical debt issues are typically included in a final iteration focused on quality.",d:"ECO Task: I.7",flag:null},
+{n:300,t:"A critical project to improve a customer service process has failed. Even though all the end users were trained on the new service, they rejected the change and continued using their original process.\n\nWhich of the following actions should the team take?",o:["Escalate the lack of cooperation to the end users' functional manager.","Take note of the risks associated with the new implementation.","Engage the end user community and try to understand their concerns.","Repackage and execute the original plan."],c:["C"],m:false,e:"This team needs to understand customer needs and desires better. Their cooperation and buy-in to this critical project are the most important success factors. The risk of stakeholder rejection should already have been noted! It is too late for that risk to be managed now. Escalation is an over-reaction, and repackaging the original plan will cause the same problems to reoccur.",d:"ECO Task: II.4",flag:null}
+];
+
+let cur=0,corr=0,wrng=0,ans=0,sel=[],subm=false;
+
+function render(){
+  const q=Qs[cur];const tot=Qs.length;
+  const pct=Math.round((ans/tot)*100);
+  document.getElementById('pLbl').textContent=`Question ${q.n} of 300`;
+  document.getElementById('pPct').textContent=pct+'%';document.getElementById('pFill').style.width=pct+'%';
+  updateScore();
+  document.getElementById('bNum').textContent='Q'+q.n;
+  document.getElementById('bType').textContent=q.m?`Multi (${q.c.length})`:'Single';
+  document.getElementById('bDom').textContent=q.d;
+  const bFlag=document.getElementById('bFlag');const fb=document.getElementById('flagBanner');
+  if(q.flag){bFlag.style.display='inline-block';fb.classList.add('show');document.getElementById('flagTxt').innerHTML=`<strong>⚑ Answer Discrepancy Detected</strong><br>${q.flag.note}`;}
+  else{bFlag.style.display='none';fb.classList.remove('show');}
+  document.getElementById('qTxt').textContent=q.t;
+  const mn=document.getElementById('mNote');
+  if(q.m){mn.textContent=`★ Select ${q.c.length} answers`;mn.style.display='block';}else{mn.style.display='none';}
+  const ol=document.getElementById('optsList');ol.innerHTML='';
+  q.o.forEach((opt,i)=>{
+    const lt=L[i];const b=document.createElement('button');
+    b.className='opt';b.dataset.letter=lt;
+    b.innerHTML=`<span class="opt-lt">${lt}</span><span>${opt}</span>`;
+    b.onclick=()=>tog(lt,b);ol.appendChild(b);
+  });
+  sel=[];subm=false;
+  document.getElementById('btnSub').disabled=true;document.getElementById('btnNxt').classList.remove('show');
+  document.getElementById('explBox').classList.remove('show');document.getElementById('discNote').innerHTML='';
+  const ri=document.getElementById('resInd');ri.style.display='none';ri.className='res-ind';
+}
+
+function tog(lt,btn){
+  if(subm)return;const q=Qs[cur];
+  if(!q.m){document.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));sel=[lt];btn.classList.add('sel');}
+  else{if(sel.includes(lt)){sel=sel.filter(l=>l!==lt);btn.classList.remove('sel');}else{sel.push(lt);btn.classList.add('sel');}}
+  document.getElementById('btnSub').disabled=sel.length<(q.m?q.c.length:1);
+}
+
+function submit(){
+  if(subm)return;subm=true;const q=Qs[cur];
+  const cs=new Set(q.c),ss=new Set(sel);
+  const ok=cs.size===ss.size&&[...cs].every(l=>ss.has(l));
+  ans++;if(ok)corr++;else wrng++;
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.disabled=true;const lt=b.dataset.letter;
+    if(q.c.includes(lt)){b.classList.remove('sel');b.classList.add('cor');}
+    else if(sel.includes(lt)){b.classList.remove('sel');b.classList.add('wrg');}
+  });
+  const ri=document.getElementById('resInd');ri.style.display='block';
+  if(ok){ri.className='res-ind ok';ri.textContent='✓ Correct!';}
+  else{ri.className='res-ind no';ri.textContent=`✗ Incorrect — Correct: ${q.c.join(', ')}`;}
+  document.getElementById('explTxt').textContent=q.e;document.getElementById('explDom').textContent=q.d;
+  if(q.flag){document.getElementById('discNote').innerHTML=`<div class="disc-note"><div class="disc-note-title">⚑ PDF Exam Key Discrepancy</div>${q.flag.note}<br><strong>PDF Answer:</strong> ${q.flag.pdfAnswer}</div>`;}
+  document.getElementById('explBox').classList.add('show');
+  document.getElementById('btnSub').disabled=true;
+  const bn=document.getElementById('btnNxt');bn.textContent=cur<Qs.length-1?'Next →':'See Results →';bn.classList.add('show');
+  updateScore();
+  const pct2=Math.round((ans/Qs.length)*100);
+  document.getElementById('pPct').textContent=pct2+'%';document.getElementById('pFill').style.width=pct2+'%';
+}
+
+function updateScore(){
+  document.getElementById('sScore').textContent=`${corr}/${ans}`;
+  document.getElementById('sCorr').textContent=corr;
+  document.getElementById('sWrng').textContent=wrng;
+  document.getElementById('sAcc').textContent=ans>0?Math.round((corr/ans)*100)+'%':'—';
+}
+
+function next(){
+  cur++;
+  if(cur>=Qs.length){showResult();}
+  else{render();document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});}
+}
+
+function showResult(){
+  document.getElementById('qCard').style.display='none';document.querySelector('.prog-wrap').style.display='none';
+  const tot=Qs.length,pct=Math.round((corr/tot)*100);
+  let em,ti,su;
+  if(pct>=90){em='🏆';ti='Outstanding!';su:'Above 90% — you\'re exam-ready on business environment and advanced agile topics!';}
+  else if(pct>=75){em='💪';ti:'Strong Performance!';su:'Review flagged Q260 and any questions you missed. Focus on EI steps and stakeholder buy-in.';}
+  else if(pct>=50){em:'📚';ti:'Good Effort!';su:'Review emotional intelligence steps (self-assessment, self-management), MMF vs MVP, and agile adoption strategies.';}
+  else{em:'🔄';ti:'Keep Going!';su:'Focus on Domain III, velocity vs capacity, control charts, and knowledge transfer. You\'ve got this!';}
+  document.getElementById('rEmoji').textContent=em;document.getElementById('rTitle').textContent=ti;document.getElementById('rSub').textContent=su;
+  document.getElementById('rScore').textContent=pct+'%';
+  document.getElementById('rScore').style.color=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  document.getElementById('rCorr').textContent=corr;document.getElementById('rWrng').textContent=wrng;document.getElementById('rTot').textContent=tot;
+  const pf=document.getElementById('perfFill');pf.style.background=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  setTimeout(()=>{pf.style.width=pct+'%';},100);
+  document.getElementById('resultScr').classList.add('show');
+}
+
+function restart(){
+  cur=0;corr=0;wrng=0;ans=0;sel=[];subm=false;
+  document.getElementById('resultScr').classList.remove('show');document.getElementById('qCard').style.display='';document.querySelector('.prog-wrap').style.display='';
+  render();window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+
+function goBack() {
+  if (cur > 0) { cur--; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goSkip() {
+  if (cur < Qs.length - 1) { cur++; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

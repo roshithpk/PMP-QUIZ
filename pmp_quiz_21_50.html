@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Practice Quiz · Questions 21–50</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f1a;
+    --surface: #131826;
+    --surface2: #1a2030;
+    --border: #252d40;
+    --accent: #5b8cff;
+    --accent2: #ff7043;
+    --green: #4ade80;
+    --red: #f87171;
+    --text: #dce4f5;
+    --muted: #627090;
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px 80px;
+    background-image: radial-gradient(ellipse at 20% 0%, rgba(91,140,255,0.07) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 100%, rgba(255,112,67,0.06) 0%, transparent 60%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .header {
+    width: 100%;
+    max-width: 760px;
+    padding: 40px 0 28px;
+  }
+
+  .header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .header-eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .header-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 5vw, 40px);
+    color: var(--text);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* Progress */
+  .progress-bar-wrap {
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+  }
+
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .progress-track {
+    height: 3px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #a78bfa);
+    border-radius: 100px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* Score strip */
+  .score-strip {
+    width: 100%;
+    max-width: 760px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .score-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .score-chip-label {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .score-chip-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .score-chip-val.correct { color: var(--green); }
+  .score-chip-val.wrong { color: var(--red); }
+  .score-chip-val.neutral { color: var(--accent); }
+
+  /* Card */
+  .question-card {
+    width: 100%;
+    max-width: 760px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    animation: cardIn 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-top {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-top-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .q-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    background: rgba(91,140,255,0.1);
+    border: 1px solid rgba(91,140,255,0.25);
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+
+  .q-type-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--accent2);
+    background: rgba(255,112,67,0.1);
+    border: 1px solid rgba(255,112,67,0.25);
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+
+  .q-domain-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: #a78bfa;
+    background: rgba(167,139,250,0.08);
+    border: 1px solid rgba(167,139,250,0.2);
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+
+  .q-text {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: 400;
+    white-space: pre-line;
+  }
+
+  /* Multi note */
+  .multi-note {
+    font-size: 12px;
+    color: var(--accent2);
+    font-family: 'DM Mono', monospace;
+    padding: 10px 28px 0;
+    display: none;
+  }
+
+  /* Options */
+  .options-list {
+    padding: 18px 28px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 15px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14.5px;
+    line-height: 1.55;
+    width: 100%;
+  }
+
+  .option-btn:hover:not(:disabled) {
+    border-color: rgba(91,140,255,0.45);
+    background: rgba(91,140,255,0.05);
+    transform: translateX(3px);
+  }
+
+  .option-btn:disabled { cursor: default; transform: none; }
+
+  .option-btn.selected {
+    border-color: var(--accent);
+    background: rgba(91,140,255,0.08);
+  }
+
+  .option-btn.correct {
+    border-color: var(--green);
+    background: rgba(74,222,128,0.07);
+  }
+
+  .option-btn.wrong {
+    border-color: var(--red);
+    background: rgba(248,113,113,0.07);
+  }
+
+  .option-letter {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .option-btn.selected .option-letter { background: var(--accent); color: #fff; }
+  .option-btn.correct .option-letter { background: var(--green); color: #0b0f1a; }
+  .option-btn.wrong .option-letter { background: var(--red); color: #0b0f1a; }
+
+  /* Result indicator */
+  .result-indicator {
+    padding: 0 28px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: none;
+  }
+  .result-indicator.correct-msg { color: var(--green); }
+  .result-indicator.wrong-msg { color: var(--red); }
+
+  /* Explanation */
+  .explanation-box {
+    margin: 0 28px 22px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    background: rgba(91,140,255,0.05);
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #9aafd4;
+    display: none;
+  }
+
+  .explanation-box.show { display: block; animation: fadeIn 0.3s ease; }
+
+  .expl-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 7px;
+  }
+
+  .expl-domain {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(91,140,255,0.4);
+    margin-top: 9px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Actions */
+  .card-actions {
+    padding: 0 28px 28px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn-submit {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.12s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-submit:hover:not(:disabled) { opacity: 0.85; transform: translateY(-1px); }
+  .btn-submit:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+  .btn-next {
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    display: none;
+  }
+
+  .btn-next.show { display: block; }
+  .btn-next:hover { border-color: var(--accent); background: rgba(91,140,255,0.06); }
+
+  /* Result screen */
+  .result-screen {
+    width: 100%;
+    max-width: 760px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 52px 40px;
+    text-align: center;
+    display: none;
+    animation: cardIn 0.4s ease;
+  }
+
+  .result-screen.show { display: block; }
+
+  .result-emoji { font-size: 60px; margin-bottom: 18px; }
+
+  .result-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+
+  .result-sub {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.65;
+  }
+
+  .result-score-big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 80px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .result-score-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .perf-bar {
+    width: 220px;
+    margin: 0 auto 32px;
+    height: 5px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .perf-bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.4,0,0.2,1) 0.3s;
+  }
+
+  .result-breakdown {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .rb-item { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+  .rb-val { font-family: 'DM Serif Display', serif; font-size: 30px; }
+  .rb-lbl { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 0.08em; }
+
+  .btn-restart {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn-restart:hover { opacity: 0.85; }
+
+  @media (max-width: 520px) {
+    .card-top, .options-list, .card-actions { padding-left: 16px; padding-right: 16px; }
+    .explanation-box { margin-left: 16px; margin-right: 16px; }
+    .score-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── Back / Skip nav buttons ── */
+  .btn-nav {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .btn-nav:hover { border-color: var(--a, var(--accent, #aaa)); color: var(--txt); }
+  .btn-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">PMP® Examination Prep · Batch 2</div>
+  <h1 class="header-title">Practice Questions 21–50</h1>
+  <p class="header-sub">Domain I: People · Answer is hidden until you submit</p>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-meta">
+    <span id="progressLabel">Question 21 of 50</span>
+    <span id="progressPct">0%</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+</div>
+
+<div class="score-strip">
+  <div class="score-chip">
+    <span class="score-chip-label">Score</span>
+    <span class="score-chip-val neutral" id="scoreDisplay">0/0</span>
+  </div>
+  <div class="score-chip">
+    <span class="score-chip-label">Correct</span>
+    <span class="score-chip-val correct" id="correctCount">0</span>
+  </div>
+  <div class="score-chip">
+    <span class="score-chip-label">Wrong</span>
+    <span class="score-chip-val wrong" id="wrongCount">0</span>
+  </div>
+  <div class="score-chip">
+    <span class="score-chip-label">Accuracy</span>
+    <span class="score-chip-val neutral" id="accuracyDisplay">—</span>
+  </div>
+</div>
+
+<div class="question-card" id="questionCard">
+  <div class="card-top">
+    <div class="card-top-badges">
+      <span class="q-number" id="qNumBadge">Q21</span>
+      <span class="q-type-badge" id="qTypeBadge">Single</span>
+      <span class="q-domain-badge" id="qDomainBadge">Domain I</span>
+    </div>
+    <p class="q-text" id="questionText"></p>
+  </div>
+  <p class="multi-note" id="multiNote"></p>
+  <div class="options-list" id="optionsList"></div>
+  <div class="result-indicator" id="resultIndicator"></div>
+  <div class="explanation-box" id="explanationBox">
+    <div class="expl-label">Explanation</div>
+    <div id="explanationText"></div>
+    <div class="expl-domain" id="domainText"></div>
+  </div>
+  <div class="card-actions">
+    <button class="btn-nav" id="btnBack" onclick="goBack()">← Back</button>
+    <button class="btn-nav" id="btnSkip" onclick="goSkip()">Skip →</button>
+    <button class="btn-submit" id="btnSubmit" disabled onclick="submitAnswer()">Submit Answer</button>
+    <button class="btn-next" id="btnNext" onclick="nextQuestion()">Next Question →</button>
+  </div>
+</div>
+
+<div class="result-screen" id="resultScreen">
+  <div class="result-emoji" id="resultEmoji">🏆</div>
+  <h2 class="result-title" id="resultTitle">Quiz Complete!</h2>
+  <p class="result-sub" id="resultSub"></p>
+  <div class="result-score-big" id="resultScoreBig">—</div>
+  <div class="result-score-label">Final Score (Questions 21–50)</div>
+  <div class="perf-bar"><div class="perf-bar-fill" id="perfBarFill"></div></div>
+  <div class="result-breakdown">
+    <div class="rb-item"><span class="rb-val" style="color:var(--green)" id="rbCorrect">0</span><span class="rb-lbl">Correct</span></div>
+    <div class="rb-item"><span class="rb-val" style="color:var(--red)" id="rbWrong">0</span><span class="rb-lbl">Wrong</span></div>
+    <div class="rb-item"><span class="rb-val" style="color:var(--accent)" id="rbTotal">30</span><span class="rb-lbl">Total</span></div>
+  </div>
+  <button class="btn-restart" onclick="restartQuiz()">↺ Restart Quiz</button>
+</div>
+
+<script>
+const LETTERS = ['A','B','C','D','E'];
+
+const questions = [
+  {
+    num: 21,
+    text: "Leaders of high-performing project teams __________ team members' skills and knowledge and keep team members __________ throughout the project.\n\nFill in the blanks with the correct set of responses.",
+    options: ["nurture, motivated", "reward, scheduled", "identify, aware", "leverage, rewarded"],
+    correct: ["A"],
+    multi: false,
+    explanation: "The primary goal of a project manager in relation to supporting a high-performing project team is to ensure that the team has the right skills and knowledge to complete the work and to keep them motivated to do their best work. These actions potentially optimize project outcomes.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 22,
+    text: "A project manager is having difficulty obtaining consistent input from stakeholders and needs their input to identify assumptions and constraints.\n\nHow can the project manager improve stakeholder engagement?",
+    options: [
+      "Use political awareness techniques.",
+      "Institute checklist policies.",
+      "Research effective meeting management techniques.",
+      "Make use of effective facilitation techniques."
+    ],
+    correct: ["D"],
+    multi: false,
+    explanation: "Facilitation is the ability to effectively guide a group event to a successful decision, solution, or conclusion. A facilitator ensures effective participation, mutual understanding, that all contributions are considered, and that conclusions have full buy-in.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 23,
+    text: "The agile team is composed of highly skilled product design engineers. Their reputation for quality and speed has earned them new duties in concept development for new products, but team output in this new role has fallen steeply compared to their design work.\n\nWhich two measures are most effective to improve team productivity in this case? (Choose TWO.)",
+    options: [
+      "Plan a creativity spike in the next iteration.",
+      "Seek creative thinkers to mentor the team.",
+      "Prolong the iterations to adjust to new tasks.",
+      "Hire more T-shaped profiles into the team.",
+      "Boost motivation with a team building event."
+    ],
+    correct: ["B", "D"],
+    multi: true,
+    explanation: "The key problem is that specialists are outside of their comfort zone. Mentoring and diversifying the team so that it is more cross-functional is the most efficient measure. Relying on the team's existing skill set (creativity spike, motivation boost) or prolonging iterations will NOT address the root problem of specialization.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 24,
+    text: "The agile team excels at solving technical problems, but when the product owner requests creative or business-related ideas, the team falls silent.\n\nIs this a problem?",
+    options: [
+      "Yes, specialist teams are prone to higher error rates.",
+      "No, specialist teams are more effective than generalists.",
+      "Yes, lack of diversity will limit the team's adaptability.",
+      "No, the team performs better without useless distractions."
+    ],
+    correct: ["C"],
+    multi: false,
+    explanation: "T-shaped skills are desirable in agile team members. Having a broad set of skills enables people to work more independently and with greater ability to adapt to changing needs. A team without diverse skills lacks adaptability.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 25,
+    text: "A project manager experienced in predictive methods is taking on an agile project for the first time. To help in making a successful transition, the project manager makes a list of situations that may arise from inadequate action as a servant leader.\n\nWhich three situations would be on this list? (Choose THREE.)",
+    options: [
+      "Team members avoid taking on challenging tasks.",
+      "Team members avoid direct communication with other departments.",
+      "Team members raise impediments they are unable to eliminate.",
+      "High performers in the team move to more senior positions.",
+      "Project stakeholders express skepticism of agile methods."
+    ],
+    correct: ["A", "B", "E"],
+    multi: true,
+    explanation: "Servant leaders must promote professional development through challenges and help team members build bridges with external groups. They also educate stakeholders on the business value of agile methodology. Options A, B, and E represent failures of servant leadership.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 26,
+    text: "An agile team needs to decide who should represent them in the Scrum of Scrums.\n\nWhich criteria should a project manager use to select the best-suited team member?",
+    options: [
+      "How well the member knows the work in the other teams.",
+      "How well the member applies their depth of expertise.",
+      "How convincing the member is as a public speaker.",
+      "How long they have been working with Agile methods."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "The most important factor to effectively collaborate between teams in a Scrum of Scrums is to understand the work across all teams. This knowledge promotes effective coordination to identify and resolve dependencies and impediments.",
+    domain: "ECO Domain Task: I.12"
+  },
+  {
+    num: 27,
+    text: "While monitoring progress of the agile team, the project manager notices that an expert member's output is much lower compared with that of junior team members. This is a surprise, as the expert works diligently on the most complex tasks and always produces defect-free results.\n\nWhich is the most likely explanation for the developer's low output?",
+    options: [
+      "The expert works faster and reports fewer hours than the junior members.",
+      "Younger team members are normally more productive.",
+      "The story point estimates on the expert's work are consistently too low.",
+      "The expert runs more tests and therefore completes fewer stories."
+    ],
+    correct: ["C"],
+    multi: false,
+    explanation: "Story point estimates are used to measure progress in an agile project, and actual hours worked would NOT be apparent unless readjusted. If the expert's complex work is under-estimated in story points, their output will appear low despite high actual effort.",
+    domain: "ECO Domain Task: I.10"
+  },
+  {
+    num: 28,
+    text: "The Project Management Office wants to offer constant reporting across dozens of agile projects running concurrently. They want to use information radiators to share progress status and key lessons learned.\n\nHow can this best be achieved?",
+    options: [
+      "Place monitors displaying combined feature burn-up charts and a digest of retrospectives.",
+      "Use fishbowl windows to show all project teams' Kanban boards and charts in real time.",
+      "Place webcams to broadcast all Kanban boards and cycle the images sequentially on the radiator.",
+      "Set up an internal Wiki page which all agile teams update in real time and users consult on demand."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "The feature burn-up chart can be used as a common measure of progress, and lessons learned are recorded in retrospectives. Information radiators are physical displays used to share up-to-date information. They are NOT live cams (fishbowl/webcam), and the information should be visible at a glance, not on-demand (Wiki).",
+    domain: "ECO Domain Task: I.10"
+  },
+  {
+    num: 29,
+    text: "The last three agile iterations showed a trend of increasingly prolonged test work.\n\nWhich activity should the project manager plan to address the root cause?",
+    options: [
+      "Adopt test automation tools.",
+      "Plan an iteration of testing only.",
+      "Practice a paired testing policy.",
+      "Plan more backlog refinement."
+    ],
+    correct: ["D"],
+    multi: false,
+    explanation: "Overly complex stories can cause prolonged periods of testing. Backlog refinement is used to break down complex stories into smaller, more manageable packages — addressing the root cause directly.",
+    domain: "ECO Domain Task: I.10"
+  },
+  {
+    num: 30,
+    text: "After three agile iterations showed a trend of increasingly prolonged test work, the team performed an intensive backlog refinement.\n\nWhat metrics would show that the problem was effectively addressed?",
+    options: [
+      "Increase in value per story.",
+      "Speed of impediment resolution.",
+      "Stories completed per iteration.",
+      "Decrease in backlog item count."
+    ],
+    correct: ["C"],
+    multi: false,
+    explanation: "Refinement results in smaller, less complex stories, which allows the team to complete them faster. More stories completed per iteration directly shows that the prolonged testing issue has been resolved.",
+    domain: "ECO Domain Task: I.10"
+  },
+  {
+    num: 31,
+    text: "The project manager receives a progress report showing that the agile project is NOT on track. Since all work was deliberately selected and sequenced to meet higher-level objectives, the project manager is surprised by the report.\n\nIn the future, how can the project manager prevent this type of miscommunication?",
+    options: [
+      "Support self-organization for the project team and help them provide buy-in for the project.",
+      "Ensure that there is a contingency reserve to cover these issues.",
+      "Ensure that the team is trained to use the agile process reporting system.",
+      "Provide early training and ongoing mentoring about the agile approach for the project team."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "For agile projects, rather than a project manager selecting and sequencing work, higher-level objectives are explained and team members are empowered to self-organize. This leads to practical plans with high levels of buy-in, and ensures the team's understanding of progress aligns with reality.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 32,
+    text: "Project team members are concerned that a new resource does NOT seem suitable for an assigned task.\n\nHow should the project manager respond to this concern?",
+    options: [
+      "Contact senior management to discuss the possibility of reassigning the new resource to a different project.",
+      "Schedule time to chat with the new resource to re-assess their skills and understand their strength level.",
+      "Ask the team members to document task-related deficiencies displayed by the resource.",
+      "Contact the project sponsor to highlight these concerns and decide on an appropriate response."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "The project manager should talk to the new member to re-assess their skills and understand their strengths, to see if they meet the needs for the project. The opinions of other team members, even if correct, are NOT a direct cause for action — always investigate first.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 33,
+    text: "A cross-functional team on Project B reports a delay in developing a prototype. The project manager believes that the cause is lack of knowledge in a specific, required skill on the team.\n\nIn which three ways can the project manager prevent this situation on future projects? (Choose THREE.)",
+    options: [
+      "Ask the team leader to recommend a solution.",
+      "Identify required skills and organize the team based on the strength of those skills.",
+      "Make a list of required, specific skills for the project.",
+      "Outsource the task to a skilled expert.",
+      "Identify the skill deficiency as a project risk."
+    ],
+    correct: ["B", "C", "D"],
+    multi: true,
+    explanation: "Developing the team and proactively strengthening individual team members' skills is an important part of servant leadership. The project manager needs to know the required skill sets, organize the team accordingly, and have the ability to outsource work when needed.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 34,
+    text: "A project manager notices that team member A seems more unhappy after every team meeting. After looking into the situation, the project manager finds out that team member A is not making progress on a key activity. This has an impact on the critical path. Team member A also feels that they are NOT in the correct role within the project team.\n\nWhat should the project manager do?",
+    options: [
+      "Reassure team member A about their abilities by reminding them that they were chosen for a reason.",
+      "Meet with team member A to discuss where they can contribute, based on their strengths.",
+      "Enroll team member A in targeted training to acquire the needed skills for their assigned role.",
+      "Reassign team member A to a more appropriate role in another project."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "Meeting with team member A to find out if they are correctly placed in a project role is the best response. The individual may be right that they're in the wrong role. As a servant leader, you can help them find the correct role. The other responses miss addressing the team member's core concern.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 35,
+    text: "A customer requests a change in the technical approach for a product in development. The project manager learns about this request during a recurring project review.\n\nHow should the project manager respond?",
+    options: [
+      "Work with team members to immediately implement the new approach.",
+      "Let the team decide on the appropriate approach, giving them authority to implement and validate their decision in talks with stakeholders.",
+      "Discuss the pros and cons of the proposed approach with stakeholders, then select the approach that is best for the team and notify team members.",
+      "In order to obtain sponsor buy-in, allow the team to benchmark the approach."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "As this is a technical issue, the project manager should discuss the request with the team and empower them to assess and select the best options to solve the customer's request and communicate it with them.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 36,
+    text: "A project manager receives complaints from a project sponsor because of a delay in developing a prototype. The project manager consults the resource management plan and responds that the delay was due to a lack of knowledge in a specific skill needed by the cross-functional project team.\n\nHow can the project manager perform this task better in the future?",
+    options: [
+      "Create training sessions at the start of the project, so all necessary skills are learned.",
+      "List required skills for the project and organize the project team based on those skills.",
+      "Consult with the project sponsor to add training once the lack of a specific skill becomes apparent.",
+      "Empower team members to problem solve where skills may be lacking, using the skills they do have."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "Develop the resource management plan by defining the roles and responsibilities of the project team members, creating a project organizational structure, and providing guidance regarding how resources will be assigned and managed based on required skills.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 37,
+    text: "Most of an agile team's members are away for a month, but the project needs to make progress. The project manager outsources the work to overseas contractors to work remotely on the stories. In their first sprint, the overseas team did NOT understand certain usability requirements, but still managed to complete five (5) stories that were previously blocked because the original team could NOT handle the algorithmic complexity of the work.\n\nWhat should the project manager do in this situation to make progress on the project?",
+    options: [
+      "Engage an interpreter to translate all the requirements.",
+      "Assign all the usability stories to the remaining local team member.",
+      "Reprioritize the backlog to match the remote team's skills.",
+      "Find another remote team with better linguistic skills."
+    ],
+    correct: ["C"],
+    multi: false,
+    explanation: "The project manager should notice that the remote team has a higher specialist skill level in algorithmic work and seek to leverage their talent. Reprioritizing the backlog to match their skills fills the skill gaps of the local team most effectively.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 38,
+    text: "A project manager wants to know whether an agile team possesses a good combination of T-shaped skills.\n\nWhat can the project manager measure to determine this?",
+    options: [
+      "Decrease in detected defects.",
+      "Reduction in reassigned tasks.",
+      "Less internal knowledge sharing.",
+      "More collaboration with SMEs."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "By including T-shaped members, teams can collaborate better to complete work, and members will NOT need to reassign tasks to others. A reduction in reassigned tasks is therefore the key indicator of T-shaped skill effectiveness.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 39,
+    text: "An agile team member solved a problem that had blocked work for several weeks. After release of the software, it appears that the solution caused a function to fail. The quality director demands an explanation.\n\nIn which two ways should the project manager react? (Choose TWO.)",
+    options: [
+      "Ask the team member to present his rationale and lessons learned.",
+      "Work with the team to identify gaps in the Definition of Done.",
+      "Issue a warning to the team member about NOT taking risky initiatives.",
+      "Work with the team to identify gaps in the Definition of Ready.",
+      "Respond to the director that mistakes are inevitable but will be remedied."
+    ],
+    correct: ["A", "B"],
+    multi: true,
+    explanation: "Agile teams must have accountability for the results of their work. Valuable lessons learned and context of the error are shared. The team will have to collaborate on ways to prevent the problem by updating the Definition of Done — adding checks on external conditions.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 40,
+    text: "A recently formed agile team is exhausted after working 12-hour days to fulfill sprint commitments.\n\nWho has NOT properly performed their duties in this situation?",
+    options: ["Project manager", "Team members", "Product owner", "Scrum master"],
+    correct: ["D"],
+    multi: false,
+    explanation: "The Scrum master has the role of ensuring that the team's working conditions, including workload, are appropriate and sustainable. An unsustainable pace is a direct failure of the Scrum master's duty.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 41,
+    text: "The product owner's schedule is very busy, and he wishes to delegate some of his tasks to the experienced agile team.\n\nWhich task is suitable to delegate to the agile team?",
+    options: [
+      "Prioritize items to the backlog according to size.",
+      "Initiate and run backlog refinement sessions.",
+      "Select prioritized items for the sprint backlog.",
+      "Add items to the backlog before prioritization."
+    ],
+    correct: ["D"],
+    multi: false,
+    explanation: "The product owner typically has sole authority to prioritize and plan the backlog according to business needs. Refinement also requires prioritization. However, adding items to the backlog before prioritization can be delegated — the product owner would prioritize at a later time.",
+    domain: "ECO Domain Task: I.8"
+  },
+  {
+    num: 42,
+    text: "A project is in the execution stage, and a change in the market pushes stakeholders to make the due date earlier. The project manager rapidly assigns skilled resources to build and establish the team.\n\nWhich of the following would NOT be included in the project manager's next steps?",
+    options: [
+      "Assess required skills for the project.",
+      "Plan suitable interactions for the team.",
+      "Train the new team.",
+      "Create a project schedule."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "Skill assessment for the project precedes resource assignment. Since resources have already been assigned, assessing skills is no longer a next step. Once the project team is established, the project manager can focus on developing them — interactions, training, and scheduling.",
+    domain: "ECO Domain Task: I.4"
+  },
+  {
+    num: 43,
+    text: "Project A is experiencing schedule performance issues. After assessing the issues, the project manager determines that project resources have low expertise levels. Specifically, a few of the senior-level resources perform irrelevant work, and some inexperienced resources take too much time to complete tasks.\n\nWhich action should the project manager take to enhance team performance?",
+    options: [
+      "Implement training where necessary and make work requirements more visible for all team members.",
+      "Reassign the senior-level resources as coaches and mentors to the inexperienced ones.",
+      "Give the junior team members incentives to work faster; send an email to the senior-level resources.",
+      "Remind the entire team of project goals, schedules, roles, and timelines during the next team meeting."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "The project manager must ensure the junior members are properly trained and ensure that all team members are doing the work they are supposed to be doing. Implementing training and keeping everyone's work visible is the most comprehensive option to achieve both goals.",
+    domain: "ECO Domain Task: I.4"
+  },
+  {
+    num: 44,
+    text: "Several new members are added to an ongoing project. Although all original team members received basic training on the specifics of the business operation that the project supports, the new members do NOT have the same basic understanding. This lack of understanding results in decreased productivity.\n\nHow should the project manager respond to this issue?",
+    options: [
+      "Ask the original team members to provide support and training and schedule a second kickoff meeting for new team members.",
+      "Assure all new team members that they should feel comfortable asking for help from both the long-term members and project manager.",
+      "Revise the team, so that the newer resources are moved to other projects and resources with relevant experience are added, then log lessons learned.",
+      "Recognize that this is a common occurrence when teams experience changes and revise the schedule to allow for the slight decrease in productivity."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "It is the project manager's responsibility to make sure that the new members are adequately trained. Assuring new team members they can freely ask for help from both long-term members and the project manager is the best approach to address the training gap.",
+    domain: "ECO Domain Task: I.4"
+  },
+  {
+    num: 45,
+    text: "A team decides that an agile approach fits the needs of the next phase in their project. Unfortunately, some team members have NOT had the appropriate agile training.\n\nHow should the project manager respond to the lack of agile training?",
+    options: [
+      "Transition some of these team members to other teams and replace them with resources with agile training.",
+      "Ensure the project's contingency reserve can cover agile training for all team members.",
+      "Create virtual training sessions for key team members, covering the main agile topics.",
+      "Identify and implement the most cost-effective agile training for the team members."
+    ],
+    correct: ["D"],
+    multi: false,
+    explanation: "Training for project team members can result in added skills useful for future phases or projects. The project manager should identify and implement agile training. Training lessons and related costs should be evaluated and included in the resource management plan and cost and schedule baselines.",
+    domain: "ECO Domain Task: I.4"
+  },
+  {
+    num: 46,
+    text: "A project team has been efficiently delivering results. The product upgrade they are working on must be released in three months or else a competitor's new product will make theirs obsolete. The product owner makes a sudden request for a feature revision. However, no one on the project team is capable of doing the work. The project sponsor is willing to extend the budget but CANNOT extend the schedule.\n\nWhat should the project manager do?",
+    options: [
+      "Meet the new demand by adding new resources with the required skills.",
+      "Recommend suspending the project until a firm decision can be made.",
+      "Discuss options with the project sponsor and choose the best one.",
+      "Challenge the request and initiate customer research to determine whether the new feature is desirable."
+    ],
+    correct: ["A"],
+    multi: false,
+    explanation: "In situations with time constraints, the most efficient option is expanding the team to include skilled resources. The project sponsor has already approved budget extension and made their request, so it is up to the project manager to realize it.",
+    domain: "ECO Domain Task: I.4"
+  },
+  {
+    num: 47,
+    text: "Some agile approaches have recently been added to an infrastructure company's predictive processes. The team is NOT completing the planned story points, and they are becoming passive. The project manager is concerned and wants to improve productivity.\n\nWhich two actions should the project manager take? (Choose TWO.)",
+    options: [
+      "Provide team training, so the team can do a better job of estimating story points.",
+      "Speed up the project by reducing the backlog.",
+      "Gain the needed time for story point completion by adding more iterations to the project.",
+      "Use burndown and burnup charts to evaluate team performance and show story points completion."
+    ],
+    correct: ["A", "D"],
+    multi: true,
+    explanation: "Training can be a great way to empower team members to grow their skillsets and create consistency in story point estimation techniques. Burndown charts show the remaining story points and burnup charts show story point completion — both help visualize and address the performance gap.",
+    domain: "ECO Domain Task: I.4"
+  },
+  {
+    num: 48,
+    text: "An agile approach is required during the final phase in a team's project. As the team discusses the phase, some team members disclose that they have NOT worked with agile before. The deadline is approaching soon.\n\nHow should the project manager respond?",
+    options: [
+      "File a change request that addresses the agile training that members lack.",
+      "Escalate this as an issue to the project sponsor, as it is a company-wide issue and a blocker for this project.",
+      "Ask the team members who have worked with agile to mentor the others.",
+      "Identify and provide the most cost-effective agile training for team members."
+    ],
+    correct: ["D"],
+    multi: false,
+    explanation: "Providing training to project team members can result in added skills useful for future phases. With a firm schedule, mentoring may NOT allow enough time to transfer skills while getting project work done. This is also the project manager's issue to deal with, not the project sponsor's.",
+    domain: "ECO Domain Task: I.4"
+  },
+  {
+    num: 49,
+    text: "A project has the following characteristics:\n• Schedule performance issues occur due to low expertise levels of project resources.\n• Junior-level resources are NOT completing tasks in a timely manner.\n• Highly-experienced resources report that their junior colleagues are performing unnecessary tasks.\n\nIn what two ways can the project manager enhance the performance of this team? (Choose TWO.)",
+    options: [
+      "Meet with the team leader to discuss the situation and decide if escalation to the project sponsor is necessary.",
+      "Implement a whole-team training program to address efficient working and task completion.",
+      "Work collaboratively with the team to design training and a checklist for task completion aligned with project goals.",
+      "Design a checklist for all team members.",
+      "Set up mentoring sessions within the team so that the experienced resources can coach the junior resources and work collaboratively."
+    ],
+    correct: ["C", "E"],
+    multi: true,
+    explanation: "Project managers should attempt to resolve issues using available tools and techniques prior to changing the plan or escalating. Providing targeted training with a checklist ensures each team member checks only what needs to be checked. Mentoring leverages experienced resources to coach junior ones.",
+    domain: "ECO Domain Task: I.4"
+  },
+  {
+    num: 50,
+    text: "During Project A's kickoff phase, the project manager provided training for the entire team regarding the specifics of the company operations that the project supports.\n\nA year later, project productivity is suffering because members who were added later in the project do NOT have the same level of understanding.\n\nHow should the project manager respond to this challenge?",
+    options: [
+      "Tell the newer team members to ask for help from the long-term members when they run into things they do not understand.",
+      "Ask current team members to provide training and support and hold a second kick-off meeting for new team members.",
+      "Add new members who have the relevant experience, reassign the newer team members, and log turnover issues in the lessons learned register.",
+      "Recognize that this is a natural project progression and revise the schedule to allow for the slight decrease in productivity."
+    ],
+    correct: ["B"],
+    multi: false,
+    explanation: "It is the project manager's responsibility to make sure that the new members are adequately trained. Asking current team members to provide training and support, and holding a second kickoff meeting for new members, directly addresses the knowledge gap.",
+    domain: "ECO Domain Task: I.4"
+  }
+];
+
+let current = 0;
+let correct = 0;
+let wrong = 0;
+let answered = 0;
+let selectedOptions = [];
+let submitted = false;
+
+function render() {
+  const q = questions[current];
+  const total = questions.length;
+  const globalQ = q.num;
+
+  // Progress
+  const pct = Math.round((answered / total) * 100);
+  document.getElementById('progressLabel').textContent = `Question ${globalQ} of 50`;
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+
+  // Score
+  updateScoreDisplay();
+
+  // Badges
+  document.getElementById('qNumBadge').textContent = `Q${globalQ}`;
+  document.getElementById('qTypeBadge').textContent = q.multi ? `Multi (${q.correct.length})` : 'Single';
+  document.getElementById('qDomainBadge').textContent = q.domain.split(':')[1]?.trim() || 'Domain I';
+  document.getElementById('questionText').textContent = q.text;
+
+  // Multi note
+  const multiNote = document.getElementById('multiNote');
+  if (q.multi) {
+    multiNote.textContent = `★ Select ${q.correct.length} answers`;
+    multiNote.style.display = 'block';
+  } else {
+    multiNote.style.display = 'none';
+  }
+
+  // Options
+  const list = document.getElementById('optionsList');
+  list.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const letter = LETTERS[i];
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.innerHTML = `<span class="option-letter">${letter}</span><span>${opt}</span>`;
+    btn.onclick = () => toggleOption(letter, btn);
+    btn.dataset.letter = letter;
+    list.appendChild(btn);
+  });
+
+  // Reset
+  selectedOptions = [];
+  submitted = false;
+  document.getElementById('btnSubmit').disabled = true;
+  document.getElementById('btnNext').classList.remove('show');
+  document.getElementById('explanationBox').classList.remove('show');
+  const ri = document.getElementById('resultIndicator');
+  ri.style.display = 'none';
+  ri.className = 'result-indicator';
+}
+
+function toggleOption(letter, btn) {
+  if (submitted) return;
+  const q = questions[current];
+
+  if (!q.multi) {
+    document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    selectedOptions = [letter];
+    btn.classList.add('selected');
+  } else {
+    if (selectedOptions.includes(letter)) {
+      selectedOptions = selectedOptions.filter(l => l !== letter);
+      btn.classList.remove('selected');
+    } else {
+      selectedOptions.push(letter);
+      btn.classList.add('selected');
+    }
+  }
+
+  document.getElementById('btnSubmit').disabled = selectedOptions.length < (q.multi ? q.correct.length : 1);
+}
+
+function submitAnswer() {
+  if (submitted) return;
+  submitted = true;
+  const q = questions[current];
+
+  const correctSet = new Set(q.correct);
+  const selectedSet = new Set(selectedOptions);
+  const isCorrect = correctSet.size === selectedSet.size && [...correctSet].every(l => selectedSet.has(l));
+
+  answered++;
+  if (isCorrect) correct++; else wrong++;
+
+  // Highlight
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.disabled = true;
+    const letter = btn.dataset.letter;
+    if (q.correct.includes(letter)) {
+      btn.classList.remove('selected');
+      btn.classList.add('correct');
+    } else if (selectedOptions.includes(letter)) {
+      btn.classList.remove('selected');
+      btn.classList.add('wrong');
+    }
+  });
+
+  // Result indicator
+  const ri = document.getElementById('resultIndicator');
+  ri.style.display = 'block';
+  if (isCorrect) {
+    ri.className = 'result-indicator correct-msg';
+    ri.textContent = '✓ Correct!';
+  } else {
+    ri.className = 'result-indicator wrong-msg';
+    ri.textContent = `✗ Incorrect — Correct answer: ${q.correct.join(', ')}`;
+  }
+
+  // Explanation
+  document.getElementById('explanationText').textContent = q.explanation;
+  document.getElementById('domainText').textContent = q.domain;
+  document.getElementById('explanationBox').classList.add('show');
+
+  // Buttons
+  document.getElementById('btnSubmit').disabled = true;
+  const btnNext = document.getElementById('btnNext');
+  btnNext.textContent = current < questions.length - 1 ? 'Next Question →' : 'See Results →';
+  btnNext.classList.add('show');
+
+  updateScoreDisplay();
+
+  // Progress
+  const pct = Math.round((answered / questions.length) * 100);
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+}
+
+function updateScoreDisplay() {
+  document.getElementById('scoreDisplay').textContent = `${correct}/${answered}`;
+  document.getElementById('correctCount').textContent = correct;
+  document.getElementById('wrongCount').textContent = wrong;
+  document.getElementById('accuracyDisplay').textContent = answered > 0 ? Math.round((correct / answered) * 100) + '%' : '—';
+}
+
+function nextQuestion() {
+  current++;
+  if (current >= questions.length) {
+    showResult();
+  } else {
+    render();
+    document.getElementById('questionCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function showResult() {
+  document.getElementById('questionCard').style.display = 'none';
+  document.querySelector('.progress-bar-wrap').style.display = 'none';
+
+  const total = questions.length;
+  const pct = Math.round((correct / total) * 100);
+
+  let emoji, title, sub;
+  if (pct >= 90) { emoji = '🏆'; title = 'Exceptional!'; sub = "Above 90% — you're in exam-ready territory. Keep this momentum!"; }
+  else if (pct >= 75) { emoji = '💪'; title = 'Great Work!'; sub = "Solid performance. Review the ones you missed and push for 90%+."; }
+  else if (pct >= 50) { emoji = '📚'; title = 'Good Effort!'; sub = "Review the explanations carefully, especially on agile team dynamics and resource management."; }
+  else { emoji = '🔄'; title = 'Keep Going!'; sub = "Focus on servant leadership, T-shaped skills, and agile ceremonies. You'll get there!"; }
+
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultSub').textContent = sub;
+  document.getElementById('resultScoreBig').textContent = pct + '%';
+
+  const scoreEl = document.getElementById('resultScoreBig');
+  scoreEl.style.color = pct >= 90 ? 'var(--green)' : pct >= 75 ? 'var(--accent)' : 'var(--red)';
+
+  document.getElementById('rbCorrect').textContent = correct;
+  document.getElementById('rbWrong').textContent = wrong;
+  document.getElementById('rbTotal').textContent = total;
+
+  const fill = document.getElementById('perfBarFill');
+  fill.style.background = pct >= 90 ? 'var(--green)' : pct >= 75 ? 'var(--accent)' : 'var(--red)';
+  setTimeout(() => { fill.style.width = pct + '%'; }, 100);
+
+  document.getElementById('resultScreen').classList.add('show');
+}
+
+function restartQuiz() {
+  current = 0; correct = 0; wrong = 0; answered = 0;
+  selectedOptions = []; submitted = false;
+  document.getElementById('resultScreen').classList.remove('show');
+  document.getElementById('questionCard').style.display = '';
+  document.querySelector('.progress-bar-wrap').style.display = '';
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+render();
+
+function goBack() {
+  if (current > 0) { current--; render(); }
+  document.getElementById('questionCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goSkip() {
+  if (current < questions.length - 1) { current++; render(); }
+  document.getElementById('questionCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

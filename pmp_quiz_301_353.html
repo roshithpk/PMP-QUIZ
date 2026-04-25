@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Quiz · Q301–353 · Final Batch</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080c;--s1:#0a1018;--s2:#0f1620;--bd:#17263a;
+  --a:#f0c060;--a2:#60c0f0;--a3:#c060f0;
+  --green:#22c55e;--red:#ef4444;--orange:#f97316;
+  --txt:#d8e8f8;--muted:#456070;--r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 14px 80px;
+  background-image:radial-gradient(ellipse 60% 40% at 10% 0%,rgba(240,192,96,.07) 0,transparent 70%),radial-gradient(ellipse 50% 40% at 90% 100%,rgba(96,192,240,.06) 0,transparent 70%);}
+body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999;}
+.hdr{width:100%;max-width:780px;padding:36px 0 20px;}
+.hdr-eye{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hdr-eye::before{content:'';width:28px;height:1px;background:var(--a);}
+.hdr-title{font-family:'Syne',sans-serif;font-size:clamp(24px,4.5vw,38px);font-weight:800;line-height:1.1;margin-bottom:4px;}
+.hdr-title span{color:var(--a);}
+.hdr-sub{font-size:13px;color:var(--muted);}
+
+/* FINAL BADGE */
+.final-banner{width:100%;max-width:780px;background:linear-gradient(135deg,rgba(240,192,96,.1),rgba(96,192,240,.08));border:1px solid rgba(240,192,96,.3);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;display:flex;align-items:flex-start;gap:12px;}
+.final-banner-icon{font-size:22px;flex-shrink:0;}
+.final-banner-txt{font-size:13px;color:#d4b870;line-height:1.6;}
+.final-banner-txt strong{color:var(--a);}
+
+.prog-wrap{width:100%;max-width:780px;margin-bottom:18px;}
+.prog-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px;font-family:'IBM Plex Mono',monospace;}
+.prog-track{height:3px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--a),var(--a2));border-radius:100px;transition:width .5s cubic-bezier(.4,0,.2,1);}
+
+.score-row{width:100%;max-width:780px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
+.chip{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:11px 12px;}
+.chip-lbl{font-size:9px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;}
+.chip-val{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;line-height:1;}
+.chip-val.c{color:var(--green)}.chip-val.w{color:var(--red)}.chip-val.n{color:var(--a)}
+
+.card{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;animation:ci .3s ease;}
+@keyframes ci{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--bd);}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;border-radius:5px;padding:3px 9px;border:1px solid;}
+.badge-q{color:var(--a);background:rgba(240,192,96,.08);border-color:rgba(240,192,96,.25);}
+.badge-t{color:var(--a2);background:rgba(96,192,240,.08);border-color:rgba(96,192,240,.25);}
+.badge-d{color:var(--a3);background:rgba(192,96,240,.08);border-color:rgba(192,96,240,.25);}
+.q-txt{font-size:15px;line-height:1.7;white-space:pre-line;}
+.multi-note{font-size:11px;color:var(--a2);font-family:'IBM Plex Mono',monospace;padding:8px 26px 0;display:none;}
+
+.opts{padding:16px 26px 20px;display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:12px;background:var(--s2);border:1.5px solid var(--bd);border-radius:9px;padding:12px 14px;cursor:pointer;text-align:left;transition:border-color .14s,background .14s,transform .1s;color:var(--txt);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.55;width:100%;}
+.opt:hover:not(:disabled){border-color:rgba(240,192,96,.4);background:rgba(240,192,96,.04);transform:translateX(3px);}
+.opt:disabled{cursor:default;transform:none;}
+.opt.sel{border-color:var(--a);background:rgba(240,192,96,.07);}
+.opt.cor{border-color:var(--green);background:rgba(34,197,94,.07);}
+.opt.wrg{border-color:var(--red);background:rgba(239,68,68,.07);}
+.opt-lt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;min-width:22px;height:22px;border-radius:5px;background:var(--bd);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background .14s,color .14s;flex-shrink:0;margin-top:2px;}
+.opt.sel .opt-lt{background:var(--a);color:#000;}
+.opt.cor .opt-lt{background:var(--green);color:#000;}
+.opt.wrg .opt-lt{background:var(--red);color:#fff;}
+
+.res-ind{padding:4px 26px 8px;font-size:13px;font-weight:600;display:none;}
+.res-ind.ok{color:var(--green)}.res-ind.no{color:var(--red)}
+
+.expl{margin:0 26px 20px;border-radius:9px;border-left:3px solid var(--a);background:rgba(240,192,96,.04);padding:13px 15px;font-size:13.5px;line-height:1.65;color:#c8a870;display:none;}
+.expl.show{display:block;animation:fi .25s ease;}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.expl-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:7px;}
+.expl-dom{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(240,192,96,.35);margin-top:8px;}
+
+.acts{padding:0 26px 26px;display:flex;gap:9px;flex-wrap:wrap;}
+.btn-sub{background:var(--a);color:#000;border:none;border-radius:7px;padding:11px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:opacity .18s,transform .1s;}
+.btn-sub:hover:not(:disabled){opacity:.82;transform:translateY(-1px);}
+.btn-sub:disabled{opacity:.3;cursor:not-allowed;transform:none;}
+.btn-nxt{background:transparent;color:var(--txt);border:1.5px solid var(--bd);border-radius:7px;padding:11px 22px;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:13px;cursor:pointer;transition:border-color .14s,background .14s;display:none;}
+.btn-nxt.show{display:block;}
+.btn-nxt:hover{border-color:var(--a);background:rgba(240,192,96,.05);}
+
+.result{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:50px 36px;text-align:center;display:none;animation:ci .4s ease;}
+.result.show{display:block;}
+.res-emoji{font-size:64px;margin-bottom:16px;}
+.res-title{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;margin-bottom:10px;}
+.res-sub{color:var(--muted);font-size:14px;max-width:520px;margin:0 auto 32px;line-height:1.65;}
+.res-score{font-family:'Syne',sans-serif;font-weight:800;font-size:80px;line-height:1;margin-bottom:6px;}
+.res-score-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+.perf-bar{width:220px;margin:0 auto 28px;height:5px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.perf-fill{height:100%;border-radius:100px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s;}
+.res-bk{display:flex;justify-content:center;gap:28px;margin-bottom:24px;}
+.rbi{display:flex;flex-direction:column;gap:4px;align-items:center;}
+.rbi-v{font-family:'Syne',sans-serif;font-weight:700;font-size:28px;}
+.rbi-l{font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;}
+.congrats-box{background:rgba(240,192,96,.06);border:1px solid rgba(240,192,96,.2);border-radius:10px;padding:16px 20px;margin:0 auto 28px;max-width:480px;font-size:13px;color:#c8a870;line-height:1.7;text-align:left;}
+.congrats-box strong{color:var(--a);}
+.btn-rst{background:var(--a);color:#000;border:none;border-radius:7px;padding:13px 32px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:opacity .2s;}
+.btn-rst:hover{opacity:.82;}
+
+@media(max-width:520px){
+  .card-head,.opts,.acts{padding-left:14px;padding-right:14px;}
+  .expl{margin-left:14px;margin-right:14px;}
+  .score-row{grid-template-columns:repeat(2,1fr);}
+}
+
+  /* ── Back / Skip nav buttons ── */
+  .btn-nav {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .btn-nav:hover { border-color: var(--a, var(--accent, #aaa)); color: var(--txt); }
+  .btn-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-eye">PMP® Exam Prep · Batch 7 · Final</div>
+  <h1 class="hdr-title">Questions <span>301 – 353</span></h1>
+  <p class="hdr-sub">All Domains · 36 questions · Last batch from the PDF · All answers verified</p>
+</div>
+
+<div class="final-banner">
+  <div class="final-banner-icon">🏁</div>
+  <div class="final-banner-txt"><strong>Final batch!</strong> This is the last set of available questions from the PDF (Q301–353). Note: some question numbers are skipped — those pages were missing from the PDF extract. All 36 available questions with complete text and answer keys are included here. ✅ No discrepancies found in this batch.</div>
+</div>
+
+<div class="prog-wrap">
+  <div class="prog-meta"><span id="pLbl">Question 1 of 36</span><span id="pPct">0%</span></div>
+  <div class="prog-track"><div class="prog-fill" id="pFill" style="width:0%"></div></div>
+</div>
+
+<div class="score-row">
+  <div class="chip"><div class="chip-lbl">Score</div><div class="chip-val n" id="sScore">0/0</div></div>
+  <div class="chip"><div class="chip-lbl">Correct</div><div class="chip-val c" id="sCorr">0</div></div>
+  <div class="chip"><div class="chip-lbl">Wrong</div><div class="chip-val w" id="sWrng">0</div></div>
+  <div class="chip"><div class="chip-lbl">Accuracy</div><div class="chip-val n" id="sAcc">—</div></div>
+</div>
+
+<div class="card" id="qCard">
+  <div class="card-head">
+    <div class="badges"><span class="badge badge-q" id="bNum">Q301</span><span class="badge badge-t" id="bType">Single</span><span class="badge badge-d" id="bDom">Domain II</span></div>
+    <p class="q-txt" id="qTxt"></p>
+  </div>
+  <p class="multi-note" id="mNote"></p>
+  <div class="opts" id="optsList"></div>
+  <div class="res-ind" id="resInd"></div>
+  <div class="expl" id="explBox">
+    <div class="expl-lbl">Explanation</div>
+    <div id="explTxt"></div>
+    <div class="expl-dom" id="explDom"></div>
+  </div>
+  <div class="acts">
+    <button class="btn-nav" id="btnBack" onclick="goBack()">← Back</button>
+    <button class="btn-nav" id="btnSkip" onclick="goSkip()">Skip →</button>
+    <button class="btn-sub" id="btnSub" disabled onclick="submit()">Submit Answer</button>
+    <button class="btn-nxt" id="btnNxt" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<div class="result" id="resultScr">
+  <div class="res-emoji" id="rEmoji">🏆</div>
+  <h2 class="res-title" id="rTitle">Quiz Complete!</h2>
+  <p class="res-sub" id="rSub"></p>
+  <div class="res-score" id="rScore">—</div>
+  <div class="res-score-lbl">Final Score · Q301–353</div>
+  <div class="perf-bar"><div class="perf-fill" id="perfFill"></div></div>
+  <div class="res-bk">
+    <div class="rbi"><span class="rbi-v" style="color:var(--green)" id="rCorr">0</span><span class="rbi-l">Correct</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--red)" id="rWrng">0</span><span class="rbi-l">Wrong</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--a)" id="rTot">36</span><span class="rbi-l">Total</span></div>
+  </div>
+  <div class="congrats-box">
+    🎓 <strong>You've completed the full question bank!</strong><br>
+    This was the final batch from the PMI PMP® Practice Questions PDF. You've now worked through all 353 available questions across 7 quiz batches. Keep retaking any batch where you scored below 90% until you hit that benchmark consistently — that's your exam-ready signal.
+  </div>
+  <button class="btn-rst" onclick="restart()">↺ Restart This Batch</button>
+</div>
+
+<script>
+const L=['A','B','C','D','E'];
+const Qs=[
+{n:301,t:"A team lead receives an email from the product owner asking for a more precise view of actual time spent on tasks to apply more accurate business value estimates in the product backlog. The team is extremely busy, and deadlines are tight.\n\nHow should the team lead answer this request?",o:["Make sure the team is updating the burndown chart daily, so the product owner has an accurate view of the work completed.","Ask the product owner to supply the team with more specific and detailed user stories so they can understand the customer value desired better.","Explain that flexible estimating units enable the team to accelerate delivery of business value.","State that the team is extremely busy and can't help right now."],c:["A"],m:false,e:"The team needs to keep the product owner updated on the completion of work, and the burndown chart is a daily work measurement tool that most teams use. The product owner should already communicate with the team about development through detailed user stories; it is the product owner's responsibility to monitor value, NOT the team's.",d:"ECO Task: II.2"},
+{n:303,t:"A project manager shifts to an agile approach for a project with an aggressive go-to-market timeline. The project manager needs to revise the stakeholder engagement plan so that it follows agile principles.\n\nWhich action should the project manager take?",o:["Increase the number of formal training workshops to cover all relevant issues for all stakeholders, including the project sponsor and client.","Increase the number of stakeholder communication channels.","Make standup meetings mandatory for all key stakeholders.","Update the stakeholder engagement matrix."],c:["D"],m:false,e:"The stakeholder engagement matrix needs updating in this case, specifically how the stakeholders are engaged. All of the other answers create complexity. Agile includes the ability of stakeholders and team members to have direct access to each other to improve communication, values transparency, and strips away unnecessary layers or formalities.",d:"ECO Task: II.4"},
+{n:304,t:"A project manager is working on a data center migration project and is developing the schedule management plan. The project was planned to last 40 days and the project sponsor wants it done in 35.\n\nWhich action should the project manager take to amend this schedule for the new requirement?",o:["Crash activities that are NOT on the critical path.","Increase duration of the critical path.","Use leads.","Use lags."],c:["C"],m:false,e:"The project manager should use leads to reduce the interval time for the revised schedule. Leads involve starting a successor activity before the predecessor activity has finished. By identifying lead times, this project manager can adapt activity schedules to shorten the original schedule to 35 days. Lags are required delays in the start of successor activities. Increasing the duration of the critical path extends the duration of the project, and crashing activities NOT on the critical path can introduce risks.",d:"ECO Task: II.6"},
+{n:306,t:"A product owner is collaborating with the team lead to refine the product backlog. They need a better way to prioritize the backlog because the current stakeholders could not agree while using the MoSCoW technique. The product owner decides to create a matrix and identified 'value' as the first axis.\n\nWhich two items could work for the second axis? (Choose TWO.)",o:["Risk","Effort","Quality","Time","Impact"],c:["A","B"],m:true,e:"Value and either risk or effort are valid and useful measures to enable prioritization. Agile projects are time-boxed with a fixed set of resources, so prioritization is required to accommodate the time and budget constraints in order to produce value. This prioritization process — using value and then either risk or effort — will help the team to consider which items on the backlog will create the most value with the least amount of risk or effort.",d:"ECO Task: II.12"},
+{n:307,t:"An organization's policy states any change requested on a project that exceeds a certain amount and/or complexity must adhere to the organizational policy and procedures. The project manager just received an urgent change request (CR) from the customer, and they want it added to the change control board (CCB) agenda scheduled for tomorrow. However, the CR is incomplete.\n\nWhat should the project manager do?",o:["Begin additional analysis of the CR.","Put it on the CCB agenda for tomorrow and address it there.","Return the CR to the customer because it is incomplete.","Approve the change request."],c:["A"],m:false,e:"The project manager needs to do additional analysis to fill in the missing pieces of the CR before any action on it can be taken. All projects must adhere to organizational policies and procedures. The project leader should be open and transparent with the client.",d:"ECO Task: II.10"},
+{n:309,t:"A key team member has been offered a new opportunity and will be leaving the project team. The team is looking for a replacement but is unable to find anyone with the same level of skill. This team member has been with the project since it began, which was over 1 year ago, and has a lot of knowledge and skills that other team members lack.\n\nWhich two actions should the team take to ensure project continuity? (Choose TWO.)",o:["Create a new work item in the product backlog to interview the departing team member and record the sessions.","Discuss the risk of a key dependency's resignation in the next team retrospective.","Inform the team member's manager that unless they find someone soon, it could be detrimental to the project.","Schedule knowledge transfer sessions with the departing team member.","Ask the departing team member to nominate existing team members who seem to have the best skills for certain tasks."],c:["A","D"],m:true,e:"Important project knowledge should be stored and accessible for the team. Knowledge can be explicit or tacit. Explicit knowledge can be documented easily and stored. But tacit information benefits from discussion and elaboration between project team members — a recorded interview with the team member and subsequent knowledge transfer sessions.",d:"ECO Task: II.16"},
+{n:311,t:"A global organization is headquartered in a country that has just passed a law making it illegal for employers to contact employees outside of office hours. Just this weekend, the director of marketing sent an urgent email to the entire team demanding that they correct a mistake on the project prototype, ASAP! Two team members sent messages with a tone of panic to the team lead's personal phone.\n\nHow should the team lead respond?",o:["Remind the director that the team is not required to work outside of office hours.","Contact human resources (HR) and escalate this matter. They are all violating the new law and company policy.","Do nothing until Monday.","Assure the director that the team will address the problem next week and tell the team members who messaged to have a nice weekend."],c:["D"],m:false,e:"While you have every legal right to do nothing until Monday, this is a new policy, and your team members are panicked. Respond to both parties quickly and get back to your weekend! Respond to the director about the project only; you are not the enforcer of organizational policies. It will take a while for everyone to adopt the new rules, so escalation is an overreaction.",d:"ECO Task: III.4"},
+{n:313,t:"A global volunteer organization operates a continuous training model to improve the knowledge of all volunteers and members. They design custom training on a wide range of topics and deliver it virtually on the third Friday of every month.\n\nThe team in charge of training brainstorms a list of ideas to check if the training is effective and adequate. Which item on this list will help determine the effectiveness of this training?",o:["Give trainees a pre-assessment.","Monitor how many people had their cameras on during the training.","Survey people about their areas of interest.","Perform a statistical sampling of attendees to find out what they learned."],c:["D"],m:false,e:"The only way to know if your continuous improvement program is working is to measure. Quizzes, surveys, metrics, or sampling are measurement methods. Watching attendees on a screen will NOT give you an effectiveness measurement. It could actually have a negative effect on the uptake of the training.",d:"ECO Task: CI"},
+{n:315,t:"A highly engaged agile team is forced to halt business operations when a major crisis occurs, closing offices and requiring employees to work remotely. Many team members who were high-performing contributors before the crisis are missing daily standups or attending meetings but turning their cameras off and not participating. Because of poor attendance, the project is not meeting sprint goals.\n\nWhich action is the most effective way to motivate the team?",o:["Skip the retrospectives to give people more time to work.","Award the consistent top contributors with a gift card at the next meeting to incentivize the others.","Send emails to absent team members requiring a written response on progress and give them negative feedback during their performance reviews.","Keep your camera on to lead by example and use an agenda that actively involves people in the meeting."],c:["D"],m:false,e:"In a stressful situation such as this one, a supportive environment is critical — as critical as moving the project forward. You can coach and reinforce a positive team method, lead with accountability and constructive feedback, and be a servant leader to set an example. But you probably should NOT reward others in this case. Absent team members may have a variety of challenging circumstances to negotiate.",d:"ECO Task: I.11"},
+{n:317,t:"A project team is working in a remote location, and its operability is threatened due to severe supply chain disruption. This risk was listed in the risk register, but the severity of the disruption was not accounted for, so guidance on the response is minimal.\n\nWhat should the team do first?",o:["Seek expert judgment on the matter and revise the risk response.","Focus on maintaining team coherence.","Cancel the project.","Escalate to an organizational resource that can help."],c:["A"],m:false,e:"External enterprise environmental factors (EEFs) can often take us by surprise and pose serious threats, even with careful planning. In this case, the team should rely on expert judgment to figure out how to continue working as well as possible, given the difficult circumstances.",d:"ECO Task: II.3"},
+{n:318,t:"A project team relies on work with an overseas contractor. For years, this contractor accepted payment in the team's currency, but have now notified the team's company that after next month, future payments must be made in the contractor's local currency.\n\nHow can the team deal with this problem with the least disruption to the team?",o:["Do the work themselves.","Suggest using a fixed price with economic price adjustments contract.","Switch vendors.","Renegotiate the contract rate, including a percentage contingency for fluctuating exchange rates."],c:["B"],m:false,e:"Fixed price contracts with economic price adjustments allow for special provisions for predefined final adjustments to the contract price — e.g., inflation, cost increases or decreases for specific commodities. They are ideal for preapproved vendors or those who require international payments and are far more straightforward than accounting for fluctuating exchange rates.",d:"ECO Task: II.11"},
+{n:320,t:"A project in a university to create a seed bank is complete. It was the first project used in the organization to use an agile approach. The deliverables were identified by the product owner. Some of the stakeholders are concerned about quality and have not signed off on the deliverables.\n\nWhat is the best way to collect feedback on the definition of done (DoD)?",o:["Create a temporary wiki site for stakeholders to provide anonymous feedback.","Review all the lessons learned to evaluate strategic alignment.","Send a satisfaction survey and then set up a focus group.","Conduct a product review meeting with the concerned stakeholders."],c:["D"],m:false,e:"Direct and regular feedback from stakeholders is a normal feature of agile development approaches. Since this is the organization's first agile project, the stakeholders may not realize how the process relates to quality in an ongoing and continuous way. The best approach is to meet with them and review the product. Agile recommends face-to-face contact and colocation whenever possible.",d:"ECO Task: III.3"},
+{n:321,t:"A project team has just successfully completed development of an underwater exploration device, which has cost more than $US3 billion to deliver. The company immediately orders five more units to be delivered, but with a budget of $US1 billion. The stakeholders' reason for the reduced budget was since the technology has been developed, the project can be funded for building costs primarily, with a small amount for troubleshooting or development work.\n\nHow should the team and the product owner approach this situation?",o:["Research the risk associated with the low budget for this work and present this to the stakeholders.","Explore with the stakeholders less risky ways to gain financial value from the first project.","Create a story map for the proposed development with the risks clearly accounted for in the work items.","Include a feature that addresses the risk approach to this work."],c:["A"],m:false,e:"Since the stakeholders' priority is to recoup financial value from a previous project, their focus is on the money. You need to speak directly to them about the money — in this case, how the low budget presents a risk that could create serious problems. Exploring other options will not address an additional risk inherent in this scenario — that of unrealistic stakeholder expectations. Both of these are part of the steward's role in the project.",d:"ECO Task: I.8 / II.1"},
+{n:323,t:"A company executive who is not a key project stakeholder has expressed continued interest and opinions directly to the project team. The key stakeholders are becoming annoyed and perceive the executive to be interfering and causing unwanted noise, but the project team finds the executive's inputs helpful.\n\nWhat should the team do first?",o:["Ask the product owner to intervene in the conflict.","Add this executive to the team as a key stakeholder.","Discuss what should happen at the next retrospective.","Use Speed B Leas conflict management techniques."],c:["C"],m:false,e:"There is a lot happening here that could be beneficial to the project but could also be harmful. The team needs to decide what to do, but with a clear consensus and expert judgment before taking action. A retrospective is about gaining insights for team improvement. If the team agrees that further engagement is desirable, then the team could move on to reclassification of the stakeholder and any resulting conflict management.",d:"ECO Task: I.13 / I.9"},
+{n:324,t:"An executive in the company who is not a key project stakeholder has expressed continued interest in the project and frequently gives their opinions directly to the project team. The key stakeholders are becoming annoyed and perceive the executive to be interfering, but the project team finds the executive's inputs helpful.\n\nWhich two options are present in this situation? (Choose TWO.)",o:["An intractable/war situation, in the Leas conflict model.","A potential conflict.","Escalation required.","An opportunity.","An impediment."],c:["B","D"],m:true,e:"There is a potential conflict here between the key stakeholders and the executive — and also with the team. However, there is an opportunity present in the helpfulness of the executive's inputs.",d:"ECO Task: II.3 / I.9"},
+{n:326,t:"An agile project team is working on improvements to the user experience (UX) for an online newspaper. The team thinks this is a fairly low-risk project, so they forgo a risk assessment and start working. The product owner disagrees and commissions a risk assessment.\n\nWhich statement is correct about this scenario?",o:["Project risk is everyone's responsibility, and the team should not have skipped the risk assessment.","The risk assessment will be completed, so everything is fine.","If the team is correct, the product owner is wasting time and resources.","Risk assessment is the product owner's responsibility."],c:["A"],m:false,e:"Risk is everywhere and inherent in every project or activity. Project risk is everyone's responsibility. The team, the product owner and the stakeholders should be aware of the various risks of the project in relation to its environment. Whether the risk assessment is a formal or informal method depends on the project context, but some form of risk assessment must be done.",d:"ECO Task: II.3"},
+{n:328,t:"A tech startup has four projects authorized and running:\n1. Customer experience (CX) app development with executive stakeholders\n2. Third-party app development with new vendors\n3. Project with global team members who speak six languages\n4. Game development using experimental technology\n\nWhich statement about risk and quality is correct?",o:["All of these projects contain the same risk and are subject to the same quality standards because they are in the same organization.","These projects all contain inherent risk and require unique quality metrics.","The project using experimental technology has the highest level of risk and quality standards.","The quality requirements for technology depend on external regulations. So the multilingual project team presents the lowest risk."],c:["B"],m:false,e:"Each project has unique risk and quality requirements and contexts, and they can rarely be compared with one another — even if they are in the same organization!",d:"ECO Task: II.7 / II.3"},
+{n:330,t:"A large project team for a major annual event is reforming with all the same team members. To prepare for the preliminary meeting with the team, the newly assigned project manager reviews the lessons learned repository and sees this highlighted comment:\n'Team members were distracted at the live matches. The team leads were ineffective at redirecting team member effort.'\n\nHow should the project manager approach this situation?",o:["Replace the team leads from the previous year with stronger, experienced team leads.","Coach the team members from the previous year about professionalism at the live matches.","Establish clearer ground rules with the team and team leads, including disciplinary actions for breaches.","Implement appropriate behavior guidelines and penalties for team members at live matches."],c:["C"],m:false,e:"This team needs improved ground rules. The project manager should recognize that the team's behavior may not change unless something forces it to change — and establishing clearer ground rules can do this. Because the project manager is new, coaching team members about past behavior will seem theoretical to them; the team leads need to be coached as well! Deselecting team leads or implementing penalties seems too heavy-handed for a new project manager.",d:"ECO Task: I.12"},
+{n:332,t:"A project to build houses is halfway complete and is meeting projected budget and schedule metrics for phase 1. The project manager receives news that the project will only receive 40% of the funding committed for phase 2, but all the houses must be completed.\n\nStakeholder A: Revise the scope because the financial situation could worsen.\nStakeholder B: Use an incremental development approach to complete the foundation work on the remaining units and seek new finance options.\nStakeholder C: We should choose the least risky option.\n\nUsing the stakeholder power/influence grid and the summaries, which action should the project manager take?",o:["Follow stakeholder B's suggestion because this is the most important stakeholder.","Follow stakeholder A's suggestion because it is the least risky.","Examine the options given by stakeholders B and C alongside the business's strategic goals and value needs.","Conduct a risk analysis of the options given by stakeholders A and B."],c:["C"],m:false,e:"The project manager's role is to collaborate with stakeholders to ensure positive project outcomes. The project manager needs to deliver the value (completed houses) and balance risk, as the stakeholders A and C have indicated. The options given by stakeholders B and C should be examined alongside the business goals and value delivery requirements. Stakeholder B has the greatest power and influence but that does not mean their opinion should automatically be given the highest priority.",d:"ECO Task: II.8 / I.9 / II.13"},
+{n:334,t:"Owners of a small luxury travel magazine want to expand their services to provide bookings for readers' dream holidays. They commit 15% of the company's annual profit over 3 years to develop and launch the service. The company creates a high-level vision statement and OKRs, which they hand over to a consulting company.\n\nWhich approach and initial scope decision is suitable for this project to begin work?",o:["The company should use the OKRs to define the scope statement and the consultants can create a product roadmap.","The company should decide on a fixed project scope and timeline for delivery and then inform the consultants.","The consultants should create a project management plan with a defined scope and scope baseline using the information provided by the company.","The consultants should create an initial flexible scope and use progressive elaboration based on an agreed timeline."],c:["D"],m:false,e:"In this scenario, the company has a high-level vision for the result and no project management expertise. So while defining an initial scope is possible, a scope statement is not because they lack the expertise. Furthermore, a flexible rather than fixed scope is suitable because the project goals are still undefined — they are still forming ideas. The answer needs to acknowledge the role of the hired consultants as the project management experts.",d:"ECO Task: II.8 / II.13"},
+{n:336,t:"A government agency is concerned about the continuity of their projects. Many senior staff members who started the agency are retiring in the next 5 to 10 years. Their knowledge and experience as project managers of past and current projects will be critical to the agency's future success.\n\nA project manager is engaged to steer the effort. Which two options are the best ways of ensuring knowledge transfer for continuity of the agency's projects? (Choose TWO.)",o:["Create objectives for a mentorship program of junior staff by senior staff and build a knowledge base.","Capture and archive senior staff member knowledge and establish a community of practice for project management.","Prioritize building an organizational culture that values mentoring and a growth mindset.","Review the agency's continuous improvement plan and ensure it is adequate and understood by everyone.","Digitize the lessons learned repository from past projects."],c:["A","B"],m:true,e:"A dwindling knowledge base and the need to transfer knowledge is a growing concern in a wide range of organizations and professional areas. Storing knowledge or making it accessible is only the first step. Organizations need to prioritize transferring and using that knowledge as a regular part of professional growth and the organizational culture. A dedicated knowledge base along with a mentorship program or a community of practice is a good idea for ensuring knowledge is stored and can be easily accessed and transferred on a regular basis.",d:"ECO Task: I.13 / II.16"},
+{n:338,t:"An agile project team previously attempted to launch a new version of streaming fitness videos in an increasingly competitive market. By the end of the last project, competitors had already launched similar products. Stakeholders were disappointed about the loss of value.\n\nWhich two actions should the team leadership have taken or done differently to avoid stakeholder dissatisfaction? (Choose TWO.)",o:["Increased the pace of work by adding more human resources.","Eliminated errors in the work flow and found efficiencies.","Conducted more market research before beginning the project.","Used shorter cadences to enable better analysis and response to market changes.","Collaborated more closely with stakeholders."],c:["D","E"],m:true,e:"The previous attempt was challenging because of the increasingly competitive market and the type of value (first to market) desired by stakeholders. Communication with stakeholders is the most immediate and direct way to understand and pursue what will bring value to the business. The definition of value can shift or change during a project — we can learn about this from effective collaboration with stakeholders. The competition is a part of the external business environment that needs continuous monitoring, especially in highly competitive markets. Use of shorter cadences of work provides greater adaptability for change.",d:"ECO Task: II.1 / III.2"},
+{n:340,t:"A project to train kitchen personnel in process efficiencies for a restaurant franchise has a small project team of four people.\n\nA - Project manager with 30 years of experience leading business development projects\nB - Training specialist with 10 years of experience in menu development\nC - Team member with 5 years of experience leading teams, who also is scrum master\nD - Team lead for finance and operations, who was once the owner/operator of a franchise\n\nWhich team member already has T-shaped skills that would be beneficial to this project?",o:["Team member A","Team member B","Team member C","Team member D"],c:["D"],m:false,e:"The T-shaped team member is the team lead for finance and operations. Because of their experience running this kind of business, this team member has the greatest depth and breadth of relevant experience among the four listed.",d:"ECO Task: I.5"},
+{n:341,t:"At the beginning of a customer service improvement project, two stakeholders are noted as 'resistant' on the stakeholder engagement assessment matrix (SEAM):\n• A finance executive who says the cost of the project is too high.\n• The customer care team that wants better salaries and working conditions.\n\nAfter months of difficult negotiations, the customer care stakeholder group is now noted as 'neutral,' though final agreements must be signed. The finance executive continues to state that the cost of the project is too high.\n\nWhat should the project manager do?",o:["Use personal influence to gain agreement with the finance executive while negotiations with the customer care stakeholders continue.","Focus on negotiating the final agreements for the customer care stakeholder group at a cost that also satisfies the finance executive.","Ask the supportive stakeholders to explain or justify the cost of the salary increases to the finance executive.","Send an email to all stakeholders, stating the problem and urging them to find a solution."],c:["B"],m:false,e:"The only way to successfully steward this project to conclusion is to gain the consent of both resistant stakeholders. Right now, they are siloed from one another, but their issues with the project are interdependent. Going for a 'quick win' by using personal influence is risky because stakeholders need real solutions that deliver benefits. The only way forward is to negotiate with the customer care stakeholders toward a mutually agreed set of conditions that will also satisfy the finance executive's concerns about cost.",d:"ECO Task: I.9"},
+{n:342,t:"An agile team member has an extremely varied skill set and performs their work well on projects. This team member has been allocated to many different roles during their work history at the company. For this reason, the team member states, 'I feel like I am put on projects randomly. I am not getting anywhere, and the company does not value my work.'\n\nWhat should the team lead do?",o:["Coach the team member and help them to find a suitable mentor for career development.","Reassure the team member about their value as a T-shaped team member.","Encourage the team member to become more emotionally intelligent.","Urge the team member to get as many certifications as possible."],c:["A"],m:false,e:"The team member's perception of their professional value is flawed. This is a T-shaped team member, or a generalizing specialist, which is the ideal kind of project team member. They need to be coached so that they understand this and should be encouraged to find a mentor who can help them add professional value to their career. All other options are valid ways of increasing professional value, but in this case, the problem is that the team member misunderstands how valuable they already are.",d:"ECO Task: I.5 / I.13"},
+{n:343,t:"An established farm is struggling to maintain profitability and plans to integrate an agro-tourism project to expand the business. By the second month, the project manager learns that farm production performance has decreased drastically because the project takes up a lot of the team's time.\n\nThe new team members will be shared resources for both the farm and the playground project. Which two approaches should the project manager consider to provide the best chance for the business to succeed? (Choose TWO.)",o:["Establish clear role delineations for the team members.","Create roadmaps for farm production and the playground project, with clear value delivery goals for each.","Focus on the farm operations first to stabilize processes because this is the main revenue earner.","Create a project management plan that combines the farm and the playground.","Decide between the farm or the playground business option."],c:["A","B"],m:true,e:"In this case, a set of roadmaps and clearer role delineation should result in better team performance. By creating roadmaps for farm production and the playground project, the project manager will underline the value delivery goals and be able to focus on delivering them. Since the farm and playground are sharing resources, the best choice is to figure out how to execute work now that leads to desired outcomes.",d:"ECO Task: II.13 / III.4"},
+{n:344,t:"A company is undergoing a global enterprise-level transformation. The first big project is to refit the factories and warehouses as film studios. The PMO authorizes a project using a predictive life cycle, and that work begins. However, the learning community designers (key stakeholders) keep requesting design changes, which has caused delays and costly rework. With 18 months left, the team is getting nervous.\n\nHow should the project manager respond?",o:["Continue to process the designers' changes using the change control process.","Suspend the project until the designers finalize their decisions and then restart work.","Limit the changes to critical ones only and initiate another project afterwards to retrofit the studios with further changes.","Pivot to an iterative development approach to capture designer feedback at set intervals during construction."],c:["D"],m:false,e:"When a project is being delayed consistently and significantly with changes from stakeholders, it is time to consider a different approach to handling changes. In this case, the team can take the designers' feedback in iterations as part of the project work. This will ensure the project continues to develop what the company really needs. In this case, the other approaches suggested would eventually work, but the work needs to be done and ready in a demanding timeline.",d:"ECO Task: III.4 / II.13"},
+{n:345,t:"During a busy period of organizational change, team members on project L are allocated as follows:\n• 60% of working hours – project L\n• 20% of working hours – company-wide organizational change project\n• 20% of working hours – functional role\n\nProject L is progressing according to schedule and budget, but a few minor quality factors are being neglected. The project manager is prioritizing on-time delivery and the very dedicated team asks about working overtime to improve quality.\n\nHow should the project manager respond?",o:["Avoid granting the overtime request; instead, ask the functional managers if the project can borrow them for a few weeks.","Avoid granting the overtime request; instead, ask the organizational change project leader to do without them for a few weeks.","Collaborate with the managers and the organizational change project leader to compromise on how team members can spend more time on project L.","Grant the overtime request for the team members and find a way to pay for it with the existing project budget."],c:["C"],m:false,e:"Organizational changes or transformations are a very busy time for organizations. In these cases, it is imperative to collaborate with stakeholders in a positive way. Especially when sharing resources, project leaders need to realize that they may already be stretched between the roles they are assigned. In this case, the quality issues are minor. The additional challenge here would be the budget and whether the project would be able to pay for the overtime.",d:"ECO Task: III.4"},
+{n:346,t:"A hotel chain wants to improve the customer loyalty program by increasing the number of returning guests by 35%.\n\nIn a dramatic escalation, stakeholder M sends an email to the project manager and the entire leadership team accusing stakeholder J of having a bias.\n\nWhat should the project manager do first?",o:["Mediate between the two stakeholders and determine an initial scope that satisfies both.","Coach stakeholder M about professional behavior and ask them to apologize to stakeholder J.","Escalate this as an issue to human resources.","Remove stakeholder M from the project for violation of ethical standards."],c:["A"],m:false,e:"The problem in this scenario is stakeholder M's behavior, which is challenging. Accusing stakeholder J of having a bias could be perceived as a personal attack, but it could also be a very awkward way of stating a fact. We know that conflict is in a mature stage ('contest' in the Leas model) and must be handled right away. Trying one more time to determine an initial scope is the best answer. It focuses on the solution and not the personal battle.",d:"ECO Task: I.8 / I.1"},
+{n:347,t:"At the start of a project, stakeholders agreed to expedite approval of the project charter and project management plan to get the project started on time. After the first sample batch is sent to the customer, a serious problem is discovered:\n\nCustomer: 'Samples sent over for approval are inferior, with failure rate of 27%... thought we agreed 15% as maximum failure rate.'\n\nThe project manager checks the project management plan and discovers that 'good quality' was noted as the acceptance criteria instead of the usual number range for failure rate. The other stakeholders are willing to approve the batch with a 20-25% failure rate, but the customer rejects this idea.\n\nWhat should the project manager do, and which artifact should be updated?",o:["Update the project management plan with the required 15% failure rate and seek approval to deliver the goods incrementally, with some past the original due date.","Persuade the customer to accept the loss in quality in exchange for on-time delivery and update the issue log and lessons learned.","Collaborate with all the stakeholders to agree on the quality standard and acceptance criteria, then update the quality policy for the project before continuing the work.","Resolve the quality problem, per the customer's acceptance criteria and update the issue log and project management plan."],c:["D"],m:false,e:"Rushing to start this project with unclear documentation was clearly the cause of a misunderstanding. Misunderstandings must be resolved to fulfill project goals and successful project outcomes — especially a customer's requirement! When a project has already started based on a misunderstanding, you need to think and act decisively while stewarding the project toward successful outcomes. Resolving the quality problem and updating the project management plan achieves these two goals in the best way. Prioritizing on-time delivery might seem like a good idea at first, but if the goods do not meet the acceptance criteria, the company risks losing a customer and a good reputation.",d:"ECO Task: I.10 / II.12"},
+{n:348,t:"A project that is in progress requires a resource with a specialized skill. Because of time limitations, the agile team has two options: either borrow a team member from another department who can work part-time or use an independent contractor. The eight team members discuss the options, but they are unable to reach an agreement. The vote is 50/50, and both options have positive benefits as well as risks.\n\nWhat should the team do?",o:["Use Roman voting.","Empower the team lead to make a decision based on multicriteria analysis.","Wait until the next retrospective and ask again.","Ask the product owner to decide."],c:["B"],m:false,e:"In this case, the team faces a true deadlock in voting on an issue where support for the choices is equally balanced. Roman voting would continue to produce the same results. A time limitation means that waiting for the next retrospective is not the best option. The product owner is not the expert on project work, so the best choice here is to empower the team lead to make a decision based on data. This choice maintains the elements of a data-driven decision made by a member of the team in a timely manner.",d:"ECO Task: I.2"},
+{n:349,t:"A project will create digital keys for 18,500 employees at an airport. The project management plan states that security clearance data for employees must be verified and updated in a digital security file every 6 months. This is part of the acceptance criteria. In month 3, the project manager discovers that the company hired to maintain the digital security files has filed for bankruptcy.\n\nWhich statement describes the status of this project?",o:["This project will fail.","This project has an issue.","This project is noncompliant.","This project is high risk."],c:["B"],m:false,e:"This project has an issue arising from a risk, and it is quite serious. The project manager must now manage this issue to move the project forward. If it is possible to find another vendor or way to manage the digital security file requirement, the project might succeed, and it may even fulfill the outcomes on time. Security is a compliance issue; however, if the issue is resolved in a positive manner, the threat of noncompliance may be averted.",d:"ECO Task: II.15 / II.3"},
+{n:350,t:"A pharmaceutical company has manufactured its best-selling product for more than 50 years. Production has steadily increased, and the company is ready to make a significant investment to expand the business.\n\nLeadership asks the project management team to carefully assess the risk of this expansion. What should the team focus on?",o:["Stakeholder profiles","Last year's annual budget","Product roadmap","Company's mission statement"],c:["C"],m:false,e:"The team needs to understand the full scope of the expansion to determine risk. The product roadmap, an artifact created by the business, should contain the vision and direction for the product, and the team can assess risk based on this vision and direction. All the other information could be helpful as context, but a risk assessment of the expansion begins with the product roadmap.",d:"ECO Task: II.3 / III.2"},
+{n:351,t:"A financial services project will be executed by a team of three teams. Each team has unique objectives for the first phase and then will merge efforts for the second phase to deliver the product.\n\nIn the initial draft of the schedule, team A finishes their work in a 9-week timeline, but teams B and C need 14 weeks. The scrum master suggests allocating resources from team A to teams B and C during weeks 10-12. Teams B and C agree. However, team A says 'no' because they need to prepare the transition plan and train staff on the product during weeks 10-14.\n\nWhich two actions should happen? (Choose TWO.)",o:["The product owner should reprioritize the backlog.","The teams should decide their own schedules.","The teams should hold a scrum of scrums to decide the schedule.","The scrum master should facilitate a planning retrospective.","The product owner should add the transition requirements to the backlog."],c:["C","E"],m:true,e:"These teams are not communicating with each other about the time they need to produce the work, nor with the product owner about the training and transition plans required to deliver the product. The product owner can communicate their requirements to the team through the backlog. In a scrum of scrums meeting, the teams can discuss how the required work should be completed and agree on a schedule.",d:"ECO Task: II.5"},
+{n:352,t:"A project manager in a luggage manufacturing company is asked to explore new business opportunities and deliver three proofs of concepts (POCs) to the executive team. Sales are declining rapidly and the company's future is at risk. The 15 project team members have very different points of view about which opportunities are best, and arguments are erupting openly and often.\n\nThe project manager adopts an agile approach to quickly build shared understanding. Which two approaches should the project manager consider? (Choose TWO.)",o:["Train stakeholders on how to create user stories and story map of their ideas to share these with the whole group and vote for the three best to create the POCs.","Supervise the work but empower three agile teams of five people each to self-organize and ideate new business concepts as user stories to be reviewed at retrospectives and then developed iteratively.","Send a survey to the 15 stakeholders asking for new business ideas and concepts; share all the answers anonymously and then vote on the three best.","Prioritize the executive or senior stakeholders' ideas; empower them as team leads of self-organizing agile teams that deliver POCs to the company incrementally.","Ask each stakeholder to create a vision statement and use an XP metaphor to explain their best idea; all stakeholders vote for the three best and develop them as POCs."],c:["A","B"],m:true,e:"Because a POC demonstrates feasibility, efficacy — in addition to time and democratic ideation — are important in this scenario. Story mapping is suitable for discovery work and for larger groups to organize and visualize user stories and develop their work. Allowing each person to ideate and then vote on the three best is an effective way of listening to diverse points of view and making decisions. The other option — empowering self-organizing agile teams — can also work by breaking the larger group into smaller ones that can handle conflict productively.",d:"ECO Task: I.10 / II.13 / I.1 / II.1"},
+{n:353,t:"A virtual team will travel to a work site and work as a colocated team for 6 weeks in Q3 of next year to transition their project to the customer. One team member, whose role is critical to the transition, is getting married during Q3 but has not told anyone until now. This team member requested 3 weeks of holiday right before the planned team travel.\n\nWhat should the project manager do?",o:["Ask another team member to job shadow this team member as a contingency.","Reject the request because this team member's role is critical.","Plan for the risk of a delayed transition because of this team member's absence.","Replace the team member now to avoid disruption next year."],c:["A"],m:false,e:"This scenario shows a normal part of working life, and the best response is to mitigate this team member's absence as a single point of failure by asking someone else on the team to expand their skillset. With time to plan for resource coverage, there should be no delay or disruption! While rejecting the request is a possible answer, it is an overreach of authority and an overreaction. And the project manager should definitely send a note of congratulations to the team member!",d:"ECO Task: I.2"}
+];
+
+let cur=0,corr=0,wrng=0,ans=0,sel=[],subm=false;
+
+function render(){
+  const q=Qs[cur];const tot=Qs.length;
+  const pct=Math.round((ans/tot)*100);
+  document.getElementById('pLbl').textContent=`Question ${cur+1} of ${tot} (Q${q.n})`;
+  document.getElementById('pPct').textContent=pct+'%';document.getElementById('pFill').style.width=pct+'%';
+  updateScore();
+  document.getElementById('bNum').textContent='Q'+q.n;
+  document.getElementById('bType').textContent=q.m?`Multi (${q.c.length})`:'Single';
+  document.getElementById('bDom').textContent=q.d.split(' ')[0]+' '+q.d.split(' ')[1];
+  document.getElementById('qTxt').textContent=q.t;
+  const mn=document.getElementById('mNote');
+  if(q.m){mn.textContent=`★ Select ${q.c.length} answers`;mn.style.display='block';}else{mn.style.display='none';}
+  const ol=document.getElementById('optsList');ol.innerHTML='';
+  q.o.forEach((opt,i)=>{
+    const lt=L[i];const b=document.createElement('button');
+    b.className='opt';b.dataset.letter=lt;
+    b.innerHTML=`<span class="opt-lt">${lt}</span><span>${opt}</span>`;
+    b.onclick=()=>tog(lt,b);ol.appendChild(b);
+  });
+  sel=[];subm=false;
+  document.getElementById('btnSub').disabled=true;document.getElementById('btnNxt').classList.remove('show');
+  document.getElementById('explBox').classList.remove('show');
+  const ri=document.getElementById('resInd');ri.style.display='none';ri.className='res-ind';
+}
+
+function tog(lt,btn){
+  if(subm)return;const q=Qs[cur];
+  if(!q.m){document.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));sel=[lt];btn.classList.add('sel');}
+  else{if(sel.includes(lt)){sel=sel.filter(l=>l!==lt);btn.classList.remove('sel');}else{sel.push(lt);btn.classList.add('sel');}}
+  document.getElementById('btnSub').disabled=sel.length<(q.m?q.c.length:1);
+}
+
+function submit(){
+  if(subm)return;subm=true;const q=Qs[cur];
+  const cs=new Set(q.c),ss=new Set(sel);
+  const ok=cs.size===ss.size&&[...cs].every(l=>ss.has(l));
+  ans++;if(ok)corr++;else wrng++;
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.disabled=true;const lt=b.dataset.letter;
+    if(q.c.includes(lt)){b.classList.remove('sel');b.classList.add('cor');}
+    else if(sel.includes(lt)){b.classList.remove('sel');b.classList.add('wrg');}
+  });
+  const ri=document.getElementById('resInd');ri.style.display='block';
+  if(ok){ri.className='res-ind ok';ri.textContent='✓ Correct!';}
+  else{ri.className='res-ind no';ri.textContent=`✗ Incorrect — Correct: ${q.c.join(', ')}`;}
+  document.getElementById('explTxt').textContent=q.e;document.getElementById('explDom').textContent=q.d;
+  document.getElementById('explBox').classList.add('show');
+  document.getElementById('btnSub').disabled=true;
+  const bn=document.getElementById('btnNxt');bn.textContent=cur<Qs.length-1?'Next →':'See Final Results →';bn.classList.add('show');
+  updateScore();
+  const pct2=Math.round((ans/Qs.length)*100);
+  document.getElementById('pPct').textContent=pct2+'%';document.getElementById('pFill').style.width=pct2+'%';
+}
+
+function updateScore(){
+  document.getElementById('sScore').textContent=`${corr}/${ans}`;
+  document.getElementById('sCorr').textContent=corr;document.getElementById('sWrng').textContent=wrng;
+  document.getElementById('sAcc').textContent=ans>0?Math.round((corr/ans)*100)+'%':'—';
+}
+
+function next(){
+  cur++;
+  if(cur>=Qs.length){showResult();}
+  else{render();document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});}
+}
+
+function showResult(){
+  document.getElementById('qCard').style.display='none';document.querySelector('.prog-wrap').style.display='none';
+  const tot=Qs.length,pct=Math.round((corr/tot)*100);
+  let em,ti,su;
+  if(pct>=90){em='🏆';ti='Outstanding!';su='Above 90% on the final batch — you\'ve mastered the full question bank!';}
+  else if(pct>=75){em='💪';ti='Strong Finish!';su:'Review anything you missed and aim for 90%+ on every batch.';}
+  else if(pct>=50){em='📚';ti='Good Effort!';su='Review the explanations carefully — especially leads/lags, knowledge transfer, Leas conflict model, and T-shaped skills.';}
+  else{em='🔄';ti='Keep Practising!';su:'Revisit all batches systematically. Focus on adaptive vs predictive life cycles, stakeholder conflict, and project closure.';}
+  document.getElementById('rEmoji').textContent=em;document.getElementById('rTitle').textContent=ti;document.getElementById('rSub').textContent=su;
+  document.getElementById('rScore').textContent=pct+'%';
+  document.getElementById('rScore').style.color=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  document.getElementById('rCorr').textContent=corr;document.getElementById('rWrng').textContent=wrng;document.getElementById('rTot').textContent=tot;
+  const pf=document.getElementById('perfFill');pf.style.background=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  setTimeout(()=>{pf.style.width=pct+'%';},100);
+  document.getElementById('resultScr').classList.add('show');
+}
+
+function restart(){
+  cur=0;corr=0;wrng=0;ans=0;sel=[];subm=false;
+  document.getElementById('resultScr').classList.remove('show');document.getElementById('qCard').style.display='';document.querySelector('.prog-wrap').style.display='';
+  render();window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+
+function goBack() {
+  if (cur > 0) { cur--; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goSkip() {
+  if (cur < Qs.length - 1) { cur++; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

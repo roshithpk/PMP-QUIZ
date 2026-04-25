@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Quiz · Q151–200</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06080d;--s1:#0c1019;--s2:#111722;--bd:#1a2535;
+  --a:#f472b6;--a2:#fb923c;--a3:#60a5fa;
+  --green:#22c55e;--red:#ef4444;--orange:#f97316;
+  --txt:#ccd6f0;--muted:#4a5f7a;--r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 14px 80px;
+  background-image:radial-gradient(ellipse 60% 40% at 10% 0%,rgba(244,114,182,.06) 0,transparent 70%),
+                   radial-gradient(ellipse 50% 40% at 90% 100%,rgba(96,165,250,.06) 0,transparent 70%);}
+body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999;}
+
+.hdr{width:100%;max-width:780px;padding:36px 0 24px;}
+.hdr-eye{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hdr-eye::before{content:'';width:28px;height:1px;background:var(--a);}
+.hdr-title{font-family:'Syne',sans-serif;font-size:clamp(24px,4.5vw,38px);font-weight:800;line-height:1.1;margin-bottom:4px;}
+.hdr-title span{color:var(--a);}
+.hdr-sub{font-size:13px;color:var(--muted);}
+
+.prog-wrap{width:100%;max-width:780px;margin-bottom:18px;}
+.prog-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px;font-family:'IBM Plex Mono',monospace;}
+.prog-track{height:3px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--a),var(--a3));border-radius:100px;transition:width .5s cubic-bezier(.4,0,.2,1);}
+
+.score-row{width:100%;max-width:780px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
+.chip{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:11px 12px;}
+.chip-lbl{font-size:9px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;}
+.chip-val{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;line-height:1;}
+.chip-val.c{color:var(--green)}.chip-val.w{color:var(--red)}.chip-val.n{color:var(--a)}
+
+.card{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;animation:ci .3s ease;}
+@keyframes ci{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.flag-banner{background:rgba(249,115,22,.08);border-bottom:1px solid rgba(249,115,22,.3);padding:10px 26px;display:none;align-items:flex-start;gap:10px;}
+.flag-banner.show{display:flex;}
+.flag-txt{font-size:12px;line-height:1.6;color:#fdba74;}
+.flag-txt strong{color:var(--orange);font-weight:600;}
+
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--bd);}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;border-radius:5px;padding:3px 9px;border:1px solid;}
+.badge-q{color:var(--a);background:rgba(244,114,182,.08);border-color:rgba(244,114,182,.25);}
+.badge-t{color:var(--a2);background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.25);}
+.badge-d{color:var(--a3);background:rgba(96,165,250,.08);border-color:rgba(96,165,250,.25);}
+.badge-flag{color:var(--orange);background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.35);}
+.q-txt{font-size:15px;line-height:1.7;white-space:pre-line;}
+
+.multi-note{font-size:11px;color:var(--a2);font-family:'IBM Plex Mono',monospace;padding:8px 26px 0;display:none;}
+
+.opts{padding:16px 26px 20px;display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:12px;background:var(--s2);border:1.5px solid var(--bd);border-radius:9px;padding:12px 14px;cursor:pointer;text-align:left;transition:border-color .14s,background .14s,transform .1s;color:var(--txt);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.55;width:100%;}
+.opt:hover:not(:disabled){border-color:rgba(244,114,182,.4);background:rgba(244,114,182,.04);transform:translateX(3px);}
+.opt:disabled{cursor:default;transform:none;}
+.opt.sel{border-color:var(--a);background:rgba(244,114,182,.07);}
+.opt.cor{border-color:var(--green);background:rgba(34,197,94,.07);}
+.opt.wrg{border-color:var(--red);background:rgba(239,68,68,.07);}
+.opt-lt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;min-width:22px;height:22px;border-radius:5px;background:var(--bd);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background .14s,color .14s;flex-shrink:0;margin-top:2px;}
+.opt.sel .opt-lt{background:var(--a);color:#fff;}
+.opt.cor .opt-lt{background:var(--green);color:#000;}
+.opt.wrg .opt-lt{background:var(--red);color:#fff;}
+
+.res-ind{padding:4px 26px 8px;font-size:13px;font-weight:600;display:none;}
+.res-ind.ok{color:var(--green)}.res-ind.no{color:var(--red)}
+
+.expl{margin:0 26px 20px;border-radius:9px;border-left:3px solid var(--a);background:rgba(244,114,182,.04);padding:13px 15px;font-size:13.5px;line-height:1.65;color:#b89ab0;display:none;}
+.expl.show{display:block;animation:fi .25s ease;}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.expl-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:7px;}
+.expl-dom{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(244,114,182,.35);margin-top:8px;}
+.disc-note{margin-top:10px;padding:9px 12px;background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.25);border-radius:7px;font-size:12px;color:#fdba74;line-height:1.6;}
+.disc-note-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:5px;}
+
+/* math/formula box */
+.formula-box{margin-top:8px;padding:8px 10px;background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.2);border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#93c5fd;line-height:1.7;}
+
+.acts{padding:0 26px 26px;display:flex;gap:9px;flex-wrap:wrap;}
+.btn-sub{background:var(--a);color:#fff;border:none;border-radius:7px;padding:11px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:opacity .18s,transform .1s;}
+.btn-sub:hover:not(:disabled){opacity:.82;transform:translateY(-1px);}
+.btn-sub:disabled{opacity:.3;cursor:not-allowed;transform:none;}
+.btn-nxt{background:transparent;color:var(--txt);border:1.5px solid var(--bd);border-radius:7px;padding:11px 22px;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:13px;cursor:pointer;transition:border-color .14s,background .14s;display:none;}
+.btn-nxt.show{display:block;}
+.btn-nxt:hover{border-color:var(--a);background:rgba(244,114,182,.05);}
+
+.result{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:50px 36px;text-align:center;display:none;animation:ci .4s ease;}
+.result.show{display:block;}
+.res-emoji{font-size:56px;margin-bottom:16px;}
+.res-title{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;margin-bottom:10px;}
+.res-sub{color:var(--muted);font-size:14px;max-width:480px;margin:0 auto 32px;line-height:1.65;}
+.res-score{font-family:'Syne',sans-serif;font-weight:800;font-size:76px;line-height:1;margin-bottom:6px;}
+.res-score-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+.perf-bar{width:200px;margin:0 auto 28px;height:5px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.perf-fill{height:100%;border-radius:100px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s;}
+.res-bk{display:flex;justify-content:center;gap:28px;margin-bottom:36px;}
+.rbi{display:flex;flex-direction:column;gap:4px;align-items:center;}
+.rbi-v{font-family:'Syne',sans-serif;font-weight:700;font-size:28px;}
+.rbi-l{font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;}
+.btn-rst{background:var(--a);color:#fff;border:none;border-radius:7px;padding:13px 32px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:opacity .2s;}
+.btn-rst:hover{opacity:.82;}
+
+.flag-summary{width:100%;max-width:780px;background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.25);border-radius:var(--r);padding:12px 16px;margin-bottom:20px;font-size:13px;color:#fdba74;display:flex;align-items:flex-start;gap:10px;}
+
+@media(max-width:520px){
+  .card-head,.opts,.acts{padding-left:14px;padding-right:14px;}
+  .expl{margin-left:14px;margin-right:14px;}
+  .flag-banner{padding:10px 14px;}
+  .score-row{grid-template-columns:repeat(2,1fr);}
+}
+
+  /* ── Back / Skip nav buttons ── */
+  .btn-nav {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .btn-nav:hover { border-color: var(--a, var(--accent, #aaa)); color: var(--txt); }
+  .btn-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-eye">PMP® Exam Prep · Batch 4</div>
+  <h1 class="hdr-title">Questions <span>151 – 200</span></h1>
+  <p class="hdr-sub">Domains II & III: Process & Business Environment · 50 questions · ⚑ = answer discrepancy vs. exam key</p>
+</div>
+
+<div class="flag-summary">
+  <span style="flex-shrink:0">⚑</span>
+  <div><strong>1 flagged question</strong> in this batch — Q181 says "Choose TWO" in the question text, but the PDF exam key lists THREE correct answers (A, C, D). The quiz accepts all three.</div>
+</div>
+
+<div class="prog-wrap">
+  <div class="prog-meta"><span id="pLbl">Question 151 of 200</span><span id="pPct">0%</span></div>
+  <div class="prog-track"><div class="prog-fill" id="pFill" style="width:0%"></div></div>
+</div>
+
+<div class="score-row">
+  <div class="chip"><div class="chip-lbl">Score</div><div class="chip-val n" id="sScore">0/0</div></div>
+  <div class="chip"><div class="chip-lbl">Correct</div><div class="chip-val c" id="sCorr">0</div></div>
+  <div class="chip"><div class="chip-lbl">Wrong</div><div class="chip-val w" id="sWrng">0</div></div>
+  <div class="chip"><div class="chip-lbl">Accuracy</div><div class="chip-val n" id="sAcc">—</div></div>
+</div>
+
+<div class="card" id="qCard">
+  <div class="flag-banner" id="flagBanner">
+    <span style="font-size:16px;flex-shrink:0;margin-top:1px">⚑</span>
+    <div class="flag-txt" id="flagTxt"></div>
+  </div>
+  <div class="card-head">
+    <div class="badges">
+      <span class="badge badge-q" id="bNum">Q151</span>
+      <span class="badge badge-t" id="bType">Single</span>
+      <span class="badge badge-d" id="bDom">Domain II</span>
+      <span class="badge badge-flag" id="bFlag" style="display:none">⚑ Flagged</span>
+    </div>
+    <p class="q-txt" id="qTxt"></p>
+  </div>
+  <p class="multi-note" id="mNote"></p>
+  <div class="opts" id="optsList"></div>
+  <div class="res-ind" id="resInd"></div>
+  <div class="expl" id="explBox">
+    <div class="expl-lbl">Explanation</div>
+    <div id="explTxt"></div>
+    <div id="formulaBox"></div>
+    <div id="discNote"></div>
+    <div class="expl-dom" id="explDom"></div>
+  </div>
+  <div class="acts">
+    <button class="btn-nav" id="btnBack" onclick="goBack()">← Back</button>
+    <button class="btn-nav" id="btnSkip" onclick="goSkip()">Skip →</button>
+    <button class="btn-sub" id="btnSub" disabled onclick="submit()">Submit Answer</button>
+    <button class="btn-nxt" id="btnNxt" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<div class="result" id="resultScr">
+  <div class="res-emoji" id="rEmoji"></div>
+  <h2 class="res-title" id="rTitle"></h2>
+  <p class="res-sub" id="rSub"></p>
+  <div class="res-score" id="rScore"></div>
+  <div class="res-score-lbl">Final Score · Q151–200</div>
+  <div class="perf-bar"><div class="perf-fill" id="perfFill"></div></div>
+  <div class="res-bk">
+    <div class="rbi"><span class="rbi-v" style="color:var(--green)" id="rCorr">0</span><span class="rbi-l">Correct</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--red)" id="rWrng">0</span><span class="rbi-l">Wrong</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--a)" id="rTot">50</span><span class="rbi-l">Total</span></div>
+  </div>
+  <button class="btn-rst" onclick="restart()">↺ Restart</button>
+</div>
+
+<script>
+const L=['A','B','C','D','E'];
+const Qs=[
+{n:151,t:"A deliverable on the project's critical path is behind schedule. The cost performance index (CPI) is 1.3. The project manager is able to put the project back on schedule.\n\nWhich three results are the most likely for this project? (Choose THREE.)",o:["Activities will be performed in parallel.","Project scope will be revised.","Associated risks will increase.","Costs will increase.","The team should expect rework."],c:["A","C","D"],m:true,e:"The CPI is above 1, so the project is spending money at a rate lower than planned. Since the project is behind schedule, its SPI is less than 1. To increase the SPI to 1, there will most likely be an increase in costs (from crashing activities on the critical path), which will lower the CPI towards 1. This will also increase risks associated with the project when trying to do more in a shorter time.",f:null,formula:null,d:"ECO Task: II.5"},
+{n:152,t:"A project that should have been 90% complete by now is only 65% complete. The total project budget is US$120,000 and the actual cost spent to date (AC) is US$80,000.\n\nWhat is the scheduled performance index (SPI) and cost performance index (CPI) of this project?",o:["The SPI is 0.72, and the CPI is 0.98.","The SPI is 1.38, and the CPI is 1.2.","The SPI is 0.94, and the CPI is 1.04.","The SPI is 0.80, and the CPI is 0.91."],c:["A"],m:false,e:"EV = 65% × $120,000 = $78,000\nAC = $80,000\nCPI = EV/AC = $78,000 / $80,000 = 0.975 ≈ 0.98 → over budget\n\nPV = 90% × $120,000 = $108,000\nSPI = EV/PV = $78,000 / $108,000 = 0.72 → behind schedule",f:null,formula:"EV = %complete × BAC | CPI = EV/AC | SPI = EV/PV",d:"ECO Task: II.5"},
+{n:153,t:"A project is 7 months into execution. The project manager determines that the cost performance index (CPI) is 0.80. According to a trend analysis, the CPI has a downward trend.\n\nWhat should the project manager do next?",o:["Issue a change request to redo the cost baseline.","Ask for additional resources.","Crash the project schedule.","Utilize the management reserve."],c:["A"],m:false,e:"Since the project is over budget and the trend analysis shows that this will continue, the best course of action is to redo the cost baseline of the project and manage it going forward.",f:null,formula:null,d:"ECO Task: II.5"},
+{n:154,t:"A project has the following characteristics:\n• US$3 million budget\n• Planned value of US$630,000\n• Actual cost of US$650,000\n• Earned value of US$540,000\n\nWhich statement is true about the current status of the project?",o:["The project is ahead of schedule and under budget.","The project is behind schedule and over budget.","The project is ahead of schedule and over budget.","The project is behind schedule and under budget."],c:["B"],m:false,e:"CV = EV − AC = $540,000 − $650,000 = −$110,000 → negative = over budget\nSV = EV − PV = $540,000 − $630,000 = −$90,000 → negative = behind schedule",f:null,formula:"CV = EV - AC | SV = EV - PV | Negative values = over budget / behind schedule",d:"ECO Task: II.5"},
+{n:155,t:"The project manager learns that one team member needs to complete a critical task that is outside of the project, resulting in a scheduling risk for the project.\n\nHow can the project manager eliminate this risk?",o:["Meet with the team member's manager and negotiate for an alternative time to complete the other task.","Ask the team member to focus on the critical task and obtain an additional resource from another department.","Send a report to the project sponsor, documenting noncompliance from the member's manager.","Tell the team member's manager to release the team member from outside activities until the scheduled project activity is complete."],c:["A"],m:false,e:"The resource management plan is used to help determine how resources allocated to agreed-upon risk responses will be coordinated with other project resources. This will provide guidance as to how the project manager can negotiate with the resource's manager.",f:null,formula:null,d:"ECO Task: II.5"},
+{n:156,t:"A project that should have been 70% complete by now is only 55% complete. The total project budget is US$210,000, and the actual cost spent to date is US$162,000.\n\nWhat is the scheduled performance index (SPI) and cost performance index (CPI) of this project?",o:["The SPI is 0.79, and the CPI is 0.71.","The SPI is 1.27, and the CPI is 0.98.","The SPI is 0.82, and the CPI is 1.05.","The SPI is 0.99, and the CPI is 0.96."],c:["A"],m:false,e:"EV = 55% × $210,000 = $115,500\nPV = 70% × $210,000 = $147,000\nAC = $162,000\n\nSPI = $115,500 / $147,000 = 0.785 ≈ 0.79\nCPI = $115,500 / $162,000 = 0.71",f:null,formula:"EV = %actual × BAC | PV = %planned × BAC | SPI = EV/PV | CPI = EV/AC",d:"ECO Task: II.5"},
+{n:157,t:"A project that should have been 90% complete by now is only 84% complete. The total project budget is US$110,000 and the actual cost to date is US$82,000.\n\nWhat is the schedule performance index (SPI) and cost performance index (CPI) for this project?",o:["The SPI is 0.93, and the CPI is 1.13.","The SPI is 1.07, and the CPI is 0.99.","The SPI is 1.15, and the CPI of 0.93.","The SPI is 0.96, and the CPI is 1.18."],c:["A"],m:false,e:"EV = 84% × $110,000 = $92,400\nPV = 90% × $110,000 = $99,000\nAC = $82,000\n\nSPI = $92,400 / $99,000 = 0.93 → slightly behind schedule\nCPI = $92,400 / $82,000 = 1.126 ≈ 1.13 → under budget",f:null,formula:"EV = %actual × BAC | SPI = EV/PV | CPI = EV/AC",d:"ECO Task: II.5"},
+{n:158,t:"Over the past six months, the cost per story in agile project A has risen by more than 250% due to a faulty platform which is no longer supported. The project will exceed the budget increment threshold at the next iteration.\n\nWho should decide if the project should be cancelled?",o:["The head of business control","The product owner","The procurement manager","The project manager"],c:["B"],m:false,e:"The product owner acts as the sponsor in agile projects and therefore has the authority to decide if conditions warrant termination of a project.",f:null,formula:null,d:"ECO Task: II.5"},
+{n:159,t:"A new product development project has the following characteristics:\n• There are three (3) main tasks.\n• Task A must be delivered four (4) weeks before task C starts.\n• Once task B is finished, task C will start.\n\nWhat is the relationship between tasks A and B?",o:["Finish-to-start (FS)","Finish-to-finish (FF)","Start-to-start (SS)","Start-to-finish (SF)"],c:["B"],m:false,e:"While there is no direct relationship between A and B, both must be completed before C can start. So, of the choices, the only response that makes sense is Finish-to-Finish (FF).",f:null,formula:null,d:"ECO Task: II.6"},
+{n:160,t:"A company is planning to utilize a new product that leverages innovative technologies and processes. The project manager has verified that the component work packages have been defined, and constraints for each component have been identified.\n\nWhich estimating technique should the project manager use to obtain a precise cost estimate of the project?",o:["Analogous","Three-point","Bottom-up","Parametric"],c:["C"],m:false,e:"Bottom-up estimating is a method of estimating project duration or cost by aggregating the estimates of the lower-level components of the WBS. Since work packages have already been defined, this is the correct technique for a precise estimate.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:161,t:"A project manager is uncertain about the duration of a project for a new product and consults several groups of subject matter experts (SMEs). The first group advises that development can be finished in 40 days. The second group identifies some risks that could make the duration up to 60 days. The third group proposes a new development method that can shorten the time to 20 days.\n\nWhat is the estimated development duration for the new product?",o:["20 days","40 days","60 days","30 days"],c:["B"],m:false,e:"Using three-point estimating:\nTriangular = (O + ML + P) / 3 = (20 + 40 + 60) / 3 = 40 days\nBeta (PERT) = (O + 4×ML + P) / 6 = (20 + 160 + 60) / 6 = 40 days",f:null,formula:"Triangular = (O + ML + P) / 3 | Beta = (O + 4×ML + P) / 6",d:"ECO Task: II.6"},
+{n:162,t:"A project manager is uncertain about the duration of a new project and consults several groups of subject matter experts (SMEs). The first group advises that development can be finished in 29 days. The second group identifies some risks that could make the duration up to 46 days. The third group proposes a new development method that can shorten the time to 18 days.\n\nUsing the Triangular estimation technique, what is the estimated development duration for the new product?",o:["28 days","31 days","32 days","36 days"],c:["B"],m:false,e:"Using the Triangular Estimate:\n(Optimistic + Most Likely + Pessimistic) / 3\n= (18 + 29 + 46) / 3 = 93 / 3 = 31 days",f:null,formula:"Triangular = (O + ML + P) / 3 = (18 + 29 + 46) / 3 = 31 days",d:"ECO Task: II.6"},
+{n:163,t:"A project manager is uncertain about the duration of a new product development project and consults several groups of subject matter experts (SMEs). The first group advises that development can be finished in 14 days. The second group identifies some risks that could make the duration up to 32 days. The third group proposes a new development method that can shorten the time to 8 days.\n\nWhat is the estimated development duration for the new product using the Beta estimation technique?",o:["12 days","16 days","14 days","20 days"],c:["B"],m:false,e:"Using the Beta (PERT) Estimate:\n(O + 4×ML + P) / 6\n= (8 + 4×14 + 32) / 6\n= (8 + 56 + 32) / 6\n= 96 / 6 = 16 days",f:null,formula:"Beta = (O + 4×ML + P) / 6 = (8 + 56 + 32) / 6 = 16 days",d:"ECO Task: II.6"},
+{n:164,t:"A trend of stories is INCOMPLETE, and this becomes apparent at the end of iterations. Several team members worked on these stories and NO blockers were identified.\n\nHow can the agile team resolve the situation?",o:["Put the stories back into the product backlog and wait for a less intensive iteration to work on them.","Use the next iteration for a team spike to determine feasibility of completing the stories.","Put the stories in the blocked column and work with the product owner to remove impediments.","Work with the product owner to further break down the stories in the backlog and update the Definition of Ready."],c:["D"],m:false,e:"When stories CANNOT be completed within one iteration, it is typically because the story is NOT broken down into small enough goals.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:165,t:"A project manager is visiting a software supplier's office. Some of the sights are surprising: two people per workstation, estimations based on a deck of cards, developers forcing their tests to fail, and routines with names such as 'traffic cop' and 'ringleader'.\n\nWhat could explain these practices?",o:["The servant leader has granted the team a bit too much freedom.","The supplier has adopted eXtreme Programming methods.","The supplier appears to be conducting 'gaming' training sessions.","The project manager happened to visit during a team building exercise."],c:["B"],m:false,e:"eXtreme Programming (XP) practices include pair programming (2 per workstation), planning poker (deck of cards), test-first programming (forcing tests to fail), and metaphor naming of processes.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:166,t:"An agile project is structured without timeboxing. Tasks are grouped by high-level goal but CANNOT be predictably scheduled.\n\nIn which three ways can the work be distributed for efficient execution? (Choose THREE.)",o:["Track readiness status to help the team initiate tasks at the right time.","Set deadlines to ensure that the team completes the work in acceptable limits.","Use a task board to group tasks into rows and track progress across columns.","Maintain a to-do task pool to limit the number of tasks in progress.","Pre-identify blockers to determine the order of execution."],c:["A","C","D"],m:true,e:"Work distribution in a flow-based agile approach can be more efficient if:\n• Task triggering is constantly monitored to reduce lag (A)\n• The task board displays progress stages in columns, potentially with tasks grouped by rows (C)\n• A pool of tasks-to-do limits the number of concurrent tasks in progress (D)",f:null,formula:null,d:"ECO Task: II.6"},
+{n:167,t:"Two start-up companies have merged, and now more than 100 developers on eight agile teams are working on a common portfolio.\n\nWhich agile practice or method can best ensure release coordination between the teams?",o:["Scrum of Scrums","Mobbing","Scrumban","Feature-Driven Development"],c:["D"],m:false,e:"Feature-Driven Development (FDD) provides the most complete set of methods specifically for the needs of large software development projects.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:168,t:"Six months into a strategic agile project, company executives are closely monitoring its progress. The COO expresses frustration that the last weekly burndown charts show the projected completion date significantly moving back and forward several times.\n\nHow can the project manager forecast the completion date with more accuracy and certainty?",o:["Ensure upcoming backlog items are elaborated in more detail with the team.","Educate the executive committee on the flexible nature of agile planning.","Plan for variable-size iterations according to story complexity and load.","Reduce frequency of the progress reports sent to senior stakeholders."],c:["A"],m:false,e:"Erratic progress curve variations are typical of inconsistent or uninformed story point estimates. Backlog refinement can ensure that overly complex stories are broken down and that past progress informs new story estimates.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:169,t:"An ongoing agile project is measured as follows:\n\nSprint 1: Planned 15, Completed 10, Actual Cost 450K, Earned Value 300K\nSprint 2: Planned 20, Completed 18, Actual Cost 600K, Earned Value 540K\nSprint 3: Planned 20, Completed 25, Actual Cost 800K, Earned Value 1000K\nSprint 4: Planned 22, Completed 25, Actual Cost 1100K, Earned Value 1250K\nTotals:   Planned 77, Completed 78, Actual Cost 2950K, Earned Value 3090K\n\nAccording to the table, which two of the following are the project's metrics? (Choose TWO.)",o:["SPI = 0.98","CPI = 1.05","CPI = 1.30","SPI = 1.01","CPI = 0.95"],c:["B","D"],m:true,e:"SPI = Stories Completed / Stories Planned = 78 / 77 = 1.01 → slightly ahead of schedule\nCPI = Earned Value / Actual Cost = 3090K / 2950K = 1.047 ≈ 1.05 → under budget",f:null,formula:"SPI = Stories Completed / Stories Planned | CPI = EV / AC",d:"ECO Task: II.6"},
+{n:170,t:"A start-up has grown quickly, and there are now four (4) agile teams working on interrelated products. All teams have begun to experience impediments and gaps related to work in other teams.\n\nHow should the project manager address this problem?",o:["Eliminate dependencies between teams.","Favour collaboration tools over meetings.","Implement a Scrum of Scrums layer.","Merge into two large teams to reduce issues."],c:["C"],m:false,e:"Scrum of Scrums is the most effective way to coordinate work between teams working on interrelated products.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:171,t:"The IT integration team has a major setback in a hybrid project. Testing has confirmed that the hardware does NOT support the target operating system. The agile team's software releases must now run on a later operating system version.\n\nWhat should the project manager do next?",o:["Meet with the scrum master to determine if the product vision is still valid.","Meet with the product owner and team to update the product backlog during the sprint.","Work with the agile team to run root cause analysis on why the problem did not surface earlier.","Inform the team at the daily meeting and update the Definition of Done and Definition of Ready."],c:["B"],m:false,e:"Changes of frame assumptions during execution requires impact analysis as quickly as possible. Product owner input is required for major scope changes (including rework) which would be reflected as updates to the product backlog. Root cause analysis is already performed by the IT team — the agile team must work with the new requirement.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:172,t:"A hybrid virtual reality project is running an agile software track and a predictive electronics track. Halfway into the project, delays are accumulating due to misaligned deliverable releases between the two tracks.\n\nWhich two elements should the project manager combine to produce a common network diagram? (Choose TWO.)",o:["Definition of Ready with dependency milestones","Epic breakdown with work breakdown structure","Product backlog with critical path task sequence","Definition of Done with exit criteria","Definition of Ready with work breakdown structure"],c:["A","D"],m:true,e:"Misalignment is caused by missing dependencies between the tracks. The purpose of the network diagram is to sequence activities based on dependency. The Scrum equivalent of a task start dependency is the Definition of Ready, and the equivalent of the task exit criteria are the Definition of Done.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:173,t:"A hybrid municipal waste management project combines many brief administrative tasks with small-scale public works. An agile track makes good progress on key objectives, but small tasks are accumulating in the backlog. Most tasks can be done in one day but are dependent on unpredictable triggering events.\n\nWhich approach would be most effective to clear out these minor tasks faster?",o:["Combine multiple minor tasks to make story sizes consistent with key objectives.","Reprioritize the backlog to favour the smallest stories and reassign them daily.","Reprioritize the backlog on a daily basis so that recent triggers boost story priority.","Integrate the small tasks to either the Definition of Done or acceptance criteria."],c:["D"],m:false,e:"The stories will NOT be considered complete until associated small tasks are triggered and completed. Integrating these small tasks into the Definition of Done or acceptance criteria ensures they are completed as part of the main stories.",f:null,formula:null,d:"ECO Task: II.6"},
+{n:174,t:"A skincare company reports growing customer complaints about an underweight product. A project manager needs to determine if something needs to be changed in the production line.\n\nWhich tool or technique can the project manager use for this task?",o:["Scatter diagram","Affinity diagram","Control chart","Histogram"],c:["C"],m:false,e:"Control charts are used to determine whether or not a process is stable or has predictable performance. They track performance over time and show whether variation is within acceptable limits.",f:null,formula:null,d:"ECO Task: II.7"},
+{n:175,t:"A project has the following characteristics:\n• A quality management plan is in place.\n• The quality management plan states that project deliverables must be reviewed, at a minimum, 1.5 weeks before the deadline.\n• Four (4) deliverables have missed this quality requirement.\n\nWhich step should the project manager take?",o:["Reach out to the project sponsor for their input.","Modify the quality management plan to conform to project practices.","Request that the project undergo an internal audit.","Use a cause-and-effect diagram for root cause analysis."],c:["D"],m:false,e:"By understanding the root cause of the issue, the project manager may avoid this type of problem later on in this and other projects.",f:null,formula:null,d:"ECO Task: II.7"},
+{n:176,t:"A project is in the execution stage. Based on the originally approved blueprint, 1,000 products were developed. The project team randomly chooses 100 products to evaluate against the quality plan.\n\nWhat is the project team undertaking?",o:["Control procurement","Statistical sampling","Process audit","Quality assurance"],c:["B"],m:false,e:"Statistical sampling involves choosing part of a population of interest for inspection — for example, selecting 10 engineering drawings at random from a list of 75. The sample is taken to measure controls and verify quality.",f:null,formula:null,d:"ECO Task: II.7"},
+{n:177,t:"The project is overseen by a senior project manager. A new project manager joins the project, and the sponsor asks the new project manager to develop the quality management plan.\n\nHow should the new project manager proceed?",o:["Meet with the senior project manager to identify established plans and processes. Then, ask for assistance in selecting the appropriate standards.","Schedule a meeting with the customer to collect requirements and obtain benchmarking samples.","Obtain the necessary benchmarking samples and cost-benefit analyses from the sponsor.","Postpone the development of the quality management plan until quality metrics and quality checklists are created."],c:["A"],m:false,e:"The new project manager needs to consult with the senior project manager to find out what practices and processes are already in place.",f:null,formula:null,d:"ECO Task: II.7"},
+{n:178,t:"Company B is setting up a new agile innovation team with a mission of placing product quality above all other considerations. The initiative comes after a number of high-profile complaints on social media networks about the brand's diminished quality.\n\nWhich option would be most effective to achieve the team's goals?",o:["Raise the product price to fund use of better-quality materials.","Benchmark features against competitor products and track defects.","Create an automated testing bench to eliminate human error.","Use Test-Driven Development based on continuous user focus group input."],c:["D"],m:false,e:"TDD (Test-Driven Development) ensures a quality standard before development, but continuous user input is the most important factor to determine the target quality level.",f:null,formula:null,d:"ECO Task: II.7"},
+{n:179,t:"During sprint planning, some new backlog items are prioritized but NOT estimated. The product owner requires a new set of tests to verify the unique properties of the items.\n\nWhat should happen before adding it to the sprint backlog?",o:["Use analogous estimating based on similar tests on similar stories.","The product owner defines a new epic to allow testing in the next sprint.","Add the relevant acceptance criteria in the Definition of Ready before estimating.","The product owner should provide the initial estimate to be refined by the team."],c:["C"],m:false,e:"Specific acceptance criteria should be defined and checked in the Definition of Ready of any impacted item before estimation to ensure all effort is accounted for.",f:null,formula:null,d:"ECO Task: II.7"},
+{n:180,t:"A smartphone manufacturer is re-assessing its product development methods in response to a sharp increase in user complaints. Analysis of the complaints indicates that the users try to use some features in ways that designers did NOT anticipate.\n\nGiven these findings, which agile practice would most effectively prevent the problem?",o:["Acceptance Test-Driven Development","Smoke Testing","Behavior-Driven Development","Red, green, refactor"],c:["C"],m:false,e:"Behavior-Driven Development (BDD) is an extension of Test-Driven Development whereby automated tests and simulations are created before developing the product. Flaws are discovered by forcing the tests to fail before producing the unit in a way that will pass the tests.",f:null,formula:null,d:"ECO Task: II.7"},
+{n:181,t:"A start-up company needs to quickly expand its product portfolio to meet market demand. Recently, staff members are working on two or three agile teams, each dedicated to a different product line. Output is dropping and defect rates are rising in all teams.\n\nIn which two ways can the project manager help the agile teams improve their work? (Choose TWO.)",o:["Perform root-cause analysis in the next retrospectives.","Influence the product owners to right-size their portfolios.","Organize dedicated teams to reduce context-switching.","Appoint dedicated test teams to offload the agile teams.","Train the agile teams to improve time and focus management."],c:["A","C","D"],m:true,e:"The main problem is high context-switching when working on multiple teams, which is resolved by 100% dedicated teams (C). Root-cause analysis (A) would pinpoint this and other problems to address. Dedicated test teams (D) also help offload the agile teams.",
+flag:{note:"The question says 'Choose TWO' but the PDF exam key lists THREE correct answers: A, C, and D. This quiz accepts all three. If you see this on the actual exam, be aware that the question text and answer key may differ — choose A, C, and D.",pdfAnswer:"A, C, D"},formula:null,d:"ECO Task: II.7"},
+{n:182,t:"The agile team surpassed the planned number of stories in the last three agile iterations.\n\nHow can the project manager be sure all the work performed is truly complete?",o:["Ask the product owner if results are satisfactory.","Check results against the Definition of Done.","Ask the team to cross-check other members' work.","Check the results of all the tests performed."],c:["B"],m:false,e:"The Definition of Done lists all criteria that must be met to consider a task/story completed.",f:null,formula:null,d:"ECO Task: II.7"},
+{n:183,t:"A medium-sized company is expanding into a new market. However, the company does NOT have previous experience in that market.\n\nA project manager needs to collect requirements. Which two tools or techniques should the project manager use? (Choose TWO.)",o:["Prototypes","Expert judgment","Product analysis","Create requirements traceability matrix"],c:["A","B"],m:true,e:"Experts are a source of experience and knowledge. Given the increased risks of a new and potentially complex market, using expert judgement is recommended. Prototypes are an excellent way to gain a better understanding of the product and to gather requirements.",f:null,formula:null,d:"ECO Task: II.8"},
+{n:184,t:"A client brings a project manager into a project during the project's execution stage. The project manager reviews the project scope for cost estimating purposes and notices that some deliverables were missed in the work breakdown structure (WBS).\n\nWhich step should the manager take next?",o:["Verify with the stakeholders to see if these missed deliverables should be added.","Ask that the PMO approve additional funds for this work.","Include the work in the WBS, per the 100% rule, and recalculate the total project cost.","Determine whether these deliverables are necessary by verifying with experts in the field."],c:["C"],m:false,e:"The 100% rule states that any work package in the WBS should consist of 100% of all work for that work package. Since the WBS is a work package itself (the project), and since the WBS should contain only work packages that are in-scope, any missing work packages should be added to the WBS and recalculated.",f:null,formula:null,d:"ECO Task: II.8"},
+{n:185,t:"Review the following project characteristics:\n• A sponsor approves a project.\n• The project manager invites selected team members, key stakeholders, and the sponsor to a meeting.\n• The primary purpose of the meeting is to create a document that will guide the team in defining the main project deliverables.\n\nWhat will be the final output of this meeting?",o:["Milestone list","Work breakdown structure (WBS) dictionary","Scope management plan","Requirements management plan"],c:["C"],m:false,e:"The scope management plan is a component of the project management plan that describes how the scope will be defined, developed, monitored, controlled, and validated.",f:null,formula:null,d:"ECO Task: II.8"},
+{n:186,t:"A project manager is working with a customer who repeatedly submits requests for new requirements for an existing software product. The project manager has already provided the completed scope definition for the product's next version release to stakeholders.\n\nWhich step is appropriate for the project manager to take next?",o:["Hold a meeting with the product manager to request that the number of new requests be reduced.","Define project boundaries immediately with the sponsor.","Organize a meeting with the stakeholders to set expectations.","Analyse the scope management plan to see how changes in scope are handled."],c:["D"],m:false,e:"The scope management plan documents how the project and product scope will be defined, developed, monitored, controlled, and validated. The key benefit of this document is that it provides guidance and direction on how scope will be managed throughout the project.",f:null,formula:null,d:"ECO Task: II.8"},
+{n:187,t:"A project manager is working on a software development project. Two customers are repeatedly submitting new feature requests. The completed scope definition for the product's next version release has already been provided to stakeholders.\n\nWhat should the project manager do next?",o:["Ask to meet with the product manager, and discuss reducing the number of new requests.","Meet with the sponsor immediately to discuss project boundaries.","Meet face-to-face with stakeholders to set expectations.","Assess the scope management plan to see how changes in scope are managed."],c:["D"],m:false,e:"The scope management plan provides details on how project and product scope will be defined, validated, and controlled. It is needed to help control the scope of the project.",f:null,formula:null,d:"ECO Task: II.8"},
+{n:188,t:"An empowered agile team showed impressive progress in the first four iterations, but now the product owner has noticed low output in the latest five iterations without any apparent reason.\n\nWhat could be the cause of this situation?",o:["The team worked on low-complexity stories from the backlog in the first four iterations.","Technical debt has set in and the team's output will keep dropping until the cause is eliminated.","The team was in the storming stage of the development and now have moved to norming.","There is most likely a specific under-performing team member slowing the team down."],c:["A"],m:false,e:"Some agile teams want to favour faster progress by completing less complex stories before more complex ones. Prioritization of backlog should be value-based, not speed-based.",f:null,formula:null,d:"ECO Task: II.8"},
+{n:189,t:"An agile team is struggling to solve a blocking issue with packaging design. Eventually, they find a solution, but it requires a different product format.\n\nWhat should the team do before further developing the solution?",o:["Create a prototype and demo it to the end customer.","Ask the product owner to approve the change.","Run a cost/benefit analysis to determine its value.","Check if the change is consistent with the product vision."],c:["B"],m:false,e:"This is a case in which basic product characteristics may be affected by the change and might not be captured in the product vision. The product owner is responsible for shaping the product in collaboration with stakeholders.",f:null,formula:null,d:"ECO Task: II.8"},
+{n:190,t:"A merger of two companies results in combining an agile software project and a predictive electronics project into a single hybrid project. Two months later, requirements have changed in both tracks but NEITHER has a full picture on status or importance of the requirements.\n\nHow can the project manager best resolve the problem?",o:["Integrate the product backlog into the requirements specification and educate the software team on working with the new document.","Create a requirements traceability matrix by combining the product backlog with the requirements specification and define both documents as input.","Integrate the requirements specification into the product backlog and educate the electronics team on working with the new document.","Integrate the revised work packages and updated product backlog items into a new master WBS for progress tracking."],c:["B"],m:false,e:"The requirements traceability matrix provides a simple, flexible but complete status view of requirements. Both product backlog and requirements specification are needed to ensure smooth continuity in each track.",f:null,formula:null,d:"ECO Task: II.8"},
+{n:191,t:"A marketing team is developing a new website for an existing product range. The team reads through some customer comments submitted on the current website:\n• 'Too much clicking!'\n• 'More and better please.'\n• 'Make it easier'\n\nWhich tool or technique should the marketing team use to identify the target audience's style preferences?",o:["Focus groups","Brainstorming","Product analysis","Benchmarking"],c:["A"],m:false,e:"Focus groups bring together prequalified stakeholders and subject matter experts to learn about their expectations and attitudes about a proposed product, service, or result.",f:null,formula:null,d:"ECO Task: II.9"},
+{n:192,t:"A project has the following characteristics:\n• To determine what product should be created, a feasibility study was conducted.\n• A change request was approved to develop another product that contradicts the original requirements.\n• Data analysis was conducted before the change request was approved.\n\nWhich action should the project manager take?",o:["Execute the change request.","Decline the change request.","Ask for a detailed report of the data analysis.","Ask for a feasibility study of the new product."],c:["A"],m:false,e:"Approved change requests can require new or revised cost estimates, activity sequences, schedule dates, resource requirements, and/or analysis of risk response alternatives. These changes can require adjustments to the project management plan and other project documents.",f:null,formula:null,d:"ECO Task: II.9"},
+{n:193,t:"User test results for a prototype release are ready. The test users describe the kind of smoother experience they want, the many missing features they desire, and the ways the product could be more visually appealing.\n\nWhat conclusions can be drawn from the user's input?",o:["The tests are irrelevant: the prototype design is NOT complete.","The tests were a failure: most of the features will need to be re-designed.","The tests were a success: the input will ensure a more targeted backlog.","The test results are unusable: the users did NOT understand the goals."],c:["C"],m:false,e:"The objective of user tests is to provide the earliest possible input to adjust the product to user needs. Thus, a large amount of negative input is a success because it enables a large amount of improvement faster.",f:null,formula:null,d:"ECO Task: II.9"},
+{n:194,t:"During estimating, the team is discussing an item in the backlog. It becomes clear that the item can be done in different ways, but the best way is NOT obvious.\n\nWhat should the team do to progress on this item?",o:["Add ranked alternatives to the backlog.","Select the cheapest alternative to build.","Add a new spike item to the backlog.","Select the fastest alternative to build."],c:["C"],m:false,e:"The spike is correct because items should be sufficiently researched to determine the best way to deliver business value and phrase sufficiently detailed, testable stories.",f:null,formula:null,d:"ECO Task: II.9"},
+{n:195,t:"The agile team is building a version of a smartphone shopping application suitable for older people. Marketing has not been able to find any volunteer test users fitting the profile.\n\nWhich option would be most effective to ensure the best product value is delivered?",o:["Examine evaluations of similar competitor products.","Ask older relatives about the price point they want.","Remove eyeglasses when testing the user interface.","Ask the product owner to run friendly tests with older relatives."],c:["D"],m:false,e:"Agile favours obtaining direct and practical/actual user feedback over formal data collection processes or competitor analysis.",f:null,formula:null,d:"ECO Task: II.9"},
+{n:196,t:"A customer contemplates adding new features to a project deliverable.\n\nWhich mandatory step must a project manager take before a project team member can start working on these new features?",o:["Verify requirements.","Ensure approval from the responsible individual identified in the project management plan.","Gain approval from the project sponsor.","Ensure key subject matter experts (SMEs) approve."],c:["B"],m:false,e:"Every documented change request needs to be either approved, deferred, or rejected by a responsible individual, usually the project sponsor or project manager. The responsible individual will be identified in the project management plan or by the organizational procedures. When required, the Perform Integrated Change Control process includes a change control board (CCB).",f:null,formula:null,d:"ECO Task: II.10"},
+{n:197,t:"A client's employee asks the project manager for an additional, new product feature during a status meeting.\n\nTo which document should the project manager first refer to determine who has the authority to approve this request?",o:["Change log","Change management plan","Responsible, accountable, consult, and inform (RACI) matrix","Change request document"],c:["B"],m:false,e:"The change management plan is a component of the project management plan that establishes the change control board, documents the extent of its authority, and describes how the change control system will be implemented.",f:null,formula:null,d:"ECO Task: II.10"},
+{n:198,t:"A project is 50% completed. An essential project team member requests two (2) months leave for personal matters.\n\nWhat should the project manager do first?",o:["Check with this team member to see if the leave can be postponed.","Discuss the issue with the functional manager and request a replacement.","Assess how the leave will impact the project.","Refer to the resource management plan."],c:["C"],m:false,e:"The project manager first needs to understand what impact (if any) this absence will have on the project, before taking any action.",f:null,formula:null,d:"ECO Task: II.10"},
+{n:199,t:"A project sponsor asks the project manager to change production materials because these materials could cause health problems to consumers.\n\nWhich step should the project manager take?",o:["Follow the Perform Integrated Change Control process and thoroughly investigate the matter.","Immediately implement the change and submit a change request for formal documentation.","End the current work and enact the change control process.","Reject the change because the request is outside of scope."],c:["A"],m:false,e:"You need to analyze and understand impacts of any change to the project before submitting the change to the change control board. A change control board relies on the project manager to provide all available information for effective decision making.",f:null,formula:null,d:"ECO Task: II.10"},
+{n:200,t:"A team was in the execution stage of the project management plan when three (3) necessary changes were brought to their attention. The team members all have differing opinions regarding how to implement the changes.\n\nWhat should the project manager do?",o:["Hold a meeting with the board and project sponsor to address the issue.","Confirm that all team members and stakeholders understand and follow the change management plan.","Organize a meeting with team members to review the issues and request changes where needed.","Ensure all requested changes are applied to the project and communicate directly with all team members."],c:["B"],m:false,e:"The team and project manager must follow the documented and agreed-upon change management processes.",f:null,formula:null,d:"ECO Task: II.10"}
+];
+
+let cur=0,corr=0,wrng=0,ans=0,sel=[],subm=false;
+
+function render(){
+  const q=Qs[cur];const tot=Qs.length;
+  const pct=Math.round((ans/tot)*100);
+  document.getElementById('pLbl').textContent=`Question ${q.n} of 200`;
+  document.getElementById('pPct').textContent=pct+'%';document.getElementById('pFill').style.width=pct+'%';
+  updateScore();
+  document.getElementById('bNum').textContent='Q'+q.n;
+  document.getElementById('bType').textContent=q.m?`Multi (${q.c.length})`:'Single';
+  document.getElementById('bDom').textContent=q.d;
+  const bFlag=document.getElementById('bFlag');const fb=document.getElementById('flagBanner');
+  if(q.flag){bFlag.style.display='inline-block';fb.classList.add('show');document.getElementById('flagTxt').innerHTML=`<strong>⚑ Answer Discrepancy Detected</strong><br>${q.flag.note}`;}
+  else{bFlag.style.display='none';fb.classList.remove('show');}
+  document.getElementById('qTxt').textContent=q.t;
+  const mn=document.getElementById('mNote');
+  if(q.m){mn.textContent=`★ Select ${q.c.length} answers`;mn.style.display='block';}else{mn.style.display='none';}
+  const ol=document.getElementById('optsList');ol.innerHTML='';
+  q.o.forEach((opt,i)=>{
+    const lt=L[i];const b=document.createElement('button');
+    b.className='opt';b.dataset.letter=lt;
+    b.innerHTML=`<span class="opt-lt">${lt}</span><span>${opt}</span>`;
+    b.onclick=()=>tog(lt,b);ol.appendChild(b);
+  });
+  sel=[];subm=false;
+  document.getElementById('btnSub').disabled=true;document.getElementById('btnNxt').classList.remove('show');
+  document.getElementById('explBox').classList.remove('show');document.getElementById('discNote').innerHTML='';document.getElementById('formulaBox').innerHTML='';
+  const ri=document.getElementById('resInd');ri.style.display='none';ri.className='res-ind';
+}
+
+function tog(lt,btn){
+  if(subm)return;const q=Qs[cur];
+  if(!q.m){document.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));sel=[lt];btn.classList.add('sel');}
+  else{if(sel.includes(lt)){sel=sel.filter(l=>l!==lt);btn.classList.remove('sel');}else{sel.push(lt);btn.classList.add('sel');}}
+  document.getElementById('btnSub').disabled=sel.length<(q.m?q.c.length:1);
+}
+
+function submit(){
+  if(subm)return;subm=true;const q=Qs[cur];
+  const cs=new Set(q.c),ss=new Set(sel);
+  const ok=cs.size===ss.size&&[...cs].every(l=>ss.has(l));
+  ans++;if(ok)corr++;else wrng++;
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.disabled=true;const lt=b.dataset.letter;
+    if(q.c.includes(lt)){b.classList.remove('sel');b.classList.add('cor');}
+    else if(sel.includes(lt)){b.classList.remove('sel');b.classList.add('wrg');}
+  });
+  const ri=document.getElementById('resInd');ri.style.display='block';
+  if(ok){ri.className='res-ind ok';ri.textContent='✓ Correct!';}
+  else{ri.className='res-ind no';ri.textContent=`✗ Incorrect — Correct: ${q.c.join(', ')}`;}
+  document.getElementById('explTxt').textContent=q.e;
+  document.getElementById('explDom').textContent=q.d;
+  if(q.formula){document.getElementById('formulaBox').innerHTML=`<div class="formula-box">📐 Formula: ${q.formula}</div>`;}
+  if(q.flag){document.getElementById('discNote').innerHTML=`<div class="disc-note"><div class="disc-note-title">⚑ PDF Exam Key Discrepancy</div>${q.flag.note}<br><strong>PDF Answer:</strong> ${q.flag.pdfAnswer}</div>`;}
+  document.getElementById('explBox').classList.add('show');
+  document.getElementById('btnSub').disabled=true;
+  const bn=document.getElementById('btnNxt');bn.textContent=cur<Qs.length-1?'Next →':'See Results →';bn.classList.add('show');
+  updateScore();
+  const pct2=Math.round((ans/Qs.length)*100);
+  document.getElementById('pPct').textContent=pct2+'%';document.getElementById('pFill').style.width=pct2+'%';
+}
+
+function updateScore(){
+  document.getElementById('sScore').textContent=`${corr}/${ans}`;
+  document.getElementById('sCorr').textContent=corr;
+  document.getElementById('sWrng').textContent=wrng;
+  document.getElementById('sAcc').textContent=ans>0?Math.round((corr/ans)*100)+'%':'—';
+}
+
+function next(){
+  cur++;
+  if(cur>=Qs.length){showResult();}
+  else{render();document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});}
+}
+
+function showResult(){
+  document.getElementById('qCard').style.display='none';document.querySelector('.prog-wrap').style.display='none';
+  const tot=Qs.length,pct=Math.round((corr/tot)*100);
+  let em,ti,su;
+  if(pct>=90){em='🏆';ti='Outstanding!';su='Above 90% on EVM, estimating, quality, scope, and change control — exam-ready!';}
+  else if(pct>=75){em='💪';ti='Great Work!';su='Solid performance. Review EVM calculations and change management processes.';}
+  else if(pct>=50){em='📚';ti='Good Effort!';su='Review EVM formulas (CPI/SPI), three-point estimating, and the Perform Integrated Change Control process.';}
+  else{em='🔄';ti='Keep Going!';su='Focus on EVM calculations, agile metrics, quality tools, and change management. Practice the formulas!';}
+  document.getElementById('rEmoji').textContent=em;document.getElementById('rTitle').textContent=ti;document.getElementById('rSub').textContent=su;
+  document.getElementById('rScore').textContent=pct+'%';
+  document.getElementById('rScore').style.color=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  document.getElementById('rCorr').textContent=corr;document.getElementById('rWrng').textContent=wrng;document.getElementById('rTot').textContent=tot;
+  const pf=document.getElementById('perfFill');pf.style.background=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  setTimeout(()=>{pf.style.width=pct+'%';},100);
+  document.getElementById('resultScr').classList.add('show');
+}
+
+function restart(){
+  cur=0;corr=0;wrng=0;ans=0;sel=[];subm=false;
+  document.getElementById('resultScr').classList.remove('show');document.getElementById('qCard').style.display='';document.querySelector('.prog-wrap').style.display='';
+  render();window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+
+function goBack() {
+  if (cur > 0) { cur--; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goSkip() {
+  if (cur < Qs.length - 1) { cur++; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

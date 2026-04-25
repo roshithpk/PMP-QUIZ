@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Quiz · Q201–250</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050810;--s1:#0b1020;--s2:#101520;--bd:#192030;
+  --a:#a78bfa;--a2:#fb923c;--a3:#34d399;
+  --green:#22c55e;--red:#ef4444;--orange:#f97316;
+  --txt:#ccd5f0;--muted:#4a5f80;--r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 14px 80px;
+background-image:radial-gradient(ellipse 60% 40% at 10% 0%,rgba(167,139,250,.07) 0,transparent 70%),radial-gradient(ellipse 50% 40% at 90% 100%,rgba(52,211,153,.06) 0,transparent 70%);}
+body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999;}
+.hdr{width:100%;max-width:780px;padding:36px 0 24px;}
+.hdr-eye{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hdr-eye::before{content:'';width:28px;height:1px;background:var(--a);}
+.hdr-title{font-family:'Syne',sans-serif;font-size:clamp(24px,4.5vw,38px);font-weight:800;line-height:1.1;margin-bottom:4px;}
+.hdr-title span{color:var(--a);}
+.hdr-sub{font-size:13px;color:var(--muted);}
+.prog-wrap{width:100%;max-width:780px;margin-bottom:18px;}
+.prog-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px;font-family:'IBM Plex Mono',monospace;}
+.prog-track{height:3px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--a),var(--a3));border-radius:100px;transition:width .5s cubic-bezier(.4,0,.2,1);}
+.score-row{width:100%;max-width:780px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
+.chip{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:11px 12px;}
+.chip-lbl{font-size:9px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;}
+.chip-val{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;line-height:1;}
+.chip-val.c{color:var(--green)}.chip-val.w{color:var(--red)}.chip-val.n{color:var(--a)}
+.card{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;animation:ci .3s ease;}
+@keyframes ci{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--bd);}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;border-radius:5px;padding:3px 9px;border:1px solid;}
+.badge-q{color:var(--a);background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.25);}
+.badge-t{color:var(--a2);background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.25);}
+.badge-d{color:var(--a3);background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.25);}
+.q-txt{font-size:15px;line-height:1.7;white-space:pre-line;}
+.multi-note{font-size:11px;color:var(--a2);font-family:'IBM Plex Mono',monospace;padding:8px 26px 0;display:none;}
+.opts{padding:16px 26px 20px;display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:12px;background:var(--s2);border:1.5px solid var(--bd);border-radius:9px;padding:12px 14px;cursor:pointer;text-align:left;transition:border-color .14s,background .14s,transform .1s;color:var(--txt);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.55;width:100%;}
+.opt:hover:not(:disabled){border-color:rgba(167,139,250,.4);background:rgba(167,139,250,.04);transform:translateX(3px);}
+.opt:disabled{cursor:default;transform:none;}
+.opt.sel{border-color:var(--a);background:rgba(167,139,250,.07);}
+.opt.cor{border-color:var(--green);background:rgba(34,197,94,.07);}
+.opt.wrg{border-color:var(--red);background:rgba(239,68,68,.07);}
+.opt-lt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;min-width:22px;height:22px;border-radius:5px;background:var(--bd);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background .14s,color .14s;flex-shrink:0;margin-top:2px;}
+.opt.sel .opt-lt{background:var(--a);color:#fff;}
+.opt.cor .opt-lt{background:var(--green);color:#000;}
+.opt.wrg .opt-lt{background:var(--red);color:#fff;}
+.res-ind{padding:4px 26px 8px;font-size:13px;font-weight:600;display:none;}
+.res-ind.ok{color:var(--green)}.res-ind.no{color:var(--red)}
+.expl{margin:0 26px 20px;border-radius:9px;border-left:3px solid var(--a);background:rgba(167,139,250,.04);padding:13px 15px;font-size:13.5px;line-height:1.65;color:#a89fc4;display:none;}
+.expl.show{display:block;animation:fi .25s ease;}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.expl-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:7px;}
+.expl-dom{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(167,139,250,.35);margin-top:8px;}
+.acts{padding:0 26px 26px;display:flex;gap:9px;flex-wrap:wrap;}
+.btn-sub{background:var(--a);color:#fff;border:none;border-radius:7px;padding:11px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:opacity .18s,transform .1s;}
+.btn-sub:hover:not(:disabled){opacity:.82;transform:translateY(-1px);}
+.btn-sub:disabled{opacity:.3;cursor:not-allowed;transform:none;}
+.btn-nxt{background:transparent;color:var(--txt);border:1.5px solid var(--bd);border-radius:7px;padding:11px 22px;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:13px;cursor:pointer;transition:border-color .14s,background .14s;display:none;}
+.btn-nxt.show{display:block;}
+.btn-nxt:hover{border-color:var(--a);background:rgba(167,139,250,.05);}
+.result{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:50px 36px;text-align:center;display:none;animation:ci .4s ease;}
+.result.show{display:block;}
+.res-emoji{font-size:56px;margin-bottom:16px;}
+.res-title{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;margin-bottom:10px;}
+.res-sub{color:var(--muted);font-size:14px;max-width:480px;margin:0 auto 32px;line-height:1.65;}
+.res-score{font-family:'Syne',sans-serif;font-weight:800;font-size:76px;line-height:1;margin-bottom:6px;}
+.res-score-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+.perf-bar{width:200px;margin:0 auto 28px;height:5px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.perf-fill{height:100%;border-radius:100px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s;}
+.res-bk{display:flex;justify-content:center;gap:28px;margin-bottom:36px;}
+.rbi{display:flex;flex-direction:column;gap:4px;align-items:center;}
+.rbi-v{font-family:'Syne',sans-serif;font-weight:700;font-size:28px;}
+.rbi-l{font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;}
+.btn-rst{background:var(--a);color:#fff;border:none;border-radius:7px;padding:13px 32px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:opacity .2s;}
+.btn-rst:hover{opacity:.82;}
+.info-bar{width:100%;max-width:780px;background:rgba(52,211,153,.05);border:1px solid rgba(52,211,153,.2);border-radius:var(--r);padding:11px 16px;margin-bottom:20px;font-size:13px;color:#6ee7b7;display:flex;align-items:flex-start;gap:10px;}
+@media(max-width:520px){.card-head,.opts,.acts{padding-left:14px;padding-right:14px;}.expl{margin-left:14px;margin-right:14px;}.score-row{grid-template-columns:repeat(2,1fr);}}
+
+  /* ── Back / Skip nav buttons ── */
+  .btn-nav {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .btn-nav:hover { border-color: var(--a, var(--accent, #aaa)); color: var(--txt); }
+  .btn-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-eye">PMP® Exam Prep · Batch 5</div>
+  <h1 class="hdr-title">Questions <span>201 – 250</span></h1>
+  <p class="hdr-sub">Domains II & III: Process & Business Environment · 50 questions · All answers verified against PDF exam key</p>
+</div>
+
+<div class="info-bar">
+  <span style="flex-shrink:0">✓</span>
+  <div>All 50 answers in this batch have been verified against the PDF exam key. <strong>No discrepancies found.</strong></div>
+</div>
+
+<div class="prog-wrap">
+  <div class="prog-meta"><span id="pLbl">Question 201 of 250</span><span id="pPct">0%</span></div>
+  <div class="prog-track"><div class="prog-fill" id="pFill" style="width:0%"></div></div>
+</div>
+<div class="score-row">
+  <div class="chip"><div class="chip-lbl">Score</div><div class="chip-val n" id="sScore">0/0</div></div>
+  <div class="chip"><div class="chip-lbl">Correct</div><div class="chip-val c" id="sCorr">0</div></div>
+  <div class="chip"><div class="chip-lbl">Wrong</div><div class="chip-val w" id="sWrng">0</div></div>
+  <div class="chip"><div class="chip-lbl">Accuracy</div><div class="chip-val n" id="sAcc">—</div></div>
+</div>
+<div class="card" id="qCard">
+  <div class="card-head">
+    <div class="badges"><span class="badge badge-q" id="bNum">Q201</span><span class="badge badge-t" id="bType">Single</span><span class="badge badge-d" id="bDom">Domain II</span></div>
+    <p class="q-txt" id="qTxt"></p>
+  </div>
+  <p class="multi-note" id="mNote"></p>
+  <div class="opts" id="optsList"></div>
+  <div class="res-ind" id="resInd"></div>
+  <div class="expl" id="explBox">
+    <div class="expl-lbl">Explanation</div>
+    <div id="explTxt"></div>
+    <div class="expl-dom" id="explDom"></div>
+  </div>
+  <div class="acts">
+    <button class="btn-nav" id="btnBack" onclick="goBack()">← Back</button>
+    <button class="btn-nav" id="btnSkip" onclick="goSkip()">Skip →</button>
+    <button class="btn-sub" id="btnSub" disabled onclick="submit()">Submit Answer</button>
+    <button class="btn-nxt" id="btnNxt" onclick="next()">Next →</button>
+  </div>
+</div>
+<div class="result" id="resultScr">
+  <div class="res-emoji" id="rEmoji"></div>
+  <h2 class="res-title" id="rTitle"></h2>
+  <p class="res-sub" id="rSub"></p>
+  <div class="res-score" id="rScore"></div>
+  <div class="res-score-lbl">Final Score · Q201–250</div>
+  <div class="perf-bar"><div class="perf-fill" id="perfFill"></div></div>
+  <div class="res-bk">
+    <div class="rbi"><span class="rbi-v" style="color:var(--green)" id="rCorr">0</span><span class="rbi-l">Correct</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--red)" id="rWrng">0</span><span class="rbi-l">Wrong</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--a)" id="rTot">50</span><span class="rbi-l">Total</span></div>
+  </div>
+  <button class="btn-rst" onclick="restart()">↺ Restart</button>
+</div>
+
+<script>
+const L=['A','B','C','D','E'];
+const Qs=[
+{n:201,t:"A project manager recently joined a new project with tight deadlines, a global virtual team, and a fixed budget. During the planning stage, the project manager wants to avoid scope creep and keep the team focused on delivering a product that meets requirements.\n\nThe project manager should ensure __________. (Fill in the blank with the correct response.)",o:["That any changes to scope go through the formal approval process.","That daily standups occur, with all development teams.","That the development team leads generate detailed requirements.","That stakeholders do NOT directly interact with the development team leads."],c:["A"],m:false,e:"Following the formal change control process is the best way to control unnecessary project changes.",d:"ECO Task: II.10"},
+{n:202,t:"The project sponsor requests that an element of a product will be swapped for the equivalent supplied by a local manufacturer in order to have a more sustainable supply chain.\n\nWhich action should the project manager take?",o:["Promptly implement the change and submit a change request for formal documentation.","Refer to the Perform Integrated Change Control process to examine the issue further.","Halt current production and initiate the Perform Integrated Change Control process.","Refuse to fulfil the request because it will lead to scope creep."],c:["B"],m:false,e:"Submitting a change request starts the Perform Integrated Change Control process. Once submitted, the project manager and team analyze the impact of the change and can verify whether an element in the product actually does lead to health issues in customers. Whatever the issue or concern, it should be investigated first before taking action.",d:"ECO Task: II.10"},
+{n:203,t:"A worldwide product launch will likely be delayed by the lengthy analysis needed to assess the impact of new EU regulations. Perishable ingredients and factory bookings are at risk of being lost. The executive committee decides to postpone the launch in the EU but maintain launch dates in all non-EU countries.\n\nHow should the project manager re-plan the project to support both launches?",o:["Use the contingency budget to cover sunken costs for the EU launch and adjust plans for the non-EU launch.","Replan the project as a fully agile set of iterations and ensure that fixed milestones are documented on the burn-down chart.","Plan analysis activities and tollgates for the EU launch and crash the schedule for the non-EU launch.","Embed a set of iterations to analyze and develop the EU product, while adjusting plans for the non-EU launch."],c:["D"],m:false,e:"Two launch workstreams will need to run in parallel to avoid delay to the non-EU launch. Lack of known requirements makes it impossible to plan the EU launch with a predictive approach. Existing milestones must be maintained to avoid loss.",d:"ECO Task: II.10"},
+{n:204,t:"A multi-year, hybrid pharmaceutical project adds new fixed-date activities for the team to run Machine Learning (ML) processing of medical scans. The output from the ML analysis is used by an agile team of doctors to determine next steps in a patient case.\n\nThe project manager has updated the scope statement and schedule. In which three other documents should the project manager record this new process? (Choose THREE.)",o:["Stakeholder Register","Sprint Backlog","Definition of Ready","Risk Register","Resource Management Plan"],c:["C","D","E"],m:true,e:"The Definition of Ready is updated to ensure that the ML output triggers the agile team's analysis. The Risk Register is updated to plan for risks relating to adapting and learning new technology and ways of working. The Resource Management Plan is updated because the machines running the ML routines are resources necessary to complete the work.",d:"ECO Task: II.10"},
+{n:205,t:"A project's workload is increasing significantly, and the resource level is NOT sufficient. In response, management outsources some major tasks to keep the project on schedule.\n\nWhat should the project manager do in this scenario?",o:["Review the communications management plan.","Revise the procurement management plan.","Escalate to the project sponsor.","Revise the organizational chart."],c:["B"],m:false,e:"The procurement management plan needs to be updated, since it captures the process of documenting project procurement decisions, specifying the approach, and identifying potential sellers. The key benefit of this process is determining whether to acquire goods and services from outside the project and, if so, what to acquire as well as how and when to acquire it.",d:"ECO Task: II.11"},
+{n:206,t:"A textile development project needs a specialized resource to work for 900 hours. The company has decided to outsource these hours. Because of internal policies, all potential service providers must be given the same information about the requirements.\n\nWhich action should the project manager take to ensure this?",o:["Hold direct negotiations with each service provider.","Conduct a bidder conference with the service providers.","Ensure the procurement management plan is sent to each service provider.","Add each of the service providers to the stakeholder register."],c:["B"],m:false,e:"A bidder conference is a meeting between the buyer and prospective service providers prior to proposal submittal. Conferences ensure that all prospective bidders have a clear and common understanding of the procurement, and NO bidders receive preferential treatment.",d:"ECO Task: II.11"},
+{n:207,t:"Because a deliverable does NOT meet the agreed-upon quality specifications, it is rejected by the customer. Team members find that the deliverable fails to meet expectations because of a problem with vendor-provided parts. The vendor says that they will NOT correct the problem.\n\nBefore deciding on next steps, what should the project manager do?",o:["Check the service level agreement (SLA) established with the vendor.","Review the procurement management plan and contract agreements.","Check the internal quality assurance reports.","Review the resource management plan and document lessons learned."],c:["B"],m:false,e:"A contract is a mutually binding agreement that obligates the seller to provide the specified products, services, or results; obligates the buyer to compensate the seller; and represents a legal relationship that is subject to remedy in the courts.",d:"ECO Task: II.11"},
+{n:208,t:"Near the end of a manufacturing project, several team members are transferred to another project. To complete the work, the project manager needs to acquire additional resource support from a new supplier but is concerned about the cost risk of using a new supplier at this advanced stage of the project.\n\nWhat type of contract should be used?",o:["Recommend a time and material (TM) contract.","Recommend a fixed price incentive fee (FPIF) contract.","Recommend a cost plus incentive fee (CPIF) contract.","Recommend a firm fixed price (FFP) contract."],c:["B"],m:false,e:"A Fixed Price Incentive Fee (FPIF) contract is a type of contract where the buyer pays the seller a set amount (as defined by the contract), and the seller can earn an additional amount if the seller meets defined performance criteria. This reduces cost risk for the buyer while incentivizing performance.",d:"ECO Task: II.11"},
+{n:209,t:"A deliverable does NOT meet the agreed-upon quality specifications and is rejected by the customer. After investigation, the project team finds a fault with the vendor-provided parts. This fault caused the issue. The vendor says that they CANNOT correct the situation.\n\nWhat should the project manager review before deciding on next steps?",o:["The service level agreement (SLA) established with the vendor.","The procurement management plan and contract agreements.","The internal quality assurance reports.","The resource management plan."],c:["B"],m:false,e:"A contract is a mutually binding agreement that obligates the seller to provide the specified products, services, or results; obligates the buyer to compensate the seller; and represents a legal relationship that is subject to remedy in the courts.",d:"ECO Task: II.11"},
+{n:210,t:"A hybrid project combines IT integration and software development tasks. The predictive and agile teams seem to be working in silos, resulting in misaligned deliverable scheduling.\n\nWhich two measures would most effectively enable the teams to better synchronize their deliveries? (Choose TWO.)",o:["Alter the story size to ensure more complete integration to the IT build requirements.","Use the IT predictive schedule to limit the features the software team starts to develop.","Create a common Kanban board to queue and track progress of both teams' deliverables.","Break down IT work packages into more granular tasks to align to the software releases.","Define common milestones and an overall dependency network to be used by both teams."],c:["C","E"],m:true,e:"Common visibility of work in progress would enable better aligned work planning (C). Common milestones and dependency integration across the two tracks will promote synchronized delivery (E). The other approaches are wrong because story size should always be as low as possible; agile progress should NOT be reduced to match the predictive schedule; and the nature of a strictly sequential, predictive IT workflow is NOT compatible with software development needs.",d:"ECO Task: II.12"},
+{n:211,t:"Company G has a goal of increasing customer satisfaction within four (4) months and initiates a project to meet this goal. The project manager needs to identify best practices.\n\nWhich method should the project manager use to accomplish this?",o:["Benchmarking","Emotional intelligence","Facilitation","Affinity diagram"],c:["A"],m:false,e:"Benchmarking should be used to identify best practices. It involves comparing actual or planned practices to those of comparable organizations to identify best practices, generate ideas for improvement, and provide a basis for measuring performance.",d:"ECO Task: II.13"},
+{n:212,t:"A project manager begins to prepare the project management plan after receiving the project charter. There is currently NO historical information in the project management office (PMO).\n\nWhat next step should the project manager take in this scenario?",o:["Utilize analogous estimating.","Seek advice from experts in the field.","Organize an initial kick-off call.","Request that the project sponsor provides input."],c:["B"],m:false,e:"If NO historical information is available, then consulting with subject matter experts is the next best thing a project manager can do to prepare the project plan.",d:"ECO Task: II.13"},
+{n:213,t:"Company P's IT transformation project has three (3) deliverables:\n• Deliverable 2 has strictly scheduled milestones, with no expected variation in the timeline.\n• Requirements for deliverables 1 and 3 will change quickly during development.\n\nWhich project life cycle should the project manager use for this project?",o:["Select a fully agile project model, with a common user story and three-week sprints.","Select a waterfall project model for deliverables, with firm milestones and change control procedures.","Select a hybrid project model; position deliverable 2 as a single agile sprint embedded in an overall waterfall project.","Select a hybrid project model; position deliverable 2 as a single waterfall phase embedded in an overall agile project."],c:["D"],m:false,e:"In this project, two (2) deliverables have unknown durations or changing requirement sets — both of which are appropriate conditions for use of the agile life cycle. Deliverable 2 requires strict schedule control and external dependencies, which require a traditional or waterfall project life cycle.",d:"ECO Task: II.13"},
+{n:214,t:"A consultant has advised an IT director to use a DevOps approach to a migration project. The IT director wants to understand how the necessary speed can be achieved in a safe way.\n\nWhich two examples could demonstrate how DevOps can reduce incidents and speed up deployment at the same time? (Choose TWO.)",o:["Virtualization of all systems and software containers.","Early collaboration between operations and development.","Machine Learning-based development and deployment.","Development testing at deployment sites before operations.","Automation of operations and development."],c:["B","E"],m:true,e:"Development and operations collaboration (early and constant) and automation of both domains is at the heart of DevOps. Virtualization and machine learning are enablers of efficiency but NOT DevOps methods. Development testing on deployment sites is impractical and inefficient.",d:"ECO Task: II.13"},
+{n:215,t:"An innovative product fails to satisfy targeted consumers despite significant investments in quality control and marketing campaigns.\n\nWhich agile practice would best prevent future failures of this nature?",o:["Run continuous consumer usability testing on product releases.","Align objectives between the product owner and marketing.","Broaden the persona type definition of the target consumer.","Add more features and tests to the minimum viable product (MVP)."],c:["A"],m:false,e:"Continuous user testing and feedback is the most effective way to align requirements to user needs and integrate them incrementally into product releases.",d:"ECO Task: II.13"},
+{n:216,t:"An emergency vaccine roll-out project should be deployed to vaccination centers as soon as confirmed locations are booked. Factors such as delayed batch shipments, safety protocols, and target age groups may block the deployment at the last minute. However, the deployment process does NOT vary after passing the tollgate to begin setup at a new location.\n\nWhich project approach would best support the goal to maximize the number of centers deployed?",o:["A fully predictive life cycle where each center deployment is a phase subject to dependencies.","A set of agile deployment iterations embedded in a predictive set of processes.","A set of predictive deployment sequences embedded in a set of agile processes.","A fully agile life cycle where dependencies and deployments are combined in each iteration."],c:["C"],m:false,e:"A predictive approach within agile processes is correct because the deployments follow an unchanging sequence. Maximizing deployments would require handling as many parallel deployments as possible given a set of changing conditions processed in an agile way.",d:"ECO Task: II.13"},
+{n:217,t:"A project to start building an ecology-focused resort complex is planned, and the contract is ready for signature. The client now asks the prime contractor to suspend planned development work on a parcel of land while the team runs a consumer study — the team needs to know what kind of structures to build on the parcel.\n\nWhat should the prime contractor do to quickly close the deal, given the new client requirements?",o:["Subtract the parcel development work from the quoted price and plan the parcel development as agile iterations paid based on time and materials.","Add a risk premium to the agreed price of the full works and add a clause to renegotiate the new scope when it is fully defined.","Raise a change request to examine the impact on scope and price and close the deal when all information is available.","Exclude all work on the parcel from the project plan and pricing and propose a separate contract when the scope becomes clear."],c:["A"],m:false,e:"Iterations based on time and materials is the best approach, because it enables the team to expand the project without delaying the project start. The agile iterations can act as placeholders for an unknown volume of work.",d:"ECO Task: II.13"},
+{n:218,t:"A new wildlife reserve project will have a staff of approximately 80 experts, builders, and logistics workers with exposure to various safety risks. The project manager wants a scalable approach combining flexibility and team dynamics with traditional safeguards.\n\nWhich option could be used to tailor a hybrid project of this nature?",o:["Crystal Methods","eXtreme Programming (XP)","Behavior-Driven Development","Monte Carlo Simulation"],c:["A"],m:false,e:"Other than XP, which is NOT scalable, Crystal Methods is the only option defined as a hybrid tailoring methodology. It is designed to be scalable and adaptable to different team sizes and project criticality.",d:"ECO Task: II.13"},
+{n:219,t:"In a hybrid product design project, the team encounters a 3D printer malfunction resulting in costly losses of titanium supplies. When the production team tells the agile programming team about the problem, it becomes clear that mistranslated data sheets created problems for both teams. However, the agile team resolved their problems a month before the malfunction.\n\nWhat could the agile team have done to prevent the current malfunction?",o:["Deprioritized the stories impacted by information in the data sheets.","Asked the project sponsor to halt the project pending translation corrections.","Summarized their retrospective conclusions on information radiators.","Formally requested a change of equipment supplier for the project."],c:["C"],m:false,e:"The root problem is that impactful information in the agile team was NOT passed to the predictive team in time to prevent the malfunction. Broadcasting retrospective lessons learned on information radiators is the best way to reach the broadest group in a timely way.",d:"ECO Task: II.13"},
+{n:220,t:"A medical equipment vendor is running a hybrid project which includes some custom software development by an agile team. The team progress is good, but slow customer approval causes unnecessary delays. The customer insists that approval can only be given after repeating all the test cases in the target environment.\n\nHow can the project manager accelerate the approvals and build customer trust at the same time?",o:["Invite the customer to send representatives to witness the team's testing to pre-approve the tests.","Work out an arrangement with the customer to defer as many tests as possible to the final release.","Propose new terms for team members to work alongside the customer testers to run tests in their environment.","Allow the team to progress at their pace while the customer continues to test and approve earlier builds."],c:["C"],m:false,e:"Agile seeks to maximize transparency between supplier and customer as well as optimizing to remove unnecessary work. Combining teams to remove work duplication is the best option. Witnessing only would NOT remove duplicated work; deferring tests is always bad practice; and unsynchronized progression between the teams would potentially cause rework if defects are found.",d:"ECO Task: II.13"},
+{n:221,t:"An organizational change program has met with internal resistance, a risk which was previously identified. A logistics manager is particularly affected, due to reduction of the team size and the rate of change driven by an agile planning of the predictive implementation. The manager's supervisor formally requests the change program to delay implementation for the logistics team.\n\nWhat should the project manager do next in response to this request?",o:["Work with the program sponsor to re-prioritize the program backlog sequence.","Request that the sponsor escalate the strategic issue to the executive committee.","Perform root-cause analysis on the key factors causing the manager's resistance.","Review the risk register and implement the relevant risk response for the case."],c:["D"],m:false,e:"Stakeholder resistance was anticipated and multiple risk responses are likely to exist, so reviewing the risk register is the correct response. Agile planning would enable frequent retrospectives to refine the risk responses, which could be more flexible than a fully predictive response.",d:"ECO Task: II.13"},
+{n:222,t:"A project team collected sensitive client data during the early stages of a project to help develop the project management plan. The team is now working on deliverables for the project when the compliance manager discovers a data breach and alerts the team to a compliance issue.\n\nWhich document should the project manager review first?",o:["Statement of work (SOW)","Issue log","Business case","Risk register"],c:["B"],m:false,e:"After a new compliance issue is raised, the issue log should be reviewed and updated, as needed, prior to taking action.",d:"ECO Task: II.15"},
+{n:223,t:"The team working on Project A has resolved a technical issue, and the project is moving forward. The project manager has been warned that the same issue will probably arise on similar projects in the future.\n\nWhat should the project manager do first when responding to this warning?",o:["Ensure that the issue log is updated and update the lessons learned register.","Create a risk report and keep the report current.","Notify the project sponsor about the warning.","Ensure that the lessons learned register is updated."],c:["A"],m:false,e:"Update the issue log to reflect resolution of the issue. Then update the lessons learned register about potential risks for future projects. Both steps are required — not just the lessons learned alone.",d:"ECO Task: II.15"},
+{n:224,t:"While reviewing the issue log, the project manager notices that tasks assigned to two (2) team members are quite a bit behind schedule.\n\nWhat should the project manager do?",o:["Notify the responsible team members of the need to complete the overdue tasks quickly in order to avoid introducing extra project risks.","Document the issue, escalate to the project sponsor, and ask how they would like it resolved.","Tell the team members who are behind schedule that they should explain why tasks were delayed and how they will get back on schedule.","Work with the relevant team members to review the delayed tasks and decide on strategies for resolution."],c:["D"],m:false,e:"The project manager needs to be proactive and review the activities with the team members and identify resolution strategies. Collaborating with the team is always preferred over simply notifying them or escalating.",d:"ECO Task: II.15"},
+{n:225,t:"Project team members are busier than usual. They indicate that they do NOT have the time to update the lessons learned repository because of other project responsibilities.\n\nHow should the project manager respond?",o:["Require submission of lessons learned documentation after each project deliverable is accepted by the customer.","Ensure there is an agenda item for discussion of lessons learned from project activities as part of all project meetings.","File a change request to the PMO to change how often lessons learned is collected.","Bring in a consultant to assist with collecting lessons learned to help reduce the burden on project team."],c:["B"],m:false,e:"The lessons learned repository must be present throughout the project, using different facilitating techniques. Including it as a standing agenda item in all project meetings ensures it is captured continuously without creating additional burden.",d:"ECO Task: II.17"},
+{n:226,t:"A large project includes functional groups in four (4) countries, a steering committee, and a project sponsor. As the project approaches completion, the project manager must prepare the closeout documents.\n\nHow should the project manager obtain appropriate signoff on the acceptance of project deliverables?",o:["The project sponsor should be asked to sign off.","The steering committee should be asked to sign off.","The four managers from the four countries should be asked to sign off.","All of the parties involved should be asked to sign off."],c:["A"],m:false,e:"Since the sponsor provided the resources for the project, it is their responsibility to officially sign off on the project deliverables.",d:"ECO Task: II.17"},
+{n:227,t:"After six (6) iterations, significant variations have occurred to project scope and schedule. These are due to the customer's technology regulations and security policies, which are regularly reviewed. The project manager suggests taking a new approach to the next iteration to avoid possible delays.\n\nWhat should the project manager do first?",o:["Rank the importance of each improvement item, then implement actions identified during the last retrospective.","Engage in a cost-benefit analysis that can help predict the profits that could be realized through the use of new technology for the next phase.","Research new technology trends and management tools that have been successful on similar projects.","Use a backlog refinement meeting and include the customer's change requests in the discussion."],c:["A"],m:false,e:"The retrospective is used to review lessons learned and suggest corrective actions for the next iterations.",d:"ECO Task: II.17"},
+{n:228,t:"A project manager has completed the following steps:\n• Finished a major IT deployment project.\n• Confirmed with the release manager that all systems are working.\n• Confirmed that functionality has been verified by the quality assurance team.\n• Informed the customer.\n\nWhich next step should the project manager take?",o:["Add the lessons learned to the organization knowledge base.","Update the risk register, stakeholders, and team members.","Ensure that the procurement plan is closed out.","Review, verify, and complete the release documentation."],c:["A"],m:false,e:"During project closeout, lessons learned and knowledge gained throughout the project are transferred to the lessons learned repository for use by future projects.",d:"ECO Task: II.17"},
+{n:229,t:"Review the following steps:\n1. A project has been successfully delivered.\n2. The project manager is executing formal closure.\n3. ______________________________________.\n\nWhat is step 3?",o:["The project manager should update the bid documents.","The project manager should obtain stakeholder acceptance.","The project manager should reassign the project team.","The project manager should reallocate the unused funds."],c:["B"],m:false,e:"Accepted deliverables that were formally signed off by the customer or sponsor during scope validation are then forwarded to the Close Project or Phase process. Formal documentation is then signed by the customer or sponsor acknowledging final acceptance of the project's deliverables.",d:"ECO Task: II.17"},
+{n:230,t:"Review the following project characteristics:\n• The project is in the initiation phase.\n• Due to lack of funding, the project is terminated.\n• The project manager must close the project.\n\nWhat is the first action the project manager should take?",o:["Rely on the communications management plan to properly inform all stakeholders.","Examine the organization's project closure guidelines.","Determine the potential impact of terminating the project by performing a risk analysis.","Close all project procurement processes."],c:["B"],m:false,e:"Project closure guidelines or requirements will contain the organization's procedures to follow when closing a project.",d:"ECO Task: II.17"},
+{n:231,t:"After a project ends, the project manager and project team members are still being asked to:\n• Evaluate new requirements\n• Make minor modifications\n• Solve technical issues\n\nThe project manager wants to ensure the product or service developed by the project now has operational support.\n\nWhat should the project manager do?",o:["Complete the hand-off of the project.","Review the acceptance criteria and get acceptance.","Formally disband the project team and find a new project.","Continue to fulfil the requests as the product is still being developed."],c:["A"],m:false,e:"Project closure and hand-off will ensure knowledge transfer to production and/or operations.",d:"ECO Task: II.17"},
+{n:232,t:"Project team members are spending a lot of time helping maintenance and operations staff with a recently commissioned project component. The project manager needs to validate that the component was signed off and ownership transferred.\n\nWhich three (3) documents should the project manager use for this decision?",o:["Final report, organizational process assets updates, and procurement agreements.","Procurement agreements, project document updates, and organizational process assets updates.","Procurement agreements, stakeholder engagement plan, and organizational process assets updates.","Final report, project document updates, and organizational process assets updates."],c:["D"],m:false,e:"When closing the project, the project manager reviews the project management plan to ensure that all project work is completed. The project documents are updated accordingly. In this case, those documents are the final report, project document updates, and organizational process assets updates.",d:"ECO Task: II.17"},
+{n:233,t:"A project is completed, but the project manager and project team members are being asked to:\n• Troubleshoot and resolve technical issues\n• Evaluate new requirements\n• Make minor adjustments\n\nThe project manager needs to ensure that the product developed by the project now has operational support.\n\nWhat should the project manager do?",o:["Since the product is still under development, continue to fulfil the requests.","Procure project acceptance.","Contact the project team, dismiss them from the project, and find a new project.","Execute the project hand-off."],c:["D"],m:false,e:"In the Close Project or Phase process, the project team formally transitions the final product, service, or result to the production support team. The receiving group signs documentation, agreeing to accept the final product, service, or result. Once signed, the owner is responsible for changes, adjustments and resolving technical issues.",d:"ECO Task: II.17"},
+{n:234,t:"At the end of an agile project, all stories are completed on schedule and all tests passed, but the customer does NOT consider the product a success.\n\nWhich is the most effective way to prevent this outcome in future projects?",o:["Ensure that the product vision is approved by the customer before developing the backlog.","Agree with the customer on success criteria to be included in the Definition of Done.","Collect customer feedback on incremental release demos and user tests.","Ensure that the test plan includes non-functional requirements in the backlog."],c:["C"],m:false,e:"Continuous and incremental customer/user feedback is the best way to ensure that the product addresses identified and non-identified needs throughout its development.",d:"ECO Task: II.17"},
+{n:235,t:"An energy infrastructure vendor is delivering a complex solution proof of concept to a new strategic customer. The predictive project should be completed in 10 weeks, but there will be a long list of outstanding items, and some are dependent on external events with uncertain scheduling.\n\nHow should the project manager handle the outstanding items?",o:["Transfer the outstanding items to the next project with the customer.","Plan five agile iterations to complete the tasks as soon as conditions allow.","Descope the outstanding tasks and remove them from the invoice.","Add resources and crash the schedule to complete outstanding tasks."],c:["B"],m:false,e:"Five (5) sprints can cover the ten (10) week window, and flexibility gives the best chance to complete work in an ad-hoc manner.",d:"ECO Task: II.17"},
+{n:236,t:"A project has the following characteristics:\n• It is in the execution stage.\n• A new law requires immediate compliance.\n• This law will impact the project's scope, schedule, and cost.\n\nWhat are three possible actions to ensure compliance? (Choose THREE.)",o:["Initiate avoidance of the risk.","Ensure the project management plan is updated.","Escalate the issue to senior management.","Update the issue log.","Begin the change request process."],c:["C","D","E"],m:true,e:"Since compliance is mandatory and it impacts scope, schedule, and cost, a change request needs to be submitted (E). Other possible actions are updating the issue log (D) and escalating the issue to senior management (C) to find a timely workaround. Because compliance is required by law, the risk CANNOT be avoided. At this stage, updating the project management plan is NOT a corrective action.",d:"ECO Task: III.1"},
+{n:237,t:"A new law is expected within the next 6 months that will affect a business' product line. The next product is launching and should be completed within 3 months. Unfortunately, the new product will NOT meet the requirements of the proposed law.\n\nHow should the project manager respond to this potential problem?",o:["Schedule a meeting with the sponsor and key stakeholders to discuss risks. Then, using the results of the meeting, revise the assumption log and project charter.","Revise the risk management plan. Then, move ahead with planning the project.","Move ahead with the project, following the plan. Then ensure on-time completion, so that the product will NOT be affected by any possible rule change.","Schedule a meeting with the sponsor and key stakeholders to warn them about the law. Then advise them to cancel the project until the legislation is finalized."],c:["A"],m:false,e:"This new law can have a profound effect on the project. It will certainly lead to new potential risks, new assumptions, and a possible charter change.",d:"ECO Task: III.1"},
+{n:238,t:"Project N is a business merger in a highly regulated industry. The project sponsor and a high-level executive have asked for changes that appear to disregard legal requirements.\n\nWhat should be the first step in the project manager's response?",o:["Immediately schedule a meeting with the stakeholders to review the situation.","Send the change control board (CCB) a change request.","Check with the organization's relevant legal practitioner for guidance.","Review the organization's lessons learned database for precedents and direction."],c:["C"],m:false,e:"Checking with your trusted legal representative is the best first step before going to the CCB, because the project is in a highly regulated industry.",d:"ECO Task: III.1"},
+{n:239,t:"A project manager needs to ensure that all data security requirements are covered during a data warehouse development project's execution phase. Each of the databases created during different project phases will have a specific data security policy to comply with governmental data security laws.\n\nHow should the project manager plan to meet these requirements?",o:["Plan a database development specification, then regularly check to ensure the work aligns with the specification.","Arrange for review of the data security status on a quarterly basis, and recommend remedial steps if noncompliance is found.","Tell the database developer to submit documentation of data security items and the steps they need to take to correct items that do NOT meet specifications.","Add a quality assurance specialist resource to the project team, who will be responsible for monitoring the data security quality of the project."],c:["B"],m:false,e:"Clearly documenting how key requirements have been met is a great way to ensure quality and identify any gaps that need to be addressed.",d:"ECO Task: III.1"},
+{n:240,t:"A project team learns about a new compliance requirement from an international entity that may impact the baseline business case for the project. They learn this right after the project charter is completed and the project sponsor has signed.\n\nHow should the project manager proceed?",o:["Research the requirement and possible consequences, then give the sponsor a recommendation.","Address the requirement through the creation of a quality management plan.","Ignore the issue, as the new requirement is NOT part of the project's documented scope.","Ensure that the requirement is documented in the risk register, then ask for further guidance from all stakeholders."],c:["A"],m:false,e:"The context of this scenario requires the project manager to influence the organization (sponsor) and recommend next steps after reviewing and understanding compliance requirements and consequences.",d:"ECO Task: III.1"},
+{n:241,t:"A Canadian start-up company announces to the press its imminent launch in the EU and Latin America. Soon afterward, the compliance team recommends delaying the launch by 6 months to avoid substantial penalties related to a new set of EU regulations.\n\nWhich approach could the project manager take to advance the launch project while preparing the compliance measures?",o:["Run a SWOT analysis to weigh priorities between compliance and consumer needs, and resume project if the result favors consumers.","Estimate impact of penalties on the project, increase the contingency reserve accordingly and resume project as planned.","Replan the predictive project as a Large-Scale Scrum life cycle, and use story points to estimate approval milestones.","Split work affected by the regulations into an agile track and replan unaffected work in the predictive schedule."],c:["D"],m:false,e:"The agile track is correct because a launch project would include time-sensitive milestones, thus the work is more suited to waterfall. However, the compliance work should run concurrently with gathering more information to support the launch.",d:"ECO Task: III.1"},
+{n:242,t:"Two (2) months into a 3-year mobile telecom roll-out, the project manager discovers that approximately fifteen percent (15%) of the equipment is prohibited for delivery because of an embargo. The procurement contract does NOT cover the embargo case, but the company could incur severe penalties for incomplete delivery.\n\nWhat is the appropriate solution for the situation?",o:["Add an agile track to explore and plan delivery of alternative equipment.","Explore insurance and contingency options to cover the cost of the risk.","Compare the penalty costs of delivering or not delivering and choose the lower one.","Accept the client's penalties, close the project, and cease business in the country."],c:["A"],m:false,e:"The project has contractually committed to deliver infrastructure to the customer. Failure to account for the embargo is the fault of the vendor, NOT the client. Adding an agile track is the only choice which can fulfil the committed deliverables. Accepting penalties without attempting to fulfil commitments is bad business practice; adding layers of insurance or contingency will lead to further cost penalties.",d:"ECO Task: III.1"},
+{n:243,t:"The legal team informs the product owner that another company owns a patent for an innovation used in the agile team's product, which is now 75% complete.\n\nWhat should the product owner do to determine the appropriate way forward?",o:["Work with the legal department to find markets where the patent is NOT registered.","Perform marginal economics analysis and identify minimum releasable features.","Terminate the project immediately to prevent any further sunken costs.","Continue work on the product after removing the patented component."],c:["B"],m:false,e:"A foundational assumption to release the product has become a 'show-stopper'. Marginal economic analysis determines if there is a viable way forward. Identifying minimal releasable features can mitigate the economic loss.",d:"ECO Task: III.1"},
+{n:244,t:"A new regulation requires consumer warnings on labels, but a company's product package is too small to fit the additional information. The regulatory specification does NOT provide a solution, so the agile team decides to solve the problem by displaying the information on a fold-out flap. The start of mass production of the new labels, the project's next milestone, is scheduled to begin in five days.\n\nWhat should the agile team do next?",o:["Update the sprint backlog to reflect the additional product label requirement.","Contact the compliance team to determine validity of the selected format.","Develop a prototype and submit it to the label manufacturer for approval.","Contact the regulatory agency to suggest the fold-out flap as a new standard."],c:["B"],m:false,e:"Without validating compliance of the solution before developing it, the team would waste effort at best, and at worst, put the organization at risk of non-compliance penalties. NOT initially seeking approval from the steering committee is in line with agile practices of communicating directly between units rather than through management layers.",d:"ECO Task: III.1"},
+{n:245,t:"A project manager leaves the company and is replaced. The new project manager is excited to start guiding the team toward project success.\n\nWhat should the new project manager do first?",o:["Review the project charter to identify goals and deliverables.","Review the project diary and look for notes made by the former project manager.","Modify the project schedule, adding a new activity related to the knowledge transfer process.","Revisit the project budget and schedule to determine if extra time is required."],c:["A"],m:false,e:"The project charter is one of the most important project documents. It defines many aspects of the project which are critical to the new project manager's understanding of the project strategy, as well as the tactical execution. Any actions taken before reading the official project charter will NOT be informed with this critical information.",d:"ECO Task: III.2"},
+{n:246,t:"A project manager receives the following for a new project:\n• Assumptions\n• Restrictions\n• Preliminary scope\n\nAfter receiving this information, what should the project manager do first?",o:["Review and understand the business case and project goals.","Put together the project team and assign project tasks.","Build the project schedule and determine the critical path.","Ensure project charter approval is obtained from the sponsor."],c:["A"],m:false,e:"The business case and project goals need to be understood first before a charter can be written. Building a team and a schedule come later in the process.",d:"ECO Task: III.2"},
+{n:247,t:"A week prior to the project kick-off call, a project manager meets with a key project resource to gain a deeper understanding of the complexity of the project deliverables. The resource expresses concern and worry regarding the deliverables.\n\nHow can the project manager ensure that the deliverables are realistic?",o:["Perform a feasibility study, and then assess the results.","Discuss the resource's concerns with the sponsor, and modify the project charter.","Note the concerns in the issue log to review at a later date.","Identify threats and preventive actions by conducting a risk assessment."],c:["A"],m:false,e:"To ensure that the deliverables are realistic, the project manager needs to conduct a feasibility study and then evaluate the results. NONE of the other choices will ensure realistic deliverables.",d:"ECO Task: III.2"},
+{n:248,t:"A key project resource is discussing the complexity of project deliverables with the project manager 2 weeks before the kickoff call. The resource expresses nervousness and concern regarding the deliverables. The project manager wants to ensure that the deliverables are realistic.\n\nWhat is the appropriate action to take?",o:["Implement a feasibility study, and then assess and review the results.","Hold a meeting with the project sponsor to discuss the resource's concerns and revise the project charter.","Ensure that the concerns are documented in the issue log for later review.","Start to identify threats and preventive actions by performing a risk assessment."],c:["A"],m:false,e:"The feasibility study will support the business case to begin a new project and confirm whether the deliverables are achievable.",d:"ECO Task: III.2"},
+{n:249,t:"During user testing, a client agrees to the final product. One day later, the client indicates that the final product MAY NOT be acceptable.\n\nWhat should be the project manager's first step for resolving this issue?",o:["Discuss concerns with the client and consult the project's acceptance criteria.","Review the project's quality management plan.","Review the project's requirements documentation.","Refer to the project charter and lessons learned register."],c:["A"],m:false,e:"The client says the final product MAY NOT be acceptable, so the project manager should review the acceptance criteria with the client to see if anything was missed and to get an understanding of why the client thinks the product MAY NOT be acceptable. Satisfying all acceptance criteria implies the needs of the stakeholder have been met.",d:"ECO Task: III.2"},
+{n:250,t:"A new product development project is to be initiated in a difficult business context. Competition is driving prices down, and supply costs are rising.\n\nWhy would an agile incremental project approach be the safest choice in this context?",o:["It ensures that the project can be cancelled at any time without loss.","It accelerates delivery of business value and minimizes risk of irrelevancy.","It reduces the team size and eliminates communication bottlenecks.","It provides stringent methods to reduce cost of quality and conformity."],c:["B"],m:false,e:"Accelerated business value and better targeting are results of incremental deliveries because smaller releases can go to market faster and benefit from earlier user input.",d:"ECO Task: III.2"}
+];
+
+let cur=0,corr=0,wrng=0,ans=0,sel=[],subm=false;
+
+function render(){
+  const q=Qs[cur];const tot=Qs.length;
+  const pct=Math.round((ans/tot)*100);
+  document.getElementById('pLbl').textContent=`Question ${q.n} of 250`;
+  document.getElementById('pPct').textContent=pct+'%';document.getElementById('pFill').style.width=pct+'%';
+  updateScore();
+  document.getElementById('bNum').textContent='Q'+q.n;
+  document.getElementById('bType').textContent=q.m?`Multi (${q.c.length})`:'Single';
+  document.getElementById('bDom').textContent=q.d;
+  document.getElementById('qTxt').textContent=q.t;
+  const mn=document.getElementById('mNote');
+  if(q.m){mn.textContent=`★ Select ${q.c.length} answers`;mn.style.display='block';}else{mn.style.display='none';}
+  const ol=document.getElementById('optsList');ol.innerHTML='';
+  q.o.forEach((opt,i)=>{
+    const lt=L[i];const b=document.createElement('button');
+    b.className='opt';b.dataset.letter=lt;
+    b.innerHTML=`<span class="opt-lt">${lt}</span><span>${opt}</span>`;
+    b.onclick=()=>tog(lt,b);ol.appendChild(b);
+  });
+  sel=[];subm=false;
+  document.getElementById('btnSub').disabled=true;document.getElementById('btnNxt').classList.remove('show');
+  document.getElementById('explBox').classList.remove('show');
+  const ri=document.getElementById('resInd');ri.style.display='none';ri.className='res-ind';
+}
+
+function tog(lt,btn){
+  if(subm)return;const q=Qs[cur];
+  if(!q.m){document.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));sel=[lt];btn.classList.add('sel');}
+  else{if(sel.includes(lt)){sel=sel.filter(l=>l!==lt);btn.classList.remove('sel');}else{sel.push(lt);btn.classList.add('sel');}}
+  document.getElementById('btnSub').disabled=sel.length<(q.m?q.c.length:1);
+}
+
+function submit(){
+  if(subm)return;subm=true;const q=Qs[cur];
+  const cs=new Set(q.c),ss=new Set(sel);
+  const ok=cs.size===ss.size&&[...cs].every(l=>ss.has(l));
+  ans++;if(ok)corr++;else wrng++;
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.disabled=true;const lt=b.dataset.letter;
+    if(q.c.includes(lt)){b.classList.remove('sel');b.classList.add('cor');}
+    else if(sel.includes(lt)){b.classList.remove('sel');b.classList.add('wrg');}
+  });
+  const ri=document.getElementById('resInd');ri.style.display='block';
+  if(ok){ri.className='res-ind ok';ri.textContent='✓ Correct!';}
+  else{ri.className='res-ind no';ri.textContent=`✗ Incorrect — Correct: ${q.c.join(', ')}`;}
+  document.getElementById('explTxt').textContent=q.e;
+  document.getElementById('explDom').textContent=q.d;
+  document.getElementById('explBox').classList.add('show');
+  document.getElementById('btnSub').disabled=true;
+  const bn=document.getElementById('btnNxt');bn.textContent=cur<Qs.length-1?'Next →':'See Results →';bn.classList.add('show');
+  updateScore();
+  const pct2=Math.round((ans/Qs.length)*100);
+  document.getElementById('pPct').textContent=pct2+'%';document.getElementById('pFill').style.width=pct2+'%';
+}
+
+function updateScore(){
+  document.getElementById('sScore').textContent=`${corr}/${ans}`;
+  document.getElementById('sCorr').textContent=corr;
+  document.getElementById('sWrng').textContent=wrng;
+  document.getElementById('sAcc').textContent=ans>0?Math.round((corr/ans)*100)+'%':'—';
+}
+
+function next(){
+  cur++;
+  if(cur>=Qs.length){showResult();}
+  else{render();document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});}
+}
+
+function showResult(){
+  document.getElementById('qCard').style.display='none';document.querySelector('.prog-wrap').style.display='none';
+  const tot=Qs.length,pct=Math.round((corr/tot)*100);
+  let em,ti,su;
+  if(pct>=90){em='🏆';ti='Outstanding!';su='Above 90% on procurement, hybrid life cycles, compliance, and project closure — you\'re ready!';}
+  else if(pct>=75){em='💪';ti='Strong Performance!';su='Good work. Review the procurement contract types and hybrid agile/predictive approaches.';}
+  else if(pct>=50){em='📚';ti='Good Effort!';su:'Review the Perform Integrated Change Control process, contract types (FPIF, FFP, T&M), and compliance management.';}
+  else{em='🔄';ti='Keep Going!';su='Focus on procurement, hybrid project approaches, project closure, and compliance. Practice makes perfect!';}
+  document.getElementById('rEmoji').textContent=em;document.getElementById('rTitle').textContent=ti;document.getElementById('rSub').textContent=su;
+  document.getElementById('rScore').textContent=pct+'%';
+  document.getElementById('rScore').style.color=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  document.getElementById('rCorr').textContent=corr;document.getElementById('rWrng').textContent=wrng;document.getElementById('rTot').textContent=tot;
+  const pf=document.getElementById('perfFill');pf.style.background=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  setTimeout(()=>{pf.style.width=pct+'%';},100);
+  document.getElementById('resultScr').classList.add('show');
+}
+
+function restart(){
+  cur=0;corr=0;wrng=0;ans=0;sel=[];subm=false;
+  document.getElementById('resultScr').classList.remove('show');document.getElementById('qCard').style.display='';document.querySelector('.prog-wrap').style.display='';
+  render();window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+
+function goBack() {
+  if (cur > 0) { cur--; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goSkip() {
+  if (cur < Qs.length - 1) { cur++; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

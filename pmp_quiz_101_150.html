@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Quiz · Q101–150</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06090e;--s1:#0d1218;--s2:#121922;--bd:#1c2a38;
+  --a:#34d399;--a2:#fb7185;--a3:#818cf8;
+  --green:#22c55e;--red:#ef4444;--yellow:#f59e0b;--orange:#f97316;
+  --txt:#c5d8ea;--muted:#486070;--r:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:0 14px 80px;
+  background-image:radial-gradient(ellipse 60% 40% at 15% 0%,rgba(52,211,153,.06) 0,transparent 70%),
+                   radial-gradient(ellipse 50% 40% at 85% 100%,rgba(129,140,248,.06) 0,transparent 70%);}
+body::before{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999;}
+
+.hdr{width:100%;max-width:780px;padding:36px 0 24px;}
+.hdr-eye{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hdr-eye::before{content:'';width:28px;height:1px;background:var(--a);}
+.hdr-title{font-family:'Syne',sans-serif;font-size:clamp(24px,4.5vw,38px);font-weight:800;line-height:1.1;margin-bottom:4px;}
+.hdr-title span{color:var(--a);}
+.hdr-sub{font-size:13px;color:var(--muted);}
+
+.prog-wrap{width:100%;max-width:780px;margin-bottom:18px;}
+.prog-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px;font-family:'IBM Plex Mono',monospace;}
+.prog-track{height:3px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--a),var(--a3));border-radius:100px;transition:width .5s cubic-bezier(.4,0,.2,1);}
+
+.score-row{width:100%;max-width:780px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px;}
+.chip{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:11px 12px;}
+.chip-lbl{font-size:9px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;}
+.chip-val{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;line-height:1;}
+.chip-val.c{color:var(--green)}.chip-val.w{color:var(--red)}.chip-val.n{color:var(--a)}
+
+.card{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;overflow:hidden;animation:ci .3s ease;}
+@keyframes ci{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.flag-banner{background:rgba(249,115,22,.08);border-bottom:1px solid rgba(249,115,22,.3);padding:10px 26px;display:none;align-items:flex-start;gap:10px;}
+.flag-banner.show{display:flex;}
+.flag-txt{font-size:12px;line-height:1.6;color:#fdba74;}
+.flag-txt strong{color:var(--orange);font-weight:600;}
+
+.card-head{padding:22px 26px 18px;border-bottom:1px solid var(--bd);}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;border-radius:5px;padding:3px 9px;border:1px solid;}
+.badge-q{color:var(--a);background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.25);}
+.badge-t{color:var(--a2);background:rgba(251,113,133,.08);border-color:rgba(251,113,133,.25);}
+.badge-d{color:var(--a3);background:rgba(129,140,248,.08);border-color:rgba(129,140,248,.25);}
+.badge-flag{color:var(--orange);background:rgba(249,115,22,.1);border-color:rgba(249,115,22,.35);}
+.q-txt{font-size:15px;line-height:1.7;white-space:pre-line;}
+
+.multi-note{font-size:11px;color:var(--a2);font-family:'IBM Plex Mono',monospace;padding:8px 26px 0;display:none;}
+
+.opts{padding:16px 26px 20px;display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:12px;background:var(--s2);border:1.5px solid var(--bd);border-radius:9px;padding:12px 14px;cursor:pointer;text-align:left;transition:border-color .14s,background .14s,transform .1s;color:var(--txt);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.55;width:100%;}
+.opt:hover:not(:disabled){border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.04);transform:translateX(3px);}
+.opt:disabled{cursor:default;transform:none;}
+.opt.sel{border-color:var(--a);background:rgba(52,211,153,.07);}
+.opt.cor{border-color:var(--green);background:rgba(34,197,94,.07);}
+.opt.wrg{border-color:var(--red);background:rgba(239,68,68,.07);}
+.opt-lt{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;min-width:22px;height:22px;border-radius:5px;background:var(--bd);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background .14s,color .14s;flex-shrink:0;margin-top:2px;}
+.opt.sel .opt-lt{background:var(--a);color:#000;}
+.opt.cor .opt-lt{background:var(--green);color:#000;}
+.opt.wrg .opt-lt{background:var(--red);color:#fff;}
+
+.res-ind{padding:4px 26px 8px;font-size:13px;font-weight:600;display:none;}
+.res-ind.ok{color:var(--green)}.res-ind.no{color:var(--red)}
+
+.expl{margin:0 26px 20px;border-radius:9px;border-left:3px solid var(--a);background:rgba(52,211,153,.04);padding:13px 15px;font-size:13.5px;line-height:1.65;color:#7ec4a8;display:none;}
+.expl.show{display:block;animation:fi .25s ease;}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.expl-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--a);margin-bottom:7px;}
+.expl-dom{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(52,211,153,.35);margin-top:8px;}
+.disc-note{margin-top:10px;padding:9px 12px;background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.25);border-radius:7px;font-size:12px;color:#fdba74;line-height:1.6;}
+.disc-note-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:5px;}
+
+.acts{padding:0 26px 26px;display:flex;gap:9px;flex-wrap:wrap;}
+.btn-sub{background:var(--a);color:#000;border:none;border-radius:7px;padding:11px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:opacity .18s,transform .1s;}
+.btn-sub:hover:not(:disabled){opacity:.82;transform:translateY(-1px);}
+.btn-sub:disabled{opacity:.3;cursor:not-allowed;transform:none;}
+.btn-nxt{background:transparent;color:var(--txt);border:1.5px solid var(--bd);border-radius:7px;padding:11px 22px;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:13px;cursor:pointer;transition:border-color .14s,background .14s;display:none;}
+.btn-nxt.show{display:block;}
+.btn-nxt:hover{border-color:var(--a);background:rgba(52,211,153,.05);}
+
+.result{width:100%;max-width:780px;background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:50px 36px;text-align:center;display:none;animation:ci .4s ease;}
+.result.show{display:block;}
+.res-emoji{font-size:56px;margin-bottom:16px;}
+.res-title{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;margin-bottom:10px;}
+.res-sub{color:var(--muted);font-size:14px;max-width:480px;margin:0 auto 32px;line-height:1.65;}
+.res-score{font-family:'Syne',sans-serif;font-weight:800;font-size:76px;line-height:1;margin-bottom:6px;}
+.res-score-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+.perf-bar{width:200px;margin:0 auto 28px;height:5px;background:var(--bd);border-radius:100px;overflow:hidden;}
+.perf-fill{height:100%;border-radius:100px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s;}
+.res-bk{display:flex;justify-content:center;gap:28px;margin-bottom:36px;}
+.rbi{display:flex;flex-direction:column;gap:4px;align-items:center;}
+.rbi-v{font-family:'Syne',sans-serif;font-weight:700;font-size:28px;}
+.rbi-l{font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.1em;}
+.btn-rst{background:var(--a);color:#000;border:none;border-radius:7px;padding:13px 32px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:opacity .2s;}
+.btn-rst:hover{opacity:.82;}
+.flag-summary{width:100%;max-width:780px;background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.25);border-radius:var(--r);padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px;font-size:13px;color:#fdba74;}
+
+@media(max-width:520px){
+  .card-head,.opts,.acts{padding-left:14px;padding-right:14px;}
+  .expl{margin-left:14px;margin-right:14px;}
+  .flag-banner{padding:10px 14px;}
+  .score-row{grid-template-columns:repeat(2,1fr);}
+}
+
+  /* ── Back / Skip nav buttons ── */
+  .btn-nav {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+  }
+  .btn-nav:hover { border-color: var(--a, var(--accent, #aaa)); color: var(--txt); }
+  .btn-nav:disabled { opacity: 0.25; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-eye">PMP® Exam Prep · Batch 3B</div>
+  <h1 class="hdr-title">Questions <span>101 – 150</span></h1>
+  <p class="hdr-sub">Domain II: Process · 50 questions · ⚑ = answer discrepancy flagged vs. exam key</p>
+</div>
+
+<div class="flag-summary">
+  <span>⚑</span>
+  <div><strong>1 flagged question</strong> in this batch (Q107) — where the quiz answer differs from the PDF exam key. See the orange flag on that question.</div>
+</div>
+
+<div class="prog-wrap">
+  <div class="prog-meta"><span id="pLbl">Question 101 of 150</span><span id="pPct">0%</span></div>
+  <div class="prog-track"><div class="prog-fill" id="pFill" style="width:0%"></div></div>
+</div>
+
+<div class="score-row">
+  <div class="chip"><div class="chip-lbl">Score</div><div class="chip-val n" id="sScore">0/0</div></div>
+  <div class="chip"><div class="chip-lbl">Correct</div><div class="chip-val c" id="sCorr">0</div></div>
+  <div class="chip"><div class="chip-lbl">Wrong</div><div class="chip-val w" id="sWrng">0</div></div>
+  <div class="chip"><div class="chip-lbl">Accuracy</div><div class="chip-val n" id="sAcc">—</div></div>
+</div>
+
+<div class="card" id="qCard">
+  <div class="flag-banner" id="flagBanner">
+    <span style="font-size:16px;flex-shrink:0;margin-top:1px;">⚑</span>
+    <div class="flag-txt" id="flagTxt"></div>
+  </div>
+  <div class="card-head">
+    <div class="badges">
+      <span class="badge badge-q" id="bNum">Q101</span>
+      <span class="badge badge-t" id="bType">Single</span>
+      <span class="badge badge-d" id="bDom">Domain II</span>
+      <span class="badge badge-flag" id="bFlag" style="display:none">⚑ Flagged</span>
+    </div>
+    <p class="q-txt" id="qTxt"></p>
+  </div>
+  <p class="multi-note" id="mNote"></p>
+  <div class="opts" id="optsList"></div>
+  <div class="res-ind" id="resInd"></div>
+  <div class="expl" id="explBox">
+    <div class="expl-lbl">Explanation</div>
+    <div id="explTxt"></div>
+    <div id="discNote"></div>
+    <div class="expl-dom" id="explDom"></div>
+  </div>
+  <div class="acts">
+    <button class="btn-nav" id="btnBack" onclick="goBack()">← Back</button>
+    <button class="btn-nav" id="btnSkip" onclick="goSkip()">Skip →</button>
+    <button class="btn-sub" id="btnSub" disabled onclick="submit()">Submit Answer</button>
+    <button class="btn-nxt" id="btnNxt" onclick="next()">Next →</button>
+  </div>
+</div>
+
+<div class="result" id="resultScr">
+  <div class="res-emoji" id="rEmoji"></div>
+  <h2 class="res-title" id="rTitle"></h2>
+  <p class="res-sub" id="rSub"></p>
+  <div class="res-score" id="rScore"></div>
+  <div class="res-score-lbl">Final Score · Q101–150</div>
+  <div class="perf-bar"><div class="perf-fill" id="perfFill"></div></div>
+  <div class="res-bk">
+    <div class="rbi"><span class="rbi-v" style="color:var(--green)" id="rCorr">0</span><span class="rbi-l">Correct</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--red)" id="rWrng">0</span><span class="rbi-l">Wrong</span></div>
+    <div class="rbi"><span class="rbi-v" style="color:var(--a)" id="rTot">50</span><span class="rbi-l">Total</span></div>
+  </div>
+  <button class="btn-rst" onclick="restart()">↺ Restart</button>
+</div>
+
+<script>
+const L=['A','B','C','D','E'];
+const Qs=[
+{n:101,t:"A company is losing market share to competitors with new business models. The agile team is asked to restrict the number of features of a product and release a version more quickly to the market.\n\nHow will this request impact the planning?",o:["The backlog will be prioritized to deliver basic functionality in small increments.","The product vision will be updated to reflect a user-driven release roadmap.","The sprint backlog will be reprioritized to work on the smallest and simplest stories first.","The increments will be reduced to enable faster product releases."],c:["A"],m:false,e:"Releasing a more basic version of a product early enables the company to obtain value from the work more quickly. With regard to planning, the team needs to figure out how to prioritize the backlog so that a product with basic functionality — and which also represents value to the customer — can enter the market.",d:"ECO Task: II.1",flag:null},
+{n:102,t:"The pandemic has caused delays which will make it very difficult to launch the new product on time. Television ads for the launch date are already purchased, so the CEO has asked the project manager to find a way to launch the product even if some minor features are NOT included.\n\nWhich measure would be the most effective step toward a successful and timely product launch?",o:["Double the size of the test team to ensure that any defects will be detected and corrected as early as possible.","Ask the team to remove product tests most likely to fail at first attempt and de-scope requirements relating to those tests.","Fast-track the schedule and establish new test and readiness milestones as close as possible to the planned launch date.","Plan a parallel iterative track to develop requirements for a minimum viable product (MVP) and de-scope unnecessary predictive tasks."],c:["D"],m:false,e:"The MVP is specifically intended to increase product success through customer feedback while accelerating development through minimizing effort. Schedule compression or scope reduction alone may be based on unneeded requirements.",d:"ECO Task: II.1",flag:null},
+{n:103,t:"A complex project with high security protocols has key stakeholders located in the United States, France, and China.\n\nA senior manager requests confidential project information to be shared with a project partner.\n\nWhich step should the project manager take next?",o:["Report this breach of ethics to the project governance committee.","Supply the requested information but keep a record of the manager's request.","Supply the project information but ensure the sensitive parts are redacted.","Check the communications management plan to verify whether the request is allowable."],c:["D"],m:false,e:"A communications management plan is developed to ensure that the appropriate messages are communicated to stakeholders in various formats as defined by the communication strategy. Even in a project with high security protocols, provisions may be in place to share information.",d:"ECO Task: II.2",flag:null},
+{n:104,t:"A project is delayed because the deliverables are NOT of acceptable quality. A change is required.\n\nFirst, the project manager issues a formal change request and communicates the change to all stakeholders. The stakeholders are NOT satisfied with this. They want a more detailed report about the nature of the delay.\n\nWhat should the project manager do next?",o:["Review the communications management plan and stakeholder engagement plan.","Provide a change request to include stakeholder expectations in the project management plan.","Organize a meeting with the project sponsor to better understand stakeholder expectations.","Review the communications management plan, follow it, and issue a status report."],c:["A"],m:false,e:"The Monitor Communications and stakeholder engagement processes can trigger an iteration of the Plan Communications Management and/or Manage Communications processes to improve effectiveness. Issues or key performance indicators, risks, or conflicts may trigger immediate revisions.",d:"ECO Task: II.2",flag:null},
+{n:105,t:"The initial draft of a project management plan is completed. The project manager plans to show the draft to stakeholders for approval. The project manager has limited time to gain approval, the project management plan is lengthy, and stakeholders are located all over the world.\n\nWhich action should the project manager take?",o:["Send the plan for the stakeholders to review and then meet with all of them to discuss it.","Ask each stakeholder to review the plan individually, add their comments, and then update the document accordingly.","Ask select stakeholders to review particular sections of the plan based on their areas of expertise.","Organize individual meetings with the stakeholders who are available during this time frame."],c:["A"],m:false,e:"The best approach is to send the draft of the project management plan in advance to the entire stakeholder team and then have a meeting to gain approval. Gaining approval from some, but not all, stakeholders, or getting approval of parts of the plan is less ideal.",d:"ECO Task: II.2",flag:null},
+{n:106,t:"A project's single sponsor has been replaced by a steering committee due to a significant increase in project size.\n\nHow should the project manager approach this change?",o:["Tailor communications to the new steering committee, recognizing that there has been a change in stakeholder structure.","Follow the initial project plan, recognizing that the sponsor is the key stakeholder and the new committee members work in a lesser capacity.","Schedule a low-key introductory meeting with the new steering committee and the team, while continuing to follow the initial project plan.","Ensure that the new steering committee members receive the project's current status report."],c:["A"],m:false,e:"The project manager needs to be proactive and respond to this change. The same communication that was planned for a single sponsor will NOT necessarily work for this steering committee.",d:"ECO Task: II.2",flag:null},
+{n:107,t:"In response to slippage on some scheduled tasks, the project manager reprioritized a number of subsequent tasks to try to fix the problem.\n\nThis did NOT work, so the project manager needs to escalate the issue.\n\nWhich two (2) items will the project manager need to consult? (Choose TWO.)",o:["Change management plan","Stakeholder engagement plan","Communications management plan","Risk management plan","Configuration management plan"],c:["B","C"],m:true,
+e:"The stakeholder engagement plan will tell you how to engage stakeholders, and the communications management plan helps to ensure that your messages are communicated to stakeholders in various formats and means as defined by the communication strategy.",d:"ECO Task: II.2",
+flag:{note:"The PDF exam key lists THREE answers: B, C, and D (Stakeholder engagement plan, Communications management plan, AND Risk management plan). This quiz accepts B and C only. Answer D — 'Risk management plan' — is also marked correct in the official exam key. If you selected B, C, and D, your understanding aligns with the PDF.",pdfAnswer:"B, C, D"}},
+{n:108,t:"A governmental agency becomes a key stakeholder on a complex project due to regulatory changes. In light of the change, the project manager needs to develop an understanding of this new stakeholder and identify any new high-level risks that may result from the change.\n\nWhich two options should the project manager use? (Choose TWO.)",o:["Schedule meetings with the new stakeholders.","Update the assumption log.","Revise the stakeholder engagement plan.","Check the risk management plan.","Update the project charter."],c:["A","C"],m:true,e:"Meetings are used to develop an understanding of project stakeholders. Since there is a new stakeholder on the project, the stakeholder engagement plan should be reviewed and revised to include them.",d:"ECO Task: II.2",flag:null},
+{n:109,t:"An informal and unofficial blog was set up to enhance communication and morale among project team members. The project manager was NOT previously aware of the blog but has discovered that team members are using it inappropriately. It has caused some offense.\n\nWhat should the project manager do?",o:["Review the blog and assess the communications management plan.","Reprimand all individuals involved and report the issue to the compliance office.","Close down the blog, as it is NOT part of the communications management plan.","Identify an administrator who can monitor communications on the blog."],c:["A"],m:false,e:"Communications outside of those covered by the communications management plan can lead to additional risks and issues. However, since the team seemed to have a need for it, the project manager should assess the communications management plan for any gaps. The project manager should also establish ground rules with the team for the blog.",d:"ECO Task: II.2",flag:null},
+{n:110,t:"A project team has set up an unofficial online communications platform to enhance communication. The project manager was NOT aware that this platform existed until recently, after learning that its use has facilitated some activity that a stakeholder finds concerning.\n\nWhich action should the project manager take?",o:["Advise the project team to stop using the platform and review the communications management plan.","Log the issue and remind the individuals involved to use only authorized communications channels.","Since it is NOT part of the communications management plan, terminate the platform.","Delegate an administrator to monitor communications on this platform."],c:["A"],m:false,e:"Since this platform was NOT part of the original communications plan, it should NOT be used unless it can be added. You need to understand the stakeholder's concern to evaluate whether it is valid. You also need to understand the reason why the team is communicating on an outside platform. Evaluate this use and the communication plan.",d:"ECO Task: II.2",flag:null},
+{n:111,t:"Project A is developing a customer service prototype for a company's marketing department. The prototype scores 95% on fulfillment of the functional requirements defined in the scope, which is a passing score in the project's agreed quality metrics.\n\nThe franchise group is unwilling to approve the prototype since it does NOT fulfill a particular functional requirement, but the direct customer group gives approval.\n\nHow can the project manager handle communication with this diverse stakeholder group?",o:["Send a survey to each group asking for specific feedback on the prototype.","Thank the customers for their approval; review the WBS and verify the requirements documentation with the franchise group.","Hold a consultation with the franchise group, show them the direct customer approval, and negotiate for the approval.","Check the RACI matrix for which group's approval is needed and if still unclear, ask an executive stakeholder to make the final decision."],c:["B"],m:false,e:"At this phase of a project, the project team and stakeholders should benefit from good communications. Working directly with each stakeholder group — in this case thanking the direct customers and using project data to show the franchise group that the prototype fulfils both requirements and agreed quality metrics.",d:"ECO Task: II.2",flag:null},
+{n:112,t:"After a project delay, the project manager determines that a change is needed to the product deliverables in order to ensure quality. The project manager:\n1. Issues a formal change request.\n2. Communicates the change to all stakeholders.\n3. Receives feedback that the communications approach did NOT meet stakeholders' expectations.\n\nWhat should the project manager do next?",o:["Refer to the communications management plan and issue a status report.","Ensure stakeholders' expectations are included in the project management plan by issuing a change request.","Hold a meeting with the project sponsor to better understand stakeholders' expectations.","Review the communications management and stakeholder engagement plans to see if the processes were followed. An update to one or both plans might be warranted."],c:["D"],m:false,e:"The project manager should first verify if the processes were followed in communicating project changes to stakeholders. If they were, then the project manager should revise the communications and/or the stakeholder engagement plans based on stakeholder needs.",d:"ECO Task: II.2",flag:null},
+{n:113,t:"As a result of multiple regulatory changes, a governmental agency is added as a key stakeholder on a complex project. The project manager wants to develop an understanding of this new stakeholder and identify any new high-level risks that may result from the change.\n\nWhat should the project manager do?",o:["Review the stakeholder engagement plan and verify the strategy for this change before meeting with the new stakeholder.","Appoint an existing team member to lead compliance strategy and to liaise with this new stakeholder.","Consult the change management plan to understand the next step in accepting this change.","Check with the project sponsor to discuss how this new regulation and stakeholder might change the scope and budget for the project."],c:["A"],m:false,e:"Before meeting with the new stakeholder, you should review the stakeholder engagement plan and communication plan to verify the strategy for the change. The change includes a compliance issue, which you will need to understand and incorporate into project strategy first.",d:"ECO Task: II.2",flag:null},
+{n:114,t:"A security-classified, agile software project requires outside expertise and delivery to add a module based on machine learning. An approved supplier asks the project manager to join the daily meeting with the supplier's agile team, but the project manager's schedule is too full with internal meetings.\n\nHow could the two teams synchronize interactively but somewhat less frequently?",o:["Set up fishbowl windows at each site.","Add and execute a Scrum of Scrums layer.","Align iterations for common retrospectives.","Share a common electronic Kanban."],c:["B"],m:false,e:"The Scrum of Scrums allows both teams to have their own daily meetings while adding a more targeted meeting between them at a less frequent pace.",d:"ECO Task: II.2",flag:null},
+{n:115,t:"The latest software build for a virtual reality headset release did NOT include urgent change requests already implemented by the electronics workstream. The product owner informed the software team about the change during a daily meeting, but NO ONE recorded it.\n\nWhat should the project manager do to avoid this problem in the future?",o:["Refine the product backlog with the team and product owner before the next iteration.","Increase the frequency of backlog refinement meetings and note the change in the retrospective.","Run an ad-hoc retrospective and add the agreed urgent change process to the team charter.","Privately remind the team lead that the role requires fast and proactive problem solving."],c:["C"],m:false,e:"In this case, iterative agile change handling is NOT fast enough. Continuous improvement in agile is achieved through retrospectives, and work processes are in the team charter. If you wait until the next iteration, it will be too late to catch the change; more frequent backlog refinements violate the principle of 'maximizing work not done'; and servant leaders would NOT impose on a team member to improvise.",d:"ECO Task: II.2",flag:null},
+{n:116,t:"A smart grid project combines predictive and agile tracks. The agile team detected a major software defect after its release and began working on a correction. But the defective release was deployed by the predictive track, and this caused a field test to fail.\n\nWhich measure would be most effective to prevent similar problems in the future?",o:["Run the same unit tests in the agile lab and in the field sites.","Send project-wide issue log updates via instant messaging.","Ensure that retrospectives are shared with the predictive team.","Replan the software track into the predictive schedule."],c:["B"],m:false,e:"The root problem is that impactful information in the agile team was NOT passed to the predictive team quickly enough to prevent the test failure. Instant messaging of issue log updates can reach the full project immediately after the issue is logged, and act as an alert.",d:"ECO Task: II.2",flag:null},
+{n:117,t:"A project is started with a complex, multi-functional application. The project manager realizes it is NOT feasible with the current number of resources and decides to hire more resources. The project manager identifies and contracts temporary resources.\n\nWhich risk response strategy does this scenario exemplify?",o:["Mitigate","Transfer","Accept","Avoid"],c:["A"],m:false,e:"The risk to the project was posed by insufficient resources. The risk was mitigated by hiring additional resources.",d:"ECO Task: II.3",flag:null},
+{n:118,t:"A project is started with an approved scope. As the team implements the project design, a team member states that the product will NOT meet the requirements in certain situations. Correcting the issue increases both scope and costs, and the project will also miss the deadline. The project sponsors do NOT have additional funding to support the project.\n\nWhat should the project manager do first?",o:["Perform risk management analysis.","Follow the Perform Integrated Change Control process.","Crash the schedule.","Contact the customer and negotiate for risk acceptance."],c:["A"],m:false,e:"The project manager must perform a full risk management analysis. This action includes all the processes for risk analysis — qualitative analysis, plan risk responses, implement risk responses, and monitor risk — all recorded in the risk register. Once all parties understand the problems, you can seek resolution.",d:"ECO Task: II.3",flag:null},
+{n:119,t:"A project is being planned in a remote area with limited access to vehicles and equipment. Additionally, the road to the site goes through a protected area, and the government has required the company to sign a contract that they will protect the environment and road from damage.\n\nThe project manager decides the best way to manage this risk is to deliver all heavy equipment themselves, despite the significant added expense.\n\nWhat type of risk response is the project manager demonstrating?",o:["Transfer","Mitigate","Accept","Avoid"],c:["B"],m:false,e:"The project manager is mitigating the risk of violating the contract by including the delivery work in the scope and increasing budget to mitigate the risk of difficult access.",d:"ECO Task: II.3",flag:null},
+{n:120,t:"A project manager works for a company that is preparing to develop a new product. The new product will require skills that are NOT currently available.\n\nTo initiate this project, what should the project manager do?",o:["Develop detailed project requirements.","Focus on quality control.","Document the risk in the project charter.","Develop a competitor analysis."],c:["C"],m:false,e:"If you plan to deliver a product and the team does NOT possess the skills required, this is a risk. The risk should be documented in the project charter so its impact can be analyzed before project initiation.",d:"ECO Task: II.3",flag:null},
+{n:121,t:"A project is being implemented. The research and development department communicates to the project manager that the product's requirements have changed. These changes were NOT anticipated, may significantly influence potential sales numbers, and could impact project scope.\n\nWhich action should the project manager take?",o:["Review the risk management plan to understand identify risk responses.","Plan to use the contingency reserve and update the risk mitigation plan.","Revisit the project charter.","Evaluate the impacts to cost, stakeholders, quality, and risk using the Perform Integrated Change Control process."],c:["D"],m:false,e:"These new requirements will impact the project in various ways, as well as pose additional risks. These impacts and risks need to be identified and assessed and then the appropriate responses need to be identified.",d:"ECO Task: II.3",flag:null},
+{n:122,t:"A project sponsor is risk averse and is therefore concerned about negative impacts on the project. To help with this concern, the project team identifies four (4) project risks and then evaluates both the probability of occurrence and the impact of the risk if it occurs. The team uses a 1-5 scale (1 is the lowest and 5 is the highest).\n\nRisk A: Probability 1, Impact 5\nRisk B: Probability 4, Impact 4\nRisk C: Probability 2, Impact 5\nRisk D: Probability 2, Impact 2\n\nBased on the table, in what order should the project manager rank these risks for risk management purposes?",o:["B, A, D, C","B, C, A, D","B, A, C, D","C, D, A, B"],c:["B"],m:false,e:"Risk severity = Probability × Impact.\nRisk A: 1×5 = 5\nRisk B: 4×4 = 16\nRisk C: 2×5 = 10\nRisk D: 2×2 = 4\nRanked highest to lowest: B(16), C(10), A(5), D(4) → Answer: B, C, A, D",d:"ECO Task: II.3",flag:null},
+{n:123,t:"Prior to preparing a monthly project status report, a project team brings three risks to the project manager's attention. The project manager wants to reference additional information before presenting this as new risk information.\n\nWhere can the project manager look to evaluate these risks?",o:["Issue log","Risk register","Risk management plan","Lessons learned repository"],c:["B"],m:false,e:"The project manager must check the risk register to verify if these three risks are new and then to verify if action was already planned to address them.",d:"ECO Task: II.3",flag:null},
+{n:124,t:"Although the sponsor and project team say that the new project has an adequate budget and realistic schedule, the project manager worries that unplanned events could threaten the project's success.\n\nWhat should the project manager do first?",o:["Engage in identification of project risks, then assess those risks.","Ask the project sponsor for additional funding to cover project planning.","Schedule a meeting with the functional manager to address the potential impact of unplanned risks.","Execute the project as planned and handle any risks as they arise."],c:["A"],m:false,e:"The project manager needs to be proactive and familiar with as many project risks as possible. The risk assessment needs to occur before the risk is encountered.",d:"ECO Task: II.3",flag:null},
+{n:125,t:"A company wants to reduce future operating costs by installing solar panels on the facility being built by using a local government subsidy for energy-efficient projects. They have NOT yet applied for the subsidy.\n\nBefore the project starts, the project manager is describing project risks. Which statement best describes the risk to the project if the application is NOT successful?",o:["Loss of energy efficiency rating.","Loss of funding for the project.","Increase in scope.","Increased total cost."],c:["D"],m:false,e:"The risk described here is a loss of potential subsidy that would reduce the cost of the project. So, this risk amounts to the project requiring much more in future operating costs — an increased total cost.",d:"ECO Task: II.3",flag:null},
+{n:126,t:"The project sponsor requires a project team composed of resources that live in four (4) different time zones, working in four (4) different locations. The project sponsor did NOT consider the challenges created by this requirement and believes that the dispersion will provide an ideal project team that will save costs.\n\nWhere should the project manager document this in the project charter?",o:["As part of high-level requirements.","In the key stakeholder list.","In the overall project risks.","As part of the resource management plan."],c:["C"],m:false,e:"Having a dispersed project team does NOT come without risks. These risks need to be identified in the charter, even if only at a high level.",d:"ECO Task: II.3",flag:null},
+{n:127,t:"A project manager implemented an approved change to manage a risk. Three (3) months after the implemented change, the project manager learns that the change did NOT produce the desired result, instead producing negative consequences.\n\nHow can the project manager avoid this problem on future projects?",o:["Update the probability and impact matrix after assessing any new risks.","Revisit or change existing assumptions after reviewing the assumption log.","Update the lessons learned register with the risk information.","Update the list on the risk register with the risk."],c:["D"],m:false,e:"New projects should utilize organizational process assets such as lessons learned so they do NOT repeat the same mistakes. Updating the list on the risk register with this risk will leave a trail of useful information for future projects.",d:"ECO Task: II.3",flag:null},
+{n:128,t:"During a conversation with a friend, a project manager hears that union action may occur within the next two (2) weeks. The project manager knows that at this stage of the project, any project delays could cause substantial harm to both budget and schedule.\n\nEarlier, the probability of a union action was considered minimal. Also, the project manager has worked successfully in the past with the union.\n\nHow should the project manager respond to this issue?",o:["Get more information through informal discussion channels and use that information to decide on next steps.","Update the risk in the risk register with this new information and notify relevant stakeholders.","Plan to reward those who do NOT participate and identify possible disciplinary actions for those who do participate.","Schedule a meeting with the union's leader and use personal influence to attempt to resolve the problem."],c:["D"],m:false,e:"The project manager needs to use a proactive and decisive approach. Since the project manager already has a successful relationship with the union stakeholder, finding a solution through positive leadership is possible. If a resolution cannot be found, then update the risk register and communicate with appropriate stakeholders.",d:"ECO Task: II.3",flag:null},
+{n:129,t:"Due to resource challenges, a contractor is late with a critical project deliverable, even though the work is nearly complete. The project must be delivered on time because the next projects depend on on-time completion of this one.\n\nThere is a 22% buffer in the project budget for cost overruns, but only three (3) weeks left in the schedule.\n\nHow can the project manager resolve this issue?",o:["Hire a new vendor to replace the current vendor.","Use the buffer to look into alternative vendors that can assist with project deliverables and make use of the buffer.","Hold a discussion with the vendor regarding the contractual implications of this slippage and negotiate for on-time completion.","Escalate this issue to the project sponsor immediately."],c:["C"],m:false,e:"With three weeks left and most of the work done, hiring a new vendor is NOT ideal. Since project delivery is the prime focus, the project manager needs to assess alternatives without concern for the potential budget impact. Hold a discussion with the vendor regarding the contractual implications and negotiate for on-time completion.",d:"ECO Task: II.3",flag:null},
+{n:130,t:"A customer's end users have NOT completed the required training. The project manager must consider the risk it poses to the timely completion of the project. End user training is a required project deliverable.\n\nWhich action should the project manager perform?",o:["Update the risk register to document the concerns and then develop a plan to ensure the end users complete their training.","Revise the risk register and discuss it at the next project status meeting.","Dedicate additional post-implementation support to mitigate the risk.","Modify the project schedule to account for the training delay."],c:["A"],m:false,e:"The project manager should document the risk and then work with the stakeholder to address this risk. They are probably aware of it and need help to complete the step.",d:"ECO Task: II.3",flag:null},
+{n:131,t:"A retiring project manager hands over all materials to a new project manager. The project appears to be running smoothly, until a critical component fails during testing.\n\nWhat is the appropriate first step when responding to this issue?",o:["Review the risk management plan to identify whether this risk and accompanying response strategies have been captured.","Check with other local team project managers to see how they would respond to the issue.","Revise the timeline to account for slippage due to the additional time needed to implement mitigation.","Communicate with stakeholders, describing the issue, proposed costs, and potential changes to delivery dates related to the project."],c:["A"],m:false,e:"Risk responses to identified risks should be outlined as part of the risk management plan.",d:"ECO Task: II.3",flag:null},
+{n:132,t:"A team member has taken unplanned leave during the execution of a project, causing the project team to reschedule some tasks. As a result, critical activities are now occurring at the same time.\n\nWhat is the first thing the project manager should do?",o:["Assess the newly introduced risks with the project team.","Mitigate risks by reverting to the original schedule.","Revise the risk register and then rank the project's risks.","Identify suitable responses for the newly introduced risks."],c:["A"],m:false,e:"The project manager and the project team should evaluate the newly discovered risk. The project manager should also update the risk register, analyze and prioritize the risk, and plan the response.",d:"ECO Task: II.3",flag:null},
+{n:133,t:"A project sponsor is risk averse and is therefore concerned about negative impacts on the project. The project team identifies four (4) project risks using a 1-5 scale.\n\nRisk A: Probability 3, Impact 5\nRisk B: Probability 4, Impact 2\nRisk C: Probability 3, Impact 3\nRisk D: Probability 2, Impact 2\n\nBased on the above information, in what order should the project manager rank these risks for risk management purposes?",o:["A, C, B, D","B, A, D, C","C, D, A, B","D, A, C, B"],c:["A"],m:false,e:"Risk ranking = Probability × Impact.\nRisk A: 3×5 = 15\nRisk B: 4×2 = 8\nRisk C: 3×3 = 9\nRisk D: 2×2 = 4\nRanked highest to lowest: A(15), C(9), B(8), D(4) → Answer: A, C, B, D",d:"ECO Task: II.3",flag:null},
+{n:134,t:"While a project manager is preparing the monthly project status report, four (4) new risks are identified. These four (4) risks could affect key milestones.\n\nWhat should the project manager do before presenting this new risk information?",o:["Review the risk report and lessons learned repository.","Review the organizational process assets and risk register.","Refer to the risk management plan and the risk report.","Add risks to the risk register, analyze them for impact to the project, and identify response plans."],c:["D"],m:false,e:"The first step is to update the risk register and then analyze the new risks. This information can then be presented to stakeholders who will help determine a response plan for each risk.",d:"ECO Task: II.3",flag:null},
+{n:135,t:"Project C is a partnership between a major city and a government contractor. Each of these entities have a different risk threshold, so it is the project manager's role to ensure a risk approach that will satisfy both parties. Project C has a realistic schedule and an adequate budget; however, the project manager worries that unplanned events could threaten the project's success.\n\nHow should the project manager handle this situation?",o:["Focus on the original project plan and focus on completing the plan on schedule.","Ask the city sponsor for additional funding to uncover additional unplanned risks during planning.","Work with representatives from both sides of the partnership to address the potential impact of unplanned risks.","List and assess any project risks and present them to the city sponsor."],c:["C"],m:false,e:"The project manager needs to be proactive and work with both partners to identify risks and their mitigation strategies. Even when one party has a higher risk threshold than the other, because they are in a partnership, both parties should be consulted.",d:"ECO Task: II.3",flag:null},
+{n:136,t:"After the start of a project, the project manager learns that an expected governmental subsidy may NOT be available.\n\nHow should the project manager address this issue?",o:["Log the risk.","Raise the project's risk level.","Make up any project deficit using the contingency reserve.","Make a change request."],c:["A"],m:false,e:"While this is NOT an issue yet, it is a risk that should be entered in the risk log and managed appropriately.",d:"ECO Task: II.3",flag:null},
+{n:137,t:"In order to speed the completion of project Z, a project sponsor requisitions a project team that can work a full 24-hour day, in three (3) shifts, in hazardous conditions.\n\nIn order to work nighttime hours safely, teams A and C will need to receive overtime pay and the company will need to increase security measures and their insurance coverage.\n\nWhere should the project manager document this request in the project charter?",o:["Key stakeholder list.","Overall project risks.","High-level requirements.","Work exclusions."],c:["B"],m:false,e:"Speeding up a project does NOT come without risks. In this case, work may be completed much more quickly, but these risks (overtime pay, increased security, insurance) need to be identified in the risk log for the project.",d:"ECO Task: II.3",flag:null},
+{n:138,t:"After missing two (2) consecutive major deadlines because of delayed glass deliveries, a manufacturing company changes its glass supplier to meet production deadlines. Three (3) months later, production reports quality problems with the new glass. The project manager determines that the supplier change caused quality problems.\n\nHow should the project manager avoid this issue in the future?",o:["Update the risk information to the lessons learned register.","Review the assumption log to revisit or change current assumptions.","Confirm that an implemented risk response is effective.","Evaluate new risks and update the probability and impact matrix."],c:["C"],m:false,e:"In this case, the risk was missed deadlines, and the response to the risk was to change suppliers. Part of an effective risk management strategy is making sure that the risk response is effective — in this case, that the replacement supplier would supply quality glass on time. The Monitor Risks process determines if the response was effective.",d:"ECO Task: II.3",flag:null},
+{n:139,t:"A project manager realizes that stakeholder interests will conflict on a project and decides to utilize a stakeholder engagement assessment matrix. The matrix pinpoints an influential stakeholder who is resistant to the project. The project manager needs to align this stakeholder's expectations with the goals of the project.\n\nHow can the project manager accomplish this goal?",o:["Produce a stakeholder engagement plan.","Convey the stakeholder engagement plan.","Gain consensus on project objectives by meeting with all stakeholders.","Ensure that the stakeholder register is complete and updated."],c:["A"],m:false,e:"Plan Stakeholder Engagement is the process of developing approaches to involve project stakeholders based on their needs, expectations, interests, and potential impact on the project. The key benefit is that it provides an actionable plan to interact effectively with stakeholders.",d:"ECO Task: II.3",flag:null},
+{n:140,t:"How can a project manager gain a stakeholder's approval, if the stakeholder believes a project's deliverables were NOT achieved?",o:["Review the project scope while analyzing the stakeholder's needs and expectations.","Review the project charter thoroughly with this stakeholder on a conference call.","Ensure that the stakeholder understands the quality management plan.","Perform a risk analysis after obtaining the stakeholder's new requirements."],c:["A"],m:false,e:"Project leaders stay updated with stakeholders' needs and expectations and ensure that they are aligned with the project's overall goals and desired outcomes. Monitor Stakeholder Engagement is the process of monitoring project stakeholder relationships and tailoring strategies for engaging stakeholders.",d:"ECO Task: II.4",flag:null},
+{n:141,t:"A project has the following characteristics:\n• A functional manager is also a project stakeholder.\n• The functional manager has time constraints and delegates project responsibilities to someone else on the functional team. This person becomes a new stakeholder.\n• The new stakeholder is NOT attending meetings.\n\nHow should the project manager engage this new stakeholder?",o:["Examine the stakeholder engagement plan with the new stakeholder and assess their level of engagement.","Present the project schedule and the specific, assigned tasks to the new stakeholder.","Request that the functional manager brief this new stakeholder and ask that they send them to all relevant meetings.","Ask the new stakeholder to pair with a more experienced stakeholder to learn responsibilities."],c:["A"],m:false,e:"The first version of the stakeholder engagement plan is developed after the initial stakeholder community has been identified. The stakeholder engagement plan is updated regularly to reflect changes to the stakeholder community.",d:"ECO Task: II.4",flag:null},
+{n:142,t:"A project manager is working with three (3) key stakeholders. Each has a different vision regarding the project and its goal. They each feel strongly about their opinion.\n\nHow should the project manager obtain approval of the project charter?",o:["Conduct a stakeholder analysis.","Use facilitation and conflict management techniques to help the three (3) stakeholders find consensus.","Request that the project sponsor resolve the conflict.","Use the project kick-off meeting to settle the project goals."],c:["B"],m:false,e:"To facilitate timely, productive discussion and decision making, the project manager should use their facilitation skills as well as conflict management to help the stakeholders agree on a shared vision of the project goals.",d:"ECO Task: II.4",flag:null},
+{n:143,t:"A small group of users complains during a project's user acceptance stage, stating that their expectations are NOT met.\n\nWhich action could help avoid this issue on future projects?",o:["Send more frequent updates to stakeholders.","Engage in risk assessments throughout the project.","Make use of conflict management techniques.","Make use of stakeholder feedback during the project."],c:["D"],m:false,e:"Managing stakeholder engagement helps to ensure that stakeholders clearly understand the project goals, objectives, benefits, and risks for the project, as well as how their contribution will enhance project success. Listening to their feedback is an important part of this engagement.",d:"ECO Task: II.4",flag:null},
+{n:144,t:"A global organization sponsors a project that involves six (6) different companies. When the project is partially complete, the project manager learns that one stakeholder is ill and needs to decrease their level of involvement.\n\nWhat should the project manager do?",o:["Update the stakeholder register and then the stakeholder engagement plan.","Revise the project charter with the new stakeholder information.","Ask the project sponsor to replace the stakeholder.","Update the stakeholder engagement plan."],c:["A"],m:false,e:"Both the stakeholder register and the stakeholder engagement plan need updating. The stakeholder register identifies all stakeholders and their involvement in the project. The stakeholder engagement plan is updated to reflect any processes, procedures, tools, or techniques that affect the engagement of stakeholders in project decisions and execution.",d:"ECO Task: II.4",flag:null},
+{n:145,t:"A project manager is creating an agenda and presentation materials for a kick-off meeting that will involve stakeholders across the globe.\n\nHow can the project manager facilitate and optimize stakeholder engagement?",o:["Create slides for the kick-off meeting to address stakeholder involvement.","Survey stakeholders' preferred meeting dates and times to accommodate the teams in different time zones.","Verify that all required participants or their delegates will be available to attend.","Review the kick-off meeting agenda and materials for overall clarity and concision."],c:["B"],m:false,e:"Assuming a particular solution does NOT empower the team. Surveying the team and finding common consensus is a key part of servant leadership.",d:"ECO Task: II.4",flag:null},
+{n:146,t:"During work on a government project, stakeholders exert pressure on the project manager to comply with their preferred actions because they have extremely complex regulations and constraints. The project manager wants to build a successful relationship with these stakeholders because the company hopes to win more contracts with the government.\n\nWhich two approaches should the project manager take? (Choose TWO.)",o:["Assess and categorize these stakeholders using the Salience model.","Invite these stakeholders to team meetings to assure them that the project team takes their work seriously.","Send a questionnaire out to this stakeholder group, asking about their needs.","Use servant leadership to build a relationship based on stakeholder needs.","Share the stakeholder engagement matrix with the team."],c:["A","D"],m:true,e:"Both leadership and analytical project management tools are important in this scenario. The stakeholders need to earn trust in your team, but you — NOT the team — are the main point of contact. The best choice to facilitate trust is an effective leadership style that emphasizes the needs of your stakeholders. The salience model is a good choice, as it helps leaders navigate frequently changing, complex relationships that involve several parties.",d:"ECO Task: II.4",flag:null},
+{n:147,t:"Two (2) users complain during the project's user acceptance stage, saying that their expectations were NOT met.\n\nHow could the project manager avoid this issue in the future?",o:["Enable efficient stakeholder management.","Assess risks more thoroughly.","Employ conflict management techniques.","Nurture a professional relationship with the users."],c:["A"],m:false,e:"A professional relationship with end users is assumed to be in place already. However, managing stakeholder engagement efficiently is key to ensuring that stakeholders clearly understand the project goals, objectives, benefits, and risks for the project, as well as how their contribution will enhance project success.",d:"ECO Task: II.4",flag:null},
+{n:148,t:"A project involves six different companies, and the project sponsor is a global organization. At the midpoint of the project, the project manager learns that one stakeholder is experiencing difficulties and CANNOT provide their former level of involvement.\n\nThe project manager needs to __________ and then __________.\n(Fill in the blanks with the correct pair of answers.)",o:["Avoid the risk; update the stakeholder engagement plan.","Avoid the risk; update the stakeholder register.","Mitigate the risk; update the stakeholder engagement plan.","Mitigate the risk; update the stakeholder register."],c:["C"],m:false,e:"The first step is mitigating the risk presented by the stakeholder's diminished involvement. Then, the stakeholder engagement plan is updated to reflect any processes, procedures, tools, or techniques that affect the engagement of stakeholders in project decisions and execution.",d:"ECO Task: II.4",flag:null},
+{n:149,t:"A company is struggling to define the scope of a new project that has multiple phases with a high level of dependency between the phases.\n\nHow should the project manager approach this challenge?",o:["Contract with a third-party consultant that specializes in helping businesses define scope of work on large projects.","Work with project stakeholders to recommend an iterative approach that will then help to define the project's scope.","Review the project management plan to ensure that it provides extra time within the schedule, then revise the scope of work.","Move forward with the project but keep a daily check on the schedule to prioritize the dependency issues."],c:["B"],m:false,e:"A corrective action, such as the iterative approach, is required here. Introducing adaptive steps in a heavily predictive environment is never easy and the stakeholders should be involved in this process.",d:"ECO Task: II.4",flag:null},
+{n:150,t:"A product owner in an agile project complains of too many meetings in their monthly schedule. There is NOT enough time for project work. They instruct the project manager to prioritize some meetings and decrease the frequency of others.\n\nWhich two of the product owner's meetings could the project manager deprioritize so that they attend less frequently? (Choose TWO.)",o:["Sprint retrospectives","Product SME consultations","Daily standup meetings","Team performance reviews","End-user feedback sessions"],c:["C","D"],m:true,e:"In agile projects, the customer is the highest priority, because this leads to end-user satisfaction and focus on delivery; administrative processes such as performance reviews are a lower priority. The product owner is NOT needed at every daily meeting.",d:"ECO Task: II.4",flag:null}
+];
+
+let cur=0,corr=0,wrng=0,ans=0,sel=[],subm=false;
+
+function render(){
+  const q=Qs[cur];const tot=Qs.length;
+  const pct=Math.round((ans/tot)*100);
+  document.getElementById('pLbl').textContent=`Question ${q.n} of 150`;
+  document.getElementById('pPct').textContent=pct+'%';document.getElementById('pFill').style.width=pct+'%';
+  updateScore();
+  document.getElementById('bNum').textContent='Q'+q.n;
+  document.getElementById('bType').textContent=q.m?`Multi (${q.c.length})`:'Single';
+  document.getElementById('bDom').textContent=q.d;
+  const bFlag=document.getElementById('bFlag');const fb=document.getElementById('flagBanner');
+  if(q.flag){bFlag.style.display='inline-block';fb.classList.add('show');document.getElementById('flagTxt').innerHTML=`<strong>⚑ Answer Discrepancy Detected</strong><br>${q.flag.note}`;}
+  else{bFlag.style.display='none';fb.classList.remove('show');}
+  document.getElementById('qTxt').textContent=q.t;
+  const mn=document.getElementById('mNote');
+  if(q.m){mn.textContent=`★ Select ${q.c.length} answers`;mn.style.display='block';}else{mn.style.display='none';}
+  const ol=document.getElementById('optsList');ol.innerHTML='';
+  q.o.forEach((opt,i)=>{
+    const lt=L[i];const b=document.createElement('button');
+    b.className='opt';b.dataset.letter=lt;
+    b.innerHTML=`<span class="opt-lt">${lt}</span><span>${opt}</span>`;
+    b.onclick=()=>tog(lt,b);ol.appendChild(b);
+  });
+  sel=[];subm=false;
+  document.getElementById('btnSub').disabled=true;document.getElementById('btnNxt').classList.remove('show');
+  document.getElementById('explBox').classList.remove('show');document.getElementById('discNote').innerHTML='';
+  const ri=document.getElementById('resInd');ri.style.display='none';ri.className='res-ind';
+}
+
+function tog(lt,btn){
+  if(subm)return;const q=Qs[cur];
+  if(!q.m){document.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));sel=[lt];btn.classList.add('sel');}
+  else{if(sel.includes(lt)){sel=sel.filter(l=>l!==lt);btn.classList.remove('sel');}else{sel.push(lt);btn.classList.add('sel');}}
+  document.getElementById('btnSub').disabled=sel.length<(q.m?q.c.length:1);
+}
+
+function submit(){
+  if(subm)return;subm=true;const q=Qs[cur];
+  const cs=new Set(q.c),ss=new Set(sel);
+  const ok=cs.size===ss.size&&[...cs].every(l=>ss.has(l));
+  ans++;if(ok)corr++;else wrng++;
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.disabled=true;const lt=b.dataset.letter;
+    if(q.c.includes(lt)){b.classList.remove('sel');b.classList.add('cor');}
+    else if(sel.includes(lt)){b.classList.remove('sel');b.classList.add('wrg');}
+  });
+  const ri=document.getElementById('resInd');ri.style.display='block';
+  if(ok){ri.className='res-ind ok';ri.textContent='✓ Correct!';}
+  else{ri.className='res-ind no';ri.textContent=`✗ Incorrect — Correct: ${q.c.join(', ')}`;}
+  document.getElementById('explTxt').textContent=q.e;document.getElementById('explDom').textContent=q.d;
+  if(q.flag){document.getElementById('discNote').innerHTML=`<div class="disc-note"><div class="disc-note-title">⚑ PDF Exam Key Discrepancy</div>${q.flag.note}<br><strong>PDF Answer:</strong> ${q.flag.pdfAnswer}</div>`;}
+  document.getElementById('explBox').classList.add('show');
+  document.getElementById('btnSub').disabled=true;
+  const bn=document.getElementById('btnNxt');bn.textContent=cur<Qs.length-1?'Next →':'See Results →';bn.classList.add('show');
+  updateScore();
+  const pct2=Math.round((ans/Qs.length)*100);
+  document.getElementById('pPct').textContent=pct2+'%';document.getElementById('pFill').style.width=pct2+'%';
+}
+
+function updateScore(){
+  document.getElementById('sScore').textContent=`${corr}/${ans}`;
+  document.getElementById('sCorr').textContent=corr;
+  document.getElementById('sWrng').textContent=wrng;
+  document.getElementById('sAcc').textContent=ans>0?Math.round((corr/ans)*100)+'%':'—';
+}
+
+function next(){
+  cur++;
+  if(cur>=Qs.length){showResult();}
+  else{render();document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});}
+}
+
+function showResult(){
+  document.getElementById('qCard').style.display='none';document.querySelector('.prog-wrap').style.display='none';
+  const tot=Qs.length,pct=Math.round((corr/tot)*100);
+  let em,ti,su;
+  if(pct>=90){em='🏆';ti='Exceptional!';su='Above 90% on risk management and stakeholder topics — exam-ready!';}
+  else if(pct>=75){em='💪';ti='Great Work!';su='Solid performance. Review flagged questions and misses carefully.';}
+  else if(pct>=50){em='📚';ti='Good Effort!';su='Review risk response strategies (Mitigate/Transfer/Accept/Avoid), EVM formulas, and stakeholder engagement plans.';}
+  else{em='🔄';ti='Keep Going!';su='Focus on the risk register, communications management plan, and stakeholder engagement processes. You\'ve got this!';}
+  document.getElementById('rEmoji').textContent=em;document.getElementById('rTitle').textContent=ti;document.getElementById('rSub').textContent=su;
+  document.getElementById('rScore').textContent=pct+'%';
+  document.getElementById('rScore').style.color=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  document.getElementById('rCorr').textContent=corr;document.getElementById('rWrng').textContent=wrng;document.getElementById('rTot').textContent=tot;
+  const pf=document.getElementById('perfFill');pf.style.background=pct>=90?'var(--green)':pct>=75?'var(--a)':'var(--red)';
+  setTimeout(()=>{pf.style.width=pct+'%';},100);
+  document.getElementById('resultScr').classList.add('show');
+}
+
+function restart(){
+  cur=0;corr=0;wrng=0;ans=0;sel=[];subm=false;
+  document.getElementById('resultScr').classList.remove('show');document.getElementById('qCard').style.display='';document.querySelector('.prog-wrap').style.display='';
+  render();window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+
+function goBack() {
+  if (cur > 0) { cur--; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goSkip() {
+  if (cur < Qs.length - 1) { cur++; render(); }
+  document.getElementById('qCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
