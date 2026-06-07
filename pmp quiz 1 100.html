@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP Practice Quiz — Questions 1–100</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --card: #1a1e2a;
+    --border: #252a38;
+    --accent: #4f8ef7;
+    --accent2: #7c5cfc;
+    --correct: #22c55e;
+    --wrong: #ef4444;
+    --mindset: #f59e0b;
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --tag: #1e2535;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0d0f14 0%, #131828 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 24px;
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .logo-text { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; }
+  .logo-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+
+  .header-stats {
+    display: flex; gap: 20px; align-items: center;
+  }
+  .stat-pill {
+    background: var(--tag);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .stat-pill span { color: var(--accent); font-weight: 600; }
+
+  /* ── PROGRESS BAR ── */
+  .progress-track {
+    height: 3px;
+    background: var(--border);
+    width: 100%;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: width 0.5s cubic-bezier(.4,0,.2,1);
+    width: 0%;
+  }
+
+  /* ── LAYOUT ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    gap: 28px;
+    min-height: calc(100vh - 90px);
+  }
+
+  /* ── SIDEBAR NAV ── */
+  .sidebar {
+    position: sticky;
+    top: 90px;
+    align-self: start;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding-right: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  .sidebar-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+  .q-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+  .q-btn {
+    aspect-ratio: 1;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: var(--tag);
+    color: var(--muted);
+    font-size: 0.65rem;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .q-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .q-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+  .q-btn.answered-correct { background: rgba(34,197,94,0.18); border-color: var(--correct); color: var(--correct); }
+  .q-btn.answered-wrong { background: rgba(239,68,68,0.18); border-color: var(--wrong); color: var(--wrong); }
+  .q-btn.answered-correct.active,
+  .q-btn.answered-wrong.active { opacity: 1; }
+
+  /* ── MAIN CONTENT ── */
+  .main { min-width: 0; }
+
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 40px;
+    animation: fadeSlide 0.3s ease;
+  }
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .q-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .q-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    background: rgba(79,142,247,0.1);
+    border: 1px solid rgba(79,142,247,0.25);
+    border-radius: 8px;
+    padding: 5px 12px;
+    letter-spacing: 0.06em;
+  }
+  .q-type-badge {
+    font-size: 0.68rem;
+    color: var(--muted);
+    background: var(--tag);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .q-text {
+    font-size: 1.0rem;
+    line-height: 1.75;
+    color: var(--text);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .q-ask {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #c9d3f0;
+    margin-top: 14px;
+  }
+
+  /* ── OPTIONS ── */
+  .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+
+  .option {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 11px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .option::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.02));
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .option:hover:not(.disabled) {
+    border-color: var(--accent);
+    background: rgba(79,142,247,0.06);
+    transform: translateX(3px);
+  }
+  .option:hover:not(.disabled)::before { opacity: 1; }
+  .option.disabled { cursor: default; }
+
+  .option.selected {
+    border-color: var(--accent);
+    background: rgba(79,142,247,0.1);
+  }
+  .option.correct {
+    border-color: var(--correct) !important;
+    background: rgba(34,197,94,0.1) !important;
+  }
+  .option.wrong {
+    border-color: var(--wrong) !important;
+    background: rgba(239,68,68,0.08) !important;
+  }
+
+  .opt-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+    min-width: 22px;
+    padding-top: 1px;
+    transition: color 0.2s;
+  }
+  .option.correct .opt-label { color: var(--correct); }
+  .option.wrong .opt-label { color: var(--wrong); }
+  .option.selected .opt-label { color: var(--accent); }
+
+  .opt-text {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #c0c8e0;
+    transition: color 0.2s;
+  }
+  .option.correct .opt-text { color: #d1fae5; }
+  .option.wrong .opt-text { color: #fee2e2; }
+
+  .opt-icon {
+    margin-left: auto;
+    font-size: 1rem;
+    padding-top: 1px;
+    display: none;
+  }
+  .option.correct .opt-icon,
+  .option.wrong .opt-icon { display: block; }
+
+  /* ── RESULT PANEL ── */
+  .result-panel {
+    display: none;
+    margin-top: 4px;
+    border-radius: 12px;
+    overflow: hidden;
+    animation: fadeSlide 0.3s ease;
+  }
+  .result-panel.show { display: block; }
+
+  .result-header {
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .result-header.correct-bg { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); border-bottom: none; }
+  .result-header.wrong-bg   { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.25); border-bottom: none; }
+  .result-header .icon { font-size: 1.2rem; }
+
+  .mindset-box {
+    background: rgba(245,158,11,0.08);
+    border: 1px solid rgba(245,158,11,0.3);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 16px 20px;
+  }
+  .mindset-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--mindset);
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .mindset-text {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #fde68a;
+    font-style: italic;
+  }
+
+  /* ── FOOTER BUTTONS ── */
+  .q-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .btn {
+    padding: 11px 24px;
+    border-radius: 10px;
+    font-family: 'Sora', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.35; cursor: default; transform: none; }
+  .btn-ghost {
+    background: var(--tag);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .btn-ghost:disabled { opacity: 0.3; cursor: default; }
+
+  .q-counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .q-counter b { color: var(--text); }
+
+  /* ── SCORE SUMMARY ── */
+  .score-screen {
+    display: none;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    animation: fadeSlide 0.4s ease;
+  }
+  .score-screen.show { display: block; }
+  .score-big {
+    font-size: 5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .score-label { font-size: 1rem; color: var(--muted); margin-bottom: 36px; }
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 500px;
+    margin: 0 auto 40px;
+  }
+  .score-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 12px;
+  }
+  .score-box .val { font-size: 2rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+  .score-box .lbl { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+  .score-box.green .val { color: var(--correct); }
+  .score-box.red .val { color: var(--wrong); }
+  .score-box.blue .val { color: var(--accent); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; }
+    .q-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">📋</div>
+    <div>
+      <div class="logo-text">PMP Practice Quiz</div>
+      <div class="logo-sub">Questions 1 – 100 · Andreu Series</div>
+    </div>
+  </div>
+  <div class="header-stats">
+    <div class="stat-pill">Answered: <span id="statAnswered">0</span> / 100</div>
+    <div class="stat-pill">Score: <span id="statScore">0</span>%</div>
+  </div>
+</header>
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">Question Navigator</div>
+    <div class="q-grid" id="qGrid"></div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div id="quizArea"></div>
+    <div class="score-screen" id="scoreScreen">
+      <div class="score-big" id="scoreBig">--</div>
+      <div class="score-label">Final Score</div>
+      <div class="score-grid">
+        <div class="score-box green"><div class="val" id="sCorrect">0</div><div class="lbl">Correct</div></div>
+        <div class="score-box red"><div class="val" id="sWrong">0</div><div class="lbl">Wrong</div></div>
+        <div class="score-box blue"><div class="val" id="sSkipped">0</div><div class="lbl">Unanswered</div></div>
+      </div>
+      <button class="btn btn-primary" onclick="restartQuiz()">🔄 Restart Quiz</button>
+    </div>
+  </main>
+</div>
+
+<script>
+const questions = [
+  {
+    n: 1,
+    stem: "A project manager is planning the construction of a new public library. The community and project stakeholders are having difficulty agreeing on the key features to be included in the final design.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Facilitate a workshop to gather input from all stakeholders",
+      "Define the differences between essential and non-essential features",
+      "Involve the design consultants to mediate stakeholder discussions",
+      "Identify the root cause of the stakeholders' inability to agree on the project scope"
+    ],
+    answer: 3,
+    mindset: "This method allows the project manager to facilitate discussions and negotiations to resolve conflicts and reach a consensus."
+  },
+  {
+    n: 2,
+    stem: "A project manager convenes an emergency session with the software development team to address significant bugs that are delaying the project's delivery. The product owner suggests conducting a thorough root cause analysis (RCA) to identify the underlying issues.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Collaborate with the team to discuss the RCA suggestion and decide collectively on the next steps",
+      "Encourage a lead developer to take charge of the RCA process, fostering team autonomy",
+      "Coordinate with the quality assurance lead to refine testing processes based on the RCA outcomes",
+      "Organize the session to ensure all team members contribute their insights and potential solutions"
+    ],
+    answer: 0,
+    mindset: "This ensures that any adjustments made are informed by a detailed understanding of the problems."
+  },
+  {
+    n: 3,
+    stem: "A project manager overseeing the launch of a new e-commerce platform discovers that the finance department has concerns about not being involved in the cost estimations and their potential impact on the projected returns.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Amend the stakeholder engagement plan to better integrate finance in future phases",
+      "Document the exclusion of the finance team as a risk to project success",
+      "Maintain the project timeline but plan a financial review before the final phase",
+      "Organize a meeting with the finance team to understand the concerns"
+    ],
+    answer: 3,
+    mindset: "By addressing these concerns early in the project lifecycle, it prevents potential delays or issues at later stages."
+  },
+  {
+    n: 4,
+    stem: "As part of a project to integrate a new security feature into an online shopping platform, stakeholders have shown concern over understanding the integration process during the planning stage.",
+    ask: "What should the project manager do to enhance stakeholders' understanding of the integration?",
+    opts: [
+      "Schedule regular demonstration sessions during each sprint to show progress and integration steps",
+      "Arrange for a technical team to provide a detailed explanation before each sprint begins",
+      "Organize a training session to educate stakeholders about the technical aspects of integration",
+      "Provide detailed documentation on the integration process prior to the start of each sprint phase"
+    ],
+    answer: 0,
+    mindset: "Eliminating non-essential tasks minimizes financial strain by reducing expenditures on lower-priority activities, allowing the project budget to accommodate the unexpected costs of extended system use."
+  },
+  {
+    n: 5,
+    stem: "A project manager is preparing for a sprint planning session for a new feature in a healthcare management system. This meeting aims to determine the amount of work for the upcoming sprint.",
+    ask: "Which two pieces of information are essential for the project manager to ensure the meeting is productive and effective? (Choose two.)",
+    opts: [
+      "Current project phase timeline",
+      "Product Market Place Goal",
+      "Updated risk assessment",
+      "Detailed product backlog",
+      "Team performance metrics"
+    ],
+    answer: [3, 4],
+    mindset: "These two components, when used together, facilitate strategic planning and decision-making, ensuring that each sprint maximizes both resources and time."
+  },
+  {
+    n: 6,
+    stem: "A project manager is leading an intricate biotechnology research project characterized by significant ambiguity and unpredictability. A suggestion has been made to introduce a system to gauge the quality of the project outputs effectively.",
+    ask: "What hybrid techniques should the project manager employ to ensure quality assurance?",
+    opts: [
+      "Combine weekly sprints with quarterly external audits to validate project standards",
+      "Merge traditional milestone reviews with agile sprint demonstrations",
+      "Adopt pair programming and customer feedback sessions",
+      "Integrate continuous integration tools with formal quality control checkpoints"
+    ],
+    answer: 2,
+    mindset: "Adopting pair programming and customer feedback sessions as part of a hybrid project management approach effectively addresses the challenge of maintaining quality in a complex environment."
+  },
+  {
+    n: 7,
+    stem: "A project manager is overseeing a software development project where the team has prioritized creating a new user authentication system in the current sprint. Midway through the sprint, two developers express a desire to divert their efforts to optimizing database queries, anticipating future performance bottlenecks.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Allocate time for the developers to present their optimization proposal at the next sprint planning meeting",
+      "Reinforce the importance of adhering to the sprint's primary goal of completing the authentication system",
+      "Request a special session to assess the potential impact of database optimization on future sprints",
+      "Support the developers' initiative by allocating a small portion of their time to start preliminary work on the database"
+    ],
+    answer: 1,
+    mindset: "This approach aligns with agile principles of commitment and focused delivery, ensuring that the team delivers what was promised to stakeholders."
+  },
+  {
+    n: 8,
+    stem: "A project manager is overseeing the development of an enterprise resource planning (ERP) system and has decided that a combination of Scrum and Kanban methodologies would be most effective. However, the product owner is unsure about how to begin organizing and prioritizing work.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Guide the product owner on developing and prioritizing a comprehensive product backlog",
+      "Have a team member explain the integration of Scrum and Kanban principles to the product owner to enhance understanding",
+      "Recommend that the project team use visual management tools to improve workflow visibility",
+      "Teach the product owner how to map out process flows to better understand task sequencing"
+    ],
+    answer: 0,
+    mindset: "This guidance ensures that the product owner can effectively oversee the development priorities that align with business goals, making agile methodologies like Scrum and Kanban more impactful."
+  },
+  {
+    n: 9,
+    stem: "A project manager is leading a team on a critical marketing campaign for a major product launch. After unexpected last-minute changes, the team worked overtime to meet tight deadlines. The project sponsor has allocated a monetary award to recognize the team's efforts.",
+    ask: "Based on project management best practices, what is the most appropriate action for the project manager?",
+    opts: [
+      "Distribute the entire award to the team member who worked the longest hours.",
+      "Organize a team-building retreat to enhance morale for future projects.",
+      "Use the award to fund professional development opportunities that will benefit the team in future projects.",
+      "Decide how to distribute the award based on informal feedback from the team."
+    ],
+    answer: 2,
+    mindset: "This aligns with the mindset of long-term value and professional growth, ensuring the team's skills are enhanced for future projects, as reflected in your slides about focusing on benefiting the project objectives and using opportunities to develop the team."
+  },
+  {
+    n: 10,
+    stem: "A project manager is overseeing the construction of a new community recreation center, which needs to be completed quickly to meet the community's expectations. The project team is skilled, stakeholders are engaged, and the community is excited about the new facility.",
+    ask: "What should the project manager do to prioritize timely completion?",
+    opts: [
+      "Assign more resources to critical tasks without consulting the team.",
+      "Develop a milestone-based project plan, ensuring regular stakeholder involvement and communication.",
+      "Monitor daily progress in a way that integrates input from the project team to ensure alignment with project goals.",
+      "Request an extension on the deadline from the project sponsor."
+    ],
+    answer: 1,
+    mindset: null
+  },
+  {
+    n: 11,
+    stem: "A project manager has begun a complex airport expansion project. Although the project is in the initiation phase, the sponsor keeps asking for concrete dates for the most important project milestones.",
+    ask: "When will the project manager be able to provide the requested information?",
+    opts: [
+      "After initial risk assessments are completed to estimate timelines",
+      "At the end of the planning phase, once detailed schedules and risk assessments are completed",
+      "During the execution phase, when the project is underway and progress can be measured",
+      "Once the project charter is signed, as it will outline the initial milestones"
+    ],
+    answer: 1,
+    mindset: "This allows for accurate forecasting and identification of potential risks, ensuring that the project manager can offer reliable milestone dates."
+  },
+  {
+    n: 12,
+    stem: "A project manager is overseeing a large-scale infrastructure project in a hierarchical organization. The project team members are used to receiving direct instructions, and their performance reviews are based on task completion percentages. After discussing with the sponsor, the project manager realizes that some tasks need to be reassigned to meet the next milestone. This change could be perceived as a negative reflection on the current assignees' performance.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Assign the tasks to the most skilled team members without further discussion",
+      "Hold a team meeting to explain the changes and collaborate on reassigning tasks",
+      "Privately ask a senior team member to take over the tasks and inform the others of the reassignment",
+      "Send an email to the team outlining the task changes and the reasons behind them"
+    ],
+    answer: 1,
+    mindset: null
+  },
+  {
+    n: 13,
+    stem: "A project manager is leading a city park renovation project. During a status meeting with city officials, the project manager provides an update about a significant deliverable. Some of the officials claim they were not informed about this deliverable.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Confirm if the project scope has been updated to include the deliverable",
+      "Meet with these officials to review the communication plan and clarify the deliverable",
+      "Check the attendance records of these officials at prior project meetings",
+      "Review the project documentation to ensure the deliverable was communicated"
+    ],
+    answer: 1,
+    mindset: null
+  },
+  {
+    n: 14,
+    stem: "A project manager is overseeing the construction of a new office building. A key stakeholder complains that they never received the structural integrity test status reports. The project manager provides the reports, and the stakeholder notices that an important aspect of the structure was not tested.",
+    ask: "Which tool should the project manager have used to prevent this situation?",
+    opts: [
+      "Communication log",
+      "Requirements traceability matrix",
+      "Stakeholder register",
+      "Quality management plan"
+    ],
+    answer: 2,
+    mindset: null
+  },
+  {
+    n: 15,
+    stem: "A project manager is overseeing the development of a new healthcare facility. The project team is struggling to understand some critical aspects of the project's scope. A senior subject matter expert (SME) from the organization's headquarters is available for one week.",
+    ask: "What should the project manager do to benefit from the SME's presence?",
+    opts: [
+      "Conduct a workshop with the SME to address the team's challenges",
+      "Discuss with the SME the specific scope issues the team is facing",
+      "Arrange for the SME to provide training sessions to the team",
+      "Have the SME review the project documentation for alignment"
+    ],
+    answer: 2,
+    mindset: null
+  },
+  {
+    n: 16,
+    stem: "A project manager is leading an agile project developing a new customer relationship management (CRM) system. Midway through the project, the team receives feedback from the legal team regarding new data protection laws that the project must adhere to.",
+    ask: "Which two actions should the project manager take next? (Choose two.)",
+    opts: [
+      "Direct the product owner to prioritize data protection features in future sprints",
+      "Request detailed information about the new laws from the legal team",
+      "Have the legal team implement the compliance measures",
+      "Plan immediate integration of the compliance requirements to mitigate any legal risks",
+      "Conduct an impact analysis with the team to understand the implications of the new laws"
+    ],
+    answer: [1, 4],
+    mindset: "Both actions are crucial for making informed decisions and effectively planning the integration of necessary changes."
+  },
+  {
+    n: 17,
+    stem: "A project manager is initiating a new software development project for a client known for their vague requirements and challenging communication. The previous interactions with this client have often led to misunderstandings about the project scope and deliverables.",
+    ask: "What strategy should the project manager implement to prevent these issues?",
+    opts: [
+      "Apply a phased development approach to validate the project scope at each milestone",
+      "Collaborate with the product owner to establish a clear minimum viable product (MVP)",
+      "Enhance team-client communication protocols to ensure better clarity and feedback",
+      "Implement strict deliverable schedules to force clarity in client interactions"
+    ],
+    answer: 1,
+    mindset: null
+  },
+  {
+    n: 18,
+    stem: "In the middle of a software development project following a predictive lifecycle, a significant portion of the software is set for incremental delivery to the client. The experienced team responsible for this portion has expressed a desire to take on more decision-making responsibilities, traditionally handled by the project manager after each delivery.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Schedule a meeting with senior management to seek their guidance on adjusting the decision-making process.",
+      "Support the team's initiative to take on decision-making responsibilities while retaining final approval authority for critical decisions.",
+      "Maintain the traditional decision-making structure where the project manager oversees all decisions, regardless of the team's readiness.",
+      "Consult with the project sponsor to explore the option of delegating key post-delivery decisions to the team."
+    ],
+    answer: 1,
+    mindset: null
+  },
+  {
+    n: 19,
+    stem: "A project manager is overseeing the development of a new software tool. Although the tool isn't fully finished, the product owner has decided to release an early version (the minimum viable product, or MVP). A key stakeholder, the Vice President of Marketing, is unhappy with the limited features in the launch.",
+    ask: "What should the project manager do to ensure better satisfaction for future releases?",
+    opts: [
+      "Work with the team and stakeholders to adjust future release timelines based on expectations.",
+      "Set up a process where stakeholders can provide feedback before future releases are finalized.",
+      "Take control of communications with stakeholders to ensure everyone understands the project timeline and goals.",
+      "Ask the project sponsor to resolve the disagreement between the product owner and the Vice President of Marketing."
+    ],
+    answer: 0,
+    mindset: null
+  },
+  {
+    n: 20,
+    stem: "A project manager is overseeing an agile project for developing a new mobile application within a large tech company. Initially, the project manager planned to use email for all project communications. However, the product owner suggests using a specialized project management tool that better integrates with agile workflows.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Evaluate how using the new communication tool could impact the current timelines and workflows before making a decision.",
+      "Update the communications management plan to fully adopt the product owner's preferred tool and inform the team of the change.",
+      "Have the team test the proposed tool on a small part of the project before deciding whether to implement it across the entire team.",
+      "Continue using email for major announcements, but use the new tool for daily agile interactions with the team."
+    ],
+    answer: 2,
+    mindset: null
+  },
+  {
+    n: 21,
+    stem: "During the development of a new cloud-based analytics platform, the team has raised concerns about certain product backlog items that are challenging to implement due to technical and resource limitations.",
+    ask: "What should the project manager recommend for the product owner to do?",
+    opts: [
+      "Prioritize and address the impediments based on their impact on the most valuable features of the platform.",
+      "Conduct a risk assessment to evaluate how the impediments might affect the project timeline.",
+      "Implement a phased approach to solving the issues, starting with those that impact the current sprint.",
+      "Remove the items and add new items"
+    ],
+    answer: 0,
+    mindset: null
+  },
+  {
+    n: 22,
+    stem: "A project manager new to agile methodologies is overseeing the development of a software tool. Observing that other projects stumble without a well-defined project scope and completion criteria, leading to continuous scope expansion, the project manager wants to prevent similar issues.",
+    ask: "What proactive steps should the project manager take to establish clarity and prevent scope creep?",
+    opts: [
+      "Create a detailed timeline with milestones to monitor project progress and control changes",
+      "Introduce a rigorous change management process to evaluate and approve additional feature requests",
+      "Promote regular synchronization meetings between with the development team to discuss project schedule and what work to do first",
+      "Organize workshops with all major stakeholders to collaboratively create the project charter and clarify the Definition of Done (DoD)"
+    ],
+    answer: 3,
+    mindset: null
+  },
+  {
+    n: 23,
+    stem: "Throughout a project, it becomes apparent that team members from different departments have differing perspectives on what the final outcome of the project should be.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Facilitate a session to revisit and clarify the project's goals with the entire team.",
+      "Meet with the project sponsor to ensure alignment on the project's objectives.",
+      "Make sure the project outcome is aligned with the project charter and scope statement.",
+      "Assign the department heads the responsibility of resolving these differences."
+    ],
+    answer: 0,
+    mindset: null
+  },
+  {
+    n: 24,
+    stem: "A project manager is overseeing the construction of a new manufacturing facility when an economic downturn may suddenly threatens the project's viability.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Adjust the project's financial forecasts to account for the economic downturn",
+      "Suggest to the project sponsor that the project should be postponed",
+      "Redirect some project resources to support other essential projects within the organization",
+      "Identify and document the new risks and create mitigation strategies"
+    ],
+    answer: 3,
+    mindset: null
+  },
+  {
+    n: 25,
+    stem: "A project manager is starting a highway expansion project. The state transportation department requested an initial environmental impact assessment, after which they'll decide whether to continue. A key team member suggests planning for the full project based on past trends.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Advise the team member to focus on the current deliverable.",
+      "Review the project charter to confirm the high-level scope.",
+      "Develop a detailed plan for the entire project based on history.",
+      "Confirm with stakeholders and plan the full project scope."
+    ],
+    answer: 1,
+    mindset: null
+  },
+  {
+    n: 26,
+    stem: "A project manager is overseeing the upgrade of an old manufacturing system to a new automated solution, aligning with the organization's operational process changes. The project charter is approved, and the PMO has provided templates for all new projects.",
+    ask: "What should the project manager prioritize?",
+    opts: [
+      "Align the project plan with the organization's strategic goals, working closely with senior management.",
+      "Develop a training and communications management plan, ensuring collaboration with the team.",
+      "Create a detailed budget and schedule regular reviews with the finance department.",
+      "Coordinate with operational departments to minimize disruption during the upgrade."
+    ],
+    answer: 1,
+    mindset: null
+  },
+  {
+    n: 27,
+    stem: "A project manager has just completed the development of a new city park and is preparing to transition the project to the city's maintenance department before closing the project.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Verify that all project objectives have been met according to the project plan",
+      "Conduct a final inspection with the sponsor to ensure all tasks in the WBS are complete",
+      "Ensure all project documentation is complete and archived properly",
+      "Conduct a final project performance review with the stakeholders"
+    ],
+    answer: 1,
+    mindset: "This method allows the project manager to verify that the scope of work has been fully executed and nothing has been overlooked."
+  },
+  {
+    n: 28,
+    stem: "A project manager needs to prioritize multiple projects within a portfolio and requires accurate budget estimates. The process must align with agile principles while ensuring reliable financial planning.",
+    ask: "How should the budget for each project be estimated?",
+    opts: [
+      "Calculate costs by evaluating individual task estimates from the team, considering their current workload.",
+      "Leverage the combined expertise of the sponsor, product owner, and agile coach to derive budget estimates.",
+      "Use analytics software to model potential costs based on predictive analysis and historical data.",
+      "Have the product owner conduct a thorough requirements analysis with the team to forecast project budgets."
+    ],
+    answer: 0,
+    mindset: "This option aligns with both agile principles and sound financial planning. It emphasizes using bottom-up estimates from the team, which is typical in agile environments."
+  },
+  {
+    n: 29,
+    stem: "A project manager is overseeing a large-scale agile project to develop a new e-commerce platform. At the project's retrospective, the team discusses that the product owner's expectations for the sprint deliverables were not fully met.",
+    ask: "What proactive measure should the project manager have taken?",
+    opts: [
+      "Initiate a project kickoff workshop to ensure all team members are trained on the agile tools and techniques used for the project",
+      "Establish a risk management framework that specifically addresses potential misalignments between team output and stakeholder expectations",
+      "Create an integration plan to systematically align development work with ongoing marketing and sales strategies",
+      "Ensure the project vision and objectives for each sprint were effectively communicated to all team members"
+    ],
+    answer: 3,
+    mindset: null
+  },
+  {
+    n: 30,
+    stem: "A project manager is leading the development of a new customer support software system. During a sprint, a developer encounters ambiguity regarding the acceptance criteria of a feature.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Convene a meeting with the project steering committee to discuss the feature's requirements.",
+      "Initiate a discussion in the next team meeting to gather collective input on the feature.",
+      "Refer the question to the technical architect to provide an expert interpretation of the requirements.",
+      "Collaborate with the product owner to resolve the ambiguity in the acceptance criteria."
+    ],
+    answer: 3,
+    mindset: null
+  },
+  {
+    n: 31,
+    stem: "During the execution phase of a software development project, the team encounters a technical challenge that jeopardizes the scheduled delivery of key functionalities. The technical team has indicated a delay.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Schedule an emergency meeting with all stakeholders to brainstorm solutions",
+      "Initiate a quick training session for the technical team to enhance their problem-solving capabilities",
+      "Record the problem, its current impact, and urgency in the project's issue log for structured tracking",
+      "Organize a team-building event to boost morale and encourage innovative thinking for problem resolution"
+    ],
+    answer: 2,
+    mindset: "This method promotes transparency, facilitates effective communication, and helps in prioritizing resources and efforts to address the most critical issues first."
+  },
+  {
+    n: 32,
+    stem: "During a pivotal project phase, it was revealed that critical stakeholders did not attend a meeting focused on confirming the project's strategic alignment and expected business benefits, resulting in their feedback being overlooked. This oversight has led to conflicts within the decision-making process.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Initiate a discussion to directly address and understand the concerns leading to the conflict",
+      "Distribute a detailed meeting summary and request written feedback from the absent stakeholders",
+      "Conduct a formal risk analysis to evaluate the impact of missing stakeholder input",
+      "Develop a contingency plan to navigate potential project delays or changes"
+    ],
+    answer: 0,
+    mindset: "Engaging directly with stakeholders not only clarifies misunderstandings but also promotes inclusivity and transparency in the decision-making process."
+  },
+  {
+    n: 33,
+    stem: "During a crucial phase of the project, a pivotal team member informs the project manager of their impending resignation, intending to submit their notice to their line manager soon. This revelation comes at a time when their contribution is critical to meeting the project's upcoming deadlines.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Have a senior team member do a meeting to reassess task allocations and address any concerns",
+      "Update the project risk register to reflect the potential impact on the project timeline",
+      "Brief the project stakeholders on the situation to set realistic expectations about potential delays",
+      "Proactively collaborate with the other team members to formulate a plan for transition and mitigate project disruption"
+    ],
+    answer: 3,
+    mindset: "Engaging in collaborative planning underscores the project manager's commitment to addressing project risks promptly and effectively."
+  },
+  {
+    n: 34,
+    stem: "In a software development project, as the team moves into the development phase, they decide to utilize time tracking to estimate effort, with one hour of effort equaling one point. Some tasks are estimated at 5 points, while others extend up to 200 points.",
+    ask: "To enhance the project's accuracy in scheduling, what should the project manager encourage the team to do?",
+    opts: [
+      "Recommend dividing tasks into sub-tasks to improve manageability and estimation accuracy",
+      "Have the team use new estimation technique that better reflects the complexity of tasks",
+      "Encourage the adoption of a fixed-point system for all tasks to streamline effort estimation",
+      "Have the team recalibrate the point system to better differentiate between simple and complex tasks"
+    ],
+    answer: 0,
+    mindset: "By breaking down larger tasks, the team can also identify potential risks and dependencies more effectively."
+  },
+  {
+    n: 35,
+    stem: "A tech startup is gearing up to launch a groundbreaking app by the upcoming summer. However, during initial planning, they encounter significant uncertainty in project specifications. They are not sure how stakeholders will use the product.",
+    ask: "What action should the project manager take to ensure the project stays on track?",
+    opts: [
+      "Incorporate insights from technology consultants to refine project specifications",
+      "Establish a comprehensive risk management framework to anticipate and mitigate potential delays",
+      "Assist the team in proposing a minimum viable product (MVP)",
+      "Organize workshops with the development team to solidify the project's technical requirements"
+    ],
+    answer: 2,
+    mindset: "This strategy helps in setting clear, achievable goals that are aligned with the client's needs, even if they are not initially well-defined."
+  },
+  {
+    n: 36,
+    stem: "During a large-scale event planning project, the project manager notices a growing list of logistical challenges reported by various team members. Although these challenges have been acknowledged in team meetings, few have been effectively resolved, leading to potential risks for the event's success.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Schedule additional planning sessions specifically focused on logistical challenges.",
+      "Assign a dedicated team to focus solely on identifying and resolving logistical issues.",
+      "Prioritize the logistical challenges based on their potential impact on the event.",
+      "Increase the frequency of team meetings to ensure more regular updates on challenges."
+    ],
+    answer: 2,
+    mindset: "This method allows the project manager and the team to focus their efforts and resources on the most critical issues first."
+  },
+  {
+    n: 37,
+    stem: "During the execution phase of an urban development project, the project manager uses email updates to keep all stakeholders in the city informed. Feedback indicates that some stakeholders find the information either too technical or too general.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Initiate one-on-one briefings for stakeholders needing detailed explanations",
+      "Organize a workshop to keep them informed",
+      "Evaluate the specific information needs of the stakeholders",
+      "Launch a project blog that provides updates in varying levels of detail"
+    ],
+    answer: 2,
+    mindset: "This action allows the project manager to tailor communication strategies and content to match the unique preferences and requirements of each stakeholder group."
+  },
+  {
+    n: 38,
+    stem: "During the deployment phase of a new telecommunications network, the project encounters significant delays.",
+    ask: "To identify and mitigate these delays, what action should the project manager take?",
+    opts: [
+      "Increase the frequency of project status meetings to enhance communication",
+      "Reallocate resources to the most delayed aspects of the project",
+      "Adjust the project timeline to accommodate the unexpected delays",
+      "Facilitate a collaborative session with the project team to pinpoint and tackle the delays"
+    ],
+    answer: 3,
+    mindset: "Engaging the team in a collaborative problem-solving session ensures that solutions are informed by the insights of those closest to the work."
+  },
+  {
+    n: 39,
+    stem: "A key stakeholder requests that the project manager deliver a critical infrastructure component two weeks ahead of schedule. The project manager assesses the situation and determines that accelerating the project schedule is possible by overlapping certain processes.",
+    ask: "What is the most effective course of action for the project manager?",
+    opts: [
+      "Re-evaluate the project scope to identify non-essential elements that can be postponed",
+      "Adjust the project timeline by sequencing work to allow for parallel activities",
+      "Increase the project budget to allow for overtime and additional resources",
+      "Use advanced technology to automate certain construction processes"
+    ],
+    answer: 1,
+    mindset: "This method leverages existing resources more efficiently and enhances teamwork by focusing on critical path activities that can run concurrently."
+  },
+  {
+    n: 40,
+    stem: "At the outset of a software development project, the project manager is tasked with devising a strategy for assessing the contributions of each developer. These assessments are to be compiled and presented to the organizational leadership at the project's conclusion.",
+    ask: "What should be the project manager's next step?",
+    opts: [
+      "Arrange for regular one-on-one meetings with each developer to discuss and document their progress",
+      "Develop clear, quantifiable criteria for evaluating developer performance and communicate these standards to the team",
+      "Utilize software development metrics like lines of code to directly measure developer productivity",
+      "Conduct anonymous surveys among team members to gather insights on individual contributions and teamwork"
+    ],
+    answer: 1,
+    mindset: "This method fosters an environment where expectations are clear, and developers can align their work with the project goals from the beginning."
+  },
+  {
+    n: 41,
+    stem: "At the beginning of a new environmental conservation project, a key stakeholder expresses concerns over the project's approach, fearing it won't meet the intended environmental impact goals and will exceed the initially forecasted budget.",
+    ask: "What should the product manager do first?",
+    opts: [
+      "Organize a meeting with the stakeholder's to understand the concerns and identify potential improvements",
+      "Launch a pilot phase to demonstrate the project's effectiveness and adjust based on early results",
+      "Enhance communication with the stakeholder by providing regular updates and involving them more closely in the project planning process",
+      "Outline the long-term benefits and sustainability impacts of the project, emphasizing its alignment with broader environmental objectives"
+    ],
+    answer: 0,
+    mindset: "This approach not only reassures the stakeholder of the project's alignment with broader objectives but also helps in building trust and support for the project's vision."
+  },
+  {
+    n: 42,
+    stem: "In the midst of implementing a new healthcare IT system, a project manager faces a challenge. The initial phase, involving the upgrade of existing hardware, is behind schedule, impacting the subsequent software implementation phase due to shared technical teams.",
+    ask: "What course of action should the project manager take?",
+    opts: [
+      "Negotiate with other project managers for temporary resource sharing to expedite the hardware upgrade",
+      "Initiate an assessment to evaluate the impact of the delay on the overall project timeline and budget",
+      "Implement a reward system for the technical team to incentivize faster completion of the hardware upgrade",
+      "Engage a consultant to provide expert advice on streamlining the hardware upgrade process"
+    ],
+    answer: 1,
+    mindset: "A assessment offers a holistic view of the project's health and guides strategic planning to mitigate negative outcomes."
+  },
+  {
+    n: 43,
+    stem: "At the midpoint of a renewable energy project, the project manager is faced with a conflict between the design team and environmental consultants regarding the feasibility of a proposed turbine placement. The design team believes the placement will optimize energy production, while the environmental consultants warn it could lead to significant ecological disruptions.",
+    ask: "What action should the project manager take to resolve this conflict?",
+    opts: [
+      "Proceed with the design team's recommendation to maximize energy output",
+      "Organize a collaborative session to discuss the impact and find a compromise",
+      "Commission an independent review of the turbine placement's environmental impact",
+      "Postpone the decision on turbine placement until further data can be gathered"
+    ],
+    answer: 1,
+    mindset: "This strategy encourages direct communication between the conflicting parties, allowing each to present their concerns and data supporting their positions."
+  },
+  {
+    n: 44,
+    stem: "After a new project is executed, an executive suggests incorporating a new addon to provide more function to the product.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Update the product immediately to include the suggested scenarios without formal approval.",
+      "Note the suggestion for inclusion in a separate risk analysis document",
+      "Integrate the executive's feedback into an appendix of the current report",
+      "Encourage the executive to formalize their suggestion through a change request process"
+    ],
+    answer: 3,
+    mindset: "This approach ensures that any adjustments to project documents are thoroughly documented, reviewed, and approved within the established project management framework."
+  },
+  {
+    n: 45,
+    stem: "At the outset of an urban regeneration project, the project manager observes that, although team morale is high, meetings often diverge into unrelated conversations, causing them to overrun and decisions to be postponed.",
+    ask: "What is the most effective initial action for the project manager to take?",
+    opts: [
+      "Schedule shorter meetings to encourage more focused discussions",
+      "Designate a timekeeper to ensure meetings adhere to scheduled times",
+      "Emphasize the meeting objectives and agenda at the beginning of each session",
+      "Introduce a digital platform for team members to share non-project related discussions"
+    ],
+    answer: 2,
+    mindset: "This approach encourages self-discipline and mutual respect among team members, ensuring that time is used efficiently and decisions are made promptly."
+  },
+  {
+    n: 46,
+    stem: "During routine progress update sessions for a multinational project, a project manager notes that one of the key technical analysts, although exceptionally knowledgeable, rarely contributes to group discussions, despite engaging actively in private conversations.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Schedule a dedicated session where only the technical analyst presents their findings to the team",
+      "Actively solicit the analyst's input during meetings, emphasizing the importance of their expertise to the project's success",
+      "Create an anonymous feedback mechanism where the analyst can submit their insights without speaking up in meetings",
+      "Wait for the analyst to naturally become more comfortable and decide to contribute to discussions at their own pace"
+    ],
+    answer: 1,
+    mindset: "This strategy fosters an inclusive environment that leverages diverse skills and perspectives, enriching the project dialogue and decision-making process."
+  },
+  {
+    n: 47,
+    stem: "Just before the final review of a new software development project, the project manager is informed by the quality assurance team that several key features do not meet the predefined specifications agreed upon with the client. Correcting these issues will likely delay the project delivery by several weeks.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Prioritize the work to meet the agreed-upon specifications, accepting the project timeline may need to be extended",
+      "Suggest a partial delivery of the project to the client, with non-compliant features to be updated in a future release",
+      "Propose a compromise on the specifications to the client, reducing the scope to match the current state of the project",
+      "Consult with the development team to find a faster solution that could reduce the delay while attempting to meet specifications"
+    ],
+    answer: 3,
+    mindset: "This decision underscores the project manager's commitment to delivering a product that fulfills the client's requirements."
+  },
+  {
+    n: 48,
+    stem: "During a critical phase of an agile development project, a specialist responsible for designing a key component is unexpectedly required to take extended medical leave. This specialist's tasks are now at risk of delay, as they were the sole individual equipped with the necessary expertise.",
+    ask: "What proactive measure could the project manager have taken to mitigate this risk?",
+    opts: [
+      "Build a cross-functional team",
+      "Distributed the specialist's tasks among several team members from the project's outset",
+      "Established a comprehensive documentation practice for all project tasks",
+      "Allocated additional funds to hire a temporary specialist if needed"
+    ],
+    answer: 0,
+    mindset: "Such team would facilitate the transfer of critical tasks to other team members, allowing work to continue in the specialist's absence."
+  },
+  {
+    n: 50,
+    stem: "On a project to develop a new customer relationship management (CRM) system, the project manager learns during a stakeholder meeting that upcoming regulatory changes will affect data handling processes within the system. The changes are expected to be enforced shortly after the project's planned completion date.",
+    ask: "What is the most appropriate action for the project manager to ensure the project remains compliant with the new regulations?",
+    opts: [
+      "Incorporate the regulatory changes into the project's risk log for future analysis",
+      "Plan to address the regulatory changes in the next CRM system development",
+      "Integrate discussions of the regulatory changes into the project's phases",
+      "Request immediate detailed information on the changes during the next product update meeting"
+    ],
+    answer: 2,
+    mindset: "This proactive approach ensures that the project team is fully aware of the impending regulations and can adjust the development process accordingly to remain compliant."
+  },
+  {
+    n: 51,
+    stem: "During a mobile application development project, the project manager faces significant uncertainty regarding user preferences and the effectiveness of proposed features. The initial user feedback has been inconclusive, leading to questions about the project's current direction.",
+    ask: "What is the best course of action for the project manager to ensure the project aligns with user expectations?",
+    opts: [
+      "Finish developing the application and then correct all features not align with users expectations",
+      "Proceed with the creation of an MVP",
+      "Pause development efforts until a comprehensive market analysis provides clear guidance on user preferences",
+      "Instruct the development team to incorporate the most popular features of competing applications to ensure relevance"
+    ],
+    answer: 1,
+    mindset: "Feedback gathered from the MVP can then guide further development, ensuring that subsequent iterations of the application are closely aligned with user expectations and market demand."
+  },
+  {
+    n: 52,
+    stem: "In anticipation of new environmental regulations, a manufacturing project involving two distinct operational teams — one using traditional manufacturing methods and the other employing green technologies — and they need to evaluate the impact of these regulations on their combined operations.",
+    ask: "What is the most effective action for the project manager to ensure compliance and seamless integration of operations?",
+    opts: [
+      "Organize a collaborative workshop with representatives from both teams to discuss compliance strategies and integration possibilities",
+      "Conduct separate workshops for each team to allow for focused discussions on adapting their specific operations to the new regulations",
+      "Facilitate individual strategy sessions with each team to outline their approach, followed by a joint session to merge ideas",
+      "Assemble a panel of regulatory compliance experts to provide guidance and recommendations to both teams simultaneously"
+    ],
+    answer: 0,
+    mindset: "By fostering open communication and collaboration from the start, the project manager can facilitate the identification of synergies between traditional and green technologies."
+  },
+  {
+    n: 53,
+    stem: "The goal on a project is to foster a culture of cooperation that drives the team towards exceptional performance. Following a recommendation from the company's founder, the project manager decides to adopt a servant leadership approach.",
+    ask: "What should the project manager do to effectively embody servant leadership principles?",
+    opts: [
+      "Implement a competitive reward system to incentivize individual excellence and drive project outcomes",
+      "Direct the team to refine their strategies continuously until they devise an unbeatable plan for project execution",
+      "Evaluate the project scope meticulously and set clear, prioritized goals to encourage team alignment and focus",
+      "Establish clear project goals and nurture a supportive environment that enables every team member to excel and contribute to their fullest potential"
+    ],
+    answer: 3,
+    mindset: "This approach prioritizes the growth and well-being of team members and the communities to which they belong."
+  },
+  {
+    n: 54,
+    stem: "During the critical phase of a remote-operated environmental research project, a key analyst departs, necessitating the swift assimilation of a new member who lacks familiarity with the project's specific challenges and objectives. The extensive project documentation exists, yet the project's complexity might hinder the rapid comprehension necessary for the new member's tasks.",
+    ask: "What proactive measure should the project manager implement to ensure the new member's effective integration?",
+    opts: [
+      "Arrange for the new member to shadow an experienced team member for a hands-on learning experience",
+      "Encourage the new member to study the project documentation thoroughly, followed by a session to discuss their role in depth",
+      "Schedule a series of training webinars on the project's methodologies and technologies",
+      "Facilitate a workshop with the team focusing on the project's complexity and ensure all current members and the new member attend"
+    ],
+    answer: 3,
+    mindset: "Such a method ensures they have the background knowledge necessary to ask informed questions and integrate more seamlessly into their role."
+  },
+  {
+    n: 55,
+    stem: "In a routine progress check, an agile project manager notices that a lead analyst is habitually passing off less complex analysis work to newer team members, claiming it allows them to concentrate on the more intricate aspects of the project.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Develop a rotational task assignment system to ensure all team members gain experience across a range of tasks",
+      "Directly assign tasks based on complexity to ensure that each team member works within their capability",
+      "Establish a mentorship program where senior team members guide juniors through complex tasks rather than just delegating simpler tasks",
+      "Organize a team discussion during the next project update meeting to evaluate the effectiveness of current task delegation methods"
+    ],
+    answer: 3,
+    mindset: "This inclusive strategy invites open dialogue, allowing team members to share their perspectives on task allocation and its impact on their development and the project's progress."
+  },
+  {
+    n: 56,
+    stem: "As a critical update to an e-commerce platform nears completion, the project manager receives a last-minute request from a stakeholder for additional features that would significantly enhance customer experience but require extensive extra work from the project team, potentially affecting the launch timeline.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Expedite the process by incorporating the new features without revising the project plan",
+      "Calculate the additional costs and request an immediate increase in budget from the marketing department",
+      "Reject the request outright to maintain focus on the original project scope and deadline",
+      "Discuss the implications of the request with the development team and then present feasible solutions to the stakeholder"
+    ],
+    answer: 3,
+    mindset: "It also involves the development team in the decision-making process, leveraging their expertise to assess the feasibility of implementing the additional features within the existing constraints."
+  },
+  {
+    n: 57,
+    stem: "In the development phase of an international public health project, a project manager faces skepticism from government partners about the project's direction and achievements due to limited visibility into the project's progress.",
+    ask: "What action should the project manager take to address these concerns?",
+    opts: [
+      "Initiate a monthly newsletter featuring project milestones, challenges, and detailed case studies",
+      "Arrange for a series of workshops with project beneficiaries to directly showcase the project's impact",
+      "Organize a virtual meetings with government partners to discuss how they would like project updates to be done and field any questions",
+      "Compile an exhaustive report on project outcomes and planned activities, to be distributed quarterly to all stakeholders"
+    ],
+    answer: 2,
+    mindset: "Virtual meetings provide an opportunity for dynamic interaction and immediate responses, which is crucial for dispelling doubts and reinforcing the project's value and progress."
+  },
+  {
+    n: 58,
+    stem: "During the implementation phase of an innovative mobile banking application, a significant update from regulatory bodies requires adjustments to several key features of the app. The agile project manager arranges a meeting with the responsible regulatory compliance officer, who is new to the project, to discuss these required changes for this agile project.",
+    ask: "What action should the project manager take to ensure these updates are efficiently integrated into the project's scope?",
+    opts: [
+      "Request that the compliance officer formalizes the regulatory updates in writing and submits them for approval from the change control board",
+      "Encourage the compliance officer to detail the regulatory changes for inclusion in the product backlog",
+      "Instruct the compliance officer to immediately communicate the changes to the development team at the next daily scrum",
+      "Ask the compliance officer to assess the current project plan and suggest modifications to accommodate the new regulations"
+    ],
+    answer: 1,
+    mindset: "This allows for a structured and comprehensive review of how the new regulations will impact the project, facilitating a collaborative effort to adjust the project backlog accordingly."
+  },
+  {
+    n: 59,
+    stem: "A project manager notices that the integration process is more cumbersome than anticipated, significantly slowing down the project's progress. This issue is primarily due to a newly implemented IT protocol that was designed to enhance security.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Introduce additional training sessions for the project team on the new IT protocol to increase efficiency",
+      "Require the project team to double their efforts to meet deadlines despite the new IT protocol's challenges",
+      "Organize a workshop to identify workarounds for the IT protocol that do not compromise security",
+      "Initiate discussions with IT leadership and the team to understand the protocol's implementation and how best to facilitate the project"
+    ],
+    answer: 3,
+    mindset: "This approach directly addresses the root cause of the slowdown by engaging with decision-makers who have the authority to amend or adjust the protocol for the betterment of the project."
+  },
+  {
+    n: 60,
+    stem: "As the project manager for an app development project, you are approached by a stakeholder with a request to add a feature that mirrors the functionality of something developed in a previous sprint. The stakeholder is looking for a quick estimation on how this addition might affect the project's schedule and costs.",
+    ask: "What step should you take to accurately provide this estimation?",
+    opts: [
+      "Calculate the new feature's impact by comparing it with the total project budget and adjusting based on the proportion of work already completed",
+      "Meet with the product owner to help you estimate the schedule and cost",
+      "Review the agile user stories and velocity metrics from the previous sprint related to the similar feature to estimate the effort required for the new addition",
+      "Initiate a detailed risk analysis for incorporating the new feature, focusing on potential schedule overruns and budget implications"
+    ],
+    answer: 2,
+    mindset: "By analyzing comparable work, the project manager can offer a precise estimation of the time and resources needed for the new feature."
+  },
+  {
+    n: 61,
+    stem: "During a complex software development project, a project manager notices significant variances between the planned and actual performance metrics. The project's key deliverables are at risk of being delayed due to these discrepancies.",
+    ask: "What should the project manager do first to ensure the project objectives are met?",
+    opts: [
+      "Adjust the project timeline and communicate the changes to all stakeholders",
+      "Conduct a detailed analysis of the performance data to identify root causes of the variances",
+      "Request additional resources to accelerate project work and meet scheduled targets",
+      "Reassess the project's risk management strategies to better align with current challenges"
+    ],
+    answer: 1,
+    mindset: "By analyzing the performance data, the project manager can make informed decisions about necessary adjustments to the project management plan."
+  },
+  {
+    n: 62,
+    stem: "In a large infrastructure project, the project manager is faced with the challenge of sudden regulatory changes that could potentially impact the scope and cost of the project. The project is currently on track, but these changes might require adjustments in project execution.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Update the project budget and timeline based on preliminary assessments",
+      "Initiate a stakeholder meeting to discuss the impacts and necessary adjustments",
+      "Conduct a comprehensive review of the regulatory changes with the legal team",
+      "Implement the regulatory changes immediately to avoid potential fines"
+    ],
+    answer: 2,
+    mindset: "This thorough approach minimizes risks associated with non-compliance and helps in making informed decisions on how to adapt project strategies effectively."
+  },
+  {
+    n: 63,
+    stem: "A project manager is overseeing the construction of a new office building. The project is running over budget due to the high cost of materials. The project team suggests several options to cut costs, including using less expensive materials that may slightly reduce durability, simplifying the building design, or eliminating some non-essential features.",
+    ask: "Which approach should the project manager use to address the cost issue while ensuring the building meets its intended purpose?",
+    opts: [
+      "Value Engineering",
+      "Critical Path Method",
+      "Earn Value",
+      "Monte Carlo Simulation"
+    ],
+    answer: 0,
+    mindset: "This approach ensures the project remains within budget while still meeting its intended purpose."
+  },
+  {
+    n: 64,
+    stem: "During a project charter review session, a dispute arises between the project sponsor and the product owner, witnessed by the project team and other stakeholders.",
+    ask: "In this situation, what should the project manager do to manage the conflict and continue the project planning effectively?",
+    opts: [
+      "Propose a follow-up session to address unresolved issues after the meeting",
+      "Facilitate the meeting actively, using conflict resolution strategies to manage the dispute and maintain team cohesion",
+      "Adjourn the meeting immediately, suggesting a cooling-off period before reconvening",
+      "Arrange a separate conflict resolution session with a neutral facilitator to assist the parties involved"
+    ],
+    answer: 1,
+    mindset: "By managing the dispute directly within the meeting context, the project manager helps prevent potential delays and ensures that all participants remain engaged and focused on project goals."
+  },
+  {
+    n: 65,
+    stem: "A project manager is tasked with organizing risks for a new infrastructure project. To ensure comprehensive risk management, the project manager decides to use a risk breakdown structure (RBS). However, the team is concerned that the RBS may become overly complex and difficult to manage.",
+    ask: "What should the project manager do to create an effective and manageable RBS?",
+    opts: [
+      "Develop a simple categorization scheme that only includes high-priority risks",
+      "Use an existing RBS template from a similar project and adapt it to the current project needs",
+      "Create a detailed RBS with multiple subcategories to capture all potential risks",
+      "Involve key stakeholders in the development of the RBS to ensure it is comprehensive and manageable"
+    ],
+    answer: 3,
+    mindset: "By balancing thoroughness with practicality, the project manager can create a useful tool for identifying and mitigating risks."
+  },
+  {
+    n: 66,
+    stem: "In a construction project, the project manager decides to implement Value Engineering (VE) to enhance the project's value. The goal is to improve the ratio of function to cost by analyzing and proposing cost-effective solutions.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Have the team Conduct a brainstorming session to remove functions for cost reduction",
+      "Focus solely on reducing costs, even if it means compromising on functionality",
+      "Engage with stakeholders to understand the critical functions",
+      "Implement all proposed changes immediately to maximize cost savings"
+    ],
+    answer: 2,
+    mindset: "This understanding allows for reduce costs without compromising on functionality or quality."
+  },
+  {
+    n: 67,
+    stem: "A project manager is conducting a Value Engineering (VE) workshop to identify ways to improve a project's value. During the session, a team member suggests replacing a component with a cheaper alternative that slightly reduces performance but saves a significant amount of money.",
+    ask: "What should the project manager do to determine if this suggestion aligns with Value Engineering principles?",
+    opts: [
+      "Approve the change as it reduces overall project cost",
+      "Reject the change as it reduces performance",
+      "Evaluate if the reduction in performance impacts the project's functionality compared to the cost savings",
+      "Implement the change if it does not require additional stakeholder approval"
+    ],
+    answer: 2,
+    mindset: "This approach requires a thorough analysis to ensure that cost savings do not negatively impact the project's essential functions."
+  },
+  {
+    n: 68,
+    stem: "A project manager is working on a large infrastructure project that is facing schedule delays. The project manager wants to use advanced forecasting techniques to predict the future status and progress of the project. The project team has been using EVM to track performance.",
+    ask: "What should the project manager do to forecast the project completion date accurately?",
+    opts: [
+      "Apply the SPI to the remaining work and calculate the EAC.",
+      "Conduct a Monte Carlo simulation to account for potential variations in the schedule.",
+      "Use the CPM to re-evaluate the project timeline.",
+      "Implement a rolling wave planning technique to adjust future work plans."
+    ],
+    answer: 0,
+    mindset: "This method allows the project manager to integrate both cost and schedule performance indicators, offering a comprehensive view of the project's status."
+  },
+  {
+    n: 69,
+    stem: "A software development project is midway through its timeline, and the project manager notices that the actual progress is lagging behind the planned schedule. The project sponsor is concerned about meeting the upcoming milestones.",
+    ask: "Which technique should the project manager use to address the sponsor's concerns and predict the project's completion date?",
+    opts: [
+      "Conduct a trend analysis using historical performance data.",
+      "Apply the EVM to calculate time variance.",
+      "Utilize the three-point estimating technique to forecast future tasks.",
+      "Perform a resource leveling analysis to optimize resource allocation."
+    ],
+    answer: 1,
+    mindset: "This technique helps project managers address time-related concerns directly and provides a clear prediction of when the project will be completed."
+  },
+  {
+    n: 70,
+    stem: "A construction project is experiencing significant delays due to many unforeseen weather conditions, causing concern about meeting the final deadline. The project manager needs to predict the potential impact on the project's completion date and communicate this to stakeholders.",
+    ask: "What is the best approach for the project manager to take?",
+    opts: [
+      "Update the Gantt chart with the new weather delay information and manually adjust the timelines.",
+      "Use Monte Carlo simulation to predict the probability of various completion dates based on the delays.",
+      "Apply CPM analysis to identify which activities can be fast-tracked.",
+      "Perform a cost-benefit analysis to decide whether to hire additional resources to mitigate the delays."
+    ],
+    answer: 1,
+    mindset: "This approach offers a more comprehensive understanding of the risks and impacts, enabling the project manager to communicate a range of possible scenarios to stakeholders."
+  },
+  {
+    n: 71,
+    stem: "A project manager is preparing for a quality audit of a new software development project. The audit team needs to ensure the project's quality management system aligns with organizational standards and identifies areas for improvement.",
+    ask: "What is the most effective course of action for the project manager to take after the quality audit?",
+    opts: [
+      "Provide the audit team with all project documents and request a thorough review.",
+      "Prepare the project team to answer any questions from the audit team.",
+      "Collaborate with the audit team to understand their findings and develop corrective actions.",
+      "Focus on presenting the successes of the project to highlight the team's performance."
+    ],
+    answer: 2,
+    mindset: "This approach not only helps in improving the current project's quality management system but also aligns with organizational standards and best practices."
+  },
+  {
+    n: 72,
+    stem: "During the execution phase of a manufacturing project, an internal quality audit reveals several non-conformances in the production process. The audit team has identified these issues as potential risks to the project's success.",
+    ask: "What should the project manager do to address these non-conformances?",
+    opts: [
+      "Immediately halt the production process until all non-conformances are resolved",
+      "Develop and implement corrective actions to address the non-conformances identified by the audit team",
+      "Dismiss the non-conformances as minor issues and continue with the production process",
+      "Inform the project sponsor about the non-conformances and request additional resources to address them"
+    ],
+    answer: 1,
+    mindset: "This approach ensures that the issues are resolved in a systematic and effective manner, minimizing the risk to the project's success."
+  },
+  {
+    n: 73,
+    stem: "In the middle of a large infrastructure project, the project manager receives a report from an external quality auditor highlighting several significant non-conformances. These issues, if not addressed, could impact the project's timeline and budget.",
+    ask: "What should the project manager do to manage these non-conformances effectively?",
+    opts: [
+      "Continue with the current project plan and monitor if the non-conformances escalate",
+      "Request the project sponsor to review the auditor's report and provide guidance",
+      "Adjust the project scope to account for the identified non-conformances",
+      "Integrate the recommended corrective actions from the audit report into the project plan"
+    ],
+    answer: 3,
+    mindset: "Proactively managing the issues maintains project integrity and helps prevent further complications."
+  },
+  {
+    n: 74,
+    stem: "A project manager preparing to oversee the development of a new mobile application. During a stakeholder meeting, a senior executive expresses concerns that the project may not align with the strategic goals of the organization. The project manager needs to address this concern to ensure continued support and alignment.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Reassure the executive that the project team is capable of delivering the project on time and within budget",
+      "Review the project's alignment with the strategic goals",
+      "Schedule a follow-up meeting with the executive to discuss the project's benefits in more detail",
+      "Conduct a performance review of the project team to identify any areas for improvement"
+    ],
+    answer: 1,
+    mindset: "This approach helps to address the executive's concerns by demonstrating that the project manager is taking proactive steps to ensure strategic alignment."
+  },
+  {
+    n: 75,
+    stem: "A project manager is working on a government infrastructure project that requires strict compliance with company standards. During a routine review, the project manager discovers that some project activities may not meet the required standards.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Halt all project activities until a full compliance review is conducted",
+      "Update the project plan to include additional quality control checks",
+      "Notify the regulatory authorities about the potential non-compliance issues",
+      "Conduct a root cause analysis to identify the reasons for non-compliance and implement corrective actions"
+    ],
+    answer: 3,
+    mindset: "This approach ensures that the project meets regulatory standards and improves overall quality management."
+  },
+  {
+    n: 76,
+    stem: "During the construction of a new office building, the project manager learns that unforeseen geological issues will significantly increase project costs beyond the current budget.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Adjust the project timeline to reduce labor costs",
+      "Consult with a geotechnical engineer for a more cost-effective solution",
+      "Implement a phased construction approach to manage expenses",
+      "Analyze the situation and consider all possible solutions"
+    ],
+    answer: 3,
+    mindset: "This comprehensive approach ensures that the project manager fully understands the scope and nature of the problems before making any decisions."
+  },
+  {
+    n: 77,
+    stem: "As the project manager overseeing the rollout of a new IT system, it's discovered halfway through the fiscal year that several critical software enhancements, funded by this year's budget, will not be completed on schedule. These enhancements were initiated based on mid-year change requests and are crucial for the project's success.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Initiate a review of the project scope to identify potential areas for schedule acceleration",
+      "Collaborate with the project team to assess the project's deliverables to focus on critical enhancements",
+      "Engage with stakeholders to adjust expectations and secure support for extended timelines",
+      "Communicate the progress and adjust the timelines for these enhancements to the finance department"
+    ],
+    answer: 1,
+    mindset: "This transparency helps in planning for the financial aspects of the project, addressing any potential impacts on the budget, and securing necessary approvals or adjustments in a timely manner."
+  },
+  {
+    n: 78,
+    stem: "In the midst of a major software development project, the project manager is preparing for an upcoming executive in-depth review. The project manager must present how the project's progress is being tracked and measured to the executive team, who are keen on understanding how effectively the project is being managed.",
+    ask: "What should the project manager focus on in their preparation for the executive review?",
+    opts: [
+      "Provide a detailed report on team productivity and individual contributions to project tasks",
+      "Compile the EVM metrics, including CV and SV, for a comprehensive performance overview",
+      "Discuss the implementation of a new project management tool and its impact on project efficiency",
+      "Outline the risks encountered so far and the mitigation strategies that have been implemented"
+    ],
+    answer: 1,
+    mindset: "This method provides a quantitative and objective analysis of the project's health, integrating cost, schedule, and scope measurements."
+  },
+  {
+    n: 79,
+    stem: "Leading a new agile global environmental conservation project, the project manager oversees a diverse team distributed across several continents. Recognizing the diverse cultural backgrounds within the team, the project manager aims to foster unity and effective collaboration.",
+    ask: "What is the most effective action for the project manager to enhance team integration?",
+    opts: [
+      "Organize a series of cross-cultural training sessions for all team members to educate them about cultural differences",
+      "Set up a digital collaboration space for team members to share personal and professional updates",
+      "Arrange for monthly face-to-face retreat focusing on team cohesion and project goals",
+      "Encourage open communication and demonstrate confidence in the team's abilities and contributions"
+    ],
+    answer: 3,
+    mindset: "This approach directly addresses the heart of collaborative work by fostering an atmosphere where every team member feels respected, heard, and valued, regardless of their cultural background."
+  },
+  {
+    n: 80,
+    stem: "At the onset of a healthcare software upgrade project, the client emphasizes that the enhancements are critical to improving patient care and operational efficiency, potentially affecting the healthcare provider's reputation and financial performance. The client is eager to see improvements implemented in the shortest possible timeframe.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Utilize agile methodologies to ensure rapid delivery of high-priority features",
+      "Implement a waterfall method to automate testing and deployment",
+      "Establish a dedicated task force focusing on the most critical system upgrades first",
+      "Conduct a series of stakeholder workshops to prioritize software enhancements based on impact"
+    ],
+    answer: 0,
+    mindset: "Agile methodologies are specifically designed to handle such demands by allowing for iterative development, continuous feedback, and prioritization of work based on value and urgency."
+  },
+  {
+    n: 81,
+    stem: "In the middle of an urban development project, the project manager faces a setback as a key engineer and an urban planner announce their imminent departure from the team. The project is already on a strict timeline, with critical milestones approaching. The remaining team members are concerned about the increased workload and the potential impact on the project's schedule.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Increase the workload on existing team members to cover the tasks of the departing individuals",
+      "Outsource specific critical tasks to specialized firms to keep the project on schedule",
+      "Work with the remaining team members to recruit new members to complete the workload",
+      "Apply for project timeline extension due to unforeseen staffing challenges"
+    ],
+    answer: 2,
+    mindset: "This proactive measure directly tackles the issue of resource depletion by aiming to replenish the project's critical human resources."
+  },
+  {
+    n: 82,
+    stem: "A firm planning to transition to lean development techniques, the project manager encounters resistance from several world wide key stakeholders wary of the new processes. The project manager needs to build confidence in lean methodologies among the stakeholders.",
+    ask: "What should the project manager propose?",
+    opts: [
+      "Schedule meetings with the stakeholders to address the concerns",
+      "Introduce a rewards system for early adopters of lean techniques",
+      "Accept that lean development will not work in all companies",
+      "Organize a company-wide seminar on the history and principles of lean"
+    ],
+    answer: 0,
+    mindset: "This approach offers a practical demonstration of how lean principles can be applied within the company's specific context."
+  },
+  {
+    n: 83,
+    stem: "Leading a significant initiative to overhaul a corporation's IT infrastructure, the project manager has already navigated through several phases successfully when the CTO (Chief Technology Officer), overseeing the initiative, departs unexpectedly. The incoming CTO then pauses the initiative, pending a comprehensive review of the project's alignment with the company's revised technological direction.",
+    ask: "What is the most effective first step for the project manager?",
+    opts: [
+      "Arrange a meeting with the new CTO to outline the project's benefits and strategic alignment",
+      "Prepare a detailed report comparing the current project status with industry standards and trends",
+      "Initiate a project audit to demonstrate compliance with best practices and regulatory requirements",
+      "Develop a contingency plan addressing potential changes requested by the new CTO"
+    ],
+    answer: 0,
+    mindset: "This facilitates an opportunity to address any concerns or misconceptions the new CTO may have, promoting a collaborative dialogue focused on the project's value and strategic fit."
+  },
+  {
+    n: 84,
+    stem: "In the midst of estimating tasks for a major upgrade to an existing application, a project manager finds that the development team has different views on the effort required for a particularly challenging feature.",
+    ask: "What approach should the project manager do to synchronize these varying estimates?",
+    opts: [
+      "Suggest implementing a quick prototype to better gauge the necessary effort",
+      "Allow the team additional time to research and independently reassess their estimates",
+      "Request each team member to detail their estimation process and foster a group consensus",
+      "Assign the task estimation to the most experienced developer to set a standard for others"
+    ],
+    answer: 2,
+    mindset: "This method engages all team members, valuing their expertise and perspectives, and encourages open dialogue about the assumptions and rationale behind each estimate."
+  },
+  {
+    n: 85,
+    stem: "During the rollout of a new e-commerce platform, an agile project manager observes a trend of customers gravitating towards a competitor's site, which recently introduced a highly user-friendly checkout process.",
+    ask: "What is the first action the project manager should undertake?",
+    opts: [
+      "Engage in a detailed discussion with the product owner about any recent customer feedback or shifts in market trends",
+      "Intensify the development team's efforts on refining the existing features to make them more competitive",
+      "Pause the introduction of additional features to prioritize a complete overhaul of the checkout process.",
+      "Add a new user-friendly checkout process to the platform"
+    ],
+    answer: 0,
+    mindset: "Understanding the root cause of the trend from the product owner, who has a broader view of customer preferences and market demands, ensures any subsequent project adjustments are targeted and effective."
+  },
+  {
+    n: 86,
+    stem: "In the process of initiating an advanced analytics platform to enhance data-driven decision-making across its various functions, an organization is integrating a solution that is new to its technological landscape.",
+    ask: "What should the project manager emphasize?",
+    opts: [
+      "Evaluation of the platform's compatibility with legacy data systems and user adaptability",
+      "Precise needs analysis within key business sectors to ensure the platform meets specific objectives",
+      "Broad consultations on future-proofing the platform against evolving data analysis technologies",
+      "Streamlining cross-functional workflows to minimize disruption during the platform's implementation"
+    ],
+    answer: 1,
+    mindset: "This approach guarantees that the implementation directly contributes to resolving existing challenges and leveraging opportunities within critical areas of the organization."
+  },
+  {
+    n: 87,
+    stem: "During the second sprint of a software development project, it's observed that one team member frequently dictates scrum meetings, leading to diminished input from other team members and hindered progress on tasks. The team's dynamics are affected, and there's a growing concern over the project's collaborative environment.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Implement an anonymous feedback system to collect opinions on meeting conduct",
+      "Reassign the dominating team member to tasks that require less collaboration",
+      "Shift to written daily updates to reduce the opportunity for any single person to dominate discussions",
+      "Arrange a private conversation with the dominating team member to discuss their conduct's impact on team dynamics"
+    ],
+    answer: 3,
+    mindset: "This method allows for a respectful and focused dialogue where the project manager can communicate the negative effects of the team member's behavior on the group's performance and morale."
+  },
+  {
+    n: 88,
+    stem: "During a critical phase of a technology implementation project, extensive and unforeseen changes to the project scope have led to significant project delays. These potential scope alterations were flagged in the project's initial risk assessment. Concerned about the implications of the project's progress, the team proposes requesting an extension from project stakeholders.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Conduct a thorough reevaluation of the project timeline with input from all team members",
+      "Ensure every scope change has been properly logged and its impact assessed",
+      "Extend the project schedule as needed to finish the scope",
+      "Engage directly with key stakeholders to renegotiate project deliverables and timelines"
+    ],
+    answer: 1,
+    mindset: "This step guarantees that there is a clear, documented basis for understanding how each change contributed to the project's delay."
+  },
+  {
+    n: 89,
+    stem: "As a project manager overseeing a pivotal update to a client's software system, you've noticed a significant lack of engagement from the client's side during critical sprint review sessions. Despite this, your team has successfully developed a working prototype that's ready for evaluation.",
+    ask: "What is the first thing the project manager should do?",
+    opts: [
+      "Send a detailed progress report via email to the client, highlighting the prototype's completion and next steps",
+      "Deploy the prototype to the clients to gather their feedback",
+      "Schedule a comprehensive review session with the project's technical leads to refine the prototype before client presentation",
+      "Organize a sprint review to actively review the prototype, encouraging their input and adjustments"
+    ],
+    answer: 3,
+    mindset: "By prioritizing this action, the project manager not only demonstrates progress but also values the client's input."
+  },
+  {
+    n: 90,
+    stem: "In the midst of a project's lifecycle, a project manager identifies that essential feedback from a vital operational division has been consistently omitted in the planning and execution phases. This negligence has led to widespread dissatisfaction concerning how project outcomes align with the operational workflows of this division.",
+    ask: "What should the project manager do first?",
+    opts: [
+      "Change the project's scope to include overlooked operational insights",
+      "Conduct a comprehensive review of the project's adherence to organizational policies",
+      "Review the communication management plan to understand the current communications channels",
+      "Craft a reactive plan to integrate unforeseen operational needs into the project's trajectory"
+    ],
+    answer: 2,
+    mindset: "This method surpasses other options by directly addressing the root cause of dissatisfaction and realigning the project with its intended goals."
+  },
+  {
+    n: 91,
+    stem: "In the midst of deploying a major IT infrastructure update, a project manager identifies a significant knowledge gap within the team, primarily among recently onboarded staff. With the project's tight deadline and budget fully allocated, external training options are not feasible.",
+    ask: "Which two actions should the project manager take next? (Choose two.)",
+    opts: [
+      "Assess specific areas where the new staff members lack expertise",
+      "Consider reallocating critical tasks to more experienced team members until further notice",
+      "Propose a brief project pause to reallocate budget funds towards emergency training",
+      "Establish mentorship pairings between new staff and seasoned professionals for on-the-job training",
+      "Suggest that new staff members independently seek out online resources to bridge their knowledge gaps at their own cost"
+    ],
+    answer: [0, 3],
+    mindset: "These actions offer practical, immediate solutions that enhance team capability and maintain project momentum."
+  },
+  {
+    n: 92,
+    stem: "While working on an innovative web platform, a project manager receives a request from a crucial stakeholder for the inclusion of several unforeseen functionalities within the current agile development cycle.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Advise the stakeholder to present their suggestions following the review of the present cycle",
+      "Recommend assessing the viability of these functionalities at the subsequent team planning meeting",
+      "Swiftly revise the project's development agenda to encompass the requested functionalities",
+      "Have the product owner engage with the stakeholder concerning the incorporation of their request into the ongoing project"
+    ],
+    answer: 3,
+    mindset: "This action respects the roles within an agile project, where the product owner is responsible for prioritizing the backlog and negotiating scope changes with stakeholders."
+  },
+  {
+    n: 93,
+    stem: "As the deadline for a critical project approaches, the project manager notices a decrease in team enthusiasm, with several members consistently arriving late to the office. The project manager notices the team is not focus and dedicated.",
+    ask: "What should the project manager do?",
+    opts: [
+      "Coordinate with human resources to discuss potential post-project opportunities for team members",
+      "Conduct motivational workshops to reenergize the team and reinforce the importance of their contributions",
+      "Initiate a peer recognition program to highlight individual contributions and foster team spirit",
+      "Enforce a strict attendance policy to curb lateness and improve discipline within the team"
+    ],
+    answer: 1,
+    mindset: "This method emphasizes the value of each team member's contribution, inspiring renewed enthusiasm and commitment towards the project's objectives."
+  },
+  {
+    n: 94,
+    stem: "During the development of a new healthcare software system, the project manager requests that the project owner prioritize features that will significantly enhance patient data processing efficiency.",
+    ask: "Which tool should the project owner?",
+    opts: [
+      "Scope statement",
+      "Sprint backlog",
+      "Product backlog",
+      "WBS"
+    ],
+    answer: 2,
+    mindset: "The Product backlog list directly helps in organizing project tasks and features based on their value, impact, and urgency."
+  },
+  {
+    n: 95,
+    stem: "During the final stages of a significant infrastructure project, it was discovered that comprehensive reports on critical structural assessments, performed by a key engineer who has since departed the company, were not documented or shared with the project team.",
+    ask: "To mitigate such risks in the future, what should have been implemented by the project manager during the project's lifecycle?",
+    opts: [
+      "Have the team initiate a cross-training program, enabling team members to understand and perform each other's roles during absences",
+      "Organized monthly knowledge exchange sessions where engineers could discuss challenges and solutions, ensuring collective awareness of project details",
+      "Engaged external consultants to oversee all critical testing phases, ensuring an unbiased review and documentation of findings",
+      "Established an integrated project management information system to share information"
+    ],
+    answer: 3,
+    mindset: "This strategy ensures that all project-related documents are stored in a centralized, accessible location, facilitating continuity and knowledge transfer within the team."
+  },
+  {
+    n: 96,
+    stem: "As a project manager initiates a project with a fully remote team, ensuring effective communication becomes a challenge.",
+    ask: "What is the best approach for the project manager to maintain consistent information flow within the team?",
+    opts: [
+      "Suggest the creation of monthly detailed project updates for a comprehensive overview",
+      "Establish structured online communication platforms for frequent and organized team interactions",
+      "Recommend open forums for team members to post daily updates and questions",
+      "Organize bi-weekly email blasts to summarize project progress and upcoming tasks"
+    ],
+    answer: 1,
+    mindset: "This strategy provides a consistent and reliable framework for communication, which is essential for addressing the complexities of remote project management."
+  },
+  {
+    n: 97,
+    stem: "As a complex project draws to a close, the project manager realizes that several risks, initially assessed as low probability and impact, evolved into significant issues, catching the project team off guard.",
+    ask: "What proactive step should the project manager have taken?",
+    opts: [
+      "Implemented a weekly risk review session with the project's core team to identify any changes in the risk landscape",
+      "Instituted a monthly risk tracking system to monitor the project's risk status continuously",
+      "Mandated a policy of zero tolerance for all risks, ensuring every potential risk was addressed immediately upon identification",
+      "Undertaken continuous assessment and prioritization of risks throughout the project lifecycle"
+    ],
+    answer: 3,
+    mindset: "This practice allows for the dynamic adaptation of risk management strategies, enabling timely responses to new or escalating risks."
+  },
+  {
+    n: 98,
+    stem: "In a project designed to deploy new technology across several departments, a project manager notices a shift in stakeholder satisfaction levels. Despite the project adhering to its timeline and deliverables being met, feedback indicates a perception of diminishing returns in terms of value from the recent project increments.",
+    ask: "What approach should the project manager take to address these concerns?",
+    opts: [
+      "Clarify to stakeholders that the timeline adherence and completed deliverables are the primary indicators of success, assuring them that the project is on the right track",
+      "Highlight to the stakeholders the inherent fluctuations in value perception due to the varying nature of resources and expected benefits at different project stages",
+      "Communicate to stakeholders that it is a common practice to tackle the most value-adding elements first, resulting in a perceived decrease in value as the project progresses",
+      "Analyze the trends in value delivery with the team to identify any underlying issues, devise strategies for consistent value provision, and transparently relay these plans to stakeholders"
+    ],
+    answer: 3,
+    mindset: "By analyzing the situation, the project manager demonstrates a commitment to continuous improvement and stakeholder satisfaction."
+  },
+  {
+    n: 99,
+    stem: "In the initial stages of launching a pioneering software tool aimed at small businesses, the project manager is focused on ensuring the tool's quality resonates with its target audience.",
+    ask: "What approach should the project manager employ to ascertain the software tool embodies the highest quality standards?",
+    opts: [
+      "Engage a reputable software development firm to ensure the tool aligns with industry standards",
+      "Recruit a chief quality officer to oversee the quality control process throughout development",
+      "Establish specific quality benchmarks for the software tool and continuously seek ways to enhance them",
+      "Instruct the lead developer to prioritize refining the software's performance and user experience"
+    ],
+    answer: 2,
+    mindset: "This method enables the project manager to have a quantifiable measure of quality that can be monitored and improved upon throughout the development process."
+  },
+  {
+    n: 100,
+    stem: "In the progression of an extensive software development project, a pivotal client proposes the introduction of a new cloud-based technology mid-project, significantly deviating from the initial technology stack outlined. This suggestion aligns with the client's ongoing digital transformation efforts.",
+    ask: "What should the project manager do next?",
+    opts: [
+      "Analyze the proposed change for its strategic alignment and potential impact on business outcomes",
+      "Notify the project steering committee about the client's shift towards digital transformation",
+      "Implement the change to the project timeline and budget integrating the new technology",
+      "Evaluate the project team's current capabilities against the demands introduced by the new technology"
+    ],
+    answer: 0,
+    mindset: "This analysis not only assesses the immediate implications of the change but also considers the long-term benefits and potential return on investment."
+  }
+];
+
+// Sort by question number
+questions.sort((a, b) => a.n - b.n);
+
+let currentIndex = 0;
+let userAnswers = new Array(questions.length).fill(null); // null = unanswered
+let submitted = new Array(questions.length).fill(false);
+
+function isMulti(q) { return Array.isArray(q.answer); }
+
+function buildGrid() {
+  const grid = document.getElementById('qGrid');
+  grid.innerHTML = '';
+  questions.forEach((q, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'q-btn';
+    btn.id = `qbtn-${i}`;
+    btn.textContent = q.n;
+    btn.onclick = () => goTo(i);
+    grid.appendChild(btn);
+  });
+}
+
+function updateGrid() {
+  questions.forEach((q, i) => {
+    const btn = document.getElementById(`qbtn-${i}`);
+    if (!btn) return;
+    btn.className = 'q-btn';
+    if (i === currentIndex) btn.classList.add('active');
+    if (submitted[i]) {
+      const correct = checkCorrect(i);
+      btn.classList.add(correct ? 'answered-correct' : 'answered-wrong');
+    }
+  });
+}
+
+function checkCorrect(i) {
+  const q = questions[i];
+  const ua = userAnswers[i];
+  if (ua === null) return false;
+  if (isMulti(q)) {
+    if (!Array.isArray(ua)) return false;
+    const correct = [...q.answer].sort().join(',');
+    const user = [...ua].sort().join(',');
+    return correct === user;
+  }
+  return ua === q.answer;
+}
+
+function updateStats() {
+  const answered = submitted.filter(Boolean).length;
+  const correct = submitted.reduce((acc, s, i) => acc + (s && checkCorrect(i) ? 1 : 0), 0);
+  const pct = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+  document.getElementById('statAnswered').textContent = answered;
+  document.getElementById('statScore').textContent = pct;
+  document.getElementById('progressFill').style.width = (answered / questions.length * 100) + '%';
+}
+
+function renderQuestion(i) {
+  const q = questions[i];
+  const ua = userAnswers[i];
+  const isSubmitted = submitted[i];
+  const multi = isMulti(q);
+
+  let optHTML = '';
+  q.opts.forEach((opt, oi) => {
+    const label = String.fromCharCode(65 + oi);
+    let cls = 'option';
+    let icon = '';
+    if (isSubmitted) {
+      cls += ' disabled';
+      const correctAnswers = multi ? q.answer : [q.answer];
+      const isCorrectOpt = correctAnswers.includes(oi);
+      const isSelected = multi ? (Array.isArray(ua) && ua.includes(oi)) : ua === oi;
+      if (isCorrectOpt) { cls += ' correct'; icon = '✓'; }
+      else if (isSelected && !isCorrectOpt) { cls += ' wrong'; icon = '✗'; }
+    } else {
+      const isSelected = multi ? (Array.isArray(ua) && ua.includes(oi)) : ua === oi;
+      if (isSelected) cls += ' selected';
+    }
+    optHTML += `<div class="${cls}" onclick="selectOption(${i}, ${oi})">
+      <span class="opt-label">${label}</span>
+      <span class="opt-text">${opt}</span>
+      <span class="opt-icon">${icon}</span>
+    </div>`;
+  });
+
+  // result panel
+  let resultHTML = '';
+  if (isSubmitted) {
+    const correct = checkCorrect(i);
+    const correctAnswers = multi ? q.answer : [q.answer];
+    const correctLabels = correctAnswers.map(a => String.fromCharCode(65 + a)).join(' & ');
+    const headerCls = correct ? 'correct-bg' : 'wrong-bg';
+    const icon = correct ? '🎉' : '❌';
+    const msg = correct ? `Correct! Answer: ${correctLabels}` : `Incorrect. Correct answer: ${correctLabels}`;
+    const mindsetHTML = q.mindset
+      ? `<div class="mindset-box">
+           <div class="mindset-label">🧠 PMP Mindset Note</div>
+           <div class="mindset-text">${q.mindset}</div>
+         </div>`
+      : '';
+    resultHTML = `<div class="result-panel show">
+      <div class="result-header ${headerCls}"><span class="icon">${icon}</span> ${msg}</div>
+      ${mindsetHTML}
+    </div>`;
+  }
+
+  const typeBadge = multi ? 'Choose Two' : 'Single Answer';
+
+  document.getElementById('quizArea').innerHTML = `
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q${q.n} of 100</div>
+        <div class="q-type-badge">${typeBadge}</div>
+      </div>
+      <div class="q-text">${q.stem}<div class="q-ask">${q.ask}</div></div>
+      <div class="options" id="optContainer">${optHTML}</div>
+      ${resultHTML}
+      <div class="q-footer">
+        <button class="btn btn-ghost" id="prevBtn" onclick="goTo(${i - 1})" ${i === 0 ? 'disabled' : ''}>← Prev</button>
+        <span class="q-counter"><b>${i + 1}</b> / ${questions.length}</span>
+        ${!isSubmitted
+          ? `<button class="btn btn-primary" onclick="submitAnswer(${i})" id="submitBtn">Submit Answer</button>`
+          : i < questions.length - 1
+            ? `<button class="btn btn-primary" onclick="goTo(${i + 1})">Next →</button>`
+            : `<button class="btn btn-primary" onclick="showScore()">View Score 🏁</button>`
+        }
+      </div>
+    </div>`;
+  updateGrid();
+}
+
+function selectOption(i, oi) {
+  if (submitted[i]) return;
+  const q = questions[i];
+  if (isMulti(q)) {
+    if (!Array.isArray(userAnswers[i])) userAnswers[i] = [];
+    const idx = userAnswers[i].indexOf(oi);
+    if (idx === -1) userAnswers[i].push(oi);
+    else userAnswers[i].splice(idx, 1);
+  } else {
+    userAnswers[i] = oi;
+  }
+  renderQuestion(i);
+}
+
+function submitAnswer(i) {
+  const ua = userAnswers[i];
+  if (ua === null || (Array.isArray(ua) && ua.length === 0)) {
+    alert('Please select an answer before submitting.');
+    return;
+  }
+  submitted[i] = true;
+  updateStats();
+  renderQuestion(i);
+}
+
+function goTo(i) {
+  if (i < 0 || i >= questions.length) return;
+  currentIndex = i;
+  document.getElementById('scoreScreen').classList.remove('show');
+  document.getElementById('quizArea').style.display = 'block';
+  renderQuestion(i);
+}
+
+function showScore() {
+  const correct = submitted.reduce((acc, s, i) => acc + (s && checkCorrect(i) ? 1 : 0), 0);
+  const wrong = submitted.reduce((acc, s, i) => acc + (s && !checkCorrect(i) ? 1 : 0), 0);
+  const skipped = questions.length - submitted.filter(Boolean).length;
+  const pct = Math.round((correct / questions.length) * 100);
+
+  document.getElementById('quizArea').style.display = 'none';
+  document.getElementById('scoreScreen').classList.add('show');
+  document.getElementById('scoreBig').textContent = pct + '%';
+  document.getElementById('sCorrect').textContent = correct;
+  document.getElementById('sWrong').textContent = wrong;
+  document.getElementById('sSkipped').textContent = skipped;
+  updateGrid();
+}
+
+function restartQuiz() {
+  userAnswers = new Array(questions.length).fill(null);
+  submitted = new Array(questions.length).fill(false);
+  currentIndex = 0;
+  document.getElementById('scoreScreen').classList.remove('show');
+  document.getElementById('quizArea').style.display = 'block';
+  updateStats();
+  goTo(0);
+}
+
+// Init
+buildGrid();
+goTo(0);
+updateStats();
+</script>
+</body>
+</html>
