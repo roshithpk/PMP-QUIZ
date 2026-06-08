@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP Mindset — 50 Principles</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0e0f14;
+    --surface: #16181f;
+    --surface2: #1d1f2a;
+    --border: #2a2d3a;
+
+    --stakeholder: #3b82f6;
+    --stakeholder-bg: #1a2540;
+    --change: #f59e0b;
+    --change-bg: #2a2010;
+    --decision: #22c55e;
+    --decision-bg: #102518;
+    --team: #a78bfa;
+    --team-bg: #1e1830;
+    --agile: #f472b6;
+    --agile-bg: #2a1020;
+    --quality: #34d399;
+    --quality-bg: #0e2520;
+    --risk: #fb923c;
+    --risk-bg: #251808;
+    --lifecycle: #60a5fa;
+    --lifecycle-bg: #102035;
+    --improve: #e879f9;
+    --improve-bg: #220d2a;
+    --strategy: #facc15;
+    --strategy-bg: #282008;
+
+    --text: #e2e4ed;
+    --muted: #6b7280;
+    --trap: #ef4444;
+    --trap-bg: #2a0a0a;
+    --key: #fbbf24;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px 60px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    margin-bottom: 36px;
+    padding: 32px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(168,139,250,0.06) 50%, rgba(244,114,182,0.08) 100%);
+  }
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  .header p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+    position: relative;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 28px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* SECTION */
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 32px 0 12px;
+    padding-left: 4px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* CARD */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #3a3d50; }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    min-width: 24px;
+    padding-top: 2px;
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .toggle {
+    color: var(--muted);
+    font-size: 16px;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .card.open .toggle { transform: rotate(180deg); }
+
+  .card-body {
+    display: none;
+    padding: 0 16px 14px 52px;
+    border-top: 1px solid var(--border);
+  }
+  .card.open .card-body { display: block; padding-top: 12px; }
+
+  .rule {
+    font-size: 13.5px;
+    color: #c8cad8;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  /* TRAP BOX */
+  .trap {
+    background: var(--trap-bg);
+    border-left: 3px solid var(--trap);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fca5a5;
+  }
+  .trap strong { color: var(--trap); font-size: 11px; letter-spacing: 1px; }
+
+  /* KEY BOX */
+  .keybox {
+    background: #1e1a0a;
+    border-left: 3px solid var(--key);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #fde68a;
+  }
+  .keybox strong { color: var(--key); font-size: 11px; letter-spacing: 1px; }
+
+  /* AGILE vs TRADITIONAL pills */
+  .context-pills { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .pill {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  .pill-t { background: #1a2540; color: #93c5fd; }
+  .pill-a { background: #2a1020; color: #f9a8d4; }
+  .pill-b { background: #1a1f30; color: #a5b4fc; }
+
+  /* Color classes per category */
+  .c-stakeholder .card-title { color: var(--stakeholder); }
+  .c-stakeholder .tag { background: var(--stakeholder-bg); color: var(--stakeholder); }
+
+  .c-change .card-title { color: var(--change); }
+  .c-change .tag { background: var(--change-bg); color: var(--change); }
+
+  .c-decision .card-title { color: var(--decision); }
+  .c-decision .tag { background: var(--decision-bg); color: var(--decision); }
+
+  .c-team .card-title { color: var(--team); }
+  .c-team .tag { background: var(--team-bg); color: var(--team); }
+
+  .c-agile .card-title { color: var(--agile); }
+  .c-agile .tag { background: var(--agile-bg); color: var(--agile); }
+
+  .c-quality .card-title { color: var(--quality); }
+  .c-quality .tag { background: var(--quality-bg); color: var(--quality); }
+
+  .c-risk .card-title { color: var(--risk); }
+  .c-risk .tag { background: var(--risk-bg); color: var(--risk); }
+
+  .c-lifecycle .card-title { color: var(--lifecycle); }
+  .c-lifecycle .tag { background: var(--lifecycle-bg); color: var(--lifecycle); }
+
+  .c-improve .card-title { color: var(--improve); }
+  .c-improve .tag { background: var(--improve-bg); color: var(--improve); }
+
+  .c-strategy .card-title { color: var(--strategy); }
+  .c-strategy .tag { background: var(--strategy-bg); color: var(--strategy); }
+
+  /* QUICK REFERENCE TABLE */
+  .qr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .qr-table th {
+    background: var(--surface2);
+    padding: 8px 10px;
+    text-align: left;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+  .qr-table td { padding: 8px 10px; border-top: 1px solid var(--border); vertical-align: top; }
+  .qr-table tr:hover td { background: var(--surface2); }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: black; }
+    .card-body { display: block !important; }
+    .toggle { display: none; }
+    .card { border: 1px solid #ccc; margin-bottom: 6px; }
+    .card-header { padding: 8px 10px; }
+    .card-body { padding: 8px 10px 8px 36px; border-top: 1px solid #eee; }
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 12px 10px 40px; }
+    .card-body { padding-left: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🧠 PMP Mindset — 50 Principles</h1>
+  <p>Tap any card to expand · Based on Andrew Ramdayal's PMP Mindset framework</p>
+</div>
+
+<div class="legend">
+  <div class="legend-item" style="background:#1a2540;border-color:#3b82f6;color:#93c5fd"><span class="legend-dot" style="background:#3b82f6"></span>Stakeholder</div>
+  <div class="legend-item" style="background:#2a2010;border-color:#f59e0b;color:#fcd34d"><span class="legend-dot" style="background:#f59e0b"></span>Change Mgmt</div>
+  <div class="legend-item" style="background:#102518;border-color:#22c55e;color:#86efac"><span class="legend-dot" style="background:#22c55e"></span>Decision/Problem</div>
+  <div class="legend-item" style="background:#1e1830;border-color:#a78bfa;color:#c4b5fd"><span class="legend-dot" style="background:#a78bfa"></span>Team Leadership</div>
+  <div class="legend-item" style="background:#2a1020;border-color:#f472b6;color:#f9a8d4"><span class="legend-dot" style="background:#f472b6"></span>Agile</div>
+  <div class="legend-item" style="background:#0e2520;border-color:#34d399;color:#6ee7b7"><span class="legend-dot" style="background:#34d399"></span>Quality</div>
+  <div class="legend-item" style="background:#251808;border-color:#fb923c;color:#fdba74"><span class="legend-dot" style="background:#fb923c"></span>Risk</div>
+  <div class="legend-item" style="background:#102035;border-color:#60a5fa;color:#93c5fd"><span class="legend-dot" style="background:#60a5fa"></span>Lifecycle</div>
+  <div class="legend-item" style="background:#220d2a;border-color:#e879f9;color:#f0abfc"><span class="legend-dot" style="background:#e879f9"></span>Continuous Impr.</div>
+  <div class="legend-item" style="background:#282008;border-color:#facc15;color:#fde68a"><span class="legend-dot" style="background:#facc15"></span>Exam Strategy</div>
+</div>
+
+<!-- ===== SECTION 1: STAKEHOLDER ===== -->
+<div class="section-title">📌 Stakeholder Management — Principles 1–5</div>
+
+<div class="card c-stakeholder">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">01</span>
+    <span class="card-title">Continuously identify & analyze stakeholders — not just at initiation</span>
+    <span class="tag">Stakeholder</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Stakeholders come and go throughout the project. A new CMO, a new regulator, a replaced team member — all are new stakeholders requiring fresh analysis.</p>
+    <p class="rule">The "Identify Stakeholders" process is listed in Initiating but is performed <em>throughout</em> the entire project.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> Don't assume stakeholder register is locked after initiation. Always update it when new stakeholders appear.</div>
+    <div class="keybox"><strong>✅ ACTION:</strong> Meet with new stakeholder → understand concerns → update stakeholder register → update communication & engagement plan.</div>
+  </div>
+</div>
+
+<div class="card c-stakeholder">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">02</span>
+    <span class="card-title">Engage stakeholders regularly via various channels</span>
+    <span class="tag">Stakeholder</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Different stakeholders need different frequency and channel. Team = daily, Sponsor = weekly, CEO = monthly. One method for all is always wrong.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Increase email frequency" or "mandatory meeting for all" = wrong. One-size-fits-all is a red flag answer.</div>
+    <div class="keybox"><strong>✅ KEY:</strong> Multi-channel approach tailored per stakeholder preference = correct answer.</div>
+  </div>
+</div>
+
+<div class="card c-stakeholder">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">03</span>
+    <span class="card-title">Use Emotional Intelligence (EI) — address issues with that person privately</span>
+    <span class="tag">Stakeholder</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">EI = understanding your own emotions, their impact on others, and reading others' emotions. Detect when someone is unhappy even if they say "fine."</p>
+    <p class="rule">If one person is causing a problem — dominating meetings, demoralizing others — do NOT address them in front of everyone. Meet privately, one-on-one.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> Sending a group email about one person's issue = wrong. Group confrontation = wrong.</div>
+    <div class="keybox"><strong>✅ ACTION:</strong> Detect emotional signal → reach out privately → understand root cause → then resolve.</div>
+  </div>
+</div>
+
+<div class="card c-stakeholder">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">04</span>
+    <span class="card-title">Document ALL impacted individuals as stakeholders — including indirect & negatively impacted</span>
+    <span class="tag">Stakeholder</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Anyone positively OR negatively impacted, directly OR indirectly = stakeholder. Bob losing his job due to your AI system is a stakeholder too.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "They don't directly use the system so don't add them" = wrong.</div>
+    <div class="keybox"><strong>✅ KEY:</strong> Add to stakeholder register → analyze needs → tailor communications.</div>
+  </div>
+</div>
+
+<div class="card c-stakeholder">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">05</span>
+    <span class="card-title">Never dismiss customer requests — evaluate every one carefully</span>
+    <span class="tag">Stakeholder</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">We do projects FOR customers. Never push them off, ignore them, or just tell them "no." At minimum, assess and give feedback.</p>
+    <p class="rule"><strong>What to do FIRST when a client requests a scope change:</strong> Meet with them and understand the business value — BEFORE sending to change control or estimating with the team.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Tell them it's already approved and can't be changed" = dismissal = wrong answer.</div>
+    <div class="keybox"><strong>✅ SEQUENCE:</strong> Meet → understand business value → then assess → then formal change process.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: CHANGE MANAGEMENT ===== -->
+<div class="section-title">🔄 Change Management — Principles 6–8</div>
+
+<div class="card c-change">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">06</span>
+    <span class="card-title">Traditional: Follow the plan. Agile: Changes go to Product Owner via backlog</span>
+    <span class="tag">Change</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills">
+      <span class="pill pill-t">Traditional</span>
+      <span class="pill pill-a">Agile</span>
+    </div>
+    <p class="rule" style="margin-top:8px"><strong>Traditional:</strong> If it's not in the plan, don't do it. All changes require a formal change request and approval (sponsor / CCB).</p>
+    <p class="rule"><strong>Agile:</strong> Changes are welcome. They go to the Product Owner who decides whether to add to backlog and prioritizes accordingly. NO formal change request in agile.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Implement the change to keep project on track" = never the answer (traditional). "Reject the request" = never the answer (agile or traditional — it's not your authority).</div>
+  </div>
+</div>
+
+<div class="card c-change">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">07</span>
+    <span class="card-title">Any stakeholder requesting changes to the PM plan must submit a change request (Traditional)</span>
+    <span class="tag">Change</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Traditional</span></div>
+    <p class="rule" style="margin-top:8px">Even if the sponsor says "this needs to happen now" — ask for the formal change request first. Document it before assessing or acting.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Begin working immediately since the sponsor requested it" = implementing without a change request = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-change">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">08</span>
+    <span class="card-title">All changes must be reviewed and assessed across ALL knowledge areas before approval</span>
+    <span class="tag">Change</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Traditional</span></div>
+    <p class="rule" style="margin-top:8px">A scope change impacts time, cost, quality, resources, communications, risk, procurement, stakeholders. Assess ALL of them — even "easy" 2-day changes.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Approve it since it's low risk / only 2 days" = PM doesn't have authority + no assessment = wrong.</div>
+    <div class="keybox"><strong>✅ KEY:</strong> Conduct thorough assessment across all areas → THEN recommend for approval.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 3: DECISION MAKING ===== -->
+<div class="section-title">🧩 Decision-Making & Problem Solving — Principles 9–17</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">09</span>
+    <span class="card-title">Never act without a plan — check your management plans before taking action</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Traditional</span><span class="pill pill-a">Agile (sprint planning)</span></div>
+    <p class="rule" style="margin-top:8px">When issues arise, your management plans tell you how to respond. Schedule issue → Schedule Management Plan. Resource conflict → Resource Management Plan. Use them.</p>
+    <p class="rule"><strong>Agile:</strong> Planning is iterative — done just-in-time for each sprint during Sprint Planning.</p>
+    <div class="keybox"><strong>✅ BEFORE ACTING:</strong> Call emergency planning session → develop plan → then act.</div>
+  </div>
+</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">10</span>
+    <span class="card-title">Consult the team before making decisions — they have the expertise</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">The PM facilitates decisions; the team makes them. Never make technical decisions alone — especially architectural or domain-specific ones.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Make the decision yourself based on your research and inform the team" = PM acting alone = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">11</span>
+    <span class="card-title">Choose actions that best serve project objectives & deliver highest value to stakeholders</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">We do projects for customers. When forced to prioritize: project security/integrity > customer satisfaction > internal team comfort > cosmetic/CEO requests.</p>
+    <div class="keybox"><strong>✅ PRIORITY ORDER (when choosing):</strong> Project health → Customer value → Team → Individual preference.</div>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Split the team's time to do all three" — if the question says you can only do one, don't go against the constraint.</div>
+  </div>
+</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">12</span>
+    <span class="card-title">Understand root cause of conflict BEFORE resolving it</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Never solve a problem you don't fully understand. Meet one-on-one with the parties first → understand underlying cause → then facilitate resolution.</p>
+    <div class="keybox"><strong>✅ SEQUENCE:</strong> One-on-ones to understand → THEN facilitated discussion to resolve.</div>
+    <div class="trap"><strong>⚠ TRAP:</strong> Jumping straight to "implement a new process" without understanding the cause = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">13</span>
+    <span class="card-title">When an issue occurs: log it in the Issue Log → check Risk Register for pre-planned response</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule"><strong>Risk</strong> = uncertain event (hasn't happened). <strong>Issue</strong> = event that HAS happened and is negatively affecting the project.</p>
+    <p class="rule">When an issue occurs → add to Issue Log → look in Risk Register for the response you planned in advance.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Add to risk register" when something is already happening = wrong (it's now an issue, not a risk).</div>
+    <div class="keybox"><strong>✅ FIRST STEP when issue occurs:</strong> Add to Issue Log → assign owner → check Risk Register for response.</div>
+  </div>
+</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">14</span>
+    <span class="card-title">When confused, consult Subject Matter Experts, Lessons Learned, or OPAs</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">PMs are not subject matter experts. For technical, legal, compliance questions — find the right expert. Check lessons learned from past projects. Use organizational process assets (OPAs).</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Make the best decision you can and adjust later" when expertise is needed = wrong. Escalating to sponsor for expert knowledge = wrong (sponsor is not the SME).</div>
+  </div>
+</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">15</span>
+    <span class="card-title">Always investigate & gather information BEFORE acting — especially when asked "what to do first"</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Never fix an issue without first analyzing it. Review the deliverable, check documentation, gather facts before picking up the phone or acting.</p>
+    <p class="rule">Stakeholder management (angry client, team conflict) = your jurisdiction as PM. Don't escalate to sponsor for these.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Call the client and apologize immediately" before reviewing = acting without analyzing = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">16</span>
+    <span class="card-title">Show progress through tangible outputs — MVPs and prototypes</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule"><strong>MVP</strong> (Minimum Viable Product) = deployable, real value, customers can use and earn from. <strong>Prototype</strong> = demo/feel, no production value yet.</p>
+    <p class="rule">When stakeholders express concern about progress → show them working functionality, not status reports or verbal updates.</p>
+    <div class="keybox"><strong>✅ KEY (Agile):</strong> MVPs are a hot exam topic. Best way to get customer feedback and early value delivery.</div>
+  </div>
+</div>
+
+<div class="card c-decision">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">17</span>
+    <span class="card-title">Resolve issues at your level — only escalate for approvals beyond your authority</span>
+    <span class="tag">Decision</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Team conflict, morale, vendor problems, stakeholder issues = YOUR job. Don't ask your sponsor or senior management to solve day-to-day project problems.</p>
+    <p class="rule">Escalate ONLY when: you need formal approval, a decision exceeds your authority limit, or a legal/compliance issue requires executive action.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Ask sponsor to step in and clarify roles" = giving away your PM responsibility = wrong.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: TEAM ===== -->
+<div class="section-title">🤝 Team Leadership & Collaboration — Principles 18–27</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">18</span>
+    <span class="card-title">Be a Servant Leader — support, empower, and shield the team. Don't dictate.</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Servant leadership = "fetch food and water." Give the team what they need to succeed. Listen, coach, encourage. Remove obstacles. Value their opinions.</p>
+    <p class="rule">The PM facilitates; the team solves problems. Never select the solution for the team — let them choose.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Research the solution yourself and direct the team" = dictator behavior = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">19</span>
+    <span class="card-title">Act as an integrator — look at ALL components of the project, not just one</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">A project has multiple work streams. Your role is to identify dependencies, resolve conflicts, and align timelines across ALL of them — not just the one that's behind.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Focus on the area farthest behind" = ignoring integration = wrong. "Delegate to each team to resolve conflicts" = abdicating integrator role = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">20</span>
+    <span class="card-title">The team is best suited to break down work (WBS, user stories)</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">The PM should not create the WBS alone. The team — as subject matter experts — knows how the work breaks down. Wait for them or build a framework and have them detail it.</p>
+    <div class="keybox"><strong>✅ BEST:</strong> Wait for the team to create WBS together, even if it causes a short delay.</div>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">21</span>
+    <span class="card-title">The team determines activity timing and duration estimates</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Ask the team to determine sequencing and time estimates. Don't build the schedule yourself and present it to them.</p>
+    <div class="keybox"><strong>✅ KEY:</strong> Share requirements → let team determine sequence and durations. Their estimates = most accurate.</div>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">22</span>
+    <span class="card-title">Understand team motivations — a demotivated team kills the project</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Consistently motivate the team. When a high performer seems disengaged: meet privately, understand why, before taking any performance action.</p>
+    <p class="rule">Review: Maslow's Hierarchy, McGregor's Theory X/Y, Herzberg's Two-Factor Theory for exam questions.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Reassign to less critical tasks" or "implement performance measures immediately" before meeting with the person = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">23</span>
+    <span class="card-title">Always be ethical — ethics trumps everything except stopping a project</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Don't lie, cheat, steal, or break the law. If the project is breaking the law → stop it. Ethics > company pressure > project continuity.</p>
+    <p class="rule">If a team member is committing fraud (time sheet inflation, etc.) → address it directly with them and document. Don't overlook it for "project needs."</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Overlook it since they're technically competent" = ethical violation = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">24</span>
+    <span class="card-title">Create a safe environment for disagreements — conflict can be constructive</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Conflict = people care. Disengaged stakeholders who say "fine, whatever" are more dangerous than vocal ones. Encourage open disagreement.</p>
+    <p class="rule">Your job: keep conflict at a manageable level (L1-L2), not eliminate it. Set ground rules that welcome questions and alternative views.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> Meeting people privately and presenting concerns anonymously = hiding conflict, not creating safe environment = suboptimal.</div>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">25</span>
+    <span class="card-title">Protect the team's focus — avoid task overload and unsustainable overtime</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Overtime is unsustainable. Task overload leads to poor quality. Don't assign additional work to a person already at full capacity without consulting them.</p>
+    <div class="keybox"><strong>✅ KEY:</strong> Discuss with the person → let them assess their own capacity → decline if it compromises primary responsibilities.</div>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">26</span>
+    <span class="card-title">Use peer programming and peer learning for skill development</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">When team lacks certain skills, don't immediately hire externals or enroll everyone in formal training. Let experts within the team teach others through peer sessions.</p>
+  </div>
+</div>
+
+<div class="card c-team">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">27</span>
+    <span class="card-title">The "Be Nice" Elimination Principle — use to eliminate bad choices</span>
+    <span class="tag">Team</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Use this to immediately eliminate answer choices:</p>
+    <ul style="margin:8px 0 0 16px;color:#c8cad8;font-size:13px;line-height:1.8">
+      <li>❌ Don't fire anyone (unless ethics forces it)</li>
+      <li>❌ Don't force overtime</li>
+      <li>❌ Don't call out individuals in front of the group</li>
+      <li>❌ Don't punish before meeting with the person first</li>
+      <li>❌ Don't tell people to "wait" or push them off</li>
+      <li>❌ Don't escalate to HR / sponsor before attempting resolution yourself</li>
+    </ul>
+    <div class="keybox"><strong>✅ RULE:</strong> Always meet with the person privately first → understand → then act.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: AGILE ===== -->
+<div class="section-title">⚡ Agile-Specific Principles — Principles 28–31</div>
+
+<div class="card c-agile">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">28</span>
+    <span class="card-title">Only the Product Owner documents and prioritizes the product backlog</span>
+    <span class="tag">Agile</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-a">Agile</span></div>
+    <p class="rule" style="margin-top:8px">PM cannot add to, remove from, or prioritize the product backlog. Team cannot write user stories. Only the Product Owner does this.</p>
+    <p class="rule"><strong>Keywords signaling Agile:</strong> backlog, product owner, sprint, iteration, scrum, scrum master, Kanban.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Let the team start working on features they identified as high priority" = team doing PO's job = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-agile">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">29</span>
+    <span class="card-title">Agile teams prefer collocation, face-to-face communication, and visual workflows</span>
+    <span class="tag">Agile</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-a">Agile</span></div>
+    <p class="rule" style="margin-top:8px"><strong>Collocation</strong> = team working in the same physical space. Most effective for collaboration. If team is in the same city → arrange collocated work.</p>
+    <p class="rule"><strong>Information radiators</strong> = burndown charts, Kanban/Scrum boards visible to all. Low-tech, high-touch. Face-to-face with whiteboard = most effective communication.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> If team is in same city, "invest in better video tools" < "arrange collocated work." If teams are global, video tools may be valid.</div>
+  </div>
+</div>
+
+<div class="card c-agile">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">30</span>
+    <span class="card-title">Roll out methodology changes gradually — pilot first, then scale</span>
+    <span class="tag">Agile</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Transitioning from Waterfall to Agile? Don't big-bang it. Select 1–2 pilot teams, gather lessons learned, refine the approach, then roll out to others.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Implement agile across all teams simultaneously right after training" = chaos = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-agile">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">31</span>
+    <span class="card-title">Agile requires ongoing customer feedback — customer must be consistently engaged</span>
+    <span class="tag">Agile</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-a">Agile</span></div>
+    <p class="rule" style="margin-top:8px">Customer must attend Sprint Review meetings. If they become hard to reach → adjust the sprint schedule to accommodate them. Do NOT continue building without their input.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Have Product Owner make validation decisions on behalf of customer" = cutting customer out = wrong.</div>
+    <div class="keybox"><strong>✅ KEY:</strong> Adjust schedule to get feedback > pause development completely.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 6: QUALITY ===== -->
+<div class="section-title">✅ Quality & Delivery — Principles 32–34</div>
+
+<div class="card c-quality">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">32</span>
+    <span class="card-title">Define quality requirements EARLY — quality is subjective and customer-specific</span>
+    <span class="tag">Quality</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Traditional: Quality Mgmt Plan</span><span class="pill pill-a">Agile: Definition of Done</span></div>
+    <p class="rule" style="margin-top:8px"><strong>Scope requirements</strong> = what it should do. <strong>Quality requirements</strong> = what will make the customer unhappy if wrong (performance, reliability, aesthetics).</p>
+    <p class="rule">Define these with stakeholders BEFORE development begins. "We'll figure it out as we go" = unacceptable.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Use industry-standard practices and proceed" = assuming quality without confirming = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-quality">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">33</span>
+    <span class="card-title">Customers must validate deliverables for scope and quality — don't skip validation</span>
+    <span class="tag">Quality</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Traditional: Validate Scope + Control Quality</span><span class="pill pill-a">Agile: Sprint Review</span></div>
+    <p class="rule" style="margin-top:8px">Get customer (or a proxy) to validate before moving to next phase. Don't deploy based purely on internal technical checks.</p>
+    <div class="keybox"><strong>✅ KEY:</strong> If customer is unavailable → use a proxy for preliminary validation rather than delaying the whole phase.</div>
+  </div>
+</div>
+
+<div class="card c-quality">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">34</span>
+    <span class="card-title">Use inclusive, low-tech collaboration tools — whiteboards over complex software</span>
+    <span class="tag">Quality</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-a">Agile preferred</span></div>
+    <p class="rule" style="margin-top:8px">When collaborating across mixed technical backgrounds — use whiteboards, sketches, and in-person workshops. Don't use advanced modeling software that non-technical stakeholders can't follow.</p>
+    <p class="rule">Never silo work. Agile is collaborative by nature.</p>
+    <div class="keybox"><strong>✅ PRINCIPLE:</strong> Low tech, high touch = best for cross-functional collaboration.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 7: ESTIMATION ===== -->
+<div class="section-title">📐 Estimation — Principle 35</div>
+
+<div class="card c-quality">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">35</span>
+    <span class="card-title">Use bottom-up estimating for most accurate results (Traditional) / Story points & planning poker (Agile)</span>
+    <span class="tag">Quality</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Bottom-up = detailed, accurate</span><span class="pill pill-a">Agile = story points, Fibonacci, velocity</span></div>
+    <p class="rule" style="margin-top:8px"><strong>Bottom-up:</strong> Break work into smallest tasks → estimate each → aggregate. Slow but most accurate. Team members who will do the work provide the estimates.</p>
+    <p class="rule"><strong>Agile velocity:</strong> Backlog total points ÷ points per sprint = number of iterations = project timeline.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Use historical data from similar projects" = top-down/analogous = less accurate than bottom-up.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 8: RISK ===== -->
+<div class="section-title">⚠️ Risk Management — Principles 36–38</div>
+
+<div class="card c-risk">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">36</span>
+    <span class="card-title">Identify and document risks early AND continuously throughout the project</span>
+    <span class="tag">Risk</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule"><strong>Positive risks</strong> = opportunities (can reduce schedule/cost). <strong>Negative risks</strong> = threats (delays, overruns).</p>
+    <p class="rule">Risk identification is NOT a one-time activity. Risk evolves continuously. New risks can appear; old ones can disappear. Risk Register = living document.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Begin migration work immediately" before risk assessment = wrong. Never start significant work without identifying risks.</div>
+  </div>
+</div>
+
+<div class="card c-risk">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">37</span>
+    <span class="card-title">Document responses for BOTH threats (negative) and opportunities (positive) in the Risk Register</span>
+    <span class="tag">Risk</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule"><strong>Risk Register</strong> = stores the risks AND their responses (both positive and negative). <strong>Risk Management Plan</strong> = tells you HOW to manage risk — does NOT contain actual risks.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Update the Risk Management Plan when a new risk is found" = wrong. Update the Risk Register.</div>
+    <div class="keybox"><strong>✅ SEQUENCE for positive risk (opportunity):</strong> Document in Risk Register first → develop response → then discuss with stakeholders.</div>
+  </div>
+</div>
+
+<div class="card c-risk">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">38</span>
+    <span class="card-title">Vendor/procurement: use mutually beneficial contracts — no lopsided deals</span>
+    <span class="tag">Risk</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule"><strong>Contract types (when to use):</strong></p>
+    <ul style="margin:8px 0 0 16px;color:#c8cad8;font-size:13px;line-height:1.8">
+      <li><strong>Time & Material:</strong> Scope is high-level/unclear</li>
+      <li><strong>Cost Reimbursable:</strong> Share risk between buyer and vendor</li>
+      <li><strong>Fixed Price:</strong> Scope is well-defined, you want no risk</li>
+    </ul>
+    <p class="rule" style="margin-top:8px">Negotiate fair contracts. Steep penalties + unlimited liability + limited payment = lopsided = ethical problem.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Proceed with contract that maximizes protection for your organization" = ignoring vendor's interests = wrong.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 9: LIFECYCLE ===== -->
+<div class="section-title">🔁 Lifecycle & Closure — Principles 39–40</div>
+
+<div class="card c-lifecycle">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">39</span>
+    <span class="card-title">Update the Lessons Learned Register THROUGHOUT the project — not just at the end</span>
+    <span class="tag">Lifecycle</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Traditional: Manage Project Knowledge</span><span class="pill pill-a">Agile: Retrospectives</span></div>
+    <p class="rule" style="margin-top:8px">Learn something now → log it now. Don't wait for the end of phase or project. Current and future projects benefit from real-time lessons.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Wait until the project retrospective at the end to document all lessons" = too late, loses current-project benefit = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-lifecycle">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">40</span>
+    <span class="card-title">ALL projects must be formally closed — even if terminated early</span>
+    <span class="tag">Lifecycle</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Even if the CEO cancels the project mid-way → you must formally close it. This includes: paying outstanding bills, releasing team members, documenting what was and wasn't done.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Immediately transition the team to the new project as requested" = skipping formal closure = wrong.</div>
+    <div class="keybox"><strong>✅ CLOSURE CHECKLIST:</strong> Pay all bills → release resources → document project status → formal project closure report.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 10: CONTINUOUS IMPROVEMENT ===== -->
+<div class="section-title">🚀 Continuous Improvement — Principles 41–44</div>
+
+<div class="card c-improve">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">41</span>
+    <span class="card-title">Repeat and reinforce the project vision to the team throughout execution</span>
+    <span class="tag">Improve</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Team members get buried in their work and forget the bigger picture. Regularly remind them of the project's purpose and desired outcomes.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Continue letting the team focus on technical excellence since they're making good progress" = doing nothing = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-improve">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">42</span>
+    <span class="card-title">Clarify what success AND failure look like for all stakeholders</span>
+    <span class="tag">Improve</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Different stakeholders may define success differently. Align them early. Use techniques like "remember the future" (agile) — ask: what does a successful deployment look like? What would cause this to fail?</p>
+    <div class="keybox"><strong>✅ KEY:</strong> Work with ALL stakeholders to define specific, measurable success/failure criteria together.</div>
+  </div>
+</div>
+
+<div class="card c-improve">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">43</span>
+    <span class="card-title">Agile retrospectives are mandatory — even when the sprint went well</span>
+    <span class="tag">Improve</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-a">Agile: End of every sprint</span></div>
+    <p class="rule" style="margin-top:8px">Retrospective = held at end of every sprint. Review: what worked, what didn't, what to do more/less of. Even successful sprints can be improved.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Skip the retrospective since everything went well" = never acceptable = wrong.</div>
+  </div>
+</div>
+
+<div class="card c-improve">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">44</span>
+    <span class="card-title">Implement feedback loops — apply lessons from one task immediately to the next</span>
+    <span class="tag">Improve</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">When you learn something from module 1, apply it to module 2 BEFORE you start module 2. Don't document lessons "for future projects" when you can use them right now.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Continue with the current approach since the team gained experience" = not applying the lesson = wrong.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 11: COST/SCHEDULE ===== -->
+<div class="section-title">💰 Cost & Schedule Management — Principles 45–46</div>
+
+<div class="card c-lifecycle">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">45</span>
+    <span class="card-title">If forced to choose: fix budget overruns before schedule overruns (Traditional) / Adjust scope to protect budget+schedule (Agile)</span>
+    <span class="tag">Lifecycle</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Traditional: budget first</span><span class="pill pill-a">Agile: adjust scope, fixed time+cost</span></div>
+    <p class="rule" style="margin-top:8px"><strong>Traditional:</strong> Scope fixed, time/cost adjusted. When choosing, prioritize budget correction then schedule compression.</p>
+    <p class="rule"><strong>Agile:</strong> Time and budget are fixed (time-boxed sprints, fixed team). Scope adjusts to fit. Product Owner deprioritizes backlog items as needed.</p>
+  </div>
+</div>
+
+<div class="card c-lifecycle">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">46</span>
+    <span class="card-title">Critical Path determines project duration — compress it to shorten the schedule</span>
+    <span class="tag">Lifecycle</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <div class="context-pills"><span class="pill pill-t">Traditional</span></div>
+    <p class="rule" style="margin-top:8px">Critical Path = longest path through the network diagram = project duration. Activities on critical path have zero float.</p>
+    <p class="rule">Schedule delays → identify which delays are ON the critical path. Only those actually affect the end date.</p>
+    <div class="keybox"><strong>✅ EXAM TRAP:</strong> "The security review slipped 3 days" — only matters if security review is on the critical path.</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 12: EXAM STRATEGY ===== -->
+<div class="section-title">🎯 Exam Strategy Principles — Principles 47–50</div>
+
+<div class="card c-strategy">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">47</span>
+    <span class="card-title">Eliminate answers with absolute language — "always," "all," "never" (as a wrong answer) are red flags</span>
+    <span class="tag">Strategy</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Project management is situational. Answers with "always do X" or "all stakeholders must..." are usually wrong. Exception: ethical principles where "never" is correct (never break the law, etc.).</p>
+    <div class="keybox"><strong>✅ QUICK SCAN:</strong> If an answer says "always" or "all" for a process or communication rule, eliminate it first.</div>
+  </div>
+</div>
+
+<div class="card c-strategy">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">48</span>
+    <span class="card-title">Never do nothing — never select the "continue as-is / do nothing / wait" option</span>
+    <span class="tag">Strategy</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">If an answer says "continue doing what you're doing" or "wait until it becomes a bigger problem" — eliminate it. Good PMs are proactive, not passive.</p>
+    <div class="trap"><strong>⚠ TRAP:</strong> "Continue current development; revisit if API issues worsen" = reactive, passive = wrong. Always take some proactive action.</div>
+  </div>
+</div>
+
+<div class="card c-strategy">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">49</span>
+    <span class="card-title">The perfect answer is not always listed — choose the BEST of the four, not the perfect one</span>
+    <span class="tag">Strategy</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Sometimes all four choices have flaws. Your job is not to find the perfect answer — it's to eliminate the three worse answers and pick the least bad one.</p>
+    <p class="rule">Use process of elimination aggressively. Apply mindset principles to rule out choices, then choose what's left.</p>
+    <div class="keybox"><strong>✅ METHOD:</strong> Eliminate clearly wrong (fire, overtime, sponsor for team issues, act without plan) → pick best of remaining.</div>
+  </div>
+</div>
+
+<div class="card c-strategy">
+  <div class="card-header" onclick="toggle(this)">
+    <span class="num">50</span>
+    <span class="card-title">Mindset principles are guidelines, not absolute rules — context can override them</span>
+    <span class="tag">Strategy</span>
+    <span class="toggle">▾</span>
+  </div>
+  <div class="card-body">
+    <p class="rule">Example: "Never fire a team member" is usually right — but if they're stealing company data or breaking the law, you may have to. Ethics > every other principle.</p>
+    <p class="rule">When all 4 choices violate some principle, choose the one that violates the fewest or least important ones. Objective: pass the test by selecting the best of the four.</p>
+    <div class="keybox"><strong>✅ FINAL RULE:</strong> Ethics > Project Objectives > Stakeholder value > Team > Individual. When in doubt, pick what's best for the project and the customer.</div>
+  </div>
+</div>
+
+<!-- QUICK REFERENCE CARD -->
+<div class="section-title" style="margin-top:40px">📋 Quick Reference — Agile vs Traditional Cheat Sheet</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px">
+  <table class="qr-table">
+    <tr>
+      <th>Topic</th>
+      <th style="color:#93c5fd">Traditional</th>
+      <th style="color:#f9a8d4">Agile</th>
+    </tr>
+    <tr><td>Changes</td><td>Formal Change Request → CCB/Sponsor approval</td><td>Tell Product Owner → adds to backlog → prioritizes</td></tr>
+    <tr><td>Scope container</td><td>Scope Baseline (Scope Statement, WBS, WBS Dictionary)</td><td>Product Backlog (owned by Product Owner)</td></tr>
+    <tr><td>Planning</td><td>Once, upfront — giant PM Plan</td><td>Just-in-time, per sprint (Sprint Planning meeting)</td></tr>
+    <tr><td>Schedule management</td><td>Critical Path Method</td><td>Team velocity + story points + sprint duration</td></tr>
+    <tr><td>Customer validation</td><td>Validate Scope + Control Quality processes</td><td>Sprint Review at end of every sprint</td></tr>
+    <tr><td>Lessons learned</td><td>Manage Project Knowledge process, throughout</td><td>Sprint Retrospective, end of every sprint</td></tr>
+    <tr><td>Estimation</td><td>Bottom-up, parametric, analogous</td><td>Story points, planning poker, Fibonacci</td></tr>
+    <tr><td>Quality definition</td><td>Quality Management Plan → quality requirements</td><td>Definition of Done (DoD)</td></tr>
+    <tr><td>Budget/Schedule overrun</td><td>Fix budget first; compress schedule</td><td>Scope adjusts to protect fixed time & budget</td></tr>
+    <tr><td>When to stop project</td><td>Only for ethical/legal violations</td><td>Same — never stop without formal closure</td></tr>
+  </table>
+</div>
+
+<!-- ELIMINATION GUIDE -->
+<div class="section-title">🚫 Instant Elimination Guide</div>
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:40px">
+  <p style="color:var(--muted);font-size:11px;margin-bottom:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase">If you see these in an answer choice → eliminate immediately</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Implement the change right away</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Approve the change yourself</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Ask sponsor/PMO to handle team issues</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Dismiss or reject the stakeholder's request</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ PM adds to product backlog</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Continue doing what you're doing</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Address person's problem in public</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Skip the retrospective / close meeting</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Wait until next sprint/phase to log issue</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Fire / reassign without meeting first</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Always use one communication type for all</div>
+    <div style="background:var(--trap-bg);border:1px solid #7f1d1d;border-radius:6px;padding:10px;font-size:12px;color:#fca5a5">❌ Deploy with known security vulnerability</div>
+  </div>
+</div>
+
+<script>
+function toggle(header) {
+  const card = header.closest('.card');
+  card.classList.toggle('open');
+}
+// Open all by default on print
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll('.card').forEach(c => c.classList.add('open'));
+});
+</script>
+</body>
+</html>
